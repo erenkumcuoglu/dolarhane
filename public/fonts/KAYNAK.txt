@@ -1,0 +1,10 @@
+Satoshi ve Gambetta — Indian Type Foundry (Fontshare).
+Kaynak: https://www.fontshare.com/fonts/satoshi
+        https://www.fontshare.com/fonts/gambetta
+Lisans: ITF Free Font License — ticari kullanım ve kendi sunucunda
+barındırma serbest, yeniden satış yasak. Tasarım artboard'ları bu iki
+aileyi Fontshare CDN'inden çekiyordu; burada CDN'e istek atmamak için
+woff2 dosyaları projeye alındı.
+
+Satoshi'nin 600 ve 800 ağırlıkları bu ailede yok; 600 -> 700,
+800 -> 900 olarak normalize edildi (bkz. app/fonts.ts).

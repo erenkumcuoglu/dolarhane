@@ -1,0 +1,26 @@
+# bağımlılıklar ve build çıktısı
+node_modules/
+.next/
+out/
+next-env.d.ts
+
+# ── İÇ BELGELER — DEPOYA GİRMEZ ──
+# Depo public ve Netlify'a bağlı. Bu dosyalar strateji taşıyor:
+# coğrafya kararı (hangi eyalet/şehir), rakip analizi, SEO planı,
+# iç tasarım incelemesi, hangi verinin temsili olduğu.
+# Yerelde kalıyorlar; yayınlanmıyorlar.
+PRODUCT.md
+SEO-GEO-PLAN.md
+IDDIA-DENETIMI.md
+DESIGN.md
+DESIGN-SYSTEM-v1-superseded.md
+DESIGN-v2-kur-panosu-ANTI-REFERANS.md
+BRIEF-CLAUDE-DESIGN.md
+BRIEF-CLAUDE-DESIGN-MOBIL.md
+prototype-v1.html
+design-v3/
+.impeccable/
+scripts/
+
+# işletim sistemi
+.DS_Store

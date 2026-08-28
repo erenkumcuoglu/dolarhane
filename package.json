@@ -1,0 +1,23 @@
+{
+  "name": "dolarhane",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3200",
+    "build": "next build",
+    "start": "npx --yes serve out -l 3200",
+    "onizle": "npx --yes serve out -l 3200"
+  },
+  "dependencies": {
+    "next": "16.3.2",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "playwright-core": "^1.62.1",
+    "typescript": "^5"
+  }
+}

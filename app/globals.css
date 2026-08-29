@@ -982,145 +982,138 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-/* ═══ 06 REFERANSLAR ══════════════════════════════════════════ */
+/* ═══ 06 REFERANSLAR — tablo ═════════════════════════════════ */
 
 .ref {
   background: var(--surface);
   border-bottom: 1px solid var(--line);
 }
-.ref__bas {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--s3) var(--s6);
-  margin-bottom: var(--s6);
-}
 .ref__h {
-  max-width: 18ch;
+  max-width: 20ch;
 }
-.ref__ler {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--s5);
-}
-.ref__kart {
-  background: var(--paper);
-  overflow: hidden;
-  padding: 0;
+.ref__damgalar {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s2);
+  margin-bottom: var(--s5);
 }
-.ref__foto {
-  border-radius: 0;
-  border-bottom: 1px solid var(--line-strong);
-}
-.ref__gov {
-  padding: var(--s4) var(--s5) var(--s5);
+.reft {
   display: flex;
   flex-direction: column;
   gap: var(--s4);
-  flex: 1;
 }
-.ref__kaynak {
-  color: var(--ink-3);
+.reft__satir--bas {
+  display: none;
 }
-.ref__rakam {
+/* telefon: her satır bir kart */
+.reft__satir {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--s4);
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-lg);
+  padding: 0 var(--s4) var(--s4);
+  overflow: hidden;
 }
-.ref__rakam dd {
-  font-size: var(--t-h3);
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  margin-top: 2px;
+.reft__foto {
+  grid-column: 1 / -1;
+  border-radius: 0;
+  margin: 0 calc(-1 * var(--s4));
+  border-bottom: 1px solid var(--line-strong);
 }
-/* tarih para değil: aynı boyda basılınca sütunda satır kırıyor ve
-   kartlar arası hiza bozuluyordu */
-.ref__rakam dd.ref__tarih {
+.reft__h {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.reft__mob {
+  display: block;
+  color: var(--ink-4);
+}
+.reft__amber {
+  color: var(--amber-text);
+}
+.reft__tarih {
   font-size: var(--t-lede);
   font-weight: 800;
 }
-.ref__amberE {
-  color: var(--amber-text);
+.reft__v {
+  font-size: var(--t-h3);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+.reft__kim {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--line);
+  padding-top: var(--s3);
+}
+.reft__kim .sm {
   font-weight: 700;
 }
-.ref__amberV {
-  color: var(--amber-text);
-}
-.ref__kunye {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: var(--r-sm);
-  overflow: hidden;
-  font-size: var(--t-sm);
-}
-.ref__kunye > div {
-  background: var(--surface);
-  display: flex;
-  justify-content: space-between;
-  gap: var(--s3);
-  padding: var(--s3) var(--s4);
-}
-.ref__kunye dt {
+.reft__kim .xs {
   color: var(--ink-3);
-}
-.ref__kunye dd {
-  font-weight: 700;
-  text-align: right;
 }
 .ref__dip {
   margin-top: var(--s5);
   color: var(--ink-3);
-  max-width: 70ch;
+  max-width: 72ch;
 }
-@media (min-width: 900px) {
-  .ref__ler {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--s5);
+
+@media (min-width: 1000px) {
+  /* masaüstü: gerçek tablo — foto | tarih | alış | (değerleme) | kira | kim */
+  .reft {
+    gap: 0;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-lg);
+    overflow: hidden;
   }
-}
-
-/* ═══ 07 GETİRİYLE NE OLUR ════════════════════════════════════ */
-
-.getiri {
-  background: var(--paper);
-  border-bottom: 1px solid var(--line);
-}
-.getiri__ler {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--s7);
-  margin-top: var(--s6);
-}
-.getiri__h {
-  display: flex;
-  flex-direction: column;
-  gap: var(--s3);
-}
-.getiri__h > p:nth-child(2) {
-  color: var(--ink-2);
-  font-size: var(--t-lede);
-  max-width: 40ch;
-}
-.getiri__v {
-  font-size: var(--t-dev);
-  font-weight: 900;
-  letter-spacing: -0.035em;
-  line-height: 1;
-}
-.getiri__v--amber {
-  color: var(--amber-deep);
-}
-@media (min-width: 900px) {
-  .getiri__ler {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--s8);
+  .reft__satir {
+    grid-template-columns: 150px 1fr 1fr 1fr 1fr 1.4fr;
+    gap: var(--s4);
+    align-items: center;
+    background: var(--surface);
+    border: 0;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    padding: var(--s4) var(--s5);
+    overflow: visible;
+  }
+  .reft--dar .reft__satir {
+    grid-template-columns: 150px 1fr 1fr 1fr 1.4fr;
+  }
+  .reft__satir--bas {
+    display: grid;
+    background: var(--tint);
+    border-top: 0;
+    padding-top: var(--s3);
+    padding-bottom: var(--s3);
+  }
+  .reft__foto {
+    grid-column: auto;
+    margin: 0;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-sm);
+  }
+  .reft__foto .yuva__et {
+    display: none; /* 150px'te etiket okunmuyor; desen yeterli */
+  }
+  .reft__mob {
+    display: none;
+  }
+  .reft__kim {
+    grid-column: auto;
+    border-top: 0;
+    padding-top: 0;
+  }
+  .reft__v {
+    font-size: var(--t-lede);
+  }
+  .reft__tarih {
+    font-size: var(--t-body);
+    font-weight: 700;
   }
 }
 
@@ -2420,4 +2413,32 @@ input[type="range"]::-moz-range-thumb {
   flex-direction: column;
   align-items: flex-start;
   gap: var(--s2);
+}
+
+/* aynı varlık için gereken sermaye — 04'ün kapanışı */
+.sermaye {
+  margin-top: var(--s4);
+  padding: var(--s5);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s4);
+  align-items: center;
+}
+.sermaye__v {
+  font-size: var(--t-dev);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--amber-text);
+  margin-top: var(--s1);
+}
+.sermaye__a {
+  color: var(--ink-2);
+  max-width: 60ch;
+}
+@media (min-width: 900px) {
+  .sermaye {
+    grid-template-columns: auto 1fr;
+    gap: var(--s7);
+  }
 }

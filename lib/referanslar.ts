@@ -1,10 +1,13 @@
 /**
- * Satılmış evlerin referans tablosu ve işletme rakamları.
+ * Referans tablosu — portföydeki evlerin güncel getirileri.
  *
- * ORNEK true olduğu sürece sayfa bu kartların üstünde kırmızı
- * "[ÖRNEK VERİ]" damgasını gösterir. Gerçek veri geldiğinde bu dosyadaki
- * satırlar değiştirilir ve ORNEK false yapılır — sayfada başka değişiklik
- * gerekmez.
+ * Bilinçli olarak SAYI İDDİA EDİLMİYOR: "üç ev sattık" gibi bir cümle yok,
+ * çünkü sayı bugün küçük ve zamanla büyüyecek. Bölüm "bazı evlerimizin
+ * getirileri" olarak kuruldu; tabloya satır eklemek başka hiçbir yeri
+ * değiştirmiyor.
+ *
+ * ORNEK true olduğu sürece tablonun üstünde kırmızı "[ÖRNEK VERİ]" damgası
+ * durur. Gerçek veri geldiğinde satırlar değiştirilir ve ORNEK false yapılır.
  */
 export const ORNEK = true;
 

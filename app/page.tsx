@@ -5,7 +5,6 @@ import {
   NedenAmerika,
   TurkiyeAyniPara,
   KiraciMeselesi,
-  GetiriyleNeOlur,
 } from "@/components/anlati";
 import { Referanslar } from "@/components/Referanslar";
 import { OzetHesap } from "@/components/OzetHesap";
@@ -19,7 +18,7 @@ import { Footer } from "@/components/Footer";
  * küçük diğeri katlanmış olduğu için kasıtlı istisna.
  *
  * Y: Hero, Band, TurkiyeAyniPara, OzetHesap, Detaylar
- * N: NedenAmerika, KiraciMeselesi, Referanslar, GetiriyleNeOlur, Gorusme
+ * N: NedenAmerika, KiraciMeselesi, Referanslar, Gorusme
  */
 export default function Sayfa() {
   return (
@@ -32,7 +31,6 @@ export default function Sayfa() {
         <TurkiyeAyniPara />
         <KiraciMeselesi />
         <Referanslar />
-        <GetiriyleNeOlur />
         <OzetHesap />
         <Detaylar />
         <Gorusme />

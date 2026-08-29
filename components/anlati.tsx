@@ -5,7 +5,7 @@ import {
   fmtOran,
   fmtUsd,
   fmtYuzde,
-  vadeSonu,
+  nakitOrani,
 } from "@/lib/finance";
 
 /* ── 03 · Neden Amerika ───────────────────────────────────────
@@ -58,9 +58,15 @@ export function NedenAmerika() {
    Dört satır, iki kolon. Rakamlar finance.ts'ten. */
 
 export function TurkiyeAyniPara() {
-  const pesinat = fmtUsd(
-    KANONIK.fiyat * KANONIK.pesinatOrani + KANONIK.fiyat * 0.04,
-  );
+  const giris = KANONIK.fiyat * nakitOrani();
+  const pesinat = fmtUsd(giris);
+  /* Asıl fark getiri oranında değil, gereken sermayede: Türkiye'de kira
+     taksiti karşılamadığı için kredi fiilen işlemiyor, yani aynı büyüklükte
+     bir varlığa sahip olmak için tutarın tamamını koymak gerekiyor.
+     Kat, finance.ts'ten türetiliyor — elle yazılmış rakam değil. */
+  /* aşağı yuvarlanıyor: 'en az' ifadesiyle tutarlı olsun ve
+     kapanış masrafları hesaba katılmadığı için lehimize şişmesin */
+  const kat = Math.floor((KANONIK.fiyat / giris) * 10) / 10;
   const satirlar: [string, string, string][] = [
     [
       "Bu parayla alınabilen",
@@ -106,6 +112,24 @@ export function TurkiyeAyniPara() {
           ))}
         </div>
 
+        <div className="kart kart--wash sermaye">
+          <div>
+            <p className="xs amber-t">
+              Aynı büyüklükte bir varlık için Türkiye&apos;de gereken sermaye
+            </p>
+            <p className="sermaye__v num">
+              en az {kat.toString().replace(".", ",")} kat
+            </p>
+          </div>
+          <p className="sm sermaye__a">
+            Burada {pesinat} koyup {fmtUsd(KANONIK.fiyat)}&apos;lık bir eve
+            sahip oluyorsunuz; kalanını kiracı ödüyor. Türkiye&apos;de kira
+            taksitin {fmtOran(CANLI.tr.oran)}&apos;i olduğu için kredi fiilen
+            işlemiyor — aradaki farkı her ay siz ödersiniz. Yani aynı evin
+            karşılığını almak için tutarın tamamını koymanız gerekir.
+          </p>
+        </div>
+
         <p className="vurus ayni__not">
           Türkiye kolonu bugün bulunabilen <strong>en iyi</strong> koşulla
           kuruldu; piyasa ortalaması daha kötü.
@@ -115,25 +139,28 @@ export function TurkiyeAyniPara() {
   );
 }
 
-/* ── 05 · Kiracı meselesi ─────────────────────────────────────
-   Tek yönlü olmasın diye kartın altındaki öz-eleştiri satırı
-   yapının parçası: bu satır olmadan bölüm eksiktir. */
+/* ── 05 · Ev sahipliği ────────────────────────────────────────
+   Bu bölüm Türkiye mevzuatı hakkında hüküm kurmuyor: sol kolon
+   insanların dile getirdiği ENDİŞE, sağ kolon bizim kendi işleyişimiz.
+   Yumuşak dil bilinçli — kimseyi ya da bir düzeni suçlamıyoruz.
+
+   Öz-eleştiri satırı yapının parçası: bölüm onsuz çizilmez. */
 
 const KARSITLIK: [string, string, string][] = [
   [
-    "Çıkarabilmek",
-    "Tahliye davası yıllara yayılabilir",
-    "Süreç yazılı ve öngörülebilir; süreyi görüşmede söylüyoruz",
+    "Belirsizlik",
+    "“Bir anlaşmazlık çıkarsa ne kadar süreceğini kestiremiyorum.”",
+    "Süreç ve süreler yazılı. Ne kadar sürdüğünü görüşmede net olarak söylüyoruz.",
   ],
   [
-    "Kira artışı",
-    "Yasal tavan ile enflasyonun altında kalır",
-    "Sözleşme yenilemesinde piyasa kirası",
+    "Kiranın geride kalması",
+    "“Kira zamanla piyasanın gerisinde kalıyor.”",
+    "Sözleşme yenilemesinde kira piyasa seviyesine göre belirleniyor.",
   ],
   [
-    "Hasar",
-    "Depozito bir aylık kira, hasarı karşılamaz",
-    "Depozito + ev sahibi sigortası + yönetim şirketinin denetimi",
+    "Bakım ve hasar",
+    "“Bir sorun çıkarsa masrafı bana kalır.”",
+    "Depozito, ev sahibi sigortası ve yönetim şirketinin düzenli denetimi devrede.",
   ],
 ];
 
@@ -142,29 +169,30 @@ export function KiraciMeselesi() {
     <section className="sect kiraci">
       <div className="kap">
         <div className="sect__bas">
-          <h2 className="h2">Kiracı meselesi.</h2>
+          <h2 className="h2">Ev sahibi olmak yorucu olabiliyor.</h2>
           <p className="xs sect__yan">
-            Türkiye&apos;de mülk sahibi olmanın fiilî hâli ile bizim aldığımız
-            eyaletlerdeki fark. Olgu, korku pazarlaması değil.
+            Türkiye&apos;de birçok kişi evini kiraya vermekten çekiniyor; bunun
+            konuşulan nedenleri var. Bizim tarafta işin nasıl yürüdüğünü
+            anlatalım.
           </p>
         </div>
 
         <div className="kart kiraci__tablo">
           <div className="kiraci__satir kiraci__satir--bas" aria-hidden="true">
             <span className="xs">Konu</span>
-            <span className="xs">Türkiye&apos;de tanıdık olan</span>
-            <span className="xs kiraci__bizBas">Bizim aldığımız eyaletlerde</span>
+            <span className="xs">Sık duyulan endişe</span>
+            <span className="xs kiraci__bizBas">Bizim tarafta nasıl işliyor</span>
           </div>
           {KARSITLIK.map(([k, t, b]) => (
             <div className="kiraci__satir" key={k}>
               <span className="kiraci__k">{k}</span>
               <span className="kiraci__tr">
-                <span className="mini kiraci__mob">Türkiye&apos;de tanıdık olan</span>
+                <span className="mini kiraci__mob">Sık duyulan endişe</span>
                 {t}
               </span>
               <span className="kiraci__biz">
                 <span className="mini kiraci__mob kiraci__mob--biz">
-                  Bizim aldığımız eyaletlerde
+                  Bizim tarafta nasıl işliyor
                 </span>
                 {b}
               </span>
@@ -177,56 +205,6 @@ export function KiraciMeselesi() {
               <a href="#detay">Riskler ve sorular</a> bölümünde yazıyor.
             </p>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ── 07 · Getiriyle ne olur ───────────────────────────────────
-   Kredili senaryoda cebe giren nakit ayda $35; bu bölüm o rakamın
-   üstüne kurulamaz, yoksa "Nakit ve getiri" ile çelişir. Üç rakam da
-   ya peşin alımdan ya biriken servetten geliyor ve her birinin altında
-   hangi senaryo olduğu yazılı. */
-
-export function GetiriyleNeOlur() {
-  const net = CANLI.net;
-  const u = CANLI.us;
-  const son = vadeSonu();
-
-  const uc: { v: string; a: string; e: string; amber?: boolean }[] = [
-    {
-      v: fmtUsd(net.netYillik),
-      a: "Yılda, net. Bir çocuğun özel okul taksitinin büyük kısmı. TL karşılığını yazmıyoruz — kur değişiyor, site kur basmıyor.",
-      e: `peşin alım · ${fmtYuzde(net.netGetiri * 100, 2)} net`,
-      amber: true,
-    },
-    {
-      v: fmtUsd(u.anaparaAylikIlkYil),
-      a: "Ayda biriken anapara. Her ay, siz hiçbir şey yapmadan, evin sizin olan kısmı büyüyor.",
-      e: "kredili alım · ilk yıl ortalaması",
-    },
-    {
-      v: fmtUsd(son.kiracininKapattigi),
-      a: `Otuz yılda kiracının kapattığı tutar. Bu parayı siz ödemiyorsunuz; sizin koyduğunuz ${fmtUsd(son.sizinKoydugunuz)}.`,
-      e: `kredili alım · ${KANONIK.vadeYil} yıl`,
-    },
-  ];
-
-  return (
-    <section className="sect getiri">
-      <div className="kap">
-        <h2 className="h2">Getiriyle ne olur.</h2>
-        <div className="getiri__ler">
-          {uc.map((x) => (
-            <div className="getiri__h" key={x.e}>
-              <p className={`getiri__v num${x.amber ? " getiri__v--amber" : ""}`}>
-                {x.v}
-              </p>
-              <p>{x.a}</p>
-              <span className="chip">{x.e}</span>
-            </div>
-          ))}
         </div>
       </div>
     </section>

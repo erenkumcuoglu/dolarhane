@@ -23,19 +23,11 @@ const BANDLAR = [
   "Peşin almayı düşünüyorum",
 ];
 
-const GUVENCELER: [string, string][] = [
-  [
-    "Para bize gelmiyor",
-    "Transfer, bağımsız bir escrow şirketinin hesabına yapılır. Tapu doğrudan sizin ya da sizin şirketinizin adına çıkar.",
-  ],
-  [
-    "Görüşme satış görüşmesi değil",
-    "45 dakikada bütçenize göre üç gerçek ev ve üç gerçek net tablo. Sayılar tutmuyorsa bunu size biz söylüyoruz.",
-  ],
-  [
-    "Bu aşamada hiçbir taahhüt yok",
-    "Ne ödeme, ne imza, ne rezervasyon. İlerlemek istemezseniz kayıt talebiniz silinir.",
-  ],
+/** Üç güvence — kalın kısım cümlenin taşıdığı iddia. */
+const GUVENCELER: [string, string, string][] = [
+  ["Para ", "bağımsız escrow şirketinin", " hesabına gider."],
+  ["Tapu ", "doğrudan sizin", " adınıza çıkar."],
+  ["Görüşme ", "ücretsiz", " ve tamamen online."],
 ];
 
 export function Gorusme() {
@@ -106,22 +98,20 @@ export function Gorusme() {
     <section className="sect gorusme" id="gorusme">
       <div className="kap gorusme__in">
         <div className="gorusme__sol">
-          <p className="rozet">Adım 01 · bugün</p>
           <h2 className="h2 gorusme__h">
-            Bir mesaj gönderin,
-            <br />
-            <span className="amber">konuşmaya hemen başlayalım.</span>
+            Bir mesaj gönderin, konuşmaya başlayalım.
           </h2>
           <p className="lede gorusme__lede">
-            Aynı gün dönüş yapıyoruz. Hedefinizi ve bütçenizi anlıyoruz, sonra
-            takvimden kendi slotunuzu seçiyorsunuz. Tüm süreç online.
+            45 dakikada üç gerçek ev, üç gerçek net tablo. Satış konuşması
+            değil, hesap.
           </p>
 
           <ul className="guvence">
-            {GUVENCELER.map(([b, a]) => (
+            {GUVENCELER.map(([a, b, c]) => (
               <li key={b}>
-                <p className="guvence__b">{b}</p>
-                <p className="sm">{a}</p>
+                {a}
+                <strong>{b}</strong>
+                {c}
               </li>
             ))}
           </ul>

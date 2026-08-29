@@ -2,8 +2,8 @@ import { CANLI, KANONIK, fmtOran, fmtYuzde } from "@/lib/finance";
 
 /**
  * KANIT BANDI — dört rakam, manşetin kanıtı.
- * Mobilde 2×2; oran çifti hero'da da göründüğü için burada tekrar
- * etmiyor, mobilde yalnız net getiri ve vade gösteriliyor.
+ * v4'te telefonda tamamen gizli: dördü de hero'nun içinde, fotoğrafın
+ * iki yanına dağılmış durumda (bkz. Hero.hero__kanit / hero__kanit2).
  */
 export function Band() {
   const u = CANLI.us;
@@ -11,9 +11,13 @@ export function Band() {
   const net = CANLI.net;
 
   const hepsi = [
-    { v: fmtOran(u.oran), k: "kira / taksit · ABD", ilk: true },
-    { v: fmtOran(t.oran), k: "Türkiye'de aynı ev", ilk: true, sessiz: true },
-    { v: fmtYuzde(net.netGetiri * 100, 2), k: "net getiri · brüt değil", amber: true },
+    { v: fmtOran(u.oran), k: "kira / taksit · ABD" },
+    { v: fmtOran(t.oran), k: "Türkiye'de aynı ev", sessiz: true },
+    {
+      v: fmtYuzde(net.netGetiri * 100, 2),
+      k: "net getiri · brüt değil",
+      amber: true,
+    },
     { v: `${KANONIK.vadeYil} yıl`, k: "sonunda borçsuz ev" },
   ];
 
@@ -21,7 +25,7 @@ export function Band() {
     <section className="band" aria-label="Özet rakamlar">
       <div className="kap band__in">
         {hepsi.map((x) => (
-          <div className={`band__h${x.ilk ? " band__h--hero" : ""}`} key={x.k}>
+          <div className="band__h" key={x.k}>
             <p
               className={`band__v num${x.amber ? " amber-t" : ""}${
                 x.sessiz ? " band__v--sessiz" : ""

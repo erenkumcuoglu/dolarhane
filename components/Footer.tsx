@@ -1,22 +1,24 @@
 import { KIMLIK, KONTAK } from "@/lib/kontak";
 
 /**
- * ALT ŞERİT — kimlik.
- * Boş alanlar uydurulmaz; doldurulması gereken alan olarak görünür.
+ * ALT ŞERİT — v4'te koyu zemin.
+ *
+ * Koyu zemindeki üç renk (--on-dark, --on-dark-mut, --on-dark-amber)
+ * yalnız burada kullanılır; açık zeminde hiçbiri geçerli değil.
+ * Boş kimlik alanları yine uydurulmuyor, doldurulacak alan olarak duruyor.
  */
+const BAGLANTILAR: [string, string][] = [["/hesap/", "Hesap"]];
+
 export function Footer() {
   return (
     <footer className="dip">
       <div className="kap">
-        <div className="dip__ust">
-          <a className="marka" href="/#pano">
-            <i aria-hidden="true" />
-            <b>DOLARHANE</b>
-          </a>
-          <p className="sm dip__cumle">
-            Amerika&apos;nın orta kuşağında, kiracısı oturan müstakil evler.
-            Alım, kredi, yönetim ve beyan tek elden.
-          </p>
+        <div className="dip__ler">
+          {BAGLANTILAR.map(([h, l]) => (
+            <a key={h} href={h}>
+              {l}
+            </a>
+          ))}
         </div>
 
         <dl className="kimlik">
@@ -27,21 +29,33 @@ export function Footer() {
                 {k.deger ? (
                   k.deger
                 ) : (
-                  <span className="todo">[{k.etiket.toLocaleUpperCase("tr")}]</span>
+                  <span className="todo todo--dark">
+                    [{k.etiket.toLocaleUpperCase("tr")}]
+                  </span>
                 )}
               </dd>
             </div>
           ))}
         </dl>
 
-        <p className="xs dip__yasal">
-          <span>
-            Bu sayfadaki tüm rakamlar örnek hesaplardır; yatırım tavsiyesi
-            değildir. Kira, gider ve faiz oranları eve ve zamana göre değişir.
-            Geçmiş ya da öngörülen getiri garanti edilmez.
-            {KONTAK.eposta ? ` Sorular: ${KONTAK.eposta}` : ""}
-          </span>
-        </p>
+        <div className="dip__alt">
+          <p className="xs dip__yasal">
+            <span>
+              Bu sayfadaki tüm rakamlar örnek hesaplardır; yatırım tavsiyesi
+              değildir. Portföy ve referans kartları örnektir. Kira, gider ve
+              faiz oranları eve ve zamana göre değişir. Geçmiş ya da öngörülen
+              getiri garanti edilmez.
+              {KONTAK.eposta ? ` Sorular: ${KONTAK.eposta}` : ""}
+            </span>
+          </p>
+          <p className="dip__marka">
+            <span className="marka">
+              <i aria-hidden="true" />
+              <b>DOLARHANE</b>
+            </span>
+            <span className="xs">Amerika&apos;dan ev al</span>
+          </p>
+        </div>
       </div>
     </footer>
   );

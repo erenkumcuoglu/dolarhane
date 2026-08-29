@@ -73,7 +73,11 @@ export type UsSonuc = {
   toplamMaliyet: number;
 };
 
-export function us(fiyat: number, pesinatOrani: number, vadeYil: number): UsSonuc {
+export function us(
+  fiyat: number,
+  pesinatOrani: number = KANONIK.pesinatOrani,
+  vadeYil: number = KANONIK.vadeYil,
+): UsSonuc {
   const pesinat = fiyat * pesinatOrani;
   const kredi = fiyat - pesinat;
   const n = vadeYil * 12;
@@ -105,7 +109,11 @@ export type TrSonuc = UsSonuc & {
  * Türkiye kolonu kurgusal vade üretmez: 10 yıl üstü istenirse
  * kendi fiili azamisi üzerinden hesaplanır ve `tavanlandi` işaretlenir.
  */
-export function tr(fiyat: number, pesinatOrani: number, vadeYil: number): TrSonuc {
+export function tr(
+  fiyat: number,
+  pesinatOrani: number = KANONIK.pesinatOrani,
+  vadeYil: number = KANONIK.vadeYil,
+): TrSonuc {
   const gerceklesenVadeYil = Math.min(vadeYil, TR_VADE_TAVAN_YIL);
   const pesinat = fiyat * pesinatOrani;
   const kredi = fiyat - pesinat;
@@ -160,7 +168,11 @@ export function pesinNet(fiyat: number) {
  * Kredili alımda gerçek durum — sayfanın en dürüst rakamı.
  * Oranın tek başına söylenmemesinin sebebi bu: nakit ince, kazanç anaparada.
  */
-export function krediliGercek(fiyat: number, pesinatOrani: number, vadeYil: number) {
+export function krediliGercek(
+  fiyat: number,
+  pesinatOrani: number = KANONIK.pesinatOrani,
+  vadeYil: number = KANONIK.vadeYil,
+) {
   const u = us(fiyat, pesinatOrani, vadeYil);
   const isletme = isletmeGideriAylik(fiyat);
   const nakitAkisiAylik = u.kira - isletme - u.taksit;

@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="dip">
       <div className="kap">
         <div className="dip__ust">
-          <a className="marka" href="#pano">
+          <a className="marka" href="/#pano">
             <i aria-hidden="true" />
             <b>DOLARHANE</b>
           </a>

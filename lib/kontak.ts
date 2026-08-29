@@ -19,6 +19,16 @@ export const KONTAK = {
   calendly: "",
   /** E-posta */
   eposta: "",
+  /**
+   * Sitenin yayındaki tam adresi, sonunda eğik çizgi olmadan.
+   * Örn: "https://dolarhane.com"
+   *
+   * Boş olduğu sürece paylaşım kartı (og:image) ve canonical etiketi
+   * YAZILMAZ: mutlak adres gerektiriyorlar ve uydurma bir adres basmak
+   * WhatsApp'ta kırık önizleme demek. Netlify adresi belli olunca burayı
+   * doldurmak yeterli — başka değişiklik gerekmiyor.
+   */
+  siteUrl: "",
 } as const;
 
 /** Footer kimlik şeridi — yayına almadan önce doldurulması zorunlu. */

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { KONTAK } from "@/lib/kontak";
 import { satoshi, gambetta } from "./fonts";
 import "./globals.css";
 
@@ -24,17 +25,55 @@ Dayanaklar IDDIA-DENETIMI.md. Şeffaflık rakamları ve portföy kartları
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 -->`;
 
+const BASLIK = "Dolarhane — Amerika'da bir eviniz olacak";
+const OZET =
+  "Taksitini kiracınız ödeyecek. Hesabın tamamı satır satır açık, aleyhimize olan notlar dahil.";
+
+/**
+ * Mutlak adres gerektiren alanlar (metadataBase, og:image, canonical) yalnız
+ * KONTAK.siteUrl doluyken yazılır. Uydurma bir adres, WhatsApp'ta kırık
+ * önizleme demek — bu sayfanın ilk teması çoğu zaman o önizleme.
+ */
 export const metadata: Metadata = {
-  title: "Dolarhane — Amerika'da bir eviniz olacak",
+  title: BASLIK,
   description:
     "Amerika'nın orta kuşağında müstakil bir ev, ilk günden kiracılı. Kira, kredi taksitinin 1,92 katı. Hesabın tamamı açık — aleyhimize olan notlar dahil.",
+  ...(KONTAK.siteUrl
+    ? {
+        metadataBase: new URL(KONTAK.siteUrl),
+        alternates: { canonical: "/" },
+      }
+    : {}),
   openGraph: {
-    title: "Dolarhane — Amerika'da bir eviniz olacak",
-    description:
-      "Taksitini kiracınız ödeyecek. Hesabın tamamı satır satır açık, aleyhimize olan notlar dahil.",
+    title: BASLIK,
+    description: OZET,
     locale: "tr_TR",
     type: "website",
+    ...(KONTAK.siteUrl
+      ? {
+          url: KONTAK.siteUrl,
+          siteName: "Dolarhane",
+          images: [
+            {
+              url: "/og.png",
+              width: 1200,
+              height: 630,
+              alt: "Dolarhane — Amerika'da bir eviniz olacak, taksitini kiracınız ödeyecek",
+            },
+          ],
+        }
+      : {}),
   },
+  ...(KONTAK.siteUrl
+    ? {
+        twitter: {
+          card: "summary_large_image" as const,
+          title: BASLIK,
+          description: OZET,
+          images: ["/og.png"],
+        },
+      }
+    : {}),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

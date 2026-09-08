@@ -53,8 +53,12 @@ export function Referanslar() {
 
           {REFERANSLAR.map((r) => (
             <div className="reft__satir" key={r.alimTarihi}>
+              {/* Buraya stok fotoğraf konmuyor: satır belirli bir işlem
+                  hakkında somut iddia taşıyor, altına temsilî bir kare
+                  koymak uydurma kanıt olur. Gerçek fotoğraf gelene kadar
+                  yuva desenli kalır. */}
               <div className="yuva yuva--1610 reft__foto">
-                <span className="yuva__et">gerçek ev fotoğrafı</span>
+                <span className="yuva__et">gerçek fotoğraf gelecek</span>
               </div>
 
               <div className="reft__h">

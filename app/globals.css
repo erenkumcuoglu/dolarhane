@@ -284,6 +284,8 @@ img {
 
 /* ── rozet / pill ── */
 .rozet {
+  /* flex kolonda stretch olup tam genişlik banda dönüşüyordu */
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
   gap: var(--s2);
@@ -2441,4 +2443,30 @@ input[type="range"]::-moz-range-thumb {
     grid-template-columns: auto 1fr;
     gap: var(--s7);
   }
+}
+
+/* ── gerçek fotoğraf yuvası ───────────────────────────────────
+   .yuva deseni fotoğraf gelene kadar bekler; .yuva--foto geldiğinde
+   deseni kapatır ve görüntüyü kırparak oturtur. */
+.yuva--foto {
+  background: var(--tint);
+}
+.yuva--foto > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* temsilî rozeti — fotoğrafın bizim mülkümüz olmadığını söyler */
+.temsili {
+  position: absolute;
+  left: var(--s3);
+  bottom: var(--s3);
+  background: rgba(23, 26, 31, 0.82);
+  color: var(--on-dark);
+  border-radius: var(--r-xs);
+  padding: 3px 8px;
+  font-size: var(--t-mini);
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }

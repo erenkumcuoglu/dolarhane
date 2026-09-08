@@ -1,0 +1,33 @@
+Fotoğraf kaynağı ve lisans
+==========================
+
+Bu klasördeki fotoğraflar Pexels'ten alınmıştır. Pexels Lisansı ticari
+kullanıma ve değiştirmeye izin verir, atıf zorunluluğu yoktur; fotoğrafların
+değiştirilmeden yeniden satışı ve kişi/marka onayı imasında kullanımı
+yasaktır. Tam metin: https://www.pexels.com/license/
+
+Bu fotoğraflar BİZİM MÜLKLERİMİZ DEĞİLDİR. Sayfada "temsilî" olarak
+işaretlenmiştir ve yalnız iki yerde kullanılırlar:
+  - hero (atmosfer)
+  - portföy kartları (zaten "örnek portföy" damgalı)
+
+Referans tablosundaki (satılmış evler) fotoğraf yuvaları KASTEN BOŞ:
+o satırlar belirli bir işlem hakkında somut iddia taşıyor; altına stok
+fotoğraf koymak uydurma kanıt olur. Gerçek fotoğraflar geldiğinde
+lib/referanslar.ts'e eklenir.
+
+Dosya       Pexels kimliği   Sayfa
+----------  ---------------  --------------------------------------------
+hero.jpg    8894808          https://www.pexels.com/photo/8894808/
+ev-01.jpg   6267516          https://www.pexels.com/photo/6267516/
+ev-02.jpg   16370153         https://www.pexels.com/photo/16370153/
+ev-03.jpg   5785100          https://www.pexels.com/photo/5785100/
+ev-04.jpg   8031890          https://www.pexels.com/photo/8031890/
+
+Seçim ölçütleri: 1940–1980 arası sıradan ABD müstakil ev stoku, garaj/bahçe,
+bakımlı ama lüks değil. Elenenler: yeni yapı, lüks, tropikal (palmiye),
+harap, ABD dışı görünüm, ve içinde İNSAN, ABD BAYRAĞI, okunabilir TABELA ya
+da ARAÇ PLAKASI olan kareler — plaka eyalet bilgisi verir, coğrafya gizli
+tutuluyor.
+
+Fotoğraflar sips ile merkezden 4:5 ve 16:10 kırpıldı, JPEG q54–58.

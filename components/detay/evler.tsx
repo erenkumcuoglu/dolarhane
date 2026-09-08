@@ -1,5 +1,7 @@
 import { fmtUsd } from "@/lib/finance";
 
+/* Fotoğraflar temsilîdir; kaynak ve lisans: public/ev/KAYNAK.txt */
+
 const EVLER = [
   {
     z: "Bölge A · orta kuşak",
@@ -12,6 +14,7 @@ const EVLER = [
     m2: 112,
     arsa: 510,
     ozellik: ["Ayrık garaj", "Kapalı veranda", "Bodrum"],
+    foto: "/ev/ev-01.jpg",
     karakter:
       "Aynı kiracı üç yıldır oturuyor; sözleşme geçen yaz 14 ay daha uzatıldı.",
   },
@@ -26,6 +29,7 @@ const EVLER = [
     m2: 134,
     arsa: 640,
     ozellik: ["Çatı yenilendi", "Yeni kombi", "İki araçlık garaj"],
+    foto: "/ev/ev-02.jpg",
     karakter:
       "Alım sonrası tadilatı bitti, kiracı arayışı başladı. Bu bantta bir evin kiracı bulma ortalaması 31 gün.",
   },
@@ -40,6 +44,7 @@ const EVLER = [
     m2: 96,
     arsa: 470,
     ozellik: ["Ahşap cephe", "Arka bahçe", "Çamaşır odası"],
+    foto: "/ev/ev-03.jpg",
     karakter:
       "Kiracı beş yıldır aynı. Bandın en küçük evi ve en yüksek getirisi — küçük ev, düşük fiyat, aynı kira talebi.",
   },
@@ -54,6 +59,7 @@ const EVLER = [
     m2: 121,
     arsa: 580,
     ozellik: ["İki araçlık garaj", "Kapalı otopark", "Tam bodrum"],
+    foto: "/ev/ev-04.jpg",
     karakter:
       "Aile mahallesi; kiracı profili genelde uzun süreli. Bu tip evler boş kalma süresini kısaltıyor.",
   },
@@ -72,8 +78,17 @@ export function Evler() {
       <ul className="evler">
         {EVLER.map((e, i) => (
           <li className="kart ev" key={i}>
-            <div className="yuva yuva--1610 ev__foto">
-              <span className="yuva__et">ev fotoğrafı · 16:10</span>
+            {/* Temsilî: kart verisi de fotoğrafı da örnek. Rozet
+                bunu fotoğrafın üstünde açıkça söylüyor. */}
+            <div className="yuva yuva--1610 yuva--foto ev__foto">
+              <img
+                src={e.foto}
+                width={760}
+                height={475}
+                loading="lazy"
+                alt="Temsilî ev fotoğrafı"
+              />
+              <span className="temsili">temsilî</span>
             </div>
             <div className="ev__gov">
               <div>

@@ -75,8 +75,16 @@ export function Hero() {
         </div>
 
         <div className="hero__gorsel">
-          <div className="yuva yuva--45">
-            <span className="yuva__et">ev fotoğrafı · 4:5 · portföyden</span>
+          {/* Temsilî fotoğraf — bizim portföyümüzden değil. Belirli bir
+              iddia taşımadığı için üzerinde etiket yok; alt metni bunu
+              yazıyor. Gerçek portföy fotoğrafı gelince dosya değişir. */}
+          <div className="yuva yuva--45 yuva--foto">
+            <img
+              src="/ev/hero.jpg"
+              width={860}
+              height={1075}
+              alt="Temsilî fotoğraf: Amerika'nın orta kuşağında, bahçeli müstakil bir ev"
+            />
           </div>
           <div className="kart nakit">
             <label className="xs" htmlFor="hero-nakit">

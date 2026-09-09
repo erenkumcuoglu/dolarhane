@@ -10,50 +10,60 @@
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
+  /* ══ DOLARHANE BRAND DESIGN SYSTEM v2 ══════════════════════════
+     Kaynak: Dolarhane_Brand_Design_System_v2.pdf · §03 Renk paleti
+       DOLARHANE NAVY  #071A2B
+       DEEP NAVY       #102B43
+       DOLARHANE GOLD  #C9A45C
+       WARM CREAM      #F5F1E8
+       WHITE           #FFFFFF
+     Oran önerisi: navy %55 · white/cream %30 · gold %15.
+
+     Kit'in kendi kuralı: "Altın; tüm metni renklendirmek yerine vurgu,
+     ikon, çizgi ve CTA detaylarında kullanılmalıdır." Ölçüm bunu
+     zorunlu kılıyor: #C9A45C beyaz üstünde 2,35:1 — küçük metin için
+     4,5:1, büyük metin için 3:1 gerekiyor. Bu yüzden açık zeminde
+     METİN olarak iki türetilmiş koyu altın kullanılıyor (aşağıda);
+     ham altın dolgu, çizgi, ikon ve koyu zemin metni içindir.
+     Türetmede hue ve doygunluk korunur, yalnız açıklık düşürülür. */
+
   /* ── zemin ve yüzey ── */
-  --paper: #fbfaf8; /* sayfa zemini — sıcak kırık beyaz */
-  --surface: #ffffff; /* kart */
-  --tint: #f4f2ee; /* sakin bölüm zemini */
-  --line: #efebe4; /* kılcal sınır */
-  --line-strong: #e6e3dd; /* görünür sınır, ray dolgusu */
+  --paper: #f5f1e8; /* WARM CREAM · kit */
+  --surface: #ffffff; /* WHITE · kit */
+  --tint: #f3efe4; /* krem türevi — sakin bölüm zemini */
+  --line: #f0eadd; /* kılcal sınır */
+  --line-strong: #ece4d3; /* görünür sınır, ray dolgusu */
 
   /* ── marka ── */
-  /* KURAL: --amber açık zeminde METİN rengi olarak kullanılmaz
-     (2,79:1). Büyük başlıkta --amber-deep (3,92:1), küçük metinde
-     --amber-text (6,28:1). Koyu zeminde --amber serbest (5,99:1). */
-  --amber: #d98314; /* marka rengi — dolgu, çizgi, koyu zemin metni */
-  --amber-deep: #b96a0b; /* bağlantı, hover */
-  --amber-text: #8c4e06; /* açık zeminde amber metin — kontrast güvenli */
-  --wash: #fcf2e1; /* amber en açık ton */
-  --wash-strong: #f0dfbc; /* amber vurgulu ton */
+  --amber: #c9a45c; /* DOLARHANE GOLD · kit — dolgu/çizgi/ikon/koyu zemin */
+  --amber-deep: #ac8539; /* açık zeminde BÜYÜK metin · krem 3,02:1 */
+  --amber-text: #785d28; /* açık zeminde küçük metin · en dar zemin 4,61:1 */
+  --wash: #f7f2e8; /* altının en açık tonu */
+  --wash-strong: #ebddc2; /* altın vurgulu ton */
 
-  /* ── mürekkep ── */
-  --ink: #171a1f;
-  --ink-2: #4a5058;
-  --ink-3: #5f6672;
-  /* ink-4 artboard'da #8a8f99'du: 13px ve 11px etiketlerde en açık
-     zeminde bile 3,25:1 veriyor, AA küçük metin eşiği 4,5:1. Ölçülüp
-     koyulaştırıldı — en kısıtlayıcı zemin --tint (4,79:1).
-     Beşinci basamak (#9aa0a9, 2,36:1) tamamen kaldırıldı; tek bir
-     yasal susturulmuş gri yeterli. */
-  --ink-4: #666b74;
+  /* ── mürekkep — navy tonlu ──
+     Nötrler navy hue'suna (208°) hafif bias'lı; hepsi krem, beyaz ve
+     tint üstünde ≥4,5:1. */
+  --ink: #071a2b; /* DOLARHANE NAVY · kit · krem 15,63:1 */
+  --ink-2: #4c5761; /* krem 6,55:1 */
+  --ink-3: #5a6773; /* krem 5,14:1 */
+  --ink-4: #5f6c79; /* krem 4,77:1 — daha açık gri YOK */
 
-  /* ── koyu yüzey (v4 alt şerit) ──
-     Artboard alt şeridi koyuya döndü. Bu üç renk YALNIZ koyu zeminde
-     kullanılır; hepsi #171a1f üzerinde ölçüldü ve AA'yı geçiyor. */
-  --dark: #171a1f;
-  --dark-line: #2c3138;
-  --on-dark: #f4f2ee; /* 15,60:1 */
-  --on-dark-mut: #9aa0a9; /* 6,62:1 — açık zeminde KULLANILMAZ (2,52:1) */
-  --on-dark-amber: #e8a15a; /* 8,04:1 */
-  --on-dark-num: #f2aa4c; /* 8,83:1 — koyu özet bandındaki rakam */
-  --on-dark-todo-line: #6a4a22; /* yalnız kenarlık */
+  /* ── koyu yüzey (alt şerit, özet bandı) ── */
+  --dark: #071a2b; /* navy */
+  --dark-line: #102b43; /* DEEP NAVY · kit */
+  --on-dark: #f5f1e8; /* 15,63:1 */
+  --on-dark-mut: #9aa6b2; /* 7,11:1 — açık zeminde KULLANILMAZ */
+  --on-dark-amber: #c9a45c; /* 7,51:1 — altın navy üstünde serbest */
+  --on-dark-num: #d6bb84; /* 9,48:1 — koyu bandaki rakam */
+  --on-dark-todo-line: #6a5326; /* yalnız kenarlık */
 
-  /* ── amber wash üstü metin (v4 Görüşme bölümü) ── */
-  --wash-ink: #3b2200; /* 13,38:1 */
-  --wash-ink-2: #6b4308; /* 7,78:1 */
+  /* ── altın wash üstü metin ── */
+  --wash-ink: #071a2b; /* 15,79:1 */
+  --wash-ink-2: #785d28; /* 5,54:1 */
 
-  /* ── uyarı ailesi ── */
+  /* ── uyarı ailesi — marka dışı, semantik ──
+     Kit bir uyarı rengi tanımlamıyor; mevcut kırmızı korundu. */
   --alert: #b4241c;
   --alert-line: #e0a9a5;
   --alert-wash: #fbf0ef;
@@ -66,11 +76,11 @@
   --r-xl: 18px;
   --r-pill: 99px;
 
-  /* ── gölge — artboard'dan ölçüldü ── */
-  --sh-card: 0 24px 50px -24px rgba(23, 26, 31, 0.4);
-  --sh-soft: 0 20px 50px -30px rgba(59, 34, 0, 0.4);
-  --sh-thumb: 0 2px 8px rgba(23, 26, 31, 0.24);
-  --sh-tight: 0 10px 24px -12px rgba(23, 26, 31, 0.6);
+  /* ── gölge — navy tonlu ── */
+  --sh-card: 0 24px 50px -24px rgba(7, 26, 43, 0.42);
+  --sh-soft: 0 20px 50px -30px rgba(7, 26, 43, 0.45);
+  --sh-thumb: 0 2px 8px rgba(7, 26, 43, 0.26);
+  --sh-tight: 0 10px 24px -12px rgba(7, 26, 43, 0.6);
 
   /* ── ölçü ── */
   --s1: 4px;
@@ -83,24 +93,25 @@
   --s8: 72px;
   --gut: clamp(16px, 4vw, 40px);
   --sec: clamp(48px, 6vw, 88px);
-  --kap: 1160px; /* masaüstü ölçü kabı */
-  --kap-m: 760px; /* mobil artboard ölçüsü */
+  --kap: 1160px;
+  --kap-m: 760px;
 
   /* ── tipografi rampası ──
-     Artboard'larda 20 ayrı boy vardı; sekiz basamağa indirildi.
-     Sıralama her genişlikte yapı gereği geçerli: min/vw/max üçlüleri
-     ikili sıralı. (v2'de bu kural bir kırılma noktasında ters dönmüştü.) */
-  --t-hero: clamp(2.1rem, 5.2vw, 3.6rem); /* 34 → 58 */
-  --t-h2: clamp(1.5rem, 3vw, 2.1rem); /* 24 → 34 */
-  --t-h3: clamp(1.18rem, 1.9vw, 1.5rem); /* 19 → 24 */
-  --t-num: clamp(1.5rem, 2.6vw, 2.1rem); /* asılı rakam */
-  --t-dev: clamp(2.6rem, 4.4vw, 3.5rem); /* devasa rakam — Getiriyle bölümü */
-  --t-lede: clamp(1rem, 1.2vw, 1.0625rem); /* 16 → 17 */
-  --t-body: 0.9375rem; /* 15 */
-  --t-sm: 0.875rem; /* 14 */
-  --t-xs: 0.8125rem; /* 13 */
-  --t-mini: 0.6875rem; /* 11 */
+     Kit Montserrat/Inter öneriyor; Satoshi korundu (bkz. DESIGN.md):
+     zaten self-host, harici istek yok, ve logo yazısı Satoshi Black
+     ile diziliyor. Değişen tek şey renk sistemi. */
+  --t-hero: clamp(2.1rem, 5.2vw, 3.6rem);
+  --t-h2: clamp(1.5rem, 3vw, 2.1rem);
+  --t-h3: clamp(1.18rem, 1.9vw, 1.5rem);
+  --t-num: clamp(1.5rem, 2.6vw, 2.1rem);
+  --t-dev: clamp(2.6rem, 4.4vw, 3.5rem);
+  --t-lede: clamp(1rem, 1.2vw, 1.0625rem);
+  --t-body: 0.9375rem;
+  --t-sm: 0.875rem;
+  --t-xs: 0.8125rem;
+  --t-mini: 0.6875rem;
 }
+
 
 * {
   box-sizing: border-box;
@@ -519,12 +530,15 @@ input[type="range"]::-moz-range-thumb {
   min-height: 44px; /* dokunma hedefi */
   color: var(--ink);
 }
-.marka i {
-  width: 14px;
-  height: 14px;
+/* Amblem — kit'ten gelen raster. Vektör sürüm yok; 240 px kaynak
+   küçültülerek kullanılıyor. Plaka lacivert olduğu için krem zeminde
+   koyu bir çip, alt şeritte ise neredeyse kenarsız duruyor. */
+.marka img {
+  width: 26px;
+  height: 26px;
   border-radius: var(--r-xs);
-  background: var(--amber);
   flex: none;
+  display: block;
 }
 .marka b {
   font-size: var(--t-body);

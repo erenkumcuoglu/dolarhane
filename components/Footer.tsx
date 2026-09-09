@@ -50,7 +50,7 @@ export function Footer() {
           </p>
           <p className="dip__marka">
             <span className="marka">
-              <i aria-hidden="true" />
+              <img src="/logo/amblem.png" alt="" width={26} height={26} />
               <b>DOLARHANE</b>
             </span>
             <span className="xs">Amerika&apos;dan ev al</span>

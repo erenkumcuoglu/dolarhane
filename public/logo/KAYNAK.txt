@@ -1,0 +1,24 @@
+Logo varlıkları
+===============
+
+Kaynak: Dolarhane_Brand_Kit (Dolarhane_Brand_Design_System_v2.pdf).
+
+amblem.png   Kit'teki dolarhane_icon.png'nin merkezden 150×150 kırpımı.
+             Ham dosyada altın simge tuvalin yalnızca %47'sini dolduruyordu
+             (dış parıltı + plaka boşluğu); 26 pikselde okunmuyordu. Kırpım
+             simgeyi tuvale oturtuyor, köşe yuvarlaması CSS'te veriliyor.
+kilit.png    Kit'teki tam lockup, arşiv için. Sitede KULLANILMIYOR: web
+             başlığında kit'in kendi kullanım önceliği "amblem + DOLARHANE"
+             diyor ve yazı Satoshi Black ile diziliyor.
+
+EKSİK — istenmesi gerekenler
+- **SVG sürüm.** Elimizde yalnız 240×240 opak PNG var. Alfa kanalı yok,
+  vektör yok. 18 pikselin altında simge okunmuyor; favicon 16×16 için
+  vektör şart.
+- **Şeffaf zeminli sürüm.** Plaka gömülü olduğu için amblem her yerde koyu
+  bir çip olarak duruyor; açık zeminde amblemin kendisini kullanmak
+  mümkün değil.
+- **Tek renk sürüm.** Altın gradyanlı; gri tonlamada ve kaşede çalışmaz.
+
+Not: kit'in kendi §07 kuralı "Gölge, gradient veya 3D efekt ekleme" diyor
+ama teslim edilen amblemde altın gradyan ve dış parıltı zaten var.

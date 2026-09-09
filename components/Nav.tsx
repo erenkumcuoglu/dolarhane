@@ -15,7 +15,7 @@ export function Nav({ aktif }: { aktif?: string }) {
     <nav className="nav">
       <div className="nav__in">
         <a className="marka" href="/#pano">
-          <i aria-hidden="true" />
+          <img src="/logo/amblem.png" alt="" width={26} height={26} />
           <b>DOLARHANE</b>
         </a>
         <div className="nav__ler">

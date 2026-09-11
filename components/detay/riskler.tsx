@@ -1,4 +1,4 @@
-const RISKLER: [string, string][] = [
+export const RISKLER: [string, string][] = [
   [
     "Kaldıraç iki yönlü çalışır",
     "Kredili alımda nakit akışı incedir. Boşluk uzarsa ya da büyük bir onarım çıkarsa o ay taksiti siz ödersiniz. Hesap sayfasında vadeyi kısaltın; oran 1'in altına düştüğünde tablo bunu size kendisi söyler.",
@@ -29,7 +29,7 @@ const RISKLER: [string, string][] = [
   ],
 ];
 
-const SORULAR: [string, string][] = [
+export const SORULAR: [string, string][] = [
   [
     "Vefat edersem ailem ne olacak?",
     "Kimsenin konuşmadığı en kritik konu. ABD'de yerleşik olmayan yabancıların veraset vergisi istisnası yalnızca 60.000 dolar. Evi doğrudan kendi adınıza alırsanız vefatınızda mirasçılarınız bu eşiğin üstündeki kısım için ciddi bir vergiyle karşılaşabilir. Doğru yapı — LLC ya da uygun bir mülkiyet düzeni — bunu baştan çözer.",

@@ -7,9 +7,18 @@ değiştirilmeden yeniden satışı ve kişi/marka onayı imasında kullanımı
 yasaktır. Tam metin: https://www.pexels.com/license/
 
 Bu fotoğraflar BİZİM MÜLKLERİMİZ DEĞİLDİR. Sayfada "temsilî" olarak
-işaretlenmiştir ve yalnız iki yerde kullanılırlar:
+işaretlenmiştir ve yalnız şu yerlerde kullanılırlar:
   - hero (atmosfer)
   - portföy kartları (zaten "örnek portföy" damgalı)
+  - /v2 · "Neden Amerika" panel fotoğrafı (ev-01, "temsilî" rozetli)
+  - /v2 · hikâye şeridi (hero.jpg, BAŞKA kadrajla; "temsilî · yer tutucu")
+
+/v2 hikâye şeridi hakkında: referans tasarımda burası bir KURUCU PORTRESİ.
+Stok portre konmadı ve konmayacak — kurucu yuvasındaki yabancı yüz "bunlar
+bizim ekibimiz" demek olur, yani uydurma kanıt. Yer tutucu olarak hero.jpg
+farklı bir kadrajla (object-position: 32% 84%) ve lacivert perde altında
+duruyor. Gerçek ekip fotoğrafı gelince Hikaye2.tsx'teki src ve rozet
+değişir; başka hiçbir yer değişmez.
 
 Referans tablosundaki (satılmış evler) fotoğraf yuvaları KASTEN BOŞ:
 o satırlar belirli bir işlem hakkında somut iddia taşıyor; altına stok

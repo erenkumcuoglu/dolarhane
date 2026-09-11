@@ -2,7 +2,7 @@ import { fmtUsd } from "@/lib/finance";
 
 /* Fotoğraflar temsilîdir; kaynak ve lisans: public/ev/KAYNAK.txt */
 
-const EVLER = [
+export const EVLER = [
   {
     z: "Bölge A · orta kuşak",
     p: 168_000,

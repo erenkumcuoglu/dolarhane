@@ -21,6 +21,12 @@ import { uzaktanTapuKapanisi } from "./surec/uzaktan-tapu-kapanisi";
 import { escrowNedir } from "./surec/escrow-nedir";
 import { titleInsurance } from "./surec/title-insurance";
 import { closingCosts } from "./surec/closing-costs";
+import { amerikadanEvAlmakGuvenliMi } from "./guven/amerikadan-ev-almak-guvenli-mi";
+import { nedenBizeHenuzGuvenmemelisiniz } from "./guven/neden-bize-henuz-guvenmemelisiniz";
+import { dolandiricilikNasilAnlasilir } from "./guven/dolandiricilik-nasil-anlasilir";
+import { tapuKiminAdina } from "./guven/tapu-kimin-adina";
+import { parayiNasilGonderiyorum } from "./guven/parayi-nasil-gonderiyorum";
+import { yurtDisiEvYatirimiRiskleri } from "./guven/yurt-disi-ev-yatirimi-riskleri";
 
 export const GOVDELER: Record<string, Blok[]> = {
   "getiri/kira-carpani": kiraCarpani,
@@ -36,4 +42,11 @@ export const GOVDELER: Record<string, Blok[]> = {
   "surec/escrow-nedir": escrowNedir,
   "surec/title-insurance": titleInsurance,
   "surec/closing-costs": closingCosts,
+
+  "guven/amerikadan-ev-almak-guvenli-mi": amerikadanEvAlmakGuvenliMi,
+  "guven/neden-bize-henuz-guvenmemelisiniz": nedenBizeHenuzGuvenmemelisiniz,
+  "guven/dolandiricilik-nasil-anlasilir": dolandiricilikNasilAnlasilir,
+  "guven/tapu-kimin-adina": tapuKiminAdina,
+  "guven/parayi-nasil-gonderiyorum": parayiNasilGonderiyorum,
+  "guven/yurt-disi-ev-yatirimi-riskleri": yurtDisiEvYatirimiRiskleri,
 };

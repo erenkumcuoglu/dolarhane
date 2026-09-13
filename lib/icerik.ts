@@ -152,6 +152,61 @@ export const YAZILAR: Yazi[] = [
     tazelik: "evergreen",
     durum: "yayin",
   },
+  {
+    slug: "evi-gormeden-ev-almak",
+    kume: "surec",
+    baslik: "Evi görmeden ev almak",
+    ozet:
+      "Asıl soru görmeden alınır mı değil; sizin gözünüzün yerine ne geçtiği " +
+      "ve o gözlerin kimin için çalıştığı. Üç bağımsız inceleme, neyi " +
+      "gördükleri ve nerede kör oldukları.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "kiraci-nasil-bulunuyor",
+    kume: "surec",
+    baslik: "Kiracı nasıl bulunuyor",
+    ozet:
+      "Kiracıyı yönetim şirketi buluyor, siz kriterleri onaylıyorsunuz. " +
+      "Eleme nasıl yapılır, ne kadar sürer, yerleştirme ücreti nedir ve " +
+      "yasa gereği neyi seçemezsiniz.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "kira-tahsilati",
+    kume: "surec",
+    baslik: "Kira tahsilatı nasıl oluyor",
+    ozet:
+      "Kira kiracıdan yönetim şirketine, oradan ABD hesabınıza geçer. " +
+      "Aradaki her adım aylık raporda satır satır görünür — tahsilat " +
+      "güvenilen değil denetlenen bir süreçtir.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "ev-bos-kalirsa",
+    kume: "surec",
+    baslik: "Ev boş kalırsa ne oluyor",
+    ozet:
+      "Boşluk bir aksilik değil, öngörülebilir bir gider kalemi. Boşlukta " +
+      "hangi giderler durur hangileri devam eder, ve devir neden boşluktan " +
+      "pahalıdır.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "tamir-masrafini-kim-oduyor",
+    kume: "surec",
+    baslik: "Tamir masrafını kim ödüyor",
+    ozet:
+      "Yapısal ve sistemsel olan ev sahibine, kullanımdan doğan kiracıya " +
+      "aittir. Onay eşiği, acil işler, ve bakım ile büyük onarımın neden " +
+      "farklı bütçelendiği.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
 ];
 
 /* ── Türetilmiş yardımcılar ──────────────────────────────────── */

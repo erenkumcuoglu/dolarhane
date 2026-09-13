@@ -207,6 +207,71 @@ export const YAZILAR: Yazi[] = [
     tazelik: "evergreen",
     durum: "yayin",
   },
+  {
+    slug: "amerikada-tahliye-sureci",
+    kume: "surec",
+    baslik: "Amerika'da tahliye süreci",
+    ozet:
+      "Tahliye mahkeme işidir; ev sahibinin kendi başına çıkarma yetkisi " +
+      "yoktur. Adımlar, gerçek maliyet kalemleri, ve mahkemeye gitmeden " +
+      "kapatmanın üç yolu.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "property-management-sozlesmesi",
+    kume: "surec",
+    baslik: "Yönetim sözleşmesinde nelere bakılır",
+    ozet:
+      "Uzaktan ev sahipliğinde getirinizi belirleyen tek belge tapu değil, " +
+      "yönetim sözleşmesidir. Ücret yapısı, okumadan imzalanmayacak altı " +
+      "madde ve teşvik testi.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "uzaktan-tapu-kapanisi",
+    kume: "surec",
+    baslik: "Uzaktan tapu kapanışı",
+    ozet:
+      "Kapanış için Amerika'da bulunmanız gerekmiyor. İmzanın beş yolu, " +
+      "ve uzaktan alımın en büyük pratik riski: havale talimatı " +
+      "dolandırıcılığı.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "escrow-nedir",
+    kume: "surec",
+    baslik: "Escrow nedir, ne işe yarar",
+    ozet:
+      "Escrow alıcı ile satıcı arasında duran tarafsız üçüncü taraftır. " +
+      "Çözdüğü sorun basit: kimse diğerine güvenmek zorunda kalmıyor.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "title-insurance",
+    kume: "surec",
+    baslik: "Title insurance nedir",
+    ozet:
+      "Tapunuza geçmişten gelebilecek hak iddialarına karşı tek seferlik " +
+      "primle alınan sigorta. Kredi veren poliçesi bankayı korur — sizi " +
+      "koruyan malik poliçesi ayrıca alınır.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "closing-costs",
+    kume: "surec",
+    baslik: "Kapanış masrafları",
+    ozet:
+      "Fiyatın üstüne gelen tek seferlik kalemler. Getiri hesabında en sık " +
+      "unutulan şey — unutulunca yatırılan sermaye küçük, getiri yüksek " +
+      "görünüyor.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
 ];
 
 /* ── Türetilmiş yardımcılar ──────────────────────────────────── */

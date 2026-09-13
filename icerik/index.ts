@@ -15,6 +15,12 @@ import { kiraciNasilBulunuyor } from "./surec/kiraci-nasil-bulunuyor";
 import { kiraTahsilati } from "./surec/kira-tahsilati";
 import { evBosKalirsa } from "./surec/ev-bos-kalirsa";
 import { tamirMasrafiniKimOduyor } from "./surec/tamir-masrafini-kim-oduyor";
+import { amerikadaTahliyeSureci } from "./surec/amerikada-tahliye-sureci";
+import { propertyManagementSozlesmesi } from "./surec/property-management-sozlesmesi";
+import { uzaktanTapuKapanisi } from "./surec/uzaktan-tapu-kapanisi";
+import { escrowNedir } from "./surec/escrow-nedir";
+import { titleInsurance } from "./surec/title-insurance";
+import { closingCosts } from "./surec/closing-costs";
 
 export const GOVDELER: Record<string, Blok[]> = {
   "getiri/kira-carpani": kiraCarpani,
@@ -24,4 +30,10 @@ export const GOVDELER: Record<string, Blok[]> = {
   "surec/kira-tahsilati": kiraTahsilati,
   "surec/ev-bos-kalirsa": evBosKalirsa,
   "surec/tamir-masrafini-kim-oduyor": tamirMasrafiniKimOduyor,
+  "surec/amerikada-tahliye-sureci": amerikadaTahliyeSureci,
+  "surec/property-management-sozlesmesi": propertyManagementSozlesmesi,
+  "surec/uzaktan-tapu-kapanisi": uzaktanTapuKapanisi,
+  "surec/escrow-nedir": escrowNedir,
+  "surec/title-insurance": titleInsurance,
+  "surec/closing-costs": closingCosts,
 };

@@ -272,6 +272,74 @@ export const YAZILAR: Yazi[] = [
     tazelik: "evergreen",
     durum: "yayin",
   },
+  {
+    slug: "amerikadan-ev-almak-guvenli-mi",
+    kume: "guven",
+    baslik: "Amerika'dan ev almak güvenli mi",
+    ozet:
+      "Tek soru değil, iki ayrı soru: hukuki güvenlik yüksektir, ticari " +
+      "güvenlik kiminle çalıştığınıza bağlıdır. İkisini ayırmadan verilen " +
+      "cevap yanıltıcı olur.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "neden-bize-henuz-guvenmemelisiniz",
+    kume: "guven",
+    baslik: "Neden bize henüz güvenmemelisiniz",
+    ozet:
+      "Portföyümüzde ev yok ve kimseye ev satmadık. Elimizde olmayan şey " +
+      "deneyim, olan şey yöntem şeffaflığı — ve bize ne zaman " +
+      "güvenebileceğinizin ölçütü.",
+    tazelik: "denetim",
+    guncelleme: "2026-09-13",
+    durum: "yayin",
+  },
+  {
+    slug: "dolandiricilik-nasil-anlasilir",
+    kume: "guven",
+    baslik: "Dolandırıcılık nasıl anlaşılır",
+    ozet:
+      "Dolandırıcılık genellikle sahte bir ev üzerinden değil, gerçek bir " +
+      "evin etrafına kurulan yanlış bir süreç üzerinden yürür. Durdurucu " +
+      "sinyaller ve kendiniz doğrulayabileceğiniz dört şey.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "tapu-kimin-adina",
+    kume: "guven",
+    baslik: "Tapu kimin adına çıkıyor",
+    ozet:
+      "Kendi adınıza, LLC üzerinden ya da ortak mülkiyet. Karar kapanıştan " +
+      "önce verilir, sonradan değiştirmek yeni bir devir demektir. Tapuyu " +
+      "ilçe kütüğünden kendiniz doğrulayabilirsiniz.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "parayi-nasil-gonderiyorum",
+    kume: "guven",
+    baslik: "Parayı nasıl gönderiyorum",
+    ozet:
+      "Bankadan bankaya, kapanış şirketinin emanet hesabına. Akışın " +
+      "tamamı, Türkiye tarafında istenen belgeler, ve havale talimatının " +
+      "neden asla e-postadan doğrulanmadığı.",
+    tazelik: "denetim",
+    guncelleme: "2026-09-13",
+    durum: "yayin",
+  },
+  {
+    slug: "yurt-disi-ev-yatirimi-riskleri",
+    kume: "guven",
+    baslik: "Yurt dışı ev yatırımının riskleri",
+    ozet:
+      "Likidite ve düşük değer artışı teknikle çözülmeyen koşullar, " +
+      "yönetilecek risk değil. Bizim iş modelimizin aleyhine olan üç şey " +
+      "dahil.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
 ];
 
 /* ── Türetilmiş yardımcılar ──────────────────────────────────── */

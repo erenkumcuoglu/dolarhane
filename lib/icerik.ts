@@ -340,6 +340,94 @@ export const YAZILAR: Yazi[] = [
     tazelik: "evergreen",
     durum: "yayin",
   },
+  {
+    slug: "kirayla-karsilama-orani",
+    kume: "getiri",
+    baslik: "Kirayla karşılama oranı",
+    ozet:
+      "Kira, kredi taksitinin kaç katı? Bir bölme işlemi, ve evin kendi " +
+      "borcunu ödeyip ödemediğini söyleyen tek sayı. Ama tek başına " +
+      "yeterli değil — neyi görmediği de yazılı.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "getiri-ve-deger-artisi-takasi",
+    kume: "getiri",
+    baslik: "Getiri ile değer artışı arasındaki takas",
+    ozet:
+      "Yüksek kira getirisi, değer artışının düşük olduğu yerlerde çıkar. " +
+      "Bu tesadüf değil, aritmetiğin zorunlu sonucu — ve bilerek yapılan " +
+      "bir takas.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "cap-rate-nedir",
+    kume: "getiri",
+    baslik: "Cap rate nedir",
+    ozet:
+      "Mülkün kredisiz getirisi: net işletme geliri bölü fiyat. " +
+      "Mülkleri finansmandan arındırılmış halde karşılaştırmaya yarar, " +
+      "cebinize ne geçeceğini söylemez.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "dscr-nedir",
+    kume: "getiri",
+    baslik: "DSCR nedir, neden Türk alıcı için önemli",
+    ozet:
+      "Mülkün gelirinin borç ödemesini karşılama oranı. ABD'de geliriniz " +
+      "ve kredi geçmişiniz yokken kredi kullanmanın yolu bu metrikten " +
+      "geçiyor.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "yuzde-1-kurali",
+    kume: "getiri",
+    baslik: "%1 kuralı",
+    ozet:
+      "Aylık kira, fiyatın en az yüzde biri olmalı. Otuz saniyelik bir " +
+      "ön eleme aracı — karar aracı değil. Neyi hiç görmediği önemli.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "nakit-akisi-nasil-hesaplanir",
+    kume: "getiri",
+    baslik: "Nakit akışı nasıl hesaplanır",
+    ozet:
+      "Brüt kiradan başlayıp cebinize kalana inen şelale. Her basamakta " +
+      "bir kalem düşülür; atlanan her basamak sonucu olduğundan iyi " +
+      "gösterir.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "getiri-tuzaklari",
+    kume: "getiri",
+    baslik: "Getiri sunumundaki sekiz tuzak",
+    ozet:
+      "Bir getiri rakamı yanlış olmadan da yanıltıcı olabilir. Sekiz " +
+      "sunum biçimi, her birinin söylemediği şey ve sorulması gereken " +
+      "soru.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "brut-vs-net-getiri",
+    kume: "getiri",
+    baslik: "Ucuz ev tuzağı: brüt ile net arasındaki fark",
+    ozet:
+      "Brütte ucuz ev önde, nette geride. Sebep fiyat değil mahalle " +
+      "sınıfı — ve farkı açan altı kalemin hiçbiri brüt hesapta yok.",
+    tazelik: "evergreen",
+    // TASLAK: C/D varsayımları kalibre edilmeden sayısal tablo
+    // yayınlanmıyor. Bkz. EV-KALITE-CERCEVESI.md §5.
+    durum: "taslak",
+  },
 ];
 
 /* ── Türetilmiş yardımcılar ──────────────────────────────────── */

@@ -24,8 +24,10 @@ export function KumeLinkleri({
       <ul>
         {digerleri.map((y) => (
           <li key={y.slug}>
-            <Link href={yaziYolu(y)}>{y.baslik}</Link>
-            <span>{y.ozet}</span>
+            <Link href={yaziYolu(y)}>
+              <b>{y.baslik}</b>
+              <span>{y.ozet}</span>
+            </Link>
           </li>
         ))}
       </ul>

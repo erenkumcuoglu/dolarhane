@@ -12,6 +12,9 @@ import {
   kumeYolu,
   type KumeAnahtari,
 } from "@/lib/icerik";
+import { NavYazi } from "@/components/yazi/NavYazi";
+import { DipYazi } from "@/components/yazi/DipYazi";
+import "../v2/v2.css";
 import "../yazi.css";
 
 /** Statik dışa aktarımda yalnız kayıt defterindeki kümeler üretilir.
@@ -48,14 +51,22 @@ export default async function KumeSayfasi({
   const iz = kirintiIzi(undefined, k);
 
   return (
-    <main id="icerik" className="yazi-govde">
+    <div className="v2">
       <Jsonld veri={kirintiSemasi(iz)} />
-      <Kirinti iz={iz} />
-      <header className="yazi-bas">
-        <h1>{k.baslik}</h1>
-        <p className="yazi-ozet">{k.ozet}</p>
-      </header>
-      <KumeLinkleri kume={k.slug} />
-    </main>
+      <NavYazi />
+      <main id="icerik" className="yazi">
+        <div className="v2-kap">
+          <div className="yazi__in">
+            <Kirinti iz={iz} />
+            <header className="yazi__bas">
+              <h1>{k.baslik}</h1>
+              <p className="yazi__oz">{k.ozet}</p>
+            </header>
+          </div>
+          <KumeLinkleri kume={k.slug} />
+        </div>
+      </main>
+      <DipYazi />
+    </div>
   );
 }

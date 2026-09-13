@@ -1,288 +1,290 @@
 /* ═══════════════════════════════════════════════════════════════
-   YAZI — bilgi bankası yüzeyi
+   YAZI — bilgi bankası yüzeyi, İKİNCİ İTERASYON dünyasında
 
-   DESIGN.md §3 kuralları burada da geçerli. Bu dosya sisteme UYAR,
-   yeni bir dünya kurmaz:
-   · Token'lar globals.css :root'tan. Burada palet yeniden tanımlanmıyor.
-   · Çağrı yerinde clamp() yok (kural 1). Uzun okuma için gereken iki boy
-     aşağıda ADLANDIRILMIŞ token olarak açıldı, yüzeye kapsanmış halde.
-   · text-transform: uppercase YOK (Türkçe İ'yi bozar).
-   · --amber açık zeminde metin değil; metin --amber-text (kural 2).
-   · Yatay kaydırma yok: geniş tablo dar ekranda yığın karta dönüşür
-     (kural 7). 320px dahil taşma olmayacak.
-   · Mobile-first, .kars deseniyle aynı yön: varsayılan yığın,
-     min-width'te ızgara.
+   Bu yüzey `.v2` altında yaşar: taban stiller, nav, alt şerit, kart
+   dili ve tipografi rampası `v2.css`'ten gelir. Burada yalnız uzun
+   okumanın gerektirdiği fark yazılır — yeni bir dünya kurulmaz.
 
-   Ana sayfanın kompozisyonu (kart, bant, ray, köprü) burada YOK:
-   o sayfa taranıyor, bunlar okunuyor.
+   DESIGN.md §3 kuralları geçerli:
+   1 · çağrı yerinde clamp() yok, gereken boy token olarak açılır
+   2 · --amber açık zeminde metin değil; metin --amber-text
+   4 · metin rengi opaklıkla açılmaz
+   7 · yatay kaydırma yok; geniş tablo dar ekranda yığın kart olur
+   8 · dokunma hedefi 44px
+   text-transform: uppercase yok (Türkçe İ'yi bozar)
+
+   Ana sayfanın kompozisyonu (hero, köprü, ray, portföy ızgarası)
+   burada YOK: o sayfa taranıyor, bunlar okunuyor. Ortak olan dil,
+   kompozisyon değil.
    ═══════════════════════════════════════════════════════════════ */
 
-.yazi-govde {
-  /* Uzun okuma boyları — kural 1 gereği token olarak açıldı.
-     --t-body (15px) pazarlama yüzeyi için doğru, 2.500 kelimelik
-     bir metin için küçük. Rampanın üstüne iki basamak ekleniyor,
-     :root kirletilmiyor (bkz. v2.css'in --v2-* deseni). */
-  --t-read: 1.0625rem; /* 17px gövde */
-  --t-read-lede: 1.125rem; /* 18px özet */
-  --t-read-h1: 2rem;
-  --t-read-h2: 1.375rem;
-  --olcu: 68ch;
+.v2 .yazi {
+  /* Uzun okuma boyları — kural 1 gereği adlandırıldı. --t-body (15px)
+     pazarlama yüzeyi için doğru, 2.500 kelimelik metin için küçük.
+     :root kirletilmiyor; --v2-* deseniyle aynı şekilde yüzeye kapsandı. */
+  --y-govde: 1.0625rem;
+  --y-lede: 1.125rem;
+  --y-olcu: 68ch;
 
-  max-width: var(--olcu);
-  margin: 0 auto;
-  padding: var(--s6, 32px) 20px var(--sec);
-  color: var(--ink);
+  padding-block: var(--v2-sec);
 }
 
-@media (min-width: 760px) {
-  .yazi-govde {
-    --t-read-h1: 2.75rem;
-    --t-read-h2: 1.6rem;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
+/* Okuma sütunu. Tam genişlik öğeler (tablo) .v2-kap'ta kalır,
+   metin bu sütuna iner. */
+.v2 .yazi__in {
+  max-width: var(--y-olcu);
+  margin-inline: auto;
 }
 
 /* ── kırıntı yolu ── */
-.kirinti ol {
+.v2 .kirinti ol {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 0.5rem;
+  gap: 0 var(--s2);
   list-style: none;
-  margin: 0 0 var(--sec);
+  margin: 0 0 var(--s6);
   padding: 0;
   font-size: var(--t-xs);
   color: var(--ink-4);
 }
-.kirinti li + li::before {
+.v2 .kirinti li + li::before {
   content: "/";
-  margin-right: 0.5rem;
+  margin-right: var(--s2);
   color: var(--line-strong);
 }
-.kirinti a { color: var(--ink-4); text-decoration: none; }
-.kirinti a:hover { color: var(--amber-text); text-decoration: underline; }
-.kirinti [aria-current="page"] { color: var(--ink-3); }
+.v2 .kirinti a { color: var(--ink-4); text-decoration: none; }
+.v2 .kirinti a:hover { color: var(--amber-text); text-decoration: underline; }
+.v2 .kirinti [aria-current="page"] { color: var(--ink-3); }
 
 /* ── başlık ── */
-.yazi-bas { margin-bottom: var(--sec); }
-.yazi-bas h1 {
-  font-size: var(--t-read-h1);
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+.v2 .yazi__bas { margin-bottom: var(--s7, 48px); }
+.v2 .yazi__bas h1 {
+  font-size: var(--v2-t-hero);
+  font-weight: 900;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
   text-wrap: balance;
   margin: 0;
 }
-/* Özet = sorunun net cevabı; LLM'lerin alıntıladığı birim. Süs değil. */
-.yazi-ozet {
-  margin: 16px 0 0;
-  font-size: var(--t-read-lede);
+/* Özet = sorunun net cevabı; LLM'lerin alıntıladığı birim (§8.2). */
+.v2 .yazi__oz {
+  margin: var(--s4) 0 0;
+  font-size: var(--y-lede);
   line-height: 1.55;
   color: var(--ink-2);
 }
-.yazi-kunye {
+.v2 .yazi__kunye {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 20px;
-  margin: 24px 0 0;
-  padding-top: 16px;
+  gap: var(--s2) var(--s5);
+  margin: var(--s5) 0 0;
+  padding-top: var(--s4);
   border-top: 1px solid var(--line);
   font-size: var(--t-xs);
   color: var(--ink-4);
 }
 
 /* ── gövde ── */
-.yazi-govde article > p {
+.v2 .yazi article > p {
   margin: 0 0 1.15em;
-  font-size: var(--t-read);
+  font-size: var(--y-govde);
   line-height: 1.72;
 }
-.yazi-govde article > h2 {
+.v2 .yazi article > h2 {
   margin: 2.4em 0 0.7em;
-  font-size: var(--t-read-h2);
-  line-height: 1.2;
-  letter-spacing: -0.012em;
+  font-size: var(--v2-t-h3);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
-.yazi-govde article > h3 {
+.v2 .yazi article > h3 {
   margin: 2em 0 0.5em;
-  font-size: var(--t-lede);
+  font-size: var(--v2-t-h4);
+  font-weight: 700;
   line-height: 1.3;
 }
-.yazi-govde article :is(ul, ol) {
+.v2 .yazi article :is(ul, ol) {
   margin: 0 0 1.3em;
   padding-left: 1.35em;
-  font-size: var(--t-read);
+  font-size: var(--y-govde);
   line-height: 1.68;
 }
-/* globals.css'te genel liste sıfırlaması var; uzun okumada işaret
-   ANLAM taşıyor (sıralı adım, madde, kaynak numarası). */
-.yazi-govde article ul { list-style: disc; }
-.yazi-govde article ol { list-style: decimal; }
-.yazi-govde article li { margin-bottom: 0.4em; }
-.yazi-govde article li::marker { color: var(--ink-4); }
-.yazi-govde a { color: var(--amber-text); text-underline-offset: 2px; }
-.yazi-govde strong { font-weight: 700; color: var(--ink); }
+/* v2.css'te genel liste sıfırlaması var; uzun okumada işaret ANLAM
+   taşıyor (sıralı adım, madde, kaynak numarası). */
+.v2 .yazi article ul { list-style: disc; }
+.v2 .yazi article ol { list-style: decimal; }
+.v2 .yazi article li { margin-bottom: 0.4em; }
+.v2 .yazi article li::marker { color: var(--ink-4); }
+.v2 .yazi a { color: var(--amber-text); text-underline-offset: 2px; }
+.v2 .yazi strong { font-weight: 700; color: var(--ink); }
 
 /* ── tablo ──────────────────────────────────────────────────────
-   Semantik <table> şart: LLM'ler tabloyu böyle okuyor (SEO-GEO-PLAN
-   §8.2) ve DESIGN-SYSTEM §6 bunu zorunlu kılıyor.
-
-   Kural 7 gereği dar ekranda YIĞIN KART olur, yatay kaymaz. Mekanizma
-   .row'un doğrulanmış deseniyle aynı: hücre kendi etiketini
-   data-etiket'ten ::before ile üretir, başlık satırı gizlenir —
-   yukarı kaydırınca kaybolduğu için hangi değerin hangi sütuna ait
-   olduğu belirsizleşiyordu. */
-.tablo-kap { margin: 2.2em 0; }
-.tablo-kap table {
+   Semantik <table> şart (GEO §8.2 · DESIGN-SYSTEM §6) ama görünüş
+   .v2-kars__s ile aynı: lacivert başlık şeridi, beyaz kart, yumuşak
+   gölge. Kural 7 gereği dar ekranda yığın karta dönüşür; hücre kendi
+   sütun etiketini data-etiket'ten ::before ile üretir — etiketsiz
+   yığında hangi değerin hangi sütuna ait olduğu kayboluyor. */
+.v2 .yazi__tablo { margin: 2.4em 0; }
+.v2 .yazi__tablo table {
   border-collapse: collapse;
   width: 100%;
   font-size: var(--t-sm);
   font-variant-numeric: tabular-nums;
 }
-.tablo-kap thead { display: none; }
-.tablo-kap tbody tr {
+.v2 .yazi__tablo thead { display: none; }
+.v2 .yazi__tablo tbody tr {
   display: block;
-  margin-bottom: 10px;
-  padding: 14px 16px;
+  margin-bottom: var(--s3);
+  padding: var(--s4) var(--s5);
   background: var(--surface);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--r-sm);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-soft);
 }
-.tablo-kap tbody tr.vurgu {
-  background: var(--wash);
-  border-color: var(--amber);
+.v2 .yazi__tablo tbody tr.vurgu { background: var(--wash); border-color: var(--amber); }
+.v2 .yazi__tablo tbody :is(th, td) { display: block; text-align: left; padding: 0; }
+.v2 .yazi__tablo tbody th {
+  font-weight: 900;
+  font-size: var(--y-govde);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--s2);
 }
-.tablo-kap tbody :is(th, td) {
-  display: block;
-  text-align: left;
-  padding: 0;
-}
-.tablo-kap tbody th {
-  font-weight: 700;
-  font-size: var(--t-read);
-  margin-bottom: 8px;
-}
-.tablo-kap tbody td {
-  padding-top: 8px;
+.v2 .yazi__tablo tbody td {
+  padding-top: var(--s2);
   color: var(--ink-2);
   line-height: 1.55;
 }
-.tablo-kap tbody td[data-etiket]::before {
+.v2 .yazi__tablo tbody td[data-etiket]::before {
   content: attr(data-etiket);
   display: block;
   margin-bottom: 2px;
   font-size: var(--t-mini);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   color: var(--ink-4);
 }
-.tablo-kap figcaption {
-  margin-top: 10px;
+.v2 .yazi__tablo figcaption {
+  margin-top: var(--s3);
   font-size: var(--t-xs);
   line-height: 1.5;
   color: var(--ink-4);
 }
 
 @media (min-width: 760px) {
-  /* Tablo okuma ölçüsünü aşar: metin 68ch'de kalır, veri sıkışmaz.
-     Editoryal sayfada figürün metinden geniş olması normaldir. */
-  .tablo-kap {
-    width: min(100% + 11rem, calc(100vw - 48px));
-    margin-left: 50%;
-    transform: translateX(-50%);
+  /* Tablo okuma sütununu aşar, .v2-kap genişliğine açılır: metin
+     68ch'de kalır, veri sıkışmaz. Editoryal sayfada figürün metinden
+     geniş olması normaldir. */
+  /* Okuma sütununu iki yandan taşırır: metin 68ch'de kalır, veri sıkışmaz.
+     Kap zaten .v2-kap içinde olduğu için taşma üretmiyor. */
+  .v2 .yazi__in > .yazi__tablo {
+    width: calc(100% + 10rem);
+    margin-inline: -5rem;
   }
-  .tablo-kap table {
+  .v2 .yazi__tablo table {
     display: table;
     background: var(--surface);
-    border: 1px solid var(--line-strong);
-    border-radius: var(--r-sm);
-    box-shadow: var(--sh-tight);
+    border: 1px solid var(--line);
+    border-radius: var(--r-xl);
+    box-shadow: var(--sh-soft);
     overflow: hidden;
   }
-  .tablo-kap thead { display: table-header-group; }
-  .tablo-kap tbody tr {
+  .v2 .yazi__tablo thead { display: table-header-group; }
+  .v2 .yazi__tablo tbody tr {
     display: table-row;
     margin: 0;
     padding: 0;
     background: none;
     border: 0;
     border-radius: 0;
+    box-shadow: none;
   }
-  .tablo-kap tbody tr.vurgu { background: var(--wash); }
-  .tablo-kap :is(th, td) {
+  .v2 .yazi__tablo tbody tr.vurgu { background: var(--wash); }
+  /* `tbody :is(th,td)` (0,2,3) yığın kuralından DAHA özgül olmalı;
+     aksi halde yığın modun display:block'u masaüstünde de kazanıyor.
+     Ölçülüp düzeltildi. */
+  .v2 .yazi__tablo :is(thead, tbody) :is(th, td) {
     display: table-cell;
-    padding: 14px 16px;
+    padding: var(--s4) var(--s5);
     vertical-align: top;
     border-bottom: 1px solid var(--line);
   }
-  .tablo-kap thead th {
+  /* Lacivert başlık şeridi — .v2-kars__s--bas ile aynı. */
+  .v2 .yazi__tablo thead tr { background: var(--dark); }
+  .v2 .yazi__tablo thead th {
     font-size: var(--t-xs);
     font-weight: 700;
-    color: var(--ink-4);
-    background: var(--tint);
-    border-bottom: 1px solid var(--line-strong);
+    color: var(--on-dark);
+    border-bottom: 0;
+    padding-block: var(--s3);
   }
-  .tablo-kap tbody th { font-size: var(--t-sm); margin: 0; }
-  .tablo-kap tbody td { padding-top: 14px; }
-  .tablo-kap tbody td[data-etiket]::before { content: none; }
-  .tablo-kap tbody tr:last-child :is(th, td) { border-bottom: 0; }
+  .v2 .yazi__tablo tbody th { font-size: var(--t-sm); margin: 0; font-weight: 700; }
+  .v2 .yazi__tablo tbody td { padding-top: var(--s4); color: var(--ink-2); }
+  .v2 .yazi__tablo tbody td[data-etiket]::before { content: none; }
+  .v2 .yazi__tablo tbody tr:last-child :is(th, td) { border-bottom: 0; }
 }
 
 /* ── not / aleyhimize kutu ──
-   Markanın imzası: kendi aleyhimize olan bilgi gizlenmiyor, vurgulanıyor.
-   Başlık uppercase DEĞİL — kural gereği olduğu gibi diziliyor. */
-.not {
-  margin: 2em 0;
-  padding: 16px 18px;
-  border-left: 3px solid var(--amber);
+   Markanın imzası: aleyhimize olan bilgi gizlenmiyor, vurgulanıyor. */
+.v2 .yazi__not {
+  margin: 2.2em 0;
+  padding: var(--s4) var(--s5);
   background: var(--wash);
-  border-radius: 0 var(--r-xs) var(--r-xs) 0;
+  border: 1px solid var(--wash-strong);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--r-sm);
 }
-.not b {
+.v2 .yazi__not b {
   display: block;
   margin-bottom: 4px;
   font-size: var(--t-sm);
-  color: var(--wash-ink-2, var(--amber-text));
+  color: var(--wash-ink-2);
 }
-.not p { margin: 0; font-size: var(--t-sm); line-height: 1.62; }
+.v2 .yazi__not p { margin: 0; font-size: var(--t-sm); line-height: 1.62; color: var(--wash-ink); }
 
-/* ── SSS ── */
-.sss { margin: 2.4em 0; border-top: 1px solid var(--line); }
-.sss details { border-bottom: 1px solid var(--line); }
-.sss summary {
+/* ── SSS — .v2-kat deseni ── */
+.v2 .yazi__sss { margin: 2.4em 0; display: grid; gap: var(--s2); }
+.v2 .yazi__sss details {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+}
+.v2 .yazi__sss summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  min-height: 44px; /* kural 8 — dokunma hedefi */
-  padding: 12px 0;
-  font-size: var(--t-read);
+  gap: var(--s4);
+  min-height: 44px; /* kural 8 */
+  padding: var(--s3) var(--s4);
+  font-size: var(--y-govde);
   font-weight: 700;
   cursor: pointer;
   list-style: none;
 }
-.sss summary::-webkit-details-marker { display: none; }
-.sss summary::after { content: "+"; color: var(--ink-4); font-weight: 400; }
-.sss details[open] summary::after { content: "−"; }
-.sss details p {
-  margin: 0 0 16px;
+.v2 .yazi__sss summary::-webkit-details-marker { display: none; }
+.v2 .yazi__sss summary::after { content: "+"; color: var(--amber-text); font-weight: 400; }
+.v2 .yazi__sss details[open] summary::after { content: "−"; }
+.v2 .yazi__sss details p {
+  margin: 0;
+  padding: 0 var(--s4) var(--s4);
   font-size: var(--t-sm);
   color: var(--ink-2);
   line-height: 1.65;
 }
 
 /* ── kaynaklar ── */
-.kaynaklar {
+.v2 .yazi__kaynak {
   margin-top: 3em;
-  padding-top: 18px;
+  padding-top: var(--s4);
   border-top: 1px solid var(--line-strong);
 }
-.kaynaklar h2 {
+.v2 .yazi__kaynak h2 {
   font-size: var(--t-xs);
+  font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--ink-4);
-  margin: 0 0 10px;
+  margin: 0 0 var(--s3);
 }
-.kaynaklar ol {
+.v2 .yazi__kaynak ol {
   list-style: decimal;
   padding-left: 1.35em;
   font-size: var(--t-xs);
@@ -290,26 +292,42 @@
   line-height: 1.6;
 }
 
-/* ── küme linkleri ── */
-.kume-linkleri {
-  margin-top: 4em;
-  padding-top: 20px;
-  border-top: 1px solid var(--line-strong);
+/* ── küme linkleri — .v2-kart deseni ── */
+.v2 .kume-linkleri { margin-top: 3.5em; }
+.v2 .kume-linkleri h2 {
+  font-size: var(--v2-t-h3);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--s5);
 }
-.kume-linkleri h2 { font-size: var(--t-lede); margin: 0 0 14px; }
-.kume-linkleri ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-.kume-linkleri a {
+.v2 .kume-linkleri ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s3);
+}
+@media (min-width: 760px) {
+  .v2 .kume-linkleri ul { grid-template-columns: 1fr 1fr; }
+}
+.v2 .kume-linkleri li {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-soft);
+}
+.v2 .kume-linkleri a {
   display: block;
-  min-height: 44px;
-  font-size: var(--t-read);
-  font-weight: 700;
+  min-height: 44px; /* kural 8 */
+  padding: var(--s4) var(--s5);
   color: var(--ink);
   text-decoration: none;
 }
-.kume-linkleri a:hover { color: var(--amber-text); text-decoration: underline; }
-.kume-linkleri span {
+.v2 .kume-linkleri a:hover { color: var(--amber-text); }
+.v2 .kume-linkleri b { display: block; font-size: var(--y-govde); font-weight: 700; }
+.v2 .kume-linkleri span {
   display: block;
-  margin-top: 2px;
+  margin-top: 4px;
   font-size: var(--t-sm);
   color: var(--ink-4);
   line-height: 1.5;

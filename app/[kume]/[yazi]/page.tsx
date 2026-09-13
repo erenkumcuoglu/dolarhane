@@ -15,6 +15,9 @@ import {
   tarihGosterilir,
 } from "@/lib/icerik";
 import { GOVDELER } from "@/icerik";
+import { NavYazi } from "@/components/yazi/NavYazi";
+import { DipYazi } from "@/components/yazi/DipYazi";
+import "../../v2/v2.css";
 import "../../yazi.css";
 
 export function generateStaticParams() {
@@ -53,22 +56,30 @@ export default async function YaziSayfasi({
   const sss = sssTopla(bloklar);
 
   return (
-    <main id="icerik" className="yazi-govde">
+    /* Bilgi bankası ikinci iterasyonun dünyasında yaşıyor: taban stiller,
+       nav, alt şerit ve kart dili v2.css'ten. Kompozisyon paylaşılmıyor —
+       ana sayfa taranıyor, bu sayfa okunuyor. */
+    <div className="v2">
       <Jsonld veri={kirintiSemasi(iz)} />
       <Jsonld veri={makaleSemasi(y)} />
       {sss.length > 0 ? <Jsonld veri={sssSemasi(sss)} /> : null}
 
-      <Kirinti iz={iz} />
+      <NavYazi />
 
-      <article>
-        <header className="yazi-bas">
-          <h1>{y.baslik}</h1>
-          <p className="yazi-ozet">{y.ozet}</p>
+      <main id="icerik" className="yazi">
+        <div className="v2-kap">
+          <div className="yazi__in">
+            <Kirinti iz={iz} />
+
+            <article>
+              <header className="yazi__bas">
+                <h1>{y.baslik}</h1>
+                <p className="yazi__oz">{y.ozet}</p>
 
           {/* Künye — E-E-A-T (§7). Boş alan BASILMAZ, uydurulmaz.
               Tarih yalnız evergreen olmayan kademelerde görünür (§3.5). */}
-          {(y.yazar || y.gozdenGeciren || tarihGosterilir(y)) && (
-            <p className="yazi-kunye">
+                {(y.yazar || y.gozdenGeciren || tarihGosterilir(y)) && (
+                  <p className="yazi__kunye">
               {y.yazar ? <span>{y.yazar}</span> : null}
               {y.gozdenGeciren ? (
                 <span>Gözden geçiren: {y.gozdenGeciren}</span>
@@ -85,12 +96,17 @@ export default async function YaziSayfasi({
               ) : null}
             </p>
           )}
-        </header>
+              </header>
 
-        <Icerik bloklar={bloklar} />
-      </article>
+              <Icerik bloklar={bloklar} />
+            </article>
 
-      <KumeLinkleri kume={y.kume} haric={y.slug} />
-    </main>
+            <KumeLinkleri kume={y.kume} haric={y.slug} />
+          </div>
+        </div>
+      </main>
+
+      <DipYazi />
+    </div>
   );
 }

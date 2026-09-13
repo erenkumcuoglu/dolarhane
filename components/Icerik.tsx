@@ -68,8 +68,7 @@ export function Icerik({ bloklar }: { bloklar: Blok[] }) {
             /* Gerçek <table>. Geniş tablo kendi kabında yatay kayar —
                sayfa gövdesi asla yana kaymaz. */
             return (
-              <figure key={i} className="tablo-kap">
-                <div className="tablo-kaydir">
+              <figure key={i} className="yazi__tablo">
                   <table>
                     <thead>
                       <tr>
@@ -101,14 +100,13 @@ export function Icerik({ bloklar }: { bloklar: Blok[] }) {
                       ))}
                     </tbody>
                   </table>
-                </div>
                 {b.not ? <figcaption>{bicimle(b.not)}</figcaption> : null}
               </figure>
             );
 
           case "not":
             return (
-              <aside key={i} className="not">
+              <aside key={i} className="yazi__not">
                 {b.baslik ? <b>{b.baslik}</b> : null}
                 <p>{bicimle(b.metin)}</p>
               </aside>
@@ -116,7 +114,7 @@ export function Icerik({ bloklar }: { bloklar: Blok[] }) {
 
           case "sss":
             return (
-              <div key={i} className="sss">
+              <div key={i} className="yazi__sss">
                 {b.sorular.map((q, j) => (
                   <details key={j}>
                     <summary>{q.s}</summary>
@@ -128,7 +126,7 @@ export function Icerik({ bloklar }: { bloklar: Blok[] }) {
 
           case "kaynak":
             return (
-              <section key={i} className="kaynaklar">
+              <section key={i} className="yazi__kaynak">
                 <h2>Kaynaklar</h2>
                 <ol>
                   {b.maddeler.map((k, j) => (

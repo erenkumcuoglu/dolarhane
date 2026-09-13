@@ -85,9 +85,15 @@
 }
 .yazi-govde article :is(ul, ol) {
   margin: 0 0 1.3em;
-  padding-left: 1.3em;
+  padding-left: 1.35em;
   line-height: 1.68;
 }
+/* globals.css'te genel bir liste sıfırlaması var; uzun okuma sayfalarında
+   işaretler ANLAM taşıyor (sıralı adım, madde) — geri veriliyor. */
+.yazi-govde article ul { list-style: disc; }
+.yazi-govde article ol { list-style: decimal; }
+.yazi-govde article li::marker { color: var(--ink-3); }
+.kaynaklar ol { list-style: decimal; padding-left: 1.35em; }
 .yazi-govde article li { margin-bottom: 0.4em; }
 .yazi-govde a {
   color: var(--amber-text);
@@ -98,7 +104,16 @@
 /* ── tablo ──
    LLM'ler tabloyu kolay çıkarıyor; bu yüzden veri her zaman gerçek
    <table> olarak basılıyor, asla div ızgarası olarak değil. */
-.tablo-kap { margin: 2em 0; }
+/* Tablo okuma ölçüsünü AŞAR. Metin 68ch'de kalır ama veri sıkışmaz:
+   68ch'ye zorlanan bir tablo masaüstünde bile yatay kaydırmaya düşüyordu —
+   ölçülüp düzeltildi. Editoryal sayfalarda figürün metinden geniş olması
+   normaldir. */
+.tablo-kap {
+  margin: 2.2em 0;
+  width: min(100% + 12rem, 100vw - 2.5rem);
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
 .tablo-kaydir {
   overflow-x: auto;
   border: 1px solid var(--line-strong);
@@ -108,14 +123,24 @@
 .tablo-kap table {
   border-collapse: collapse;
   width: 100%;
+  /* Dar ekranda tablo SIKIŞMAZ, kayar. 390px'te üç sütuna zorlanınca
+     kelimeler kırılıyor ve okunmuyordu — ölçülüp düzeltildi. Yatay
+     kaydırma kabın içinde kalır, sayfa gövdesi asla yana kaymaz. */
+  min-width: 34rem;
   font-size: 0.9375rem;
   font-variant-numeric: tabular-nums;
 }
 .tablo-kap :is(th, td) {
-  padding: 0.7rem 0.9rem;
+  padding: 0.75rem 1rem;
   text-align: left;
+  vertical-align: top;
   border-bottom: 1px solid var(--line);
+}
+/* Rakam sütunları kırılmaz; metin sütunları serbestçe sarar. Global
+   nowrap, metin hücrelerini kesiyordu. */
+.tablo-kap td.sayi, .tablo-kap th.sayi {
   white-space: nowrap;
+  text-align: right;
 }
 .tablo-kap thead th {
   font-size: 0.75rem;
@@ -125,11 +150,11 @@
   background: var(--tint);
   border-bottom: 1px solid var(--line-strong);
 }
-.tablo-kap tbody th { font-weight: 650; white-space: normal; }
+.tablo-kap tbody th { font-weight: 650; }
 .tablo-kap tbody tr:last-child :is(th, td) { border-bottom: none; }
 .tablo-kap tr.vurgu :is(th, td) { background: var(--wash); font-weight: 650; }
 .tablo-kap figcaption {
-  margin-top: 0.6rem;
+  margin-top: 0.75rem;
   font-size: 0.8125rem;
   line-height: 1.5;
   color: var(--ink-3);

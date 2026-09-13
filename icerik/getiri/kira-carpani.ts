@@ -12,10 +12,9 @@ export const kiraCarpani: Blok[] = [
   {
     t: "p",
     metin:
-      "Kira çarpanı, bir evin fiyatının yıllık kira gelirine bölünmesidir ve " +
-      "o evin kendini kaç yılda ödeyeceğini söyler. 4 milyon TL'ye aldığınız, " +
-      "ayda 25.000 TL kira getiren bir dairenin çarpanı 13,3'tür — yani " +
-      "kağıt üstünde 13 yılda kendini amorti eder.",
+      "4 milyon TL'ye aldığınız, ayda 25.000 TL kira getiren bir daire " +
+      "düşünün. Yıllık kira 300.000 TL; 4.000.000 ÷ 300.000 = **13,3**. " +
+      "Kira çarpanı budur: ev kendini kağıt üstünde 13 yılda ödüyor.",
   },
   {
     t: "p",

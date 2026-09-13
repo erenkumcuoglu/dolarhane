@@ -41,6 +41,24 @@ export const KIMLIK: { etiket: string; deger: string }[] = [
   { etiket: "E-posta", deger: "" },
 ];
 
+/**
+ * Sosyal ve kurumsal profiller — `Organization.sameAs` dizisini besler.
+ *
+ * Varlık (entity) tutarlılığının teknik ayağı: LLM'ler ve Google, markayı
+ * ancak profiller birbirine bağlıysa tek bir varlık olarak kurabiliyor.
+ * SEO-GEO-PLAN.md §8.4.
+ *
+ * Boş olanlar şemaya YAZILMAZ — var olmayan profile link vermek,
+ * varlık grafiğini kurmak yerine bozar.
+ */
+export const PROFILLER: { ad: string; url: string }[] = [
+  { ad: "LinkedIn", url: "" },
+  { ad: "YouTube", url: "" },
+  { ad: "Instagram", url: "" },
+  { ad: "X", url: "" },
+  { ad: "Crunchbase", url: "" },
+];
+
 export const YAYIN_HAZIR =
   KONTAK.formEndpoint !== "" &&
   KONTAK.wa !== "" &&

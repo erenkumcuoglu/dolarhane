@@ -13,7 +13,12 @@ export const dynamic = "force-static";
  * yazıyoruz: sonradan biri "AI'ları kapatalım mı" diye düşündüğünde
  * kararın bilinçli olduğunu görsün.
  *
- * Yayına hazır olmayan varyantlar dışarıda: /v2 ana sayfanın duplicate'i.
+ * ADRES KORUMASI — `KONTAK.siteUrl` boşken tüm site kapalı. Gerekçe:
+ * domain alınmadan yapılan yayın `*.netlify.app` adresine iniyor. O adres
+ * indekslenirse, gerçek domain açıldığında elimizde kendi kendimizle
+ * yarışan bir kopya oluyor ve marka SERP'i (SEO-GEO-PLAN §9) daha
+ * doğmadan bölünüyor. `siteUrl` dolduğu an koruma kendiliğinden kalkar —
+ * başka değişiklik gerekmiyor.
  */
 const AI_CRAWLERLARI = [
   "GPTBot",
@@ -27,12 +32,15 @@ const AI_CRAWLERLARI = [
 ];
 
 export default function robots(): MetadataRoute.Robots {
+  if (!ADRES_VAR) {
+    return { rules: [{ userAgent: "*", disallow: "/" }] };
+  }
+
   return {
     rules: [
-      { userAgent: "*", allow: "/", disallow: ["/v2/"] },
+      { userAgent: "*", allow: "/" },
       ...AI_CRAWLERLARI.map((ua) => ({ userAgent: ua, allow: "/" })),
     ],
-    // Adres yokken Sitemap satırı yazılmaz: göreli sitemap geçersiz.
-    ...(ADRES_VAR ? { sitemap: mutlak("/sitemap.xml") } : {}),
+    sitemap: mutlak("/sitemap.xml"),
   };
 }

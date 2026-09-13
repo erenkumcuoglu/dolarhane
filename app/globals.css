@@ -337,7 +337,10 @@ img {
   padding: 2px 8px;
   font-size: var(--t-mini);
   font-weight: 700;
-  white-space: nowrap;
+  /* nowrap YOK: damgalar kısa rozet değil, tam cümle taşıyor. nowrap 320px'te
+     336px'e kilitleyip 32px yatay kaydırma yaratıyordu (kural 7). Bandın tam
+     genişliğe yayılmasını zaten align-self + inline-block engelliyor. */
+  max-width: 100%;
 }
 /* doldurulmamış alan — yayına yanlışlıkla gitmesin */
 .todo {

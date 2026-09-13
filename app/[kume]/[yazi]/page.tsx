@@ -17,7 +17,7 @@ import {
 import { GOVDELER } from "@/icerik";
 import { NavYazi } from "@/components/yazi/NavYazi";
 import { DipYazi } from "@/components/yazi/DipYazi";
-import "../../v2/v2.css";
+import "../../v2.css";
 import "../../yazi.css";
 
 export function generateStaticParams() {

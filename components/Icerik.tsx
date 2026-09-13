@@ -89,7 +89,12 @@ export function Icerik({ bloklar }: { bloklar: Blok[] }) {
                                 {bicimle(h)}
                               </th>
                             ) : (
-                              <td key={k}>{bicimle(h)}</td>
+                              /* data-etiket: dar ekranda satır yığın karta
+                                 dönüşürken hücre kendi sütun başlığını
+                                 ::before ile geri üretir (DESIGN.md kural 7). */
+                              <td key={k} data-etiket={b.basliklar[k]}>
+                                {bicimle(h)}
+                              </td>
                             ),
                           )}
                         </tr>

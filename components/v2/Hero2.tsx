@@ -117,12 +117,6 @@ export function Hero2() {
               </div>
             </div>
           </article>
-
-          <p className="v2-elyazi" aria-hidden="true">
-            Kazanç nakitte değil,
-            <br />
-            anaparada birikiyor.
-          </p>
         </div>
       </div>
 

@@ -12,6 +12,7 @@
 import { CANLI, fmtOran, fmtUsd, fmtYuzde, KANONIK } from "@/lib/finance";
 import { EVLER } from "@/components/detay/evler";
 import { IkonDolar, IkonGrafik, IkonUzak, IkonYatak, IkonBanyo, IkonAlan } from "./ikon";
+import { Slogan2 } from "./Slogan2";
 
 const OZELLIK = [
   { I: IkonDolar, b: "Gelir dolar, gider dolar", a: "Kur riski taşımıyorsunuz; kurun içindesiniz." },
@@ -47,6 +48,8 @@ export function Hero2() {
             <br />
             <em>Taksitini kiracınız ödeyecek.</em>
           </h1>
+
+          <Slogan2 />
 
           <p className="v2-hero__lede">
             Orta kuşakta müstakil bir ev, ilk günden kiracılı. Tapu sizin

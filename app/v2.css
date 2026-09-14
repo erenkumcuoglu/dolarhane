@@ -455,6 +455,89 @@
   font-style: normal;
   color: var(--on-dark-amber);
 }
+/* ── dönen slogan ─────────────────────────────────────────────
+   Lacivert hero panelinde duruyor, o yüzden koyu zemin token'ları.
+   Altın burada metin olarak yasal (navy üstünde 7,51:1); dönen satırı
+   sabit lede'den ayırmak için kullanılıyor. */
+.v2-slogan {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s2);
+  margin: 0 0 var(--s5);
+  /* Altın çizgi dönen bloğu manşetten ayırıyor: slogan da altın olsaydı
+     h1'in ikinci satırıyla tek bir altın kütleye yapışıyordu. */
+  border-left: 3px solid var(--amber);
+  padding-left: var(--s4);
+}
+/* üçü aynı ızgara hücresinde: kutu en uzun slogana göre yer kaplar,
+   dönerken sayfa zıplamaz */
+.v2-slogan__yigin {
+  display: grid;
+  margin: 0;
+  max-width: 34ch;
+}
+.v2-slogan__m {
+  grid-area: 1 / 1;
+  font-size: var(--t-lede);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--on-dark);
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.v2-slogan__m--acik {
+  opacity: 1;
+  transform: none;
+}
+.v2-slogan__nokta {
+  display: flex;
+  gap: 2px;
+  margin-left: -6px; /* çizgiler metnin sol kenarına optik hizalansın */
+}
+/* görünen çizgi 18px; dokunma hedefi 44px'e tamamlanıyor */
+.v2-slogan__nokta button {
+  width: 28px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.v2-slogan__nokta button::before {
+  content: "";
+  width: 18px;
+  height: 3px;
+  border-radius: var(--r-pill);
+  background: var(--on-dark-mut);
+  transition:
+    background 0.3s ease,
+    width 0.3s ease;
+}
+.v2-slogan__nokta button:hover::before {
+  background: var(--on-dark);
+}
+.v2-slogan__nokta button.acik::before {
+  background: var(--amber);
+  width: 26px;
+}
+.v2-slogan__nokta button:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+  border-radius: var(--r-xs);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v2-slogan__m {
+    transform: none;
+  }
+}
+
 .v2-hero__lede {
   font-size: var(--t-lede);
   line-height: 1.6;

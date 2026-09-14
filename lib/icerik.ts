@@ -428,6 +428,77 @@ export const YAZILAR: Yazi[] = [
     // yayınlanmıyor. Bkz. EV-KALITE-CERCEVESI.md §5.
     durum: "taslak",
   },
+  {
+    slug: "oturum-mu-getiri-mi",
+    kume: "karsilastir",
+    baslik: "Oturum mu istiyorsunuz, getiri mi",
+    ozet:
+      "Aynı bütçeyle ikisini de en iyi şekilde almak mümkün değil; biri " +
+      "için ödediğiniz prim diğerinden çıkıyor. Cevabınız oturumsa doğru " +
+      "yer biz değiliz.",
+    tazelik: "denetim",
+    guncelleme: "2026-09-14",
+    durum: "yayin",
+  },
+  {
+    slug: "amerika-mi-dubai-mi",
+    kume: "karsilastir",
+    baslik: "Amerika mı Dubai mi",
+    ozet:
+      "Vergi tarafında Dubai önde, mülkiyet altyapısı ve para birimi " +
+      "tarafında ABD. Asıl ayrım: kira dolara politikayla mı bağlı, " +
+      "yoksa yerli para birimi mi.",
+    tazelik: "denetim",
+    guncelleme: "2026-09-14",
+    durum: "yayin",
+  },
+  {
+    slug: "yunanistan-mi-amerika-mi",
+    kume: "karsilastir",
+    baslik: "Yunanistan mı Amerika mı",
+    ozet:
+      "Bu karşılaştırma genellikle yanlış eksende yapılıyor: biri oturum " +
+      "için alınıyor, diğeri kira için. Doğru soru, oturum hakkının " +
+      "sizin için ne kadar değerli olduğu.",
+    tazelik: "denetim",
+    guncelleme: "2026-09-14",
+    durum: "yayin",
+  },
+  {
+    slug: "dubai-ev-yatirimi-riskleri",
+    kume: "karsilastir",
+    baslik: "Dubai'de ev yatırımının riskleri",
+    ozet:
+      "Dubai'yi elemek için değil, hesaba katılması gerekenler için " +
+      "yazıldı. Avantajları da yazılı, riskleri azaltma yolları da — " +
+      "Dubai'den alacak birine de yarasın diye.",
+    tazelik: "denetim",
+    guncelleme: "2026-09-14",
+    durum: "yayin",
+  },
+  {
+    slug: "maketten-ev-almak-riskleri",
+    kume: "karsilastir",
+    baslik: "Maketten ev almanın riskleri",
+    ozet:
+      "Maketten alımda satın aldığınız şey bir ev değil, bir vaat. " +
+      "Risk sınıfı mevcut ev almaktan tamamen farklı ve aynı ölçütlerle " +
+      "değerlendirilemez.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
+    slug: "golden-visa-gercekten-gerekli-mi",
+    kume: "karsilastir",
+    baslik: "Golden visa gerçekten gerekli mi",
+    ozet:
+      "Golden visa gerçek bir şey satıyor. Soru değersiz olup olmadığı " +
+      "değil, sizin ihtiyacınız olup olmadığı — çünkü bedeli getiriden " +
+      "çıkıyor.",
+    tazelik: "denetim",
+    guncelleme: "2026-09-14",
+    durum: "yayin",
+  },
 ];
 
 /* ── Türetilmiş yardımcılar ──────────────────────────────────── */

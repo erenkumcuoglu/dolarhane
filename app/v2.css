@@ -25,6 +25,8 @@
   /* yalnız bu iterasyonda geçerli ölçüler */
   --v2-kap: 1200px;
   --v2-t-hero: clamp(2.15rem, 4.6vw, 3.5rem);
+  /* dönen manşet: sabit manşetten uzun cümleler, bir kademe küçük */
+  --v2-t-slogan: clamp(1.95rem, 3.6vw, 2.9rem);
   --v2-t-h2: clamp(1.55rem, 2.9vw, 2.3rem);
   --v2-t-h3: clamp(1.2rem, 2vw, 1.6rem);
   --v2-t-h4: 1.0625rem;
@@ -455,53 +457,55 @@
   font-style: normal;
   color: var(--on-dark-amber);
 }
-/* ── dönen slogan ─────────────────────────────────────────────
-   Lacivert hero panelinde duruyor, o yüzden koyu zemin token'ları.
-   Altın burada metin olarak yasal (navy üstünde 7,51:1); dönen satırı
-   sabit lede'den ayırmak için kullanılıyor. */
+/* ── manşet: dönen slogan ─────────────────────────────────────
+   Eski sabit manşetin yerinde duruyor, o yüzden hero ölçüsünde.
+   Lacivert panelde olduğu için koyu zemin token'ları. */
 .v2-slogan {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--s2);
+  gap: var(--s4);
   margin: 0 0 var(--s5);
-  /* Altın çizgi dönen bloğu manşetten ayırıyor: slogan da altın olsaydı
-     h1'in ikinci satırıyla tek bir altın kütleye yapışıyordu. */
-  border-left: 3px solid var(--amber);
-  padding-left: var(--s4);
 }
-/* üçü aynı ızgara hücresinde: kutu en uzun slogana göre yer kaplar,
-   dönerken sayfa zıplamaz */
+/* üç varyant aynı ızgara hücresinde: kutu en uzun slogana göre yer
+   kaplar, dönerken sayfa zıplamaz */
 .v2-slogan__yigin {
   display: grid;
   margin: 0;
-  max-width: 34ch;
+  /* Sloganlar sabit manşetten uzun: 20ch'te en uzunu beş satıra çıkıp
+     son kelimeyi yalnız bırakıyordu. Ölçü genişledi, punto bir kademe
+     indi — en uzunu üç satır. */
+  max-width: 26ch;
 }
 .v2-slogan__m {
   grid-area: 1 / 1;
-  font-size: var(--t-lede);
-  font-weight: 700;
-  line-height: 1.5;
+  font-size: var(--v2-t-slogan);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.026em;
+  text-wrap: balance;
   color: var(--on-dark);
   opacity: 0;
-  transform: translateY(6px);
+  transform: translateY(10px);
   transition:
-    opacity 0.4s ease,
-    transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .v2-slogan__m--acik {
   opacity: 1;
   transform: none;
 }
-.v2-slogan__nokta {
+
+/* altın bar — hem ilerleme göstergesi hem kumanda */
+.v2-slogan__bar {
   display: flex;
-  gap: 2px;
-  margin-left: -6px; /* çizgiler metnin sol kenarına optik hizalansın */
+  gap: var(--s2);
+  width: 100%;
+  max-width: 340px;
 }
-/* görünen çizgi 18px; dokunma hedefi 44px'e tamamlanıyor */
-.v2-slogan__nokta button {
-  width: 28px;
-  height: 44px;
+.v2-slogan__bar button {
+  flex: 1;
+  height: 44px; /* dokunma hedefi; görünen ray 4px ve ortada */
   padding: 0;
   border: 0;
   background: none;
@@ -509,32 +513,54 @@
   display: flex;
   align-items: center;
 }
-.v2-slogan__nokta button::before {
-  content: "";
-  width: 18px;
-  height: 3px;
+.v2-slogan__ray {
+  display: block;
+  width: 100%;
+  height: 4px;
   border-radius: var(--r-pill);
-  background: var(--on-dark-mut);
-  transition:
-    background 0.3s ease,
-    width 0.3s ease;
+  background: var(--on-dark-todo-line);
+  overflow: hidden;
 }
-.v2-slogan__nokta button:hover::before {
-  background: var(--on-dark);
-}
-.v2-slogan__nokta button.acik::before {
+.v2-slogan__dolu {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: var(--r-pill);
   background: var(--amber);
-  width: 26px;
 }
-.v2-slogan__nokta button:focus-visible {
+.v2-slogan__dolu--tam {
+  width: 100%;
+}
+.v2-slogan__dolu--doluyor {
+  animation-name: v2SloganDol;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes v2SloganDol {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.v2-slogan__bar button:hover .v2-slogan__ray {
+  background: var(--on-dark-mut);
+}
+.v2-slogan__bar button:focus-visible {
   outline: 2px solid var(--amber);
-  outline-offset: 2px;
+  outline-offset: 3px;
   border-radius: var(--r-xs);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .v2-slogan__m {
     transform: none;
+  }
+  /* dolma animasyonu yok; etkin segment dolu görünür */
+  .v2-slogan__dolu--doluyor {
+    animation: none;
+    width: 100%;
   }
 }
 

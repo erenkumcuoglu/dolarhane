@@ -16,7 +16,10 @@ import { Slogan2 } from "./Slogan2";
 
 const OZELLIK = [
   { I: IkonDolar, b: "Gelir dolar, gider dolar", a: "Kur riski taşımıyorsunuz; kurun içindesiniz." },
-  { I: IkonGrafik, b: `${KANONIK.vadeYil} yıl sabit faiz`, a: "Taksit ilk ay ne ise otuzuncu yıl da o." },
+  /* Eski madde "30 yıl sabit faiz" idi — doğrudan kaldıraç özelliği ve
+     kaldıraç kamuya açık ürün değil (iş planı §11). Yerine §10'un peşin
+     alım gerekçesi; rakam içermiyor, finance.ts'i bağlamıyor. */
+  { I: IkonGrafik, b: "Peşin alım, hızlı kapanış", a: "Kredi onayına bağlı bekleme ve iptal riski yok." },
   { I: IkonUzak, b: "Uzaktan alım ve yönetim", a: "Süreç tamamen online, imzalar elektronik." },
 ];
 
@@ -38,16 +41,13 @@ export function Hero2() {
 
       <div className="v2-kap v2-hero__in">
         <div className="v2-hero__soz">
+          {/* Eski rozet "Kira, taksitin 1,92x katı" idi — kaldıraç iddiası,
+              ve kaldıraç artık kamuya açık ürün değil (iş planı §11).
+              Yerine slayt 2'nin kendi ölçüsü: kira akışı ilk ay başlıyor. */}
           <p className="v2-rozet">
             <i aria-hidden="true" />
-            Kira, taksitin {fmtOran(CANLI.us.oran)} katı
+            Kiracısı içinde · ilk aydan kira
           </p>
-
-          <h1 className="v2-hero__t">
-            Amerika&apos;da bir eviniz olacak.
-            <br />
-            <em>Taksitini kiracınız ödeyecek.</em>
-          </h1>
 
           <Slogan2 />
 

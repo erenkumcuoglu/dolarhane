@@ -15,5 +15,5 @@ export const SLOGANLAR: string[] = [
   "Beklemeyi bırak. İlk aydan kira al.",
 ];
 
-/** Bir slogan ekranda kaç ms kalıyor. En uzunu ~65 karakter. */
-export const SURE = 5500;
+/** Bir slogan ekranda kaç ms kalıyor. */
+export const SURE = 4000;

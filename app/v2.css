@@ -458,13 +458,10 @@
   color: var(--on-dark-amber);
 }
 /* ── manşet: dönen slogan ─────────────────────────────────────
-   Eski sabit manşetin yerinde duruyor, o yüzden hero ölçüsünde.
-   Lacivert panelde olduğu için koyu zemin token'ları. */
+   Eski sabit manşetin yerinde, hero ölçüsünde. Lacivert panelde
+   olduğu için koyu zemin token'ları. Görünür kumanda yok. */
 .v2-slogan {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--s4);
+  position: relative;
   margin: 0 0 var(--s5);
 }
 /* üç varyant aynı ızgara hücresinde: kutu en uzun slogana göre yer
@@ -472,9 +469,8 @@
 .v2-slogan__yigin {
   display: grid;
   margin: 0;
-  /* Sloganlar sabit manşetten uzun: 20ch'te en uzunu beş satıra çıkıp
-     son kelimeyi yalnız bırakıyordu. Ölçü genişledi, punto bir kademe
-     indi — en uzunu üç satır. */
+  /* 20ch'te en uzun slogan beş satıra çıkıp son kelimeyi yalnız
+     bırakıyordu; 26ch ve bir kademe küçük punto ile üç dengeli satır. */
   max-width: 26ch;
 }
 .v2-slogan__m {
@@ -496,71 +492,33 @@
   transform: none;
 }
 
-/* altın bar — hem ilerleme göstergesi hem kumanda */
-.v2-slogan__bar {
-  display: flex;
-  gap: var(--s2);
-  width: 100%;
-  max-width: 340px;
-}
-.v2-slogan__bar button {
-  flex: 1;
-  height: 44px; /* dokunma hedefi; görünen ray 4px ve ortada */
-  padding: 0;
+/* Durdurma düğmesi: yalnız klavye odağında görünür. Görsel olarak
+   sayfada yok, ama otomatik dönüşün durdurulabilir olması gerekiyor
+   (WCAG 2.2.2). Sayfanın "İçeriğe geç" bağlantısıyla aynı idiom. */
+.v2-slogan__dur {
+  position: absolute;
+  left: -9999px;
   border: 0;
-  background: none;
+  background: var(--on-dark);
+  color: var(--dark);
+  font: inherit;
+  font-size: var(--t-sm);
+  font-weight: 700;
+  border-radius: var(--r-sm);
   cursor: pointer;
-  display: flex;
-  align-items: center;
 }
-.v2-slogan__ray {
-  display: block;
-  width: 100%;
-  height: 4px;
-  border-radius: var(--r-pill);
-  background: var(--on-dark-todo-line);
-  overflow: hidden;
-}
-.v2-slogan__dolu {
-  display: block;
-  height: 100%;
-  width: 0;
-  border-radius: var(--r-pill);
-  background: var(--amber);
-}
-.v2-slogan__dolu--tam {
-  width: 100%;
-}
-.v2-slogan__dolu--doluyor {
-  animation-name: v2SloganDol;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-}
-@keyframes v2SloganDol {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-.v2-slogan__bar button:hover .v2-slogan__ray {
-  background: var(--on-dark-mut);
-}
-.v2-slogan__bar button:focus-visible {
+.v2-slogan__dur:focus-visible {
+  left: 0;
+  bottom: calc(-1 * var(--s7));
+  padding: var(--s3) var(--s4);
+  min-height: 44px;
   outline: 2px solid var(--amber);
-  outline-offset: 3px;
-  border-radius: var(--r-xs);
+  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .v2-slogan__m {
     transform: none;
-  }
-  /* dolma animasyonu yok; etkin segment dolu görünür */
-  .v2-slogan__dolu--doluyor {
-    animation: none;
-    width: 100%;
   }
 }
 

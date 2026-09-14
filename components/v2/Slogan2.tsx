@@ -6,21 +6,23 @@ import { SLOGANLAR, SURE } from "@/lib/sloganlar";
 /**
  * MANŞET — dönen slogan seti.
  *
- * İş planı slayt 10–11'e göre ana ürün PEŞİN ev sahipliği; kredi yalnızca
- * bizden ev almış müşterilere açılıyor. Bu yüzden eski manşet
- * ("Taksitini kiracınız ödeyecek.") kamuya açık sayfadan kalktı ve yerine
- * slayt 7'deki slogan seti geçti.
+ * İş planı §10–11'e göre ana ürün peşin ev sahipliği; kredi yalnızca
+ * bizden ev almış müşterilere açılıyor. Eski manşet ("Taksitini kiracınız
+ * ödeyecek.") bu yüzden kamuya açık sayfadan kalktı, yerine slayt 7'deki
+ * slogan seti geçti.
  *
- * h1'in içinde üç varyant yığılı duruyor; görünmeyenler aria-hidden, yani
- * erişilebilir ad her an tek bir cümle. Üçü de kaynakta olduğu için
- * tarayıcı ve arama tarafı hepsini görüyor.
+ * h1'in içinde üç varyant yığılı; görünmeyenler aria-hidden, yani
+ * erişilebilir ad her an tek cümle. Üçü de kaynakta olduğu için tarayıcı
+ * ve arama tarafı hepsini görüyor. Aynı ızgara hücresinde durdukları için
+ * kutu en uzun slogana göre yer kaplıyor — dönerken sayfa zıplamıyor.
  *
- * Altın bar hem ilerleme göstergesi hem kumanda: dolan segment o slogana
- * kalan süreyi gösteriyor, tıklanınca o slogana geçip dönüşü durduruyor.
- *
- * WCAG 2.2.2 (otomatik güncellenen içerik) üç kademeyle karşılanıyor:
- * üstüne gelince/odaklanınca duraklıyor, bara basınca tamamen duruyor,
- * prefers-reduced-motion açıkken hiç dönmüyor.
+ * Görünür kumanda YOK (tasarım kararı). WCAG 2.2.2 otomatik güncellenen
+ * içerik için yine de bir durdurma yolu istiyor; üç kademe var:
+ *  - üstüne gelince / içine odaklanınca duraklıyor,
+ *  - klavyeyle ulaşılan gizli bir düğme tamamen durduruyor (yalnız
+ *    odaklanınca görünür — sayfadaki "İçeriğe geç" bağlantısıyla aynı
+ *    idiom),
+ *  - prefers-reduced-motion açıkken hiç dönmüyor.
  */
 export function Slogan2() {
   const [aktif, setAktif] = useState(0);
@@ -43,8 +45,6 @@ export function Slogan2() {
     return () => clearInterval(t);
   }, [durduruldu, duraklat, azHareket]);
 
-  const doluyor = !durduruldu && !azHareket;
-
   return (
     <div
       className="v2-slogan"
@@ -65,42 +65,15 @@ export function Slogan2() {
         ))}
       </h1>
 
-      <div className="v2-slogan__bar" role="group" aria-label="Slogan seç">
-        {SLOGANLAR.map((s, i) => (
-          <button
-            key={s}
-            type="button"
-            aria-label={s}
-            aria-current={i === aktif ? "true" : undefined}
-            onClick={() => {
-              setAktif(i);
-              setDurduruldu(true); /* kullanıcı devraldı */
-            }}
-          >
-            <span className="v2-slogan__ray" aria-hidden="true">
-              <span
-                /* key: her geçişte dolma animasyonu baştan başlasın */
-                key={`${aktif}-${duraklat}`}
-                className={
-                  i < aktif || (i === aktif && !doluyor)
-                    ? "v2-slogan__dolu v2-slogan__dolu--tam"
-                    : i === aktif
-                      ? "v2-slogan__dolu v2-slogan__dolu--doluyor"
-                      : "v2-slogan__dolu"
-                }
-                style={
-                  i === aktif && doluyor
-                    ? {
-                        animationDuration: `${SURE}ms`,
-                        animationPlayState: duraklat ? "paused" : "running",
-                      }
-                    : undefined
-                }
-              />
-            </span>
-          </button>
-        ))}
-      </div>
+      {!durduruldu && !azHareket ? (
+        <button
+          type="button"
+          className="v2-slogan__dur"
+          onClick={() => setDurduruldu(true)}
+        >
+          Slogan dönüşünü durdur
+        </button>
+      ) : null}
     </div>
   );
 }

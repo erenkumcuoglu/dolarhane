@@ -35,6 +35,12 @@ import { dolandiricilikNasilAnlasilir } from "./guven/dolandiricilik-nasil-anlas
 import { tapuKiminAdina } from "./guven/tapu-kimin-adina";
 import { parayiNasilGonderiyorum } from "./guven/parayi-nasil-gonderiyorum";
 import { yurtDisiEvYatirimiRiskleri } from "./guven/yurt-disi-ev-yatirimi-riskleri";
+import { oturumMuGetiriMi } from "./karsilastir/oturum-mu-getiri-mi";
+import { amerikaMiDubaiMi } from "./karsilastir/amerika-mi-dubai-mi";
+import { yunanistanMiAmerikaMi } from "./karsilastir/yunanistan-mi-amerika-mi";
+import { dubaiEvYatirimiRiskleri } from "./karsilastir/dubai-ev-yatirimi-riskleri";
+import { makettenEvAlmakRiskleri } from "./karsilastir/maketten-ev-almak-riskleri";
+import { goldenVisaGercektenGerekliMi } from "./karsilastir/golden-visa-gercekten-gerekli-mi";
 
 export const GOVDELER: Record<string, Blok[]> = {
   "getiri/kira-carpani": kiraCarpani,
@@ -66,4 +72,11 @@ export const GOVDELER: Record<string, Blok[]> = {
   "guven/tapu-kimin-adina": tapuKiminAdina,
   "guven/parayi-nasil-gonderiyorum": parayiNasilGonderiyorum,
   "guven/yurt-disi-ev-yatirimi-riskleri": yurtDisiEvYatirimiRiskleri,
+
+  "karsilastir/oturum-mu-getiri-mi": oturumMuGetiriMi,
+  "karsilastir/amerika-mi-dubai-mi": amerikaMiDubaiMi,
+  "karsilastir/yunanistan-mi-amerika-mi": yunanistanMiAmerikaMi,
+  "karsilastir/dubai-ev-yatirimi-riskleri": dubaiEvYatirimiRiskleri,
+  "karsilastir/maketten-ev-almak-riskleri": makettenEvAlmakRiskleri,
+  "karsilastir/golden-visa-gercekten-gerekli-mi": goldenVisaGercektenGerekliMi,
 };

@@ -93,6 +93,69 @@ export const oturumMuGetiriMi: Blok[] = [
       "önemli bir kriterdir.**",
   },
 
+  { t: "h", metin: "Oturum vermeyen bir mülkün verdiği şey" },
+  {
+    t: "p",
+    metin:
+      "Buraya kadar ne **vermediğimizi** yazdık. Verdiği şey de gerçek ve " +
+      "oturumdan tamamen farklı bir cinsten: **bir izin değil, bir gelir.**",
+  },
+  {
+    t: "tablo",
+    basliklar: ["", "Oturum hakkı", "Kira geliri"],
+    satirlar: [
+      [
+        "Asgari tutar",
+        "Program söylüyor — eşiğin altına inemezsiniz",
+        "**Yok.** Tutarı bütçeniz belirliyor, bir program değil",
+      ],
+      [
+        "Ne zaman işlemeye başlar",
+        "Başvuru ve onay sürecinden sonra",
+        "Ev kiralıysa ilk aydan",
+      ],
+      [
+        "Sizi nereye bağlar",
+        "Yenileme takvimine; bazı programlarda fiziksel bulunma şartına",
+        "**Hiçbir yere.** Gelir, sizin nerede yaşadığınıza bağlı değil",
+      ],
+      [
+        "Vergi statünüz",
+        "İkamet, o ülkede mükellefiyet doğurabiliyor",
+        "Mülkün bulunduğu ülkede kira beyanı; ikamet statünüz değişmiyor",
+      ],
+      [
+        "Mülkü satma özgürlüğü",
+        "Yatırımı sürdürme şartı varsa kısıtlı",
+        "Serbest",
+      ],
+      [
+        "Kural değişimine maruz",
+        "Evet — program siyasi kararla değişebiliyor",
+        "Mülkiyet rejimi bir programa bağlı değil",
+      ],
+    ],
+    vurgu: [0, 2],
+    not:
+      "Vurgulu iki satır asıl farkı taşıyor. Eşik yokluğu, aynı parayla " +
+      "daha fazla ev ya da daha iyi mahalle seçebilmek demek. Bağsızlık " +
+      "ise şu demek: **dolar geliriniz İstanbul'da da, Lizbon'da da, " +
+      "Bangkok'ta da aynı miktarda geliyor.** Bir oturum hakkı sizi " +
+      "kullandığınız ülkeye yaklaştırır; kira geliri hiçbir ülkeye " +
+      "mecbur bırakmaz.",
+  },
+  {
+    t: "not",
+    baslik: "“Pasif gelir” ne kadar pasif",
+    metin:
+      "Kira geliri sık sık pasif gelir olarak anlatılıyor ve tamamen " +
+      "yanlış değil: evi siz yönetmiyorsunuz, kiracıyı siz bulmuyorsunuz, " +
+      "tahsilatı siz yapmıyorsunuz. Ama **bedelsiz de değil** — yönetim " +
+      "ücreti, boşluk, devir ve büyük onarım her zaman var. Bu sitede " +
+      "bunların hepsini ayrı ayrı yazdık. Pasif olan sizin emeğiniz; " +
+      "gider kalemleri pasif değil.",
+  },
+
   { t: "h", metin: "Getiri istiyorsanız" },
   {
     t: "p",
@@ -126,8 +189,10 @@ export const oturumMuGetiriMi: Blok[] = [
     ],
     vurgu: [2, 5],
     not:
-      "Altı satırın dördünde cevap hayır. Bu bir eksiklik değil; " +
-      "ne sattığımızı bilmek, ne satmadığımızı da bilmek demek.",
+      "Altı satırın dördünde cevap hayır. Bu bir eksiklik değil: " +
+      "tek bir şey yapıyoruz ve onu yaptığımızı söylüyoruz. " +
+      "Son iki satırdaysanız — dolar cinsinden, uzun vadeli, eşiksiz bir " +
+      "gelir arıyorsanız — konuşacak çok şeyimiz var.",
   },
 
   {

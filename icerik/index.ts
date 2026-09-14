@@ -41,6 +41,16 @@ import { yunanistanMiAmerikaMi } from "./karsilastir/yunanistan-mi-amerika-mi";
 import { dubaiEvYatirimiRiskleri } from "./karsilastir/dubai-ev-yatirimi-riskleri";
 import { makettenEvAlmakRiskleri } from "./karsilastir/maketten-ev-almak-riskleri";
 import { goldenVisaGercektenGerekliMi } from "./karsilastir/golden-visa-gercekten-gerekli-mi";
+import { abdVeraserVergisiYabancilar } from "./vergi/abd-veraset-vergisi-yabancilar";
+import { beyan1040NR } from "./vergi/1040-nr-beyani";
+import { itinNasilAlinir } from "./vergi/itin-nasil-alinir";
+import { firpta } from "./vergi/firpta";
+import { w8ben } from "./vergi/w-8ben";
+import { llcMiSahisMi } from "./vergi/llc-mi-sahis-mi";
+import { turkiyedeYurtDisiKiraGeliriBeyani } from "./vergi/turkiyede-yurt-disi-kira-geliri-beyani";
+import { cifteVergilendirmeTrAbd } from "./vergi/cifte-vergilendirme-tr-abd";
+import { abdEmlakVergisi } from "./vergi/abd-emlak-vergisi";
+import { depreciationAmortisman } from "./vergi/depreciation-amortisman";
 
 export const GOVDELER: Record<string, Blok[]> = {
   "getiri/kira-carpani": kiraCarpani,
@@ -79,4 +89,18 @@ export const GOVDELER: Record<string, Blok[]> = {
   "karsilastir/dubai-ev-yatirimi-riskleri": dubaiEvYatirimiRiskleri,
   "karsilastir/maketten-ev-almak-riskleri": makettenEvAlmakRiskleri,
   "karsilastir/golden-visa-gercekten-gerekli-mi": goldenVisaGercektenGerekliMi,
+
+  /* VERGİ KÜMESİ — tamamı taslak. CPA imzası olmadan yayınlanmıyor
+     (SEO-GEO-PLAN §7). Gövdeler burada duruyor ki imza geldiğinde
+     lib/icerik.ts'te `durum` alanını çevirmek yetsin. */
+  "vergi/abd-veraset-vergisi-yabancilar": abdVeraserVergisiYabancilar,
+  "vergi/1040-nr-beyani": beyan1040NR,
+  "vergi/itin-nasil-alinir": itinNasilAlinir,
+  "vergi/firpta": firpta,
+  "vergi/w-8ben": w8ben,
+  "vergi/llc-mi-sahis-mi": llcMiSahisMi,
+  "vergi/turkiyede-yurt-disi-kira-geliri-beyani": turkiyedeYurtDisiKiraGeliriBeyani,
+  "vergi/cifte-vergilendirme-tr-abd": cifteVergilendirmeTrAbd,
+  "vergi/abd-emlak-vergisi": abdEmlakVergisi,
+  "vergi/depreciation-amortisman": depreciationAmortisman,
 };

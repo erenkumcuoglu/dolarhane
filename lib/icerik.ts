@@ -499,6 +499,116 @@ export const YAZILAR: Yazi[] = [
     guncelleme: "2026-09-14",
     durum: "yayin",
   },
+  {
+    slug: "abd-veraset-vergisi-yabancilar",
+    kume: "vergi",
+    baslik: "ABD veraset vergisi: yabancılar için 60.000 dolar istisnası",
+    ozet:
+      "ABD'de gayrimenkulü olan ve ABD'de yerleşik olmayan bir yabancı vefat ettiğinde mülk ABD veraset vergisine tabi. İstisna dramatik biçimde düşük ve gelir vergisi anlaşması bunu çözmüyor.",
+    tazelik: "denetim",
+    // TASLAK: YMYL — CPA imzası olmadan yayınlanmıyor (SEO-GEO-PLAN §7).
+    // İmza geldiğinde bu satır "yayin" olur ve `guncelleme` tarihi girilir.
+    durum: "taslak",
+  },
+  {
+    slug: "1040-nr-beyani",
+    kume: "vergi",
+    baslik: "1040-NR: yıllık beyan ve iki vergilendirme yöntemi",
+    ozet:
+      "Beyan vermemek geliri vergisiz bırakmıyor, daha ağır yöntemle vergilendiriyor: brüt kira üzerinden sabit kesinti yerine net gelir üzerinden vergilenmek bir seçim gerektiriyor.",
+    tazelik: "denetim",
+    // TASLAK: YMYL — CPA imzası olmadan yayınlanmıyor (SEO-GEO-PLAN §7).
+    // İmza geldiğinde bu satır "yayin" olur ve `guncelleme` tarihi girilir.
+    durum: "taslak",
+  },
+  {
+    slug: "itin-nasil-alinir",
+    kume: "vergi",
+    baslik: "ITIN nasıl alınır",
+    ozet:
+      "ABD'de kira geliri beyan edecek bir yabancı için zorunlu vergi kimlik numarası. Oturum ya da çalışma iznyle ilgisi yok; pasaportu postalamamanın iki yolu var.",
+    tazelik: "denetim",
+    // TASLAK: YMYL — CPA imzası olmadan yayınlanmıyor (SEO-GEO-PLAN §7).
+    // İmza geldiğinde bu satır "yayin" olur ve `guncelleme` tarihi girilir.
+    durum: "taslak",
+  },
+  {
+    slug: "firpta",
+    kume: "vergi",
+    baslik: "FIRPTA: satışta yapılan stopaj",
+    ozet:
+      "Vergi değil, vergiye mahsup edilmek üzere kaynakta tutulan tutar — ve kazanç değil satış bedeli üzerinden hesaplanıyor. Zararına satışta bile doğabiliyor.",
+    tazelik: "denetim",
+    // TASLAK: YMYL — CPA imzası olmadan yayınlanmıyor (SEO-GEO-PLAN §7).
+    // İmza geldiğinde bu satır "yayin" olur ve `guncelleme` tarihi girilir.
+    durum: "taslak",
+  },
+  {
+    slug: "w-8ben",
+    kume: "vergi",
+    baslik: "W-8BEN ve diğer W-8 formları",
+    ozet:
+      "Vergi beyanı değil, beyan öncesi bildirim. Doğru formu vermezseniz karşı taraf en yüksek kesintiyi uygulamak durumunda kalıyor.",
+    tazelik: "denetim",
+    // TASLAK: YMYL — CPA imzası olmadan yayınlanmıyor (SEO-GEO-PLAN §7).
+    // İmza geldiğinde bu satır "yayin" olur ve `guncelleme` tarihi girilir.
+    durum: "taslak",
+  },
+  {
+    slug: "llc-mi-sahis-mi",
+    kume: "vergi",
+    baslik: "LLC mi, kendi adıma mı",
+    ozet:
+      "Yaygın yanlış inanç: LLC kurmak vergiyi azaltmıyor. Sağladığı şey sorumluluk ayrımı ve maliyeti var; veraset riskini de otomatik çözmüyor.",
+    tazelik: "denetim",
+    // TASLAK: YMYL — CPA imzası olmadan yayınlanmıyor (SEO-GEO-PLAN §7).
+    // İmza geldiğinde bu satır "yayin" olur ve `guncelleme` tarihi girilir.
+    durum: "taslak",
+  },
+  {
+    slug: "turkiyede-yurt-disi-kira-geliri-beyani",
+    kume: "vergi",
+    baslik: "Türkiye'de yurt dışı kira gelirinin beyanı",
+    ozet:
+      "Türkiye'de tam mükellefseniz dünya çapındaki geliriniz beyana tabi. ABD'de beyan vermiş olmak bu yükümlülüğü kaldırmıyor — ama mahsup mekanizması çifte yükü önlüyor.",
+    tazelik: "denetim",
+    // TASLAK: YMYL — CPA imzası olmadan yayınlanmıyor (SEO-GEO-PLAN §7).
+    // İmza geldiğinde bu satır "yayin" olur ve `guncelleme` tarihi girilir.
+    durum: "taslak",
+  },
+  {
+    slug: "cifte-vergilendirme-tr-abd",
+    kume: "vergi",
+    baslik: "Türkiye-ABD çifte vergilendirme anlaşması",
+    ozet:
+      "Kira geliriniz anlaşma kapsamında. En kritik bilgi ise kapsamadığı taraf: gelir vergisi anlaşması veraset vergisi hakkında hiçbir koruma sağlamıyor.",
+    tazelik: "denetim",
+    // TASLAK: YMYL — CPA imzası olmadan yayınlanmıyor (SEO-GEO-PLAN §7).
+    // İmza geldiğinde bu satır "yayin" olur ve `guncelleme` tarihi girilir.
+    durum: "taslak",
+  },
+  {
+    slug: "abd-emlak-vergisi",
+    kume: "vergi",
+    baslik: "ABD'de emlak vergisi",
+    ozet:
+      "Türk alıcının hesabında en çok eksik kalan kalem. Yerel belirlendiği için tahmin edilemez, yalnız ilçe kaydından kontrol edilebilir — ve satış yeniden değerlemeyi tetikleyebiliyor.",
+    tazelik: "denetim",
+    // TASLAK: YMYL — CPA imzası olmadan yayınlanmıyor (SEO-GEO-PLAN §7).
+    // İmza geldiğinde bu satır "yayin" olur ve `guncelleme` tarihi girilir.
+    durum: "taslak",
+  },
+  {
+    slug: "depreciation-amortisman",
+    kume: "vergi",
+    baslik: "Amortisman (depreciation) ve satışta geri alımı",
+    ozet:
+      "Nakit çıkışı olmadan vergi matrahını düşüren en güçlü araç. Ama vergi affı değil erteleme: satışta kazanca ekleniyor, ve yazmamak sizi korumuyor.",
+    tazelik: "denetim",
+    // TASLAK: YMYL — CPA imzası olmadan yayınlanmıyor (SEO-GEO-PLAN §7).
+    // İmza geldiğinde bu satır "yayin" olur ve `guncelleme` tarihi girilir.
+    durum: "taslak",
+  },
 ];
 
 /* ── Türetilmiş yardımcılar ──────────────────────────────────── */

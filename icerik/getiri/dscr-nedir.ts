@@ -36,7 +36,7 @@ export const dscrNedir: Blok[] = [
     t: "tablo",
     basliklar: ["", "Kişiye bakan kredi", "Mülke bakan kredi"],
     satirlar: [
-      ["Neye bakılır", "Gelir, kredi notu, borç/gelir oranı", "Mülkün net işletme geliri"],
+      ["Neye bakılır", "Gelir, kredi notu, borç/gelir oranı", "Mülkün [net işletme geliri](/getiri/cap-rate-nedir/)"],
       ["Yabancı için", "Zor — ABD geçmişi yok", "Mümkün"],
       ["Peşinat", "Daha düşük olabiliyor", "Genelde daha yüksek"],
       ["Faiz", "Daha düşük", "Daha yüksek"],
@@ -61,7 +61,7 @@ export const dscrNedir: Blok[] = [
     metin:
       "Banka 1,20'yi kabul ediyor olabilir ama bu sizin için yeterli " +
       "olduğu anlamına gelmiyor. Bankanın riski krediyle sınırlı; sizinki " +
-      "değil. Boşluk, devir ve capex'i de karşılayacak bir pay istiyorsanız " +
+      "değil. [Boşluk, devir ve capex'i](/getiri/brut-vs-net-getiri/) de karşılayacak bir pay istiyorsanız " +
       "kendi eşiğinizi daha yukarıda tutmanız gerekir.",
   },
 
@@ -82,7 +82,7 @@ export const dscrNedir: Blok[] = [
       {
         s: "DSCR ile kirayla karşılama oranı aynı şey mi?",
         c:
-          "Yakın ama aynı değil. Kirayla karşılama oranı **brüt kirayı** " +
+          "Yakın ama aynı değil. [Kirayla karşılama oranı](/getiri/kirayla-karsilama-orani/) **brüt kirayı** " +
           "taksite böler; DSCR **net işletme gelirini** böler. DSCR daha " +
           "muhafazakâr ve daha gerçekçidir; karşılama oranı daha hızlı bir " +
           "ön elemedir.",
@@ -92,7 +92,7 @@ export const dscrNedir: Blok[] = [
         c:
           "Bazı kredi verenler mülkün bir tüzel kişilik adına olmasını " +
           "istiyor, bazıları istemiyor. Şart, krediyi verene göre değişiyor " +
-          "ve başvurmadan önce sorulmalı — çünkü tapu yapısı kararını " +
+          "ve başvurmadan önce sorulmalı — çünkü [tapu yapısı](/guven/tapu-kimin-adina/) kararını " +
           "etkiliyor.",
       },
       {

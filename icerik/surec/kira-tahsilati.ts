@@ -5,7 +5,7 @@ export const kiraTahsilati: Blok[] = [
   {
     t: "p",
     metin:
-      "Kira size doğrudan gelmiyor. Kiracı yönetim şirketine ödüyor, şirket " +
+      "Kira size doğrudan gelmiyor. Kiracı [yönetim şirketine](/surec/property-management-sozlesmesi/) ödüyor, şirket " +
       "giderleri ve kendi ücretini düşüyor, kalanı sizin hesabınıza " +
       "aktarıyor. Aradaki her adım kayıtlı ve aylık raporda satır satır " +
       "görünüyor — **bu yüzden tahsilat, güvenilmesi gereken değil " +
@@ -19,7 +19,7 @@ export const kiraTahsilati: Blok[] = [
     maddeler: [
       "Kiracı ayın belirlenen gününde yönetim şirketinin sistemine öder — genellikle otomatik banka transferiyle.",
       "Şirket tahsil edilen tutardan **yönetim ücretini** düşer (sektörde yaygın aralık tahsil edilen kiranın %8–10'u).",
-      "O ay yapılmış tamir, aidat ya da vergi ödemesi varsa o da düşülür.",
+      "O ay yapılmış [tamir](/surec/tamir-masrafini-kim-oduyor/), aidat ya da vergi ödemesi varsa o da düşülür.",
       "Kalan tutar sizin ABD banka hesabınıza aktarılır; genellikle ayın belirli bir gününde.",
       "Aynı gün aylık gelir-gider raporu (owner statement) yayınlanır.",
     ],
@@ -62,7 +62,7 @@ export const kiraTahsilati: Blok[] = [
       "Sözleşmede yazılı **ödemesiz gün** dolar (genellikle birkaç gün).",
       "Gecikme bedeli işler ve hatırlatma gönderilir.",
       "Ödeme hâlâ gelmezse yasal ihbar verilir; süresi ve biçimi eyalete göre sıkı kurallara bağlıdır.",
-      "Çözülmezse mahkeme süreci başlar.",
+      "Çözülmezse [mahkeme süreci](/surec/amerikada-tahliye-sureci/) başlar.",
     ],
   },
   {
@@ -72,7 +72,7 @@ export const kiraTahsilati: Blok[] = [
       "Tahsilat kaybı sıfır değildir ve sıfır olacağını söyleyen hesaba " +
       "güvenmeyin. Getiri modelinde her zaman bir tahsilat kaybı payı " +
       "bulunmalı; payı düşük tutmanın yolu kirayı yükseltmek değil, " +
-      "kiracı elemesini sıkı tutmaktır.",
+      "[kiracı elemesini sıkı tutmaktır](/surec/kiraci-nasil-bulunuyor/).",
   },
 
   { t: "h", metin: "Para Türkiye'ye nasıl geliyor" },
@@ -80,7 +80,7 @@ export const kiraTahsilati: Blok[] = [
     t: "p",
     metin:
       "Kira önce **sizin adınıza açılmış ABD hesabına** geçer. Oradan " +
-      "Türkiye'ye transfer tamamen sizin kontrolünüzdedir: istediğiniz " +
+      "[Türkiye'ye transfer](/surec/para-transferi/) tamamen sizin kontrolünüzdedir: istediğiniz " +
       "zaman, istediğiniz tutarda. Çoğu yatırımcı biriktirip yılda birkaç " +
       "kez transfer ediyor, çünkü her transferin masrafı var.",
   },

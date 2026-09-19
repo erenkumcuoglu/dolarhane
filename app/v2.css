@@ -2017,3 +2017,18 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+/* Gövde cümlesi içindeki bağlantı — altı çizili olmak zorunda.
+   Gerekçe ve ölçüm app/yazi.css'teki `.v2 .yazi article a` notunda. */
+.v2 .ort-seffaf__ler a {
+  color: var(--amber-text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--amber-text) 55%, transparent);
+}
+.v2 .ort-seffaf__ler a:hover,
+.v2 .ort-seffaf__ler a:focus-visible {
+  color: var(--ink);
+  text-decoration-color: currentColor;
+}

@@ -22,11 +22,11 @@ export const closingCosts: Blok[] = [
     t: "tablo",
     basliklar: ["Kalem", "Ne için", "Kim öder"],
     satirlar: [
-      ["Title araştırması ve sigortası", "Tapu riskinin taranması ve sigortalanması", "Bölgesel teamüle göre değişir"],
-      ["Escrow / kapanış hizmeti", "Tarafsız üçüncü tarafın ücreti", "Genelde paylaşılır"],
+      ["[Title araştırması ve sigortası](/surec/title-insurance/)", "Tapu riskinin taranması ve sigortalanması", "Bölgesel teamüle göre değişir"],
+      ["[Escrow / kapanış hizmeti](/surec/escrow-nedir/)", "Tarafsız üçüncü tarafın ücreti", "Genelde paylaşılır"],
       ["Tescil harcı", "Tapunun ilçe kütüğüne işlenmesi", "Alıcı"],
       ["Devir vergisi", "Mülkiyet devrinden alınan vergi", "Eyalete göre değişir; bazı yerlerde yok"],
-      ["Ev incelemesi", "Bağımsız teknik rapor", "Alıcı"],
+      ["Ev incelemesi", "[Bağımsız teknik rapor](/surec/evi-gormeden-ev-almak/)", "Alıcı"],
       ["Değerleme", "Piyasa değeri tespiti", "Alıcı"],
       ["Peşin ödenen emlak vergisi ve sigorta", "Dönemsel paylaşım", "Alıcı"],
       ["Kredi masrafları", "Kredi kullanılıyorsa dosya ve işlem ücretleri", "Alıcı"],
@@ -59,7 +59,7 @@ export const closingCosts: Blok[] = [
     maddeler: [
       "Boya, temizlik, küçük tamirler.",
       "İnceleme raporunda çıkan ve kiracı girmeden yapılması gereken işler.",
-      "İlan ve ilk yerleştirme ücreti.",
+      "[İlan ve ilk yerleştirme ücreti](/surec/kiraci-nasil-bulunuyor/).",
       "Ev kiracı bulana kadar geçen sürenin vergisi, sigortası ve faturaları.",
     ],
   },
@@ -68,8 +68,8 @@ export const closingCosts: Blok[] = [
     baslik: "Kiralı alırsanız",
     metin:
       "Ev kiracılı satın alınıyorsa hazırlık kalemlerinin çoğu düşer ve " +
-      "kira ilk aydan başlar. Bu gerçek bir avantajdır — ama mevcut kiranın " +
-      "piyasa kirası olup olmadığı ayrıca kontrol edilmeli.",
+      "kira ilk aydan başlar. Bu gerçek bir avantajdır — ama [mevcut kiranın " +
+      "piyasa kirası olup olmadığı](/getiri/getiri-tuzaklari/) ayrıca kontrol edilmeli.",
   },
 
   { t: "h", metin: "Hesabı doğru kurmak" },
@@ -79,8 +79,8 @@ export const closingCosts: Blok[] = [
     maddeler: [
       "Fiyat + kapanış masrafları + hazırlık = **yatırılan sermaye**.",
       "Yıllık brüt kiradan boşluk ve tahsilat kaybını düşün.",
-      "İşletme giderlerini düşün: vergi, sigorta, yönetim, bakım, capex rezervi.",
-      "Kalan net geliri **yatırılan sermayeye** bölün.",
+      "[İşletme giderlerini düşün](/getiri/nakit-akisi-nasil-hesaplanir/): vergi, sigorta, yönetim, bakım, capex rezervi.",
+      "Kalan net geliri [yatırılan sermayeye](/hesap/) bölün.",
     ],
   },
   {

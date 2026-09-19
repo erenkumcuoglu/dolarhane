@@ -19,8 +19,8 @@ export const kiraCarpani: Blok[] = [
   {
     t: "p",
     metin:
-      "Kağıt üstünde. Çünkü bu hesap **brüt kirayı** kullanır ve brüt kira, " +
-      "elinize geçen para değildir. Asıl soru çarpanın kaç olduğu değil, " +
+      "Kağıt üstünde. Çünkü bu hesap **brüt kirayı** kullanır ve [brüt kira, " +
+      "elinize geçen para değildir](/getiri/brut-vs-net-getiri/). Asıl soru çarpanın kaç olduğu değil, " +
       "çarpanı hesaplarken hangi kirayı kullandığınızdır.",
   },
 
@@ -63,12 +63,12 @@ export const kiraCarpani: Blok[] = [
     satirlar: [
       [
         "Boşluk",
-        "Evin kiracısız geçirdiği süre gelirden düşer",
+        "[Evin kiracısız geçirdiği süre](/surec/ev-bos-kalirsa/) gelirden düşer",
         "Hesap, evin 12 ay dolu olduğunu varsayar",
       ],
       [
         "Devir maliyeti",
-        "Her kiracı değişiminde boşluk + hazırlık gideri",
+        "[Her kiracı değişiminde](/surec/kiraci-nasil-bulunuyor/) boşluk + hazırlık gideri",
         "Kiracı ne sıklıkla değişiyor, hesaba hiç girmez",
       ],
       [
@@ -78,13 +78,13 @@ export const kiraCarpani: Blok[] = [
       ],
       [
         "Bakım ve büyük onarım",
-        "Rutin bakım ayrı, çatı/tesisat gibi kalemler ayrı",
+        "Rutin bakım ayrı, [çatı/tesisat gibi kalemler](/surec/tamir-masrafini-kim-oduyor/) ayrı",
         "Yıllara yayıldığı için aylık hesapta görünmez",
       ],
     ],
     not:
       "Bu dört kalem düşüldükten sonra kalan rakam **net kira**dır. " +
-      "Çarpanı net kirayla yeniden hesaplayın; gerçek amortisman süresi odur.",
+      "[Çarpanı net kirayla yeniden hesaplayın](/hesap/); gerçek amortisman süresi odur.",
   },
   {
     t: "p",

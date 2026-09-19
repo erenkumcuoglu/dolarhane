@@ -51,8 +51,8 @@ export const eviGormedenEvAlmak: Blok[] = [
       ],
       [
         "Tapu araştırması (title search)",
-        "Mülkiyet zinciri, ipotek, haciz, vergi borcu, komşu hak iddiası.",
-        "Sizin için. Sonucu title insurance ile sigortalanır.",
+        "[Mülkiyet zinciri, ipotek, haciz, vergi borcu, komşu hak iddiası](/surec/title-insurance/).",
+        "Sizin için. Sonucu [title insurance](/surec/title-insurance/) ile sigortalanır.",
       ],
     ],
     not:
@@ -109,7 +109,7 @@ export const eviGormedenEvAlmak: Blok[] = [
     sirali: true,
     maddeler: [
       "Ev şu anda kiralıysa **mevcut kira sözleşmesini** isteyin. Tutar, süre ve kiracının ödeme geçmişi orada yazılıdır.",
-      "Boşsa, aynı mahallede benzer büyüklükteki evlerin **ilan edilmiş** kiralarına bakın — iddia edilen değil, ilan edilen.",
+      "Boşsa, aynı mahallede benzer büyüklükteki evlerin **ilan edilmiş** kiralarına bakın — [iddia edilen değil, ilan edilen](/getiri/getiri-tuzaklari/).",
       "Bağımsız bir kira analizi isteyin. Satıcıdan ayrı bir taraf, bölgenin kira verisinden tahmin üretir.",
     ],
   },
@@ -118,7 +118,7 @@ export const eviGormedenEvAlmak: Blok[] = [
     baslik: "Aleyhimize olan not",
     metin:
       "Kiralı satılan bir ev her zaman iyi haber değildir. Piyasanın üstünde " +
-      "bir kirayla oturan kiracı, sözleşme bitince çıkabilir ve ev gerçek " +
+      "bir kirayla oturan kiracı, [sözleşme bitince çıkabilir](/surec/kiraci-nasil-bulunuyor/) ve ev gerçek " +
       "piyasa kirasına döner. Mevcut kirayı değil, **piyasa kirasını** " +
       "hesaba koyun.",
   },
@@ -147,7 +147,7 @@ export const eviGormedenEvAlmak: Blok[] = [
       ],
       [
         "Finansman şartı",
-        "Kredi çıkmazsa kapora yanmadan çıkma hakkı",
+        "Kredi çıkmazsa [kapora](/surec/escrow-nedir/) yanmadan çıkma hakkı",
         "Kredi onayına bağlı",
       ],
       [
@@ -168,7 +168,7 @@ export const eviGormedenEvAlmak: Blok[] = [
       {
         s: "Evi görmeden almak yasal olarak sorunlu mu?",
         c:
-          "Hayır. Amerika'da kapanış çoğunlukla taraflar aynı odada olmadan " +
+          "Hayır. Amerika'da [kapanış çoğunlukla taraflar aynı odada olmadan](/surec/uzaktan-tapu-kapanisi/) " +
           "yapılır; imzalar noter ya da konsolosluk aracılığıyla uzaktan " +
           "atılabilir. Evi görmek yasal bir şart değil, ticari bir tercihtir.",
       },

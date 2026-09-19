@@ -22,16 +22,16 @@ export const nakitAkisiNasilHesaplanir: Blok[] = [
     basliklar: ["Basamak", "İşlem", "Sık yapılan hata"],
     satirlar: [
       ["Brüt kira", "Aylık kira × 12", "Piyasa kirası yerine iddia edilen kirayı kullanmak"],
-      ["− Boşluk", "Bir yüzde payı düş", "Sıfır kabul etmek"],
+      ["[− Boşluk](/surec/ev-bos-kalirsa/)", "Bir yüzde payı düş", "Sıfır kabul etmek"],
       ["− Tahsilat kaybı", "Ayrı bir pay düş", "Boşlukla aynı şey sanmak"],
       ["= Tahsil edilen kira", "", ""],
       ["− Emlak vergisi", "Yıllık", "Bölgesel farkı hafife almak"],
       ["− Sigorta", "Yıllık", ""],
-      ["− Yönetim ücreti", "Tahsil edilen üzerinden yüzde", "Sözleşmedeki kira üzerinden hesaplandığını fark etmemek"],
+      ["[− Yönetim ücreti](/surec/property-management-sozlesmesi/)", "Tahsil edilen üzerinden yüzde", "Sözleşmedeki kira üzerinden hesaplandığını fark etmemek"],
       ["− Bakım", "Yüzde ya da sabit", ""],
       ["− Capex rezervi", "Ayrı kalem", "Bakımla birleştirmek ya da hiç ayırmamak"],
       ["− Aidat", "Varsa", ""],
-      ["= Net işletme geliri", "Cap rate buradan hesaplanır", ""],
+      ["= Net işletme geliri", "[Cap rate](/getiri/cap-rate-nedir/) buradan hesaplanır", ""],
       ["− Kredi taksiti", "Anapara + faiz", ""],
       ["= Nakit akışı", "Cebinize kalan", ""],
     ],
@@ -53,7 +53,7 @@ export const nakitAkisiNasilHesaplanir: Blok[] = [
     t: "liste",
     maddeler: [
       "Peşinat",
-      "Kapanış masrafları",
+      "[Kapanış masrafları](/surec/closing-costs/)",
       "Kiraya hazırlık giderleri",
     ],
   },
@@ -100,7 +100,7 @@ export const nakitAkisiNasilHesaplanir: Blok[] = [
         c:
           "Tek bir doğru oran yok; yapının yaşına ve durumuna bağlı. " +
           "Mantık şu: çatı, ısıtma sistemi ve su ısıtıcının kalan ömrünü " +
-          "tahmin edin, değişim maliyetini o aylara bölün. İnceleme " +
+          "tahmin edin, [değişim maliyetini](/surec/tamir-masrafini-kim-oduyor/) o aylara bölün. İnceleme " +
           "raporu bu tahmini yapmanızı sağlayan belgedir.",
       },
       {
@@ -114,7 +114,7 @@ export const nakitAkisiNasilHesaplanir: Blok[] = [
         s: "Peşin alırsam nakit akışı ne olur?",
         c:
           "Kredi taksiti olmadığı için nakit akışı net işletme gelirine " +
-          "eşitlenir ve daha yüksek çıkar. Ama koyduğunuz sermaye çok " +
+          "eşitlenir ve daha yüksek çıkar — [bizim modelimiz bu](/hesap/). Ama koyduğunuz sermaye çok " +
           "daha büyük olduğu için **yüzde olarak** getiriniz genellikle " +
           "düşer. Hangisinin doğru olduğu paranın alternatif kullanımına " +
           "bağlı.",

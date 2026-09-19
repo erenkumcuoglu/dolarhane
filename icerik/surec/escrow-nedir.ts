@@ -25,9 +25,9 @@ export const escrowNedir: Blok[] = [
     maddeler: [
       "Sözleşme imzalanır ve alıcı **kapora**yı (earnest money) escrow hesabına yatırır. Bu para satıcıya gitmez.",
       "Escrow talimatları yazılır: hangi şartlar sağlanınca para serbest kalacak.",
-      "İnceleme, değerleme ve tapu araştırması yapılır; şartlar tek tek kapanır.",
+      "İnceleme, değerleme ve [tapu araştırması](/surec/title-insurance/) yapılır; şartlar tek tek kapanır.",
       "Alıcı kalan tutarı havale eder.",
-      "Escrow aynı anda parayı satıcıya, tapuyu alıcıya geçirir ve tescili başlatır.",
+      "Escrow aynı anda parayı satıcıya, tapuyu alıcıya geçirir ve [tescili başlatır](/surec/uzaktan-tapu-kapanisi/).",
     ],
   },
   {
@@ -38,7 +38,7 @@ export const escrowNedir: Blok[] = [
       "genellikle size iade edilir — inceleme kötü çıktı, kredi çıkmadı, " +
       "tapuda sorun bulundu gibi. Şartsız çekilirseniz kapora satıcıda " +
       "kalabilir. **Şartların sözleşmeye yazılmış olması bu yüzden " +
-      "önemlidir** (bkz. evi görmeden ev almak).",
+      "önemlidir** — [şartların nasıl yazıldığı ayrı bir yazıda](/surec/evi-gormeden-ev-almak/).",
   },
 
   { t: "h", metin: "Kim yürütüyor" },
@@ -62,7 +62,7 @@ export const escrowNedir: Blok[] = [
     satirlar: [
       ["Escrow / kapanış şirketi", "Para ve belgeler", "Her iki tarafa eşit mesafede"],
       ["Emlakçı", "Hiçbiri", "Kendi müvekkiline"],
-      ["Yönetim şirketi", "Kapanışta rolü yok", "Size, kapanıştan sonra"],
+      ["[Yönetim şirketi](/surec/property-management-sozlesmesi/)", "Kapanışta rolü yok", "Size, kapanıştan sonra"],
     ],
     not:
       "Emlakçı ve yönetim şirketi kapanış parasını **tutmaz.** Para " +
@@ -75,7 +75,7 @@ export const escrowNedir: Blok[] = [
       {
         s: "Escrow ücreti ne kadar?",
         c:
-          "Kapanış masraflarının bir kalemidir ve işlem büyüklüğüne göre " +
+          "[Kapanış masraflarının](/surec/closing-costs/) bir kalemidir ve işlem büyüklüğüne göre " +
           "değişir. Genelde alıcı ve satıcı arasında paylaşılır; paylaşım " +
           "bölgesel teamüle ve pazarlığa bağlıdır.",
       },

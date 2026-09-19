@@ -51,9 +51,9 @@ export const amerikadaTahliyeSureci: Blok[] = [
     satirlar: [
       ["Mahkeme harcı", "Görece küçük", "Eyalet ve ilçeye göre değişir"],
       ["Avukat", "Değişken", "Basit dosyada yönetim şirketi kendi yürütebiliyor"],
-      ["Kaybedilen kira", "Genelde en büyük kalem", "İhbardan icraya kadar geçen tüm süre"],
+      ["[Kaybedilen kira](/surec/ev-bos-kalirsa/)", "Genelde en büyük kalem", "İhbardan icraya kadar geçen tüm süre"],
       ["Yeniden hazırlık", "Değişken", "Tahliyeyle çıkan kiracı evi iyi bırakmıyor"],
-      ["Yeni yerleştirme ücreti", "Bir aylık kiranın yarısı ile tamamı arası", "Süreç bitince yeniden doğar"],
+      ["[Yeni yerleştirme ücreti](/surec/kiraci-nasil-bulunuyor/)", "Bir aylık kiranın yarısı ile tamamı arası", "Süreç bitince yeniden doğar"],
     ],
     vurgu: [2],
     not:
@@ -65,7 +65,7 @@ export const amerikadaTahliyeSureci: Blok[] = [
     baslik: "Depozito bunu karşılamaz",
     metin:
       "Depozito genellikle bir aylık kira civarındadır ve tahliyeye giden " +
-      "bir dosyada biriken kayıp bunu aşar. Kalan fark için yasal takip " +
+      "bir dosyada [biriken kayıp](/getiri/brut-vs-net-getiri/) bunu aşar. Kalan fark için yasal takip " +
       "mümkündür ama tahsil edilebilirliği düşüktür. **Pratikte asıl " +
       "koruma tahliye değil, kiracı elemesidir.**",
   },
@@ -93,7 +93,7 @@ export const amerikadaTahliyeSureci: Blok[] = [
         s: "Tahliye sürecini ben mi yürütüyorum?",
         c:
           "Hayır, yönetim şirketi yürütüyor. Sizin rolünüz kararı onaylamak " +
-          "ve masrafı karşılamak. Sözleşmede tahliye masraflarının nasıl " +
+          "ve masrafı karşılamak. [Sözleşmede](/surec/property-management-sozlesmesi/) tahliye masraflarının nasıl " +
           "paylaşılacağı yazılı olmalı.",
       },
       {

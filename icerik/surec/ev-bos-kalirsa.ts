@@ -21,7 +21,7 @@ export const evBosKalirsa: Blok[] = [
       ["Sigorta", "Devam eder; uzun boşlukta poliçe koşulları değişebilir"],
       ["Aidat (varsa)", "Devam eder"],
       ["Su, elektrik, doğalgaz", "Kiracı çıkınca ev sahibine döner"],
-      ["Yönetim ücreti", "Genelde durur — tahsil edilen kira üzerinden alınır"],
+      ["[Yönetim ücreti](/surec/property-management-sozlesmesi/)", "Genelde durur — tahsil edilen kira üzerinden alınır"],
       ["Kredi taksiti", "Devam eder"],
     ],
     vurgu: [1, 6],
@@ -53,7 +53,7 @@ export const evBosKalirsa: Blok[] = [
       "Bir kiracının çıkıp yenisinin girmesi yalnız boş geçen ayı " +
       "maliyetlendirmiyor: ev yeniden kiraya hazırlanıyor (boya, temizlik, " +
       "küçük tamir) ve yönetim şirketine yeniden **yerleştirme ücreti** " +
-      "ödeniyor. Bu yüzden uzun kalan bir kiracı, yüksek kiradan daha " +
+      "ödeniyor. Bu yüzden [uzun kalan bir kiracı](/surec/kiraci-nasil-bulunuyor/), yüksek kiradan daha " +
       "değerlidir. Kirayı her yıl piyasanın tepesine çekmek çoğu zaman " +
       "net getiriyi düşürür.",
   },
@@ -64,7 +64,7 @@ export const evBosKalirsa: Blok[] = [
     metin:
       "Doğru yöntem, boşluğu “olursa” diye düşünmek değil, yıllık gelirden " +
       "sabit bir yüzde düşmek. Getiri hesabınızda boşluk payı yoksa hesap " +
-      "brütün başka bir adıdır.",
+      "[brütün başka bir adıdır](/getiri/brut-vs-net-getiri/).",
   },
   {
     t: "liste",
@@ -72,7 +72,7 @@ export const evBosKalirsa: Blok[] = [
       "Yıllık brüt kiradan bir **boşluk payı** düşün.",
       "Ayrı bir **tahsilat kaybı** payı ekleyin — boşlukla aynı şey değil.",
       "Devir sıklığını tahmin edin ve her devirin maliyetini yıla yayın.",
-      "Kalan rakam üzerinden getiriyi hesaplayın.",
+      "Kalan rakam üzerinden [getiriyi hesaplayın](/getiri/nakit-akisi-nasil-hesaplanir/).",
     ],
     sirali: true,
   },
@@ -92,7 +92,7 @@ export const evBosKalirsa: Blok[] = [
           "Bazı şirketler “garantili kira” adı altında ürün sunuyor. Bu bir " +
           "sigorta değil, fiyata gömülü bir vaattir: garantiyi veren taraf " +
           "riski üstlenirken beklediği kirayı düşürür. Ücretsiz olmadığını " +
-          "bilerek değerlendirin ve garantiyi kimin, hangi mali güçle " +
+          "bilerek değerlendirin ve [garantiyi kimin, hangi mali güçle](/getiri/getiri-tuzaklari/) " +
           "verdiğine bakın.",
       },
       {

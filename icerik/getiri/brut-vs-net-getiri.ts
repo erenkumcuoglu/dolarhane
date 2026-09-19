@@ -39,12 +39,12 @@ export const brutVsNetGetiri: Blok[] = [
     t: "tablo",
     basliklar: ["Kalem", "Düşük sınıf mülkte", "Neden"],
     satirlar: [
-      ["Boşluk süresi", "Uzun", "Kiracı havuzu dar, talep oynak"],
+      ["[Boşluk süresi](/surec/ev-bos-kalirsa/)", "Uzun", "Kiracı havuzu dar, talep oynak"],
       ["Devir sıklığı", "Yüksek", "Kiracı istikrarı düşük; her devir boşluk + hazırlık + yerleştirme ücreti doğuruyor"],
       ["Tahsilat kaybı", "Yapısal", "Kira/gelir oranı gergin"],
-      ["Capex", "Yüksek", "Yapı eski; çatı, tesisat ve ısıtma ömrünün sonuna yakın"],
-      ["Tahliye sıklığı", "Yüksek", "Her dosya kaybedilen kira demek"],
-      ["Yönetim ücreti", "Oransal yükü ağır", "Yüzde aynı ama düşük kiranın üstünde"],
+      ["Capex", "Yüksek", "Yapı eski; [çatı, tesisat ve ısıtma](/surec/tamir-masrafini-kim-oduyor/) ömrünün sonuna yakın"],
+      ["[Tahliye sıklığı](/surec/amerikada-tahliye-sureci/)", "Yüksek", "Her dosya kaybedilen kira demek"],
+      ["[Yönetim ücreti](/surec/property-management-sozlesmesi/)", "Oransal yükü ağır", "Yüzde aynı ama düşük kiranın üstünde"],
     ],
     not:
       "Altı kalemin hiçbiri brüt getiri hesabında yok. Hepsi nette " +
@@ -70,7 +70,7 @@ export const brutVsNetGetiri: Blok[] = [
       ["Ortalama kiracılık süresi", "~1,5 yıl", "~3 yıl"],
       ["Capex rezervi (kiranın payı)", "~%10", "~%6"],
       ["**Net getiri**", "**~%2**", "**~%5–5,5**"],
-      ["Peşin alımda amortisman", "~50 yıl", "~19 yıl"],
+      ["[Peşin alımda amortisman](/getiri/kira-carpani/)", "~50 yıl", "~19 yıl"],
     ],
     vurgu: [1, 5],
     not:
@@ -108,7 +108,7 @@ export const brutVsNetGetiri: Blok[] = [
       "Devir sıklığını ayrı tahmin edin ve her devirin maliyetini yıla yayın.",
       "Capex rezervini yapı yaşına göre ayrı hesaplayın.",
       "Emlak vergisini ilçe kaydından **gerçek rakamla** alın, tahmin etmeyin.",
-      "İkisini de yatırılan toplam sermayeye bölün.",
+      "İkisini de [yatırılan toplam sermayeye](/hesap/) bölün.",
     ],
   },
   {

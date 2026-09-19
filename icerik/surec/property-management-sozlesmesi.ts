@@ -29,7 +29,7 @@ export const propertyManagementSozlesmesi: Blok[] = [
       [
         "Yerleştirme",
         "Bir aylık kiranın yarısı ile tamamı arası",
-        "Her kiracı değişiminde yeniden doğar",
+        "[Her kiracı değişiminde](/surec/kiraci-nasil-bulunuyor/) yeniden doğar",
       ],
       [
         "Yenileme",
@@ -44,7 +44,7 @@ export const propertyManagementSozlesmesi: Blok[] = [
       [
         "Boşluk ücreti",
         "Aylık sabit",
-        "Ev boşken de ücret alan şirketler var; teşviki ters çeviriyor",
+        "[Ev boşken](/surec/ev-bos-kalirsa/) de ücret alan şirketler var; teşviki ters çeviriyor",
       ],
     ],
     vurgu: [0],
@@ -60,11 +60,11 @@ export const propertyManagementSozlesmesi: Blok[] = [
     t: "liste",
     sirali: true,
     maddeler: [
-      "**Onay eşiği.** Hangi tutarın üstündeki tamir size sorulur. Rakamla yazılmalı.",
-      "**Emanet hesap.** Kira ve depozito şirketin kendi parasından ayrı hesapta mı tutuluyor.",
+      "**Onay eşiği.** Hangi tutarın üstündeki [tamir](/surec/tamir-masrafini-kim-oduyor/) size sorulur. Rakamla yazılmalı.",
+      "**Emanet hesap.** [Kira ve depozito](/surec/kira-tahsilati/) şirketin kendi parasından ayrı hesapta mı tutuluyor.",
       "**Raporlama.** Aylık rapor hangi gün yayınlanır, faturalar ekli mi, aktarım hangi gün yapılır.",
       "**Fesih.** Sözleşmeden nasıl çıkılır, ihbar süresi ne, çıkış cezası var mı. **Cezalı ve uzun süreli bağlayan sözleşmeden kaçının.**",
-      "**Tahliye masrafları.** Kim öder, avukat seçimini kim yapar.",
+      "**Tahliye masrafları.** [Kim öder](/surec/amerikada-tahliye-sureci/), avukat seçimini kim yapar.",
       "**Bağlı taraf.** Şirket tamiri kendi iştirakine mi yaptırıyor; belirli tutarın üstünde birden fazla teklif şartı var mı.",
     ],
   },

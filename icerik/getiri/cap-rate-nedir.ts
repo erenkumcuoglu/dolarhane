@@ -13,7 +13,7 @@ export const capRateNedir: Blok[] = [
     t: "p",
     metin:
       "Türkçe'de tam karşılığı yerleşmediği için çoğu zaman İngilizce " +
-      "haliyle kullanılıyor. Kira çarpanının tersi gibi düşünülebilir, " +
+      "haliyle kullanılıyor. [Kira çarpanının](/getiri/kira-carpani/) tersi gibi düşünülebilir, " +
       "ama önemli bir farkla: **çarpan brüt kirayı, cap rate net işletme " +
       "gelirini kullanır.**",
   },
@@ -29,11 +29,11 @@ export const capRateNedir: Blok[] = [
     t: "tablo",
     basliklar: ["", "Dahil", "Hariç"],
     satirlar: [
-      ["Kira geliri", "Evet — boşluk ve tahsilat kaybı düşülmüş hali", ""],
+      ["Kira geliri", "Evet — [boşluk ve tahsilat kaybı](/surec/ev-bos-kalirsa/) düşülmüş hali", ""],
       ["Emlak vergisi", "Evet", ""],
       ["Sigorta", "Evet", ""],
-      ["Yönetim ücreti", "Evet", ""],
-      ["Bakım ve capex rezervi", "Evet", ""],
+      ["[Yönetim ücreti](/surec/property-management-sozlesmesi/)", "Evet", ""],
+      ["[Bakım ve capex rezervi](/surec/tamir-masrafini-kim-oduyor/)", "Evet", ""],
       ["Kredi taksiti", "", "Hariç — cap rate kredisiz bakar"],
       ["Amortisman (vergi kalemi)", "", "Hariç — nakit çıkışı değil"],
       ["Gelir vergisi", "", "Hariç — malike göre değişir"],
@@ -58,7 +58,7 @@ export const capRateNedir: Blok[] = [
     maddeler: [
       "**Yarar:** aynı piyasadaki iki mülkü kıyaslamaya. Finansman farkı ortadan kalktığı için elma ile elma karşılaştırırsınız.",
       "**Yarar:** bir piyasanın genel seviyesini anlamaya. Cap rate'lerin düştüğü bir piyasada fiyatlar gelire göre yükseliyor demektir.",
-      "**Yaramaz:** sizin cebinize ne geçeceğini söylemeye. Onun için nakit akışı hesabı gerekir.",
+      "**Yaramaz:** sizin cebinize ne geçeceğini söylemeye. Onun için [nakit akışı hesabı](/getiri/nakit-akisi-nasil-hesaplanir/) gerekir.",
       "**Yaramaz:** farklı piyasaları doğrudan kıyaslamaya. Düşük cap rate düşük risk, yüksek cap rate yüksek risk anlamına gelme eğilimindedir; iki sayı aynı ölçekte değildir.",
     ],
   },
@@ -87,7 +87,7 @@ export const capRateNedir: Blok[] = [
         c:
           "Çarpan brüt kirayı kullanır ve kabaca kaç yılda amorti " +
           "edeceğini söyler; cap rate net işletme gelirini kullanır ve " +
-          "yıllık yüzde verir. Çarpan hızlı eleme, cap rate daha " +
+          "yıllık yüzde verir. Çarpan ve [%1 kuralı](/getiri/yuzde-1-kurali/) hızlı eleme, cap rate daha " +
           "ciddi bir ölçüdür.",
       },
       {

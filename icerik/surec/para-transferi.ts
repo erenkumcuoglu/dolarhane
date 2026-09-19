@@ -12,7 +12,7 @@ export const paraTransferi: Blok[] = [
     t: "p",
     metin:
       "Para **bize gelmiyor.** Transfer, alıcının kendi bankasından " +
-      "bağımsız bir **escrow şirketinin** hesabına yapılıyor; o hesap " +
+      "bağımsız bir [escrow şirketinin](/surec/escrow-nedir/) hesabına yapılıyor; o hesap " +
       "kapanışa kadar parayı tutuyor ve tapu devri gerçekleşmeden " +
       "satıcıya bırakmıyor.",
   },
@@ -26,7 +26,7 @@ export const paraTransferi: Blok[] = [
       "Bankanıza gidersiniz. Banka transferin gerekçesini belgelemenizi ister — satış sözleşmesi ve escrow talimatı bu belgelerdir.",
       "Transfer escrow hesabına yapılır. Dosya numarası açıklamaya yazılır; yazılmazsa eşleştirme gecikir.",
       "Escrow şirketi parayı aldığını yazılı olarak teyit eder.",
-      "Kapanışta tapu alıcı adına devrolur ve escrow parayı satıcıya bırakır.",
+      "[Kapanışta tapu alıcı adına devrolur](/surec/uzaktan-tapu-kapanisi/) ve escrow parayı satıcıya bırakır.",
     ],
   },
   {
@@ -37,7 +37,8 @@ export const paraTransferi: Blok[] = [
       "kapanış öncesi gönderilen **sahte havale talimatıdır**: e-posta " +
       "gerçek görünür, IBAN değiştirilmiştir. Kural basit — hesap " +
       "bilgisini escrow şirketini **telefonla arayarak** teyit edin ve " +
-      "e-postayla gelen bir değişikliğe asla doğrudan güvenmeyin. Biz " +
+      "e-postayla gelen bir değişikliğe asla doğrudan güvenmeyin — " +
+      "[diğer durdurucu sinyaller ayrı bir sayfada](/guven/dolandiricilik-nasil-anlasilir/). Biz " +
       "de bu teyidi sizinle birlikte yapıyoruz.",
   },
 

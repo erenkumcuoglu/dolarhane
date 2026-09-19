@@ -76,7 +76,7 @@ export const oturumMuGetiriMi: Blok[] = [
   {
     t: "liste",
     maddeler: [
-      "Amacınız Schengen hareketliliğiyse gayrimenkul karşılığı oturum veren programlara bakın.",
+      "Amacınız Schengen hareketliliğiyse [gayrimenkul karşılığı oturum veren programlara](/karsilastir/golden-visa-gercekten-gerekli-mi/) bakın.",
       "Amacınız bir B planı ise oturum hakkının yenilenme koşullarını ve aile kapsamını inceleyin.",
       "Amacınız çocuk eğitimiyse hangi statünün hangi okul haklarını verdiğini ayrıca araştırın.",
     ],
@@ -180,7 +180,7 @@ export const oturumMuGetiriMi: Blok[] = [
     t: "tablo",
     basliklar: ["Önceliğiniz", "Bakılacak yer", "Biz uygun muyuz"],
     satirlar: [
-      ["AB oturumu / Schengen", "Gayrimenkul karşılığı oturum programları", "Hayır"],
+      ["AB oturumu / Schengen", "[Gayrimenkul karşılığı oturum programları](/karsilastir/yunanistan-mi-amerika-mi/)", "Hayır"],
       ["Pasaport / vatandaşlık", "Vatandaşlık programları", "Hayır"],
       ["Dolar cinsinden kira geliri", "Kiranın yerli para birimi olarak dolar olduğu piyasalar", "Evet"],
       ["Tatil / kendi kullanım", "Kullanacağınız bölge", "Hayır"],

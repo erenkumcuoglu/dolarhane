@@ -125,8 +125,8 @@ export const dubaiEvYatirimiRiskleri: Blok[] = [
       {
         s: "O zaman neden ABD?",
         c:
-          "Mülkiyet altyapısı, tapu sigortası, içtihat derinliği ve " +
-          "kiranın yerli dolar olması. Vergi tarafında Dubai önde, " +
+          "[Mülkiyet altyapısı, tapu sigortası, içtihat derinliği ve " +
+          "kiranın yerli dolar olması](/karsilastir/amerika-mi-dubai-mi/). Vergi tarafında Dubai önde, " +
           "hukuki dayanıklılık ve para birimi tarafında ABD. Hangisinin " +
           "sizin için ağır olduğuna siz karar veriyorsunuz.",
       },

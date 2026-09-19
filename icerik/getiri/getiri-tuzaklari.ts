@@ -22,27 +22,27 @@ export const getiriTuzaklari: Blok[] = [
       [
         "“%12 getiri”",
         "Brüt mü net mi",
-        "Bu rakamda vergi, sigorta, yönetim ve boşluk var mı?",
+        "Bu rakamda [vergi, sigorta, yönetim ve boşluk](/getiri/brut-vs-net-getiri/) var mı?",
       ],
       [
         "“Ev kendini 8 yılda amorti eder”",
         "Brüt kira üzerinden hesaplandığı",
-        "Net kirayla kaç yıl?",
+        "[Net kirayla kaç yıl?](/getiri/kira-carpani/)",
       ],
       [
         "“Ayda 1.400 dolar kira”",
         "Bunun beklenen mi mevcut mu olduğu",
-        "Şu an kiralı mı, sözleşmeyi görebilir miyim?",
+        "[Şu an kiralı mı](/surec/kiraci-nasil-bulunuyor/), sözleşmeyi görebilir miyim?",
       ],
       [
         "“Yatırım 150.000 dolar”",
         "Kapanış ve hazırlık masraflarının dahil olmadığı",
-        "Cebimden çıkacak toplam ne?",
+        "[Cebimden çıkacak toplam](/surec/closing-costs/) ne?",
       ],
       [
         "“Bölge hızla değerleniyor”",
         "Yüksek getiriyle birlikte gelmediği",
-        "Getiri bu kadar yüksekse fiyat neden düşük?",
+        "[Getiri bu kadar yüksekse fiyat neden düşük?](/getiri/getiri-ve-deger-artisi-takasi/)",
       ],
       [
         "“Kira garantili”",
@@ -57,7 +57,7 @@ export const getiriTuzaklari: Blok[] = [
       [
         "“Yönetim dahil”",
         "Yerleştirme, yenileme ve tamir payının ayrı olabileceği",
-        "Sözleşmedeki bütün ücret kalemleri neler?",
+        "[Sözleşmedeki bütün ücret kalemleri](/surec/property-management-sozlesmesi/) neler?",
       ],
     ],
     vurgu: [0, 3],

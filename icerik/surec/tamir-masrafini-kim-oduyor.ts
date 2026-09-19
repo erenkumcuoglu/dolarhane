@@ -63,7 +63,7 @@ export const tamirMasrafiniKimOduyor: Blok[] = [
   {
     t: "p",
     metin:
-      "Yönetim sözleşmesinde bir **onay eşiği** bulunur: bu tutarın altındaki " +
+      "[Yönetim sözleşmesinde](/surec/property-management-sozlesmesi/) bir **onay eşiği** bulunur: bu tutarın altındaki " +
       "işler size sorulmadan yapılır, üstündekiler için onayınız alınır. Eşik " +
       "yoksa iki kötü sonuçtan biri çıkar — ya her ampul için size " +
       "yazılır, ya da haberiniz olmadan büyük faturalar doğar.",
@@ -100,7 +100,7 @@ export const tamirMasrafiniKimOduyor: Blok[] = [
     satirlar: [
       ["Ne", "Küçük, sık, öngörülebilir", "Büyük, seyrek, ertelenemez"],
       ["Örnek", "Musluk, boya, filtre, küçük tesisat", "Çatı, ısıtma sistemi, su ısıtıcı"],
-      ["Bütçeleme", "Aylık gider gibi", "Her ay ayrılan rezerv"],
+      ["Bütçeleme", "Aylık gider gibi", "[Her ay ayrılan rezerv](/getiri/nakit-akisi-nasil-hesaplanir/)"],
       ["Vergi tarafı", "Genelde aynı yıl gider yazılır", "Genelde amortismana tabi"],
     ],
     not:
@@ -113,8 +113,8 @@ export const tamirMasrafiniKimOduyor: Blok[] = [
     metin:
       "Büyük onarımın püf noktası şu: **gerçekleştiği ay değil, her ay " +
       "maliyetlidir.** Çatı on beş yılda bir değişiyorsa o maliyetin yüz " +
-      "seksen aya bölünmüş hali sizin gerçek aylık giderinizdir. Rezerv " +
-      "ayırmayan bir hesap, çatı değişene kadar iyi görünür.",
+      "seksen aya bölünmüş hali sizin gerçek aylık giderinizdir. [Rezerv " +
+      "ayırmayan bir hesap](/getiri/brut-vs-net-getiri/), çatı değişene kadar iyi görünür.",
   },
 
   {
@@ -130,7 +130,7 @@ export const tamirMasrafiniKimOduyor: Blok[] = [
       {
         s: "Tamir için Türkiye'den para göndermem gerekiyor mu?",
         c:
-          "Genellikle hayır. Tamir bedeli o ayki kiradan düşülür. Kirayı " +
+          "Genellikle hayır. Tamir bedeli [o ayki kiradan](/surec/kira-tahsilati/) düşülür. Kirayı " +
           "aşan büyük bir işte ABD hesabınızdaki tampondan karşılanır; " +
           "tampon da yetmezse transfer gerekir. Hesapta bir rezerv tutmanın " +
           "asıl sebebi budur.",
@@ -148,7 +148,7 @@ export const tamirMasrafiniKimOduyor: Blok[] = [
         c:
           "Önce depozitodan mahsup edilir. Depozito yetmezse fark için " +
           "yasal takip mümkündür ama tahsil edilebilirliği düşüktür. " +
-          "Pratikte asıl koruma depozito ve iyi kiracı elemesidir.",
+          "Pratikte asıl koruma depozito ve [iyi kiracı elemesidir](/surec/kiraci-nasil-bulunuyor/).",
       },
     ],
   },

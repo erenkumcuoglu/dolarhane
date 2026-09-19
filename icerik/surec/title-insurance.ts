@@ -21,7 +21,7 @@ export const titleInsurance: Blok[] = [
   {
     t: "p",
     metin:
-      "Kapanıştan önce tapu araştırması yapılır ve mülkiyet zinciri geriye " +
+      "[Kapanıştan önce](/surec/uzaktan-tapu-kapanisi/) tapu araştırması yapılır ve mülkiyet zinciri geriye " +
       "doğru taranır. Araştırma çok şey yakalar ama her şeyi yakalayamaz: " +
       "kayıtlara hiç girmemiş ya da yanlış girmiş bir şey, araştırmada " +
       "görünmez. Sigorta tam olarak o boşluğu kapatır.",
@@ -32,7 +32,7 @@ export const titleInsurance: Blok[] = [
     satirlar: [
       ["Bilinmeyen mirasçı", "Yıllar sonra hak iddia ediyor"],
       ["Sahte imza / sahte tapu", "Zincirin bir yerinde geçersiz bir devir"],
-      ["Kayıt hatası", "İlçe kütüğünde yanlış yazılmış isim, parsel ya da sınır"],
+      ["Kayıt hatası", "[İlçe kütüğünde](/guven/tapu-kimin-adina/) yanlış yazılmış isim, parsel ya da sınır"],
       ["Bildirilmemiş haciz ya da vergi borcu", "Önceki malikten kalan yük mülke bağlı geliyor"],
       ["Müteahhit alacağı", "Önceki malikin ödemediği iş için mülke konmuş şerh"],
       ["Sınır ve geçiş hakkı uyuşmazlığı", "Komşunun kullanım hakkı iddiası"],
@@ -71,7 +71,7 @@ export const titleInsurance: Blok[] = [
     maddeler: [
       "Siz malikken doğan yükler — ödemediğiniz vergi, sizin borcunuz için konan haciz.",
       "İmar ve kullanım kısıtları; bunlar tapu kusuru değil, kamu düzenlemesidir.",
-      "Fiziksel durum — çatı, tesisat, hasar. Onlar ev sigortasının ve inceleme raporunun konusu.",
+      "Fiziksel durum — çatı, tesisat, hasar. Onlar ev sigortasının ve [inceleme raporunun](/surec/evi-gormeden-ev-almak/) konusu.",
       "Poliçede açıkça istisna edilmiş kalemler. **İstisna listesi okunmalıdır**; araştırmada çıkan bilinen bir sorun oraya yazılmış olabilir.",
     ],
   },
@@ -89,7 +89,7 @@ export const titleInsurance: Blok[] = [
         s: "Prim ne kadar?",
         c:
           "Alım bedeline göre hesaplanır ve eyalete göre değişir; bazı " +
-          "eyaletlerde tarife düzenlemeye tabidir. Kapanış masrafları " +
+          "eyaletlerde tarife düzenlemeye tabidir. [Kapanış masrafları](/surec/closing-costs/) " +
           "içinde tek seferlik kalemdir.",
       },
       {

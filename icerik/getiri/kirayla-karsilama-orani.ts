@@ -1,9 +1,14 @@
 import type { Blok } from "@/lib/bloklar";
 
 /**
- * Sitenin omurga tezi. Kural 5 gereği burada RAKAM YOK: canlı oranlar
- * lib/finance.ts'ten geliyor ve ana sayfadaki hesapta duruyor. Bu sayfa
- * metriği öğretiyor, bizim rakamımızı tekrarlamıyor.
+ * Kaldıraçlı alımın metriği. Sitenin ANA TEZİ DEĞİL: 2026-09'da ürün
+ * peşin alıma döndü (iş planı §10-11) ve kaldıraç kamuya açık üründen
+ * çıktı. Sayfa metriği öğretmeye devam ediyor — kredili alım Türkçe'de
+ * aranan bir konu — ama artık bizim hesabımızı anlatmıyor ve okuru
+ * peşin modelin metriklerine yönlendiriyor.
+ *
+ * Kural 5 gereği burada RAKAM YOK: canlı rakamlar lib/finance.ts'ten
+ * geliyor ve /hesap sayfasında duruyor.
  */
 export const kiraylaKarsilamaOrani: Blok[] = [
   {
@@ -42,8 +47,8 @@ export const kiraylaKarsilamaOrani: Blok[] = [
     t: "not",
     baslik: "Bu oran tek başına yeterli değil",
     metin:
-      "Oran yalnız kirayı ve taksiti görür. Emlak vergisi, sigorta, " +
-      "boşluk, yönetim ve bakım bu hesapta **yok.** Oran 1'in üstünde " +
+      "Oran yalnız kirayı ve taksiti görür. [Emlak vergisi, sigorta, " +
+      "boşluk, yönetim ve bakım](/getiri/brut-vs-net-getiri/) bu hesapta **yok.** Oran 1'in üstünde " +
       "olduğu halde net nakit akışı negatif olabilir. Oranı bir kapı " +
       "olarak kullanın: geçemeyen ev elenir, geçen ev ayrıca hesaplanır.",
   },
@@ -80,8 +85,8 @@ export const kiraylaKarsilamaOrani: Blok[] = [
     t: "p",
     metin:
       "Bu yüzden ülkeler arası karşılaştırmada kredi sisteminin kendisi " +
-      "en az mülk kadar belirleyici. Ana sayfadaki hesap, sabit girdilerle " +
-      "iki sistemi yan yana koyup tek değişkeni gösteriyor.",
+      "en az mülk kadar belirleyici — ve bu, oranın taşınabilir bir " +
+      "ölçü olmadığı anlamına geliyor.",
   },
 
   {
@@ -98,8 +103,10 @@ export const kiraylaKarsilamaOrani: Blok[] = [
         s: "Peşin alırsam bu oran ne anlama geliyor?",
         c:
           "Taksit yoksa oran tanımsızdır. Peşin alımda bakılacak metrik " +
-          "cap rate ve net nakit akışıdır; kirayla karşılama oranı " +
-          "kaldıraçlı alıma özgüdür.",
+          "[cap rate](/getiri/cap-rate-nedir/) ve " +
+          "[net nakit akışıdır](/getiri/nakit-akisi-nasil-hesaplanir/); " +
+          "kirayla karşılama oranı kaldıraçlı alıma özgüdür. " +
+          "Bizim modelimiz peşin — [hesabın tamamı burada](/hesap/).",
       },
       {
         s: "Oran yüksekse ev iyi bir yatırım mıdır?",

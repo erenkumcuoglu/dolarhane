@@ -75,7 +75,7 @@ export const yurtDisiEvYatirimiRiskleri: Blok[] = [
     sirali: true,
     maddeler: [
       "**Aracısız alınabilir.** Yerinde bir emlakçı ve bir yönetim şirketiyle doğrudan çalışmak mümkün. Aracı katmanı bir maliyet ve bunun farkındayız.",
-      "**Türkiye'de de kira geliri elde edilebilir.** Getiri oranı düşük ama mesafe, kur ve mevzuat riski yok. Karar sadece orana bakarak verilmemeli.",
+      "**Türkiye'de de kira geliri elde edilebilir.** Getiri oranı düşük ama mesafe, kur ve mevzuat riski yok. [Karar sadece orana bakarak verilmemeli](/karsilastir/).",
       "**Dolar geliri tek başına strateji değil.** Kur avantajı, kötü seçilmiş bir evin zayıf net getirisini kurtarmıyor.",
     ],
   },

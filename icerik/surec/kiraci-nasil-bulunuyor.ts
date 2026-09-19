@@ -5,7 +5,7 @@ export const kiraciNasilBulunuyor: Blok[] = [
   {
     t: "p",
     metin:
-      "Kiracıyı siz bulmuyorsunuz; mülk yönetim şirketi buluyor. Sizin " +
+      "Kiracıyı siz bulmuyorsunuz; [mülk yönetim şirketi](/surec/property-management-sozlesmesi/) buluyor. Sizin " +
       "yaptığınız tek şey **kabul kriterlerini onaylamak** ve sonucu " +
       "görmek. Süreç Amerika'da standartlaşmış durumda ve federal ayrımcılık " +
       "yasaları nedeniyle kişisel tercihe kapalı.",
@@ -35,7 +35,7 @@ export const kiraciNasilBulunuyor: Blok[] = [
       ],
       [
         "Tahliye kaydı",
-        "Daha önce mahkeme kararıyla tahliye edilmiş mi",
+        "Daha önce [mahkeme kararıyla tahliye](/surec/amerikada-tahliye-sureci/) edilmiş mi",
         "En ağır sinyal; tek başına ret sebebi olabiliyor",
       ],
       [
@@ -51,7 +51,7 @@ export const kiraciNasilBulunuyor: Blok[] = [
     ],
     not:
       "Eşikler piyasaya ve mülkün sınıfına göre değişir. Kriterleri " +
-      "gevşetmek boşluğu kısaltır ama tahsilat riskini yükseltir — bu bir " +
+      "gevşetmek [boşluğu](/surec/ev-bos-kalirsa/) kısaltır ama [tahsilat riskini](/surec/kira-tahsilati/) yükseltir — bu bir " +
       "takastır, ve kararı siz verirsiniz.",
   },
   {
@@ -101,7 +101,8 @@ export const kiraciNasilBulunuyor: Blok[] = [
     metin:
       "Yönetim şirketi yeni kiracı yerleştirdiğinde aylık yönetim ücretinden " +
       "ayrı bir **yerleştirme ücreti** alır. Sektörde yaygın aralık bir aylık " +
-      "kiranın yarısı ile tamamı arasındadır. Bu ücret her kiracı değişiminde " +
+      "kiranın yarısı ile tamamı arasındadır — [net getiriyi doğrudan " +
+      "etkileyen bir kalem](/getiri/brut-vs-net-getiri/). Bu ücret her kiracı değişiminde " +
       "yeniden doğar — kiracının ne kadar kaldığının neden önemli olduğunu " +
       "gösteren en somut kalem budur.",
   },

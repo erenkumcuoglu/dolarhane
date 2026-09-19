@@ -133,7 +133,7 @@ export const dolandiricilikNasilAnlasilir: Blok[] = [
         c:
           "İşlem ABD'de gerçekleştiği için uyuşmazlık genellikle orada " +
           "görülür ve süreç uzun, masraflı olur. Pratik sonuç şu: koruma " +
-          "sonradan aranmaz, işlemin içine konur — escrow, bağımsız " +
+          "sonradan aranmaz, [işlemin içine konur](/guven/amerikadan-ev-almak-guvenli-mi/) — escrow, bağımsız " +
           "inceleme, [title insurance](/surec/title-insurance/).",
       },
     ],

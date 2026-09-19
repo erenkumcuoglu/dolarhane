@@ -69,7 +69,7 @@ export const uzaktanTapuKapanisi: Blok[] = [
   {
     t: "p",
     metin:
-      "Kapanışta para, kapanış şirketinin emanet hesabına havale edilir. " +
+      "Kapanışta para, kapanış şirketinin [emanet hesabına](/surec/escrow-nedir/) havale edilir. " +
       "Dolandırıcılığın işleyişi şudur: taraflardan birinin e-postası ele " +
       "geçirilir, kapanış tarihine yakın bir anda **sahte havale talimatı** " +
       "gönderilir, ve para ele geçirilmiş bir hesaba gider.",
@@ -88,7 +88,8 @@ export const uzaktanTapuKapanisi: Blok[] = [
       "Havale talimatını **önceden bildiğiniz** bir numaradan telefonla " +
       "arayıp teyit edin. E-postadaki numarayı aramayın — o numara da " +
       "dolandırıcıya ait olabilir. Talimat son anda değiştiyse, değişiklik " +
-      "tek başına bir alarmdır. Bu kural bizden alsanız da geçerlidir ve " +
+      "tek başına bir alarmdır — [diğer durdurucu sinyaller](/guven/dolandiricilik-nasil-anlasilir/) " +
+      "ayrı bir sayfada. Bu kural bizden alsanız da geçerlidir ve " +
       "size kimse bunu atlamayı söylememeli.",
   },
   {
@@ -108,14 +109,14 @@ export const uzaktanTapuKapanisi: Blok[] = [
       "İmzalar tamamlanınca tapu ilçe kütüğüne tescil edilir. Tescil edilmiş " +
       "tapunun kopyası size ulaşır ve mülkiyetin kanıtı odur. Aynı dönemde " +
       "sigorta poliçesi başlatılır, varsa mevcut kira sözleşmesi size " +
-      "devredilir ve kiracının depozitosu size ya da yönetim şirketine geçer.",
+      "devredilir ve kiracının depozitosu size ya da [yönetim şirketine](/surec/property-management-sozlesmesi/) geçer.",
   },
   {
     t: "not",
     baslik: "Kontrol edilecek üç belge",
     metin:
-      "Tescil edilmiş tapu kopyası, title insurance poliçesi, ve kapanış " +
-      "hesap dökümü. Üçü de size teslim edilmeli; edilmiyorsa isteyin.",
+      "Tescil edilmiş tapu kopyası, [title insurance](/surec/title-insurance/) poliçesi, ve [kapanış " +
+      "hesap dökümü](/surec/closing-costs/). Üçü de size teslim edilmeli; edilmiyorsa isteyin.",
   },
 
   {
@@ -132,7 +133,7 @@ export const uzaktanTapuKapanisi: Blok[] = [
       {
         s: "Tapumu nasıl doğrularım?",
         c:
-          "İlçe kütüğü kayıtları çoğu yerde çevrimiçi ve kamuya açıktır. " +
+          "[İlçe kütüğü kayıtları](/guven/tapu-kimin-adina/) çoğu yerde çevrimiçi ve kamuya açıktır. " +
           "Mülkün adresiyle arayıp malik adını kendiniz görebilirsiniz. " +
           "Kimsenin size göstermesini beklemeniz gerekmiyor.",
       },

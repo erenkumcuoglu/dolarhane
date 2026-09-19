@@ -34,8 +34,8 @@ export const yuzde1Kurali: Blok[] = [
     satirlar: [
       ["Emlak vergisi", "İlçeden ilçeye çok değişiyor; iki ev aynı kuralı geçip net getirileri çok farklı olabiliyor"],
       ["Sigorta", "Bölge riskine göre değişiyor"],
-      ["Boşluk ve devir", "Düşük sınıf mülkte kuralı rahat geçen ev, nette kaybettirebiliyor"],
-      ["Capex", "Eski yapıda büyük onarım getiriyi yiyor"],
+      ["Boşluk ve devir", "Düşük sınıf mülkte kuralı rahat geçen ev, [nette kaybettirebiliyor](/getiri/brut-vs-net-getiri/)"],
+      ["Capex", "Eski yapıda [büyük onarım](/surec/tamir-masrafini-kim-oduyor/) getiriyi yiyor"],
       ["Aidat", "Varsa doğrudan nete vuruyor"],
       ["Faiz oranı", "Kredi maliyeti yüksekken kuralı geçmek yetmiyor"],
     ],
@@ -59,8 +59,8 @@ export const yuzde1Kurali: Blok[] = [
     sirali: true,
     maddeler: [
       "Listeyi kuralla tarayın; geçmeyenleri eleyin.",
-      "Geçenler için **cap rate** hesaplayın — boşluk, vergi, sigorta, yönetim ve capex dahil.",
-      "Kredi kullanacaksanız **DSCR** ve **nakit akışı** hesaplayın.",
+      "Geçenler için [cap rate](/getiri/cap-rate-nedir/) hesaplayın — boşluk, vergi, sigorta, yönetim ve capex dahil.",
+      "Kredi kullanacaksanız [DSCR](/getiri/dscr-nedir/) ve [nakit akışı](/getiri/nakit-akisi-nasil-hesaplanir/) hesaplayın.",
       "Kararı üçüncü adımdaki sayılarla verin; kural burada artık işini bitirmiştir.",
     ],
   },
@@ -87,7 +87,7 @@ export const yuzde1Kurali: Blok[] = [
         s: "Fiyata kapanış masraflarını da katmalı mıyım?",
         c:
           "Hızlı elemede gerekmiyor. Ama ciddi hesapta bölen **yatırılan " +
-          "toplam sermaye** olmalı: fiyat + kapanış + kiraya hazırlık.",
+          "toplam sermaye** olmalı: fiyat + [kapanış](/surec/closing-costs/) + kiraya hazırlık.",
       },
       {
         s: "Kural Türkiye için de geçerli mi?",

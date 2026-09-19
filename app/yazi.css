@@ -52,6 +52,12 @@
   margin-right: var(--s2);
   color: var(--line-strong);
 }
+/* `.v2 .yazi a` bununla aynı özgüllükte ve dosyada daha sonra geliyor;
+   kırıntı `.yazi` içinde olduğu için o kural burayı eziyordu ve kırıntı
+   sessiz gri yerine ALTIN basılıyordu. `.v2 .yazi` öneki özgüllüğü bir
+   sınıf yukarı çekiyor. */
+.v2 .yazi .kirinti a { color: var(--ink-4); text-decoration: none; }
+.v2 .yazi .kirinti a:hover { color: var(--amber-text); text-decoration: underline; }
 .v2 .kirinti a { color: var(--ink-4); text-decoration: none; }
 .v2 .kirinti a:hover { color: var(--amber-text); text-decoration: underline; }
 .v2 .kirinti [aria-current="page"] { color: var(--ink-3); }
@@ -116,6 +122,32 @@
 .v2 .yazi article ol { list-style: decimal; }
 .v2 .yazi article li { margin-bottom: 0.4em; }
 .v2 .yazi article li::marker { color: var(--ink-4); }
+/* Gövde içi bağlantı — ALTI ÇİZİLİ OLMAK ZORUNDA.
+   Kök reset (globals.css `a { text-decoration: none }`) altı siliyordu;
+   buradaki `text-underline-offset` bir çizginin varsayıldığını gösteriyor
+   ama çizgi hiç basılmıyordu. Renk tek ayırt edici kalıyordu ve link
+   rengi (--amber-text #785d28) ile gövde mürekkebi (--ink #071a2b)
+   arasındaki kontrast ölçüldü: 2,85:1. WCAG 1.4.1 rengin tek ayırt
+   edici olduğu durumda 3:1 istiyor — altında kalıyoruz, yani çizgi
+   şart. Zemine karşı kontrast zaten 5,5-6,2:1 ile rahat geçiyor;
+   sorun zeminle değil, KOMŞU METİNLE ayrışma.
+
+   Çizgi rengi yumuşatıldı: yoğun metinde tam güçte alt çizgi gövdeyi
+   kirletiyor. Üstüne gelince ve odakta tam güce çıkıyor. */
+.v2 .yazi article a {
+  color: var(--amber-text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--amber-text) 55%, transparent);
+}
+.v2 .yazi article a:hover,
+.v2 .yazi article a:focus-visible {
+  color: var(--ink);
+  text-decoration-color: currentColor;
+}
+/* Kaynak listesindeki dış bağlantılar da article içinde — aynı kural
+   geçerli, ayrıca ele alınmıyor. */
 .v2 .yazi a { color: var(--amber-text); text-underline-offset: 2px; }
 .v2 .yazi strong { font-weight: 700; color: var(--ink); }
 

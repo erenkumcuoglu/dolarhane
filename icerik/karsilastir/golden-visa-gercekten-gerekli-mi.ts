@@ -67,7 +67,7 @@ export const goldenVisaGercektenGerekliMi: Blok[] = [
       "Bu programlar siyasi araçlar ve değişiyorlar. Son yıllarda " +
       "yaşananlar tek başına yeterince açık: bir ülke yatırımcı vizesini " +
       "tamamen kaldırdı, bir diğeri gayrimenkul yolunu programından " +
-      "çıkardı, bir başkası popüler bölgelerde eşiği yükseltti.",
+      "çıkardı, [bir başkası popüler bölgelerde eşiği yükseltti](/karsilastir/yunanistan-mi-amerika-mi/).",
   },
   {
     t: "not",

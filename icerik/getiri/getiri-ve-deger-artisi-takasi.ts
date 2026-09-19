@@ -35,8 +35,8 @@ export const getiriVeDegerArtisiTakasi: Blok[] = [
     basliklar: ["", "Değer artışı odaklı piyasa", "Nakit akışı odaklı piyasa"],
     satirlar: [
       ["Fiyat", "Yüksek", "Düşük"],
-      ["Kira/fiyat oranı", "Düşük", "Yüksek"],
-      ["Aylık nakit akışı", "Genelde negatif ya da ince", "Pozitif"],
+      ["[Kira/fiyat oranı](/getiri/kira-carpani/)", "Düşük", "Yüksek"],
+      ["[Aylık nakit akışı](/getiri/nakit-akisi-nasil-hesaplanir/)", "Genelde negatif ya da ince", "Pozitif"],
       ["Kazanç nereden", "Satıştaki fiyat farkından", "Her ayki kiradan"],
       ["Ne zaman paraya döner", "Sattığınızda", "Her ay"],
       ["Ana risk", "Beklenen artış gerçekleşmezse", "Yerel ekonomi zayıflarsa"],
@@ -68,8 +68,8 @@ export const getiriVeDegerArtisiTakasi: Blok[] = [
     metin:
       "Nakit akışı odaklı bölgelerde mülk değerinin uzun vadede yatay " +
       "kalması, hatta reel olarak gerilemesi mümkündür. Bunu bir ihtimal " +
-      "olarak değil, **modelin varsayımı** olarak kabul edin: getiriyi " +
-      "kiradan hesaplayın, satıştaki fiyatı hesaba hiç katmayın. " +
+      "olarak değil, **modelin varsayımı** olarak kabul edin: [getiriyi " +
+      "kiradan hesaplayın](/hesap/), satıştaki fiyatı hesaba hiç katmayın. " +
       "Katmadığınız bir şey hayal kırıklığı yaratmaz.",
   },
 
@@ -83,9 +83,9 @@ export const getiriVeDegerArtisiTakasi: Blok[] = [
   {
     t: "liste",
     maddeler: [
-      "**Ekonomik daralma.** Nüfus ve istihdam geriliyorsa kira talebi de zamanla geriler.",
+      "**Ekonomik daralma.** [Nüfus ve istihdam geriliyorsa](/guven/yurt-disi-ev-yatirimi-riskleri/) kira talebi de zamanla geriler.",
       "**Tek sektöre bağımlılık.** Bölge tek bir işverene ya da sektöre bağlıysa risk yoğunlaşmıştır.",
-      "**Mülkün kendi durumu.** Eski yapı, düşük sınıf mahalle, yüksek devir. Getiri yüksek görünür, net getiri değildir.",
+      "**Mülkün kendi durumu.** Eski yapı, düşük sınıf mahalle, yüksek devir. [Getiri yüksek görünür, net getiri değildir](/getiri/brut-vs-net-getiri/).",
     ],
   },
   {

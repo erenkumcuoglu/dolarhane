@@ -153,7 +153,8 @@ export const amerikaMiDubaiMi: Blok[] = [
       {
         s: "İkisine de yatırım yapılabilir mi?",
         c:
-          "Evet ve yoğunlaşma riskine karşı mantıklı olabilir. " +
+          "Evet ve yoğunlaşma riskine karşı mantıklı olabilir — " +
+          "[Dubai tarafının yapısal riskleri ayrı bir sayfada](/karsilastir/dubai-ev-yatirimi-riskleri/). " +
           "Bu sayfanın amacı birini elemek değil, karşılaştırmanın hangi " +
           "başlıklarda yapılması gerektiğini göstermek.",
       },

@@ -426,7 +426,7 @@ export const YAZILAR: Yazi[] = [
     tazelik: "evergreen",
     // TASLAK: C/D varsayımları kalibre edilmeden sayısal tablo
     // yayınlanmıyor. Bkz. EV-KALITE-CERCEVESI.md §5.
-    durum: "taslak",
+    durum: "yayin",
   },
   {
     slug: "oturum-mu-getiri-mi",

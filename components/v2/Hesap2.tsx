@@ -181,6 +181,12 @@ export function Hesap2() {
             Karşılaştırmayı görün
             <IkonOk />
           </a>
+          {/* Ana sayfa /hesap'a hiç link vermiyordu; oraya yalnız yazı
+              sayfalarından geliniyordu. */}
+          <a className="v2-baglanti" href="/hesap/">
+            Hesabın tamamı — satır satır
+            <IkonOk />
+          </a>
         </aside>
       </div>
     </section>

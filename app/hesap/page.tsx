@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Nav } from "@/components/Nav";
-import { Footer } from "@/components/Footer";
+import { NavYazi } from "@/components/yazi/NavYazi";
+import { DipYazi } from "@/components/yazi/DipYazi";
 import { Toc } from "@/components/hesap/Toc";
+import "../v2.css";
 import {
   Giris,
   Defter,
@@ -16,9 +17,14 @@ export const metadata: Metadata = {
 };
 
 export default function HesapSayfasi() {
+  /* Sayfa v2 kabuğuna alındı: nav ve alt şerit bilgi bankasıyla aynı.
+     Eskisi birinci iterasyonun Nav/Footer'ıydı ve bağlantıları ana
+     sayfanın ESKİ çapalarına gidiyordu (#gorusme, #referanslar, #pano) —
+     v2 ana sayfada o id'ler yok, üçü de boşa düşüyordu. Bu sayfaya 53
+     yazı sayfasından link veriliyor; ana çağrının ölü olması pahalıydı. */
   return (
-    <>
-      <Nav aktif="Hesap" />
+    <div className="v2">
+      <NavYazi />
 
       <header className="hbas">
         <div className="kap hbas__in">
@@ -55,13 +61,13 @@ export default function HesapSayfasi() {
               45 dakikada üç gerçek ev, üç gerçek net tablo.
             </p>
           </div>
-          <a className="btn btn--lg" href="/#gorusme">
+          <a className="btn btn--lg" href="/#v2-form">
             Görüşme alın
           </a>
         </div>
       </section>
 
-      <Footer />
-    </>
+      <DipYazi />
+    </div>
   );
 }

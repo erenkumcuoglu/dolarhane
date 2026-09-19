@@ -1,12 +1,13 @@
-import { Footer } from "@/components/Footer";
-import { Nav } from "@/components/Nav";
+import { NavYazi } from "@/components/yazi/NavYazi";
+import { DipYazi } from "@/components/yazi/DipYazi";
+import "./v2.css";
 
 export const metadata = { title: "Sayfa bulunamadı — Dolarhane" };
 
 export default function Bulunamadi() {
   return (
-    <>
-      <Nav />
+    <div className="v2">
+      <NavYazi />
       <main id="icerik" className="sect yok">
         <div className="kap yok__in">
           <p className="rozet">404</p>
@@ -19,13 +20,13 @@ export default function Bulunamadi() {
             <a className="btn btn--lg" href="/">
               Ana sayfaya dön
             </a>
-            <a className="btn btn--sessiz" href="/#gorusme">
+            <a className="btn btn--sessiz" href="/#v2-form">
               Doğrudan mesaj gönderin
             </a>
           </div>
         </div>
       </main>
-      <Footer />
-    </>
+      <DipYazi />
+    </div>
   );
 }

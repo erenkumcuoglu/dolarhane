@@ -1,5 +1,17 @@
 import type { Blok } from "@/lib/bloklar";
 
+/**
+ * KALDIRAÇ YAZISI — ürün değil, içerik.
+ *
+ * 2026-09'da ürün peşin alıma döndü (iş planı §10-11) ama bu sayfa
+ * BİLEREK duruyor: kredili alım Türkçe'de aranan bir konu ve buradan
+ * gelen kişi gerçek alıcı. Huni şu: kredi sorgusu → yazı → görüşme →
+ * peşin ev; kaldıraç sonradan, mevcut müşteriye açılan bir seçenek.
+ *
+ * Bu yüzden sayfanın tek şartı var: kredi SAĞLADIĞIMIZ izlenimi
+ * vermemek. Aşağıdaki "Biz kredi sağlamıyoruz" bloğu o işi görüyor
+ * ve kaldırılmamalı.
+ */
 export const dscrNedir: Blok[] = [
   {
     t: "p",
@@ -15,6 +27,17 @@ export const dscrNedir: Blok[] = [
       "kendi gelirine bakarak kredi veren ürünler bu orana göre karar " +
       "veriyor.** Yani ABD'de geliriniz ve kredi geçmişiniz olmadan da " +
       "kredi kullanmanın yolu buradan geçiyor.",
+  },
+  {
+    t: "not",
+    baslik: "Biz kredi sağlamıyoruz",
+    metin:
+      "Bu sayfa metriği anlatıyor, bir ürün sunmuyor. **Sattığımız şey " +
+      "peşin alınan, ilk günden kiracılı bir ev** — kredi aracılığı " +
+      "yapmıyoruz, kredi vereni biz bulmuyoruz ve hiçbir kredi " +
+      "koşulunu taahhüt etmiyoruz. Kaldıraç, ancak bizden ev almış bir " +
+      "yatırımcı portföyünü büyütmek istediğinde ayrıca konuşulan bir " +
+      "konu. Bugün geçerli olan hesap [peşin hesaptır](/hesap/).",
   },
 
   { t: "h", metin: "Neden Türk alıcı için kritik" },

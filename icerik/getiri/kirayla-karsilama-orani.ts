@@ -26,6 +26,17 @@ export const kiraylaKarsilamaOrani: Blok[] = [
       "Bu kadar basit, ve gayrimenkul yatırımında tek bir sayıya " +
       "bakılacaksa büyük ihtimalle bu sayıdır.",
   },
+  {
+    t: "not",
+    baslik: "Biz kredi sağlamıyoruz",
+    metin:
+      "Bu sayfa metriği anlatıyor, bir ürün sunmuyor. **Sattığımız şey " +
+      "peşin alınan, ilk günden kiracılı bir ev** — kredi aracılığı " +
+      "yapmıyoruz, kredi vereni biz bulmuyoruz ve hiçbir kredi " +
+      "koşulunu taahhüt etmiyoruz. Kaldıraç, ancak bizden ev almış bir " +
+      "yatırımcı portföyünü büyütmek istediğinde ayrıca konuşulan bir " +
+      "konu. Bugün geçerli olan hesap [peşin hesaptır](/hesap/).",
+  },
 
   { t: "h", metin: "Neden bu oran" },
   {

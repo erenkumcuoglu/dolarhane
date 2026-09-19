@@ -21,13 +21,16 @@ const GEREKCELER = [
     no: "02",
     I: IkonDolar,
     b: "Gelir dolar, gider dolar",
-    a: "Kur riski taşımıyorsunuz; kurun içindesiniz. Kira dolar gelir, taksit ve giderler dolar çıkar.",
+    a: "Kur riski taşımıyorsunuz; kurun içindesiniz. Kira dolar gelir, giderler dolar çıkar.",
   },
   {
     no: "03",
     I: IkonYuzde,
-    b: "Otuz yıl sabit faiz",
-    a: "ABD'de konut kredisi vadesi boyunca sabit — taksit ilk ay ne ise otuzuncu yıl da o.",
+    /* Eski gerekçe "Otuz yıl sabit faiz" idi — kredi özelliği, kaldıraç
+       kamuya açık ürün değil (iş planı §11). Yerine §10'un peşin alım
+       gerekçesi. */
+    b: "İlk aydan kira",
+    a: "Evler kiracısıyla birlikte alınıyor. Kiracı arama, boş geçen aylar ve ilk yerleştirme masrafı yok.",
   },
   {
     no: "04",

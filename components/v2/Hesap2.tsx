@@ -3,70 +3,74 @@
 import { useState } from "react";
 import {
   BAND,
+  HIZMET_ORANI,
   KANONIK,
-  KAPANIS_MASRAFI,
-  US_YILLIK,
-  fmtOran,
+  KAPANIS_ORANI,
+  MODEL_DOGRULANDI,
+  TATLI_NOKTA,
+  TR,
+  fmtAdet,
   fmtUsd,
   fmtYuzde,
-  isletmeGideriAylik,
-  krediliGercek,
-  pesinNet,
+  getiri,
+  karsilastirma,
 } from "@/lib/finance";
 import { IkonGrafik, IkonOk } from "./ikon";
 
 /**
- * v2 hesap — referans tasarımın iki kaydırıcı + sonuç tablosu + yan not
- * kompozisyonu. Kaydırıcı aralıkları /hesap sayfasındakiyle aynı: fiyat
- * ürün bandının dışına çıkmıyor, peşinat %25–45.
+ * v2 hesap — iki kaydırıcı + sonuç tablosu + yan not.
  *
- * Referans tasarımdaki "Aylık nakit akış +$928" satırı BURAYA OLDUĞU GİBİ
- * ALINMADI. Kredili senaryoda kira ile taksit arasındaki fark işletme
- * giderini karşılamıyor; nakit fazlası ince. O yüzden tablo gideri de
- * yazıyor ve vurgulanan satır nakit değil ANAPARA birikimi (DESIGN.md
- * kural 13). Net getiri satırı peşin alımın rakamıdır ve öyle etiketli.
+ * PEŞİN model (iş planı §10). Peşinat, taksit ve vade kaydırıcıları
+ * kalktı; yerlerine ev fiyatı ve bütçe geldi. Bütçe kaydırıcısı slayt
+ * 9'un asıl mesajını canlı kılıyor: aynı parayla kaç ev.
+ *
+ * Getiri oranları ev fiyatına değil TOPLAM ÇIKIŞA bölünür — yatırımcının
+ * cebinden çıkan tutar budur (slayt 16 da böyle hesaplıyor).
  */
 export function Hesap2() {
   const [fiyat, setFiyat] = useState<number>(KANONIK.fiyat);
-  const [pesinat, setPesinat] = useState(25);
+  const [butce, setButce] = useState<number>(TR.girisBileti);
 
-  const oran = pesinat / 100;
-  const g = krediliGercek(fiyat, oran, KANONIK.vadeYil);
-  const gider = isletmeGideriAylik(fiyat);
-  const net = pesinNet(fiyat);
-  /* nakitOrani() imzası kanonik %25'e sabit; burada oran kaydırıcıdan
-     geliyor, o yüzden aynı formül yerinde kuruluyor. */
-  const giris = fiyat * (oran + KAPANIS_MASRAFI);
+  const u = getiri(fiyat);
+  const k = karsilastirma(butce, fiyat);
+  const tatli = fiyat >= TATLI_NOKTA.min && fiyat <= TATLI_NOKTA.max;
 
   const satirlar: { k: string; v: string; not?: string; tur?: string }[] = [
-    { k: "Ev fiyatı", v: fmtUsd(fiyat) },
-    { k: "Peşinat", v: fmtUsd(g.pesinat), not: fmtYuzde(pesinat) },
+    { k: "Ev fiyatı", v: fmtUsd(u.giris.fiyat) },
     {
       k: "Kapanış masrafı",
-      v: fmtUsd(fiyat * KAPANIS_MASRAFI),
-      not: fmtYuzde(KAPANIS_MASRAFI * 100),
-    },
-    { k: "Gereken nakit", v: fmtUsd(giris), tur: "ara" },
-    { k: "Aylık taksit", v: fmtUsd(g.taksit), not: `${KANONIK.vadeYil} yıl sabit` },
-    { k: "Beklenen kira", v: fmtUsd(g.kira) },
-    { k: "İşletme gideri", v: "−" + fmtUsd(gider), not: "vergi, sigorta, yönetim, boşluk, bakım", tur: "eksi" },
-    {
-      k: "Aylık nakit fazlası",
-      v: (g.nakitAkisiAylik >= 0 ? "+" : "−") + fmtUsd(Math.abs(g.nakitAkisiAylik)),
-      not: "ince — reklam kalemi değil",
-      tur: "ara",
+      v: fmtUsd(u.giris.kapanis),
+      not: fmtYuzde(KAPANIS_ORANI * 100),
     },
     {
-      k: "Aylık anapara birikimi",
-      v: "+" + fmtUsd(g.anaparaAylikIlkYil),
-      not: "kiracının kapattığı borç · ilk yıl",
+      k: "Dolarhane hizmet bedeli",
+      v: fmtUsd(u.giris.hizmet),
+      not: fmtYuzde(HIZMET_ORANI * 100, 1),
+    },
+    { k: "Toplam çıkış", v: fmtUsd(u.giris.toplam), tur: "ara" },
+    { k: "Beklenen aylık kira", v: fmtUsd(u.kiraAylik) },
+    {
+      k: "Yıllık brüt kira",
+      v: fmtUsd(u.brutYillik),
+      not: `brüt getiri ${fmtYuzde(u.brutGetiri * 100, 1)}`,
+    },
+    {
+      k: "İşletme gideri",
+      v: "−" + fmtUsd(u.giderYillik),
+      not: "emlak vergisi, sigorta, yönetim, boşluk, bakım",
+      tur: "eksi",
+    },
+    { k: "Yıllık net", v: fmtUsd(u.netYillik), tur: "ara" },
+    {
+      k: "Aylık net",
+      v: fmtUsd(u.netAylik),
+      not: "cebinize giren",
       tur: "vurgu",
     },
-    { k: "Kira / taksit", v: fmtOran(g.oran), tur: "ara" },
     {
       k: "Net getiri",
-      v: fmtYuzde(net.netGetiri * 100, 2),
-      not: "peşin alımda · brüt değil",
+      v: fmtYuzde(u.netGetiri * 100, 1),
+      not: "toplam çıkış üzerinden · brüt değil",
     },
   ];
 
@@ -76,32 +80,14 @@ export function Hesap2() {
         <div className="v2-hesap__sol">
           <h2 className="v2-h2">Yatırımınızı hesaplayın.</h2>
           <p className="v2-lede">
-            Rakamları değiştirin, senaryo canlı kurulur. Faiz yıllık{" "}
-            {fmtYuzde(US_YILLIK * 100, 2)}, vade {KANONIK.vadeYil} yıl sabit.
+            Rakamları değiştirin, senaryo canlı kurulur. Peşin alım — kredi,
+            taksit ve vade yok.
           </p>
-
-          <div className="v2-kaydir">
-            <label htmlFor="v2-pesinat">
-              <span className="v2-xs">Peşinat oranı</span>
-              <output className="v2-kaydir__v v2-num" htmlFor="v2-pesinat">
-                {fmtYuzde(pesinat)}
-              </output>
-            </label>
-            <input
-              id="v2-pesinat"
-              type="range"
-              min={25}
-              max={45}
-              step={5}
-              value={pesinat}
-              aria-valuetext={`yüzde ${pesinat}`}
-              onChange={(e) => setPesinat(Number(e.target.value))}
-            />
-            <div className="v2-kaydir__uc">
-              <span className="v2-mini">%25</span>
-              <span className="v2-mini">%45</span>
-            </div>
-          </div>
+          {!MODEL_DOGRULANDI ? (
+            <p className="v2-damga">
+              [MODEL ÇALIŞMASI — partner verisiyle doğrulanacak]
+            </p>
+          ) : null}
 
           <div className="v2-kaydir">
             <label htmlFor="v2-fiyat">
@@ -126,9 +112,35 @@ export function Hesap2() {
             </div>
           </div>
 
+          <div className="v2-kaydir">
+            <label htmlFor="v2-butce">
+              <span className="v2-xs">Değerlendirdiğiniz bütçe</span>
+              <output className="v2-kaydir__v v2-num" htmlFor="v2-butce">
+                {fmtUsd(butce)}
+              </output>
+            </label>
+            <input
+              id="v2-butce"
+              type="range"
+              min={120_000}
+              max={600_000}
+              step={20_000}
+              value={butce}
+              aria-valuetext={fmtUsd(butce)}
+              onChange={(e) => setButce(Number(e.target.value))}
+            />
+            <div className="v2-kaydir__uc">
+              <span className="v2-mini">{fmtUsd(120_000)}</span>
+              <span className="v2-mini">{fmtUsd(600_000)}</span>
+            </div>
+          </div>
+
           <p className="v2-mini v2-hesap__not">
             Kaydırıcı ürün bandının dışına çıkmaz: {fmtUsd(BAND.min)} —{" "}
-            {fmtUsd(BAND.max)}. Bandın dışına ekstrapolasyon yapmıyoruz.
+            {fmtUsd(BAND.max)}.{" "}
+            {tatli
+              ? `Tatlı nokta ${fmtUsd(TATLI_NOKTA.min)}–${fmtUsd(TATLI_NOKTA.max)} bandı; buradasınız.`
+              : `Tatlı nokta ${fmtUsd(TATLI_NOKTA.min)}–${fmtUsd(TATLI_NOKTA.max)}. Fiyat yükseldikçe emlak vergisi ve giderler net getiriyi aşağı çekiyor.`}
           </p>
         </div>
 
@@ -155,15 +167,15 @@ export function Hesap2() {
             <IkonGrafik />
           </span>
           <h3 className="v2-h3">
-            Aynı bütçeyle,
+            Aynı bütçe,
             <br />
-            daha büyük bir varlık.
+            kaç ev eder.
           </h3>
           <p className="v2-sm">
-            Burada {fmtUsd(giris)} koyup {fmtUsd(fiyat)}&apos;lık bir eve sahip
-            oluyorsunuz; kalanını kiracı ödüyor. Türkiye&apos;de kira taksitin
-            küçük bir kısmını karşıladığı için kredi fiilen işlemiyor — aynı
-            büyüklükte bir varlık için tutarın tamamını koymanız gerekir.
+            {fmtUsd(butce)} Türkiye&apos;de <strong>bir ev</strong> alıyor ve
+            ayda {fmtUsd(k.trAylikNet)} getiriyor. Aynı parayla bu fiyat
+            bandında <strong>{fmtAdet(k.usEv)}</strong>, ayda toplam{" "}
+            <strong>{fmtUsd(k.usAylikNet)}</strong>.
           </p>
           <a className="v2-baglanti" href="#v2-karsilastirma">
             Karşılaştırmayı görün

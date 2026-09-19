@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 
 const BOLUMLER: [string, string][] = [
-  ["h-cetvel", "Cetvel"],
-  ["h-nakit", "Nakit ve getiri"],
-  ["h-otuz", "30 yıl"],
+  ["h-giris", "Giriş bileti"],
+  ["h-defter", "Gider defteri"],
+  ["h-senaryo", "İki senaryo"],
   ["h-kars", "Karşılaştırma"],
 ];
 

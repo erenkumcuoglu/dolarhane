@@ -2,13 +2,17 @@ import type { Metadata } from "next";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Toc } from "@/components/hesap/Toc";
-import { Cetvel } from "@/components/hesap/Cetvel";
-import { Nakit, OtuzYil, Karsilastirma } from "@/components/hesap/panolar";
+import {
+  Giris,
+  Defter,
+  Senaryolar,
+  Karsilastirma,
+} from "@/components/hesap/panolar";
 
 export const metadata: Metadata = {
   title: "Hesabın tamamı — Dolarhane",
   description:
-    "Tüm cetveller tek parça: aylık taksit, net nakit akışı, düşüm defteri, 30 yıllık kapanış ve dört yollu karşılaştırma. Aleyhimize olan satırlar dahil.",
+    "Peşin alımın tamamı tek parça: giriş bileti, yıllık gider defteri, iki fiyat senaryosu ve Türkiye karşılaştırması. Aleyhimize olan satırlar dahil.",
 };
 
 export default function HesapSayfasi() {
@@ -22,7 +26,7 @@ export default function HesapSayfasi() {
             <h1 className="h1--hesap">Hesabın tamamı.</h1>
             <p className="lede hbas__lede">
               Burada sizi ikna etmeye çalışmıyoruz; hesabı denetlemenize izin
-              veriyoruz. Tüm cetveller, tüm satırlar, tek parça.
+              veriyoruz. Peşin alımın her satırı, tek parça.
             </p>
           </div>
           <a className="btn btn--sessiz" href="/">
@@ -34,9 +38,9 @@ export default function HesapSayfasi() {
       <main className="kap hesap" id="icerik">
         <Toc />
         <div className="hesap__govde">
-          <Cetvel />
-          <Nakit />
-          <OtuzYil />
+          <Giris />
+          <Defter />
+          <Senaryolar />
           <Karsilastirma />
         </div>
       </main>

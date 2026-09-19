@@ -1,45 +1,52 @@
 /**
- * v2 karşılaştırma — ana sayfadaki "Aynı $X Türkiye'de ne yapar" tablosunun
- * bu dünyaya çevirisi. İçerik aynı (anlati.tsx · TurkiyeAyniPara); değişen
- * yalnız kabuk: beyaz kart, lacivert başlık satırı, altta altın sermaye bandı.
+ * v2 karşılaştırma — iş planı slayt 9: "Aynı para, iki farklı sonuç".
  *
- * Türkiye kolonu bugün bulunabilen EN İYİ koşulla kurulu; bu satır kartın
- * dibinde yazılı kalır (DESIGN.md · karşılaştırma kasten aleyhimize).
+ * Kaldıraçlı sürümün yerini aldı. İki taraf da PEŞİN; kredi, taksit ve
+ * vade karşılaştırması yok (iş planı §10–11).
+ *
+ * Tablo aleyhimize olan satırı gizlemiyor: ev başına aylık net bizde daha
+ * DÜŞÜK (701 $ / 933 $). Kazanan taraf aynı bütçeye kaç ev sığdığında
+ * ortaya çıkıyor ve alttaki bant tam olarak bunu söylüyor.
  */
 import {
   CANLI,
-  KANONIK,
-  US_YILLIK,
+  TR,
+  fmtAdet,
   fmtOran,
   fmtUsd,
   fmtYuzde,
-  nakitOrani,
 } from "@/lib/finance";
 
 export function Karsilastirma2() {
-  const giris = KANONIK.fiyat * nakitOrani();
-  const kat = Math.floor((KANONIK.fiyat / giris) * 10) / 10;
+  const u = CANLI.getiri;
+  const k = CANLI.karsilastirma;
 
   const satirlar: [string, string, string][] = [
-    ["Bu parayla alınabilen", "Dar bir daire, çeperde", "3 yatak odalı, garajlı, bahçeli"],
+    ["Giriş bileti", fmtUsd(TR.girisBileti), fmtUsd(u.giris.toplam)],
+    ["Aylık brüt kira", fmtUsd(TR.kiraAylik), fmtUsd(u.kiraAylik)],
     [
-      "Kredi",
-      `Efektif yıllık ${fmtYuzde(CANLI.tr.efektifYillik * 100)}`,
-      `Yıllık ${fmtYuzde(US_YILLIK * 100, 2)} · ${KANONIK.vadeYil} yıl sabit`,
+      "Brüt getiri",
+      fmtYuzde(TR.brutGetiri * 100, 2),
+      fmtYuzde(u.brutGetiri * 100, 1),
     ],
-    ["Kira taksiti karşılar mı", `Hayır · ${fmtOran(CANLI.tr.oran)}`, `Evet · ${fmtOran(CANLI.us.oran)}`],
-    ["Gelirin para birimi", "TL", "USD"],
+    [
+      "Tahmini net getiri",
+      fmtYuzde(TR.netGetiri * 100, 1),
+      fmtYuzde(u.netGetiri * 100, 1),
+    ],
+    ["Aylık net", fmtUsd(k.trAylikNet), fmtUsd(u.netAylik)],
+    ["Gelirin para birimi", "TL riskiyle", "Dolar"],
+    ["Gelir ne zaman başlar", "Kiracı bulunca", "İlk ay · kiracı içinde"],
   ];
 
   return (
     <section className="v2-sect v2-kars" id="v2-karsilastirma">
       <div className="v2-kap">
         <div className="v2-sect__bas">
-          <h2 className="v2-h2">
-            Aynı {fmtUsd(giris)} Türkiye&apos;de ne yapar.
-          </h2>
+          <h2 className="v2-h2">Aynı para, iki farklı sonuç.</h2>
           <p className="v2-xs v2-sect__yan">
-            Aynı ev, aynı peşinat, aynı vade. Tek fark faiz.
+            İki taraf da peşin alım. Ev başına aylık net bizde daha düşük —
+            fark, aynı bütçeye kaç ev sığdığında ortaya çıkıyor.
           </p>
         </div>
 
@@ -47,18 +54,18 @@ export function Karsilastirma2() {
           <div className="v2-kars__s v2-kars__s--bas">
             <span />
             <span className="v2-xs">İstanbul&apos;da daire</span>
-            <span className="v2-xs v2-kars__biz">Amerika&apos;da müstakil ev</span>
+            <span className="v2-xs v2-kars__biz">Dolarhane · ABD</span>
           </div>
-          {satirlar.map(([k, t, a]) => (
-            <div className="v2-kars__s" key={k}>
-              <span className="v2-xs v2-kars__k">{k}</span>
+          {satirlar.map(([etiket, trDeger, usDeger]) => (
+            <div className="v2-kars__s" key={etiket}>
+              <span className="v2-xs v2-kars__k">{etiket}</span>
               <span className="v2-kars__tr">
                 <em className="v2-mini">İstanbul&apos;da daire</em>
-                {t}
+                {trDeger}
               </span>
               <span className="v2-kars__us">
-                <em className="v2-mini">Amerika&apos;da ev</em>
-                {a}
+                <em className="v2-mini">Dolarhane · ABD</em>
+                {usDeger}
               </span>
             </div>
           ))}
@@ -67,16 +74,17 @@ export function Karsilastirma2() {
         <div className="v2-sermaye">
           <div>
             <p className="v2-xs">
-              Aynı büyüklükte bir varlık için Türkiye&apos;de gereken sermaye
+              {fmtUsd(k.butce)} ile aylık net gelir
             </p>
-            <p className="v2-sermaye__v v2-num">
-              en az {kat.toString().replace(".", ",")} kat
-            </p>
+            <p className="v2-sermaye__v v2-num">{fmtOran(k.kat)}</p>
           </div>
           <p className="v2-sm">
-            Türkiye kolonu bugün bulunabilen <strong>en iyi</strong> koşulla
-            kuruldu; piyasa ortalaması daha kötü. Buradaki kredi fiilen
-            işlemediği için aradaki farkı her ay ev sahibi öder.
+            {fmtUsd(k.butce)} Türkiye&apos;de <strong>bir ev</strong> alıyor,
+            ayda {fmtUsd(k.trAylikNet)} getiriyor. Aynı parayla bizde{" "}
+            <strong>{fmtAdet(k.usEv)}</strong>, ayda{" "}
+            {fmtUsd(k.usAylikNet)}. Türkiye kolonu bugün bulunabilen{" "}
+            <strong>en iyi</strong> koşulla kuruldu; piyasa ortalaması daha
+            kötü.
           </p>
         </div>
       </div>

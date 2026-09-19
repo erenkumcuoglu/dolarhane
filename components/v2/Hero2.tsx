@@ -9,8 +9,8 @@
  *  - Kartın verisi örnek portföyden geliyor ve "örnek · temsilî" damgalı
  *    (kural 9 ve 16). Fotoğraf da bizim mülkümüz değil.
  */
-import { CANLI, fmtOran, fmtUsd, fmtYuzde, KANONIK } from "@/lib/finance";
-import { EVLER } from "@/components/detay/evler";
+import { CANLI, fmtAdet, fmtUsd, fmtYuzde, getiri } from "@/lib/finance";
+import { EVLER } from "@/lib/portfoy";
 import { IkonDolar, IkonGrafik, IkonUzak, IkonYatak, IkonBanyo, IkonAlan } from "./ikon";
 import { Slogan2 } from "./Slogan2";
 
@@ -25,6 +25,8 @@ const OZELLIK = [
 
 /* Kart verisi örnek portföyün dördüncü evi — elle yazılmadı. */
 const EV = EVLER[3];
+/* Kira ve net getiri EVLER'de yazmaz; fiyattan türetilir. */
+const EV_GETIRI = getiri(EV.fiyat);
 
 export function Hero2() {
   return (
@@ -85,7 +87,7 @@ export function Hero2() {
           <article className="v2-kart v2-mulk">
             <p className="v2-mulk__damga">örnek · temsilî</p>
             <p className="v2-mulk__z">{EV.z}</p>
-            <p className="v2-mulk__p v2-num">{fmtUsd(EV.p)}</p>
+            <p className="v2-mulk__p v2-num">{fmtUsd(EV.fiyat)}</p>
             <ul className="v2-mulk__ler">
               <li>
                 <span className="v2-mulk__i" aria-hidden="true">
@@ -109,11 +111,13 @@ export function Hero2() {
             <div className="v2-mulk__alt">
               <div>
                 <p className="v2-xs">Beklenen aylık kira</p>
-                <p className="v2-mulk__kira v2-num">{fmtUsd(EV.kira)} / ay</p>
+                <p className="v2-mulk__kira v2-num">{fmtUsd(EV_GETIRI.kiraAylik)} / ay</p>
               </div>
               <div>
                 <p className="v2-xs">Net getiri</p>
-                <p className="v2-mulk__kira v2-num">{EV.getiri}</p>
+                <p className="v2-mulk__kira v2-num">
+                  {fmtYuzde(EV_GETIRI.netGetiri * 100, 1)}
+                </p>
               </div>
             </div>
           </article>
@@ -121,11 +125,13 @@ export function Hero2() {
       </div>
 
       <div className="v2-kap v2-hero__band">
+        {/* Bant peşin modelin dört ölçüsü: eskiden kira/taksit oranı ve
+            30 yıllık vade vardı, ikisi de kaldıraç ölçüsüydü. */}
         {[
-          { v: fmtOran(CANLI.us.oran), k: "kira / taksit · ABD" },
-          { v: fmtOran(CANLI.tr.oran), k: "Türkiye'de aynı ev" },
-          { v: fmtYuzde(CANLI.net.netGetiri * 100, 2), k: "net getiri · brüt değil", altin: true },
-          { v: `${KANONIK.vadeYil} yıl`, k: "sonunda borçsuz ev" },
+          { v: fmtUsd(CANLI.getiri.giris.toplam), k: "giriş bileti · her şey dahil" },
+          { v: fmtUsd(CANLI.getiri.netAylik), k: "aylık net · ev başına" },
+          { v: fmtYuzde(CANLI.getiri.netGetiri * 100, 1), k: "net getiri · brüt değil", altin: true },
+          { v: fmtAdet(CANLI.karsilastirma.usEv), k: `${fmtUsd(CANLI.karsilastirma.butce)} ile · Türkiye'de 1` },
         ].map((x) => (
           <div key={x.k}>
             <p className={`v2-hero__bandV v2-num${x.altin ? " v2-altin" : ""}`}>{x.v}</p>

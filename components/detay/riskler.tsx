@@ -1,7 +1,7 @@
 export const RISKLER: [string, string][] = [
   [
-    "Kaldıraç iki yönlü çalışır",
-    "Kredili alımda nakit akışı incedir. Boşluk uzarsa ya da büyük bir onarım çıkarsa o ay taksiti siz ödersiniz. Hesap sayfasında vadeyi kısaltın; oran 1'in altına düştüğünde tablo bunu size kendisi söyler.",
+    "Nakit akışı garantili değil",
+    "Peşin alımda taksit yükü yok, ama gider yükü var. Boşluk uzarsa ya da büyük bir onarım çıkarsa o yılın nakit akışı erir; hesaptaki boşluk ve bakım payları ortalamadır, tek bir yılda aşılabilir.",
   ],
   [
     "Bu bir nakit akışı yatırımı, değer artışı yatırımı değil",
@@ -39,8 +39,8 @@ export const SORULAR: [string, string][] = [
     "Hayır. Vergi numarası, teklif, ev denetimi, escrow ve tapu kapanışı dahil süreç tamamen uzaktan yürüyor; imzalar elektronik. Yine de gelip görmek isteyenler için yılda birkaç kez portföy gezisi düzenliyoruz — tavsiye ederiz, mecbur değilsiniz.",
   ],
   [
-    "Yabancı olarak gerçekten kredi alabilir miyim?",
-    "Evet. Bu programlar Türkiye'deki gelirinize, vergi beyanınıza ya da ABD kredi geçmişinize bakmıyor — evin kendi kira gelirinin taksiti karşılayıp karşılamadığına bakıyor. Peşinat %25–30, faiz ABD vatandaşlarına göre yaklaşık 0,5–0,75 puan yüksek. Kredili ve peşin senaryoyu aynı dosyada yan yana görüyorsunuz.",
+    "Kredi kullanabilir miyim?",
+    "Ana ürünümüz peşin alım: kapanış 10–21 günde biter, kredi onayına bağlı iptal riski yoktur ve hedef bandımızdaki evler zaten peşin alınabilecek tutarda. Kredi seçeneğini yalnızca bizden ev almış müşterilere, portföylerini büyütmek için açıyoruz — ilk alımda masada değil.",
   ],
   [
     "Kiracı ödemezse ne oluyor?",

@@ -1,64 +1,121 @@
+/**
+ * /hesap panoları — PEŞİN model (iş planı §10).
+ *
+ * Kaldıraçlı sürüm (ABD–Türkiye kredi cetveli, 30 yıllık kapanış, aylık
+ * $35 nakit akışı) tamamen kalktı; o senaryo artık kamuya açık ürün değil.
+ *
+ * Bu sayfanın işi ikna değil DENETİM: slayt 16'nın satırlarını tek tek
+ * gösteriyor, iki senaryoyu yan yana koyuyor ve fiyat yükseldikçe verimin
+ * neden düştüğünü açık ediyor.
+ */
 import {
   CANLI,
-  KANONIK,
-  US_YILLIK,
+  GIDER,
+  HIZMET_ORANI,
+  KAPANIS_ORANI,
+  MODEL_DOGRULANDI,
+  TATLI_NOKTA,
+  TR,
+  fmtAdet,
   fmtOran,
   fmtUsd,
   fmtYuzde,
+  getiri,
   giderler,
-  vadeSonu,
-  zamanCizgisi,
 } from "@/lib/finance";
 
-/* ── Hesap sayfası panoları ───────────────────────────────────
-   Ana sayfadan buraya taşındı: rakam yükünün yarısı bu üç panelde.
-   Riskler ve sorular ana sayfada kaldı. */
+/* 01 · Giriş bileti */
+export function Giris() {
+  const g = CANLI.getiri.giris;
 
-/* 01 · Nakit ve getiri */
-export function Nakit() {
-  const u = CANLI.us;
-  const net = CANLI.net;
-  const g = giderler(KANONIK.fiyat);
+  const satir: [string, string, string?][] = [
+    ["Ev fiyatı", fmtUsd(g.fiyat)],
+    ["Kapanış masrafları", fmtUsd(g.kapanis), fmtYuzde(KAPANIS_ORANI * 100)],
+    [
+      "Dolarhane hizmet bedeli",
+      fmtUsd(g.hizmet),
+      fmtYuzde(HIZMET_ORANI * 100, 1),
+    ],
+  ];
 
   return (
-    <section className="hpano pano--iki" id="h-nakit">
+    <section className="hpano" id="h-giris">
+      <div className="sect__bas">
+        <h2 className="h2 pano__h">Cebinizden ne çıkıyor.</h2>
+        <p className="xs sect__yan">
+          Kanonik senaryo · {fmtUsd(g.fiyat)} · peşin
+        </p>
+      </div>
+
+      {!MODEL_DOGRULANDI ? (
+        <p className="damga">[MODEL ÇALIŞMASI — partner verisiyle doğrulanacak]</p>
+      ) : null}
+
+      <div className="kart defter">
+        {satir.map(([k, v, not]) => (
+          <div className="defter__s" key={k}>
+            <span>
+              {k}
+              {not ? <em className="chip">{not}</em> : null}
+            </span>
+            <span className="num">{v}</span>
+          </div>
+        ))}
+        <div className="defter__s defter__s--net">
+          <span>Toplam çıkış</span>
+          <span className="num">{fmtUsd(g.toplam)}</span>
+        </div>
+      </div>
+
+      <p className="xs pano__dip">
+        Getiri oranları ev fiyatına değil bu tutara bölünür — yatırımcının
+        cebinden çıkan para budur. Kredi, peşinat ve taksit yok: alım peşin.
+      </p>
+    </section>
+  );
+}
+
+/* 02 · Gider defteri */
+export function Defter() {
+  const u = CANLI.getiri;
+  const g = giderler();
+
+  return (
+    <section className="hpano pano--iki" id="h-defter">
       <div>
-        <h2 className="h2 pano__h">
-          Kira taksiti karşılıyor. Cebinize giren para yine de az.
-        </h2>
+        <h2 className="h2 pano__h">Brüt getiri bir reklamdır.</h2>
         <p className="vurus pano__vurus">
-          Asıl kazanç nakitte değil: evi fiilen kiracı satın alıyor, siz
-          peşinatı koydunuz.
+          Kira tahsil edilir, giderler ondan düşer. Sayfada yazan getiri
+          düşüldükten sonrasıdır.
         </p>
         <div className="ikili">
           <div className="kart kart--tint ikili__h">
-            <p className="xs">Ayda cebinize giren nakit</p>
-            <p className="ikili__v num">{fmtUsd(u.nakitAkisiAylik)}</p>
+            <p className="xs">Aylık brüt kira</p>
+            <p className="ikili__v num">{fmtUsd(u.kiraAylik)}</p>
           </div>
           <div className="kart kart--wash ikili__h">
-            <p className="xs amber-t">Ayda biriken anapara</p>
+            <p className="xs amber-t">Aylık net</p>
             <p className="ikili__v ikili__v--amber num">
-              {fmtUsd(u.anaparaAylikIlkYil)}
+              {fmtUsd(u.netAylik)}
             </p>
           </div>
         </div>
         <p className="xs pano__dip">
-          {fmtUsd(u.kira)} kira − {fmtUsd(u.isletmeAylik)} işletme −{" "}
-          {fmtUsd(u.taksit)} taksit. Anapara ilk 12 ayın ortalaması.
+          Boşluk karşılığı {fmtYuzde(GIDER.boslukOrani * 100)} ve bakım{" "}
+          {fmtYuzde(GIDER.bakimOrani * 100)} her ay tahsil edilmez; yıla
+          yayılmış karşılıklardır. Kötü bir yılda bakım bu payı aşabilir.
         </p>
       </div>
 
       <div>
         <div className="sect__bas">
-          <h3 className="h3">Brüt getiri bir reklamdır.</h3>
-          <p className="xs sect__yan">
-            {fmtUsd(KANONIK.fiyat)} · peşin · yıllık
-          </p>
+          <h3 className="h3">Yıllık defter</h3>
+          <p className="xs sect__yan">{fmtUsd(u.giris.fiyat)} · peşin</p>
         </div>
         <div className="kart defter">
           <div className="defter__s defter__s--bas">
             <span>Brüt kira geliri</span>
-            <span className="num">{fmtUsd(net.brutYillik)}</span>
+            <span className="num">{fmtUsd(u.brutYillik)}</span>
           </div>
           {g.map((x) => (
             <div className="defter__s" key={x.etiket}>
@@ -70,9 +127,9 @@ export function Nakit() {
             </div>
           ))}
           <div className="defter__s defter__s--net">
-            <span>Net nakit akışı</span>
+            <span>Yıllık net</span>
             <span className="num">
-              {fmtUsd(net.netYillik)} · {fmtYuzde(net.netGetiri * 100, 2)}
+              {fmtUsd(u.netYillik)} · {fmtYuzde(u.netGetiri * 100, 1)}
             </span>
           </div>
         </div>
@@ -81,193 +138,130 @@ export function Nakit() {
   );
 }
 
-/* 02 · 30 yıl */
-export function OtuzYil() {
-  const son = vadeSonu();
-  const km = zamanCizgisi();
+/* 03 · İki senaryo — slayt 16 */
+export function Senaryolar() {
+  const a = getiri(140_000);
+  const b = getiri(200_000);
+
+  const satir: [string, string, string][] = [
+    ["Ev fiyatı", fmtUsd(a.giris.fiyat), fmtUsd(b.giris.fiyat)],
+    ["Toplam çıkış", fmtUsd(a.giris.toplam), fmtUsd(b.giris.toplam)],
+    ["Aylık kira", fmtUsd(a.kiraAylik), fmtUsd(b.kiraAylik)],
+    [
+      "Brüt getiri",
+      fmtYuzde(a.brutGetiri * 100, 1),
+      fmtYuzde(b.brutGetiri * 100, 1),
+    ],
+    ["Yıllık gider", "−" + fmtUsd(a.giderYillik), "−" + fmtUsd(b.giderYillik)],
+    ["Yıllık net", fmtUsd(a.netYillik), fmtUsd(b.netYillik)],
+    ["Aylık net", fmtUsd(a.netAylik), fmtUsd(b.netAylik)],
+    [
+      "Net getiri",
+      fmtYuzde(a.netGetiri * 100, 1),
+      fmtYuzde(b.netGetiri * 100, 1),
+    ],
+  ];
 
   return (
-    <section className="hpano pano--iki otuz" id="h-otuz">
-      <div className="otuz__soz">
-        <h2 className="h2">Otuz yıl sonra ev sizin. Parasını kiracınız ödedi.</h2>
-        <p className="vurus">
-          Peşinatı siz koyuyorsunuz; geri kalanını her ay bir başkası kapatıyor.
+    <section className="hpano" id="h-senaryo">
+      <div className="sect__bas">
+        <h2 className="h2 pano__h">Pahalı ev daha çok para getirir, daha az verim.</h2>
+        <p className="xs sect__yan">
+          Tatlı nokta {fmtUsd(TATLI_NOKTA.min)} – {fmtUsd(TATLI_NOKTA.max)}
         </p>
-        <p className="sm otuz__not">
-          Bu tabloda kira {KANONIK.vadeYil} yıl boyunca hiç artmıyor: gerçekçi
-          değil, kasten kötümser. Değer artışı da varsayılmıyor.
-        </p>
-        <dl className="otuz__ozet">
-          <div>
-            <dt className="xs">Sizin koyduğunuz</dt>
-            <dd className="num">{fmtUsd(son.sizinKoydugunuz)}</dd>
-          </div>
-          <div className="otuz__ozet--amber">
-            <dt className="xs amber-t">
-              Kiracının {KANONIK.vadeYil} yılda kapattığı
-            </dt>
-            <dd className="num amber-t">{fmtUsd(son.kiracininKapattigi)}</dd>
-          </div>
-          <div>
-            <dt className="xs">Elinizde kalan</dt>
-            <dd>Borçsuz ev</dd>
-          </div>
-        </dl>
       </div>
 
-      <div className="kart tasar">
-        <p className="xs tasar__bas">
-          Kredinin kapanışı · {km.length} kilometre taşı
-        </p>
-        {km.map((k) => (
-          <div className="tasar__h" key={k.yil}>
-            <div className="tasar__ust">
-              <span className="tasar__yil">{k.yil}. yıl</span>
-              <span className="xs">
-                {fmtYuzde(k.ozkaynakOrani * 100)} kapandı · kalan{" "}
-                {fmtUsd(k.kalanKredi)}
-              </span>
-            </div>
-            <div className="tasar__ray" aria-hidden="true">
-              <span style={{ width: `${k.ozkaynakOrani * 100}%` }} />
-            </div>
+      <div className="kart tablo">
+        <div className="tablo__satir tablo__satir--bas">
+          <span>Kalem</span>
+          <span>{fmtUsd(140_000)} ev</span>
+          <span>{fmtUsd(200_000)} ev</span>
+        </div>
+        {satir.map(([k, av, bv]) => (
+          <div className="tablo__satir" key={k}>
+            <span className="tablo__k">{k}</span>
+            <span className="num">{av}</span>
+            <span className="num tablo__tr">{bv}</span>
           </div>
         ))}
-        <p className="xs">
-          {fmtUsd(KANONIK.fiyat)} ev, {fmtYuzde(KANONIK.pesinatOrani * 100)}{" "}
-          peşinat, yıllık {fmtYuzde(US_YILLIK * 100, 2)} ·{" "}
-          {KANONIK.vadeYil} yıl. Kapanan pay krediye göredir.
-        </p>
       </div>
+
+      <p className="xs cetvel__not">
+        Pahalı ev ayda{" "}
+        <strong>{fmtUsd(b.netAylik - a.netAylik)} daha fazla</strong> nakit
+        üretiyor ama paranın verimi{" "}
+        {fmtYuzde((a.netGetiri - b.netGetiri) * 100, 1)} düşüyor: emlak vergisi
+        ev fiyatıyla birlikte artarken kira aynı hızda artmıyor. Bu yüzden
+        hedef bandımız {fmtUsd(TATLI_NOKTA.min)} – {fmtUsd(TATLI_NOKTA.max)}.
+      </p>
     </section>
   );
 }
 
-/* 03 · Karşılaştırma */
+/* 04 · Türkiye karşılaştırması — slayt 9 */
 export function Karsilastirma() {
-  const net = CANLI.net;
-  const t = CANLI.tr;
-  const u = CANLI.us;
+  const u = CANLI.getiri;
+  const k = CANLI.karsilastirma;
 
-  /** aleyhte: kaybettiğimiz satır — kazanç rengiyle boyanmaz */
-  const satir: {
-    olcut: string;
-    bizim: string;
-    aleyhte?: boolean;
-    digerleri: [string, string, boolean?][];
-  }[] = [
-    {
-      olcut: "Yıllık net nakit getiri",
-      bizim: `${fmtYuzde(net.netGetiri * 100, 2)} · USD`,
-      digerleri: [
-        ["İstanbul'da daire", "%5,6 · TL"],
-        ["Altın", "Yok", true],
-        ["Dolar mevduat", "%2–3 · USD"],
-      ],
-    },
-    {
-      olcut: "Kredi kullanılabilirliği",
-      bizim: `Yıllık ${fmtYuzde(US_YILLIK * 100, 2)}`,
-      digerleri: [
-        ["İstanbul'da daire", `Efektif ${fmtYuzde(t.efektifYillik * 100)} faiz`],
-        ["Altın", "—", true],
-        ["Dolar mevduat", "—", true],
-      ],
-    },
-    {
-      olcut: "Kira, taksiti karşılıyor mu",
-      bizim: `Evet · ${fmtOran(u.oran)}`,
-      digerleri: [
-        ["İstanbul'da daire", `Hayır · ${fmtOran(t.oran)}`],
-        ["Altın", "—", true],
-        ["Dolar mevduat", "—", true],
-      ],
-    },
-    {
-      olcut: "Reel değer koruması",
-      bizim: "Güçlü",
-      digerleri: [
-        ["İstanbul'da daire", "Zayıf · −%5,8"],
-        ["Altın", "Güçlü"],
-        ["Dolar mevduat", "Orta"],
-      ],
-    },
-    {
-      olcut: "Yönetim yükü",
-      bizim: "Bizde",
-      digerleri: [
-        ["İstanbul'da daire", "Sizde"],
-        ["Altın", "Yok", true],
-        ["Dolar mevduat", "Yok", true],
-      ],
-    },
-    {
-      olcut: "Likidite",
-      bizim: "Düşük–orta",
-      aleyhte: true,
-      digerleri: [
-        ["İstanbul'da daire", "Düşük"],
-        ["Altın", "Yüksek"],
-        ["Dolar mevduat", "Yüksek"],
-      ],
-    },
-    {
-      olcut: "Varlığın bulunduğu hukuk",
-      bizim: "ABD",
-      digerleri: [
-        ["İstanbul'da daire", "Türkiye"],
-        ["Altın", "Kasanız"],
-        ["Dolar mevduat", "Türk bankası"],
-      ],
-    },
+  const satir: [string, string, string, boolean?][] = [
+    ["Giriş bileti", fmtUsd(TR.girisBileti), fmtUsd(u.giris.toplam)],
+    ["Aylık brüt kira", fmtUsd(TR.kiraAylik), fmtUsd(u.kiraAylik)],
+    [
+      "Brüt getiri",
+      fmtYuzde(TR.brutGetiri * 100, 2),
+      fmtYuzde(u.brutGetiri * 100, 1),
+    ],
+    [
+      "Tahmini net getiri",
+      fmtYuzde(TR.netGetiri * 100, 1),
+      fmtYuzde(u.netGetiri * 100, 1),
+    ],
+    /* aleyhte: ev başına aylık net bizde daha düşük */
+    ["Ev başına aylık net", fmtUsd(k.trAylikNet), fmtUsd(u.netAylik), true],
+    ["Gelirin para birimi", "TL riskiyle", "Dolar"],
+    ["Gelir ne zaman başlar", "Kiracı bulunca", "İlk ay · kiracı içinde"],
   ];
 
   return (
     <section className="hpano" id="h-kars">
       <div className="sect__bas">
-        <h2 className="h2 pano__h">
-          Gerçek rakibimiz Amerika&apos;daki başka bir ev değil.
-        </h2>
+        <h2 className="h2 pano__h">Aynı para, iki farklı sonuç.</h2>
         <p className="xs sect__yan">
-          Elinizdeki para bugün dört yerden birine gidiyor. Her ölçütte önce
-          bizim cevabımız, altında diğer üç yol.
+          İki taraf da peşin alım. Kredi karşılaştırması yok.
         </p>
       </div>
 
-      {/* masaüstünde tek başlıklı tablo, telefonda yığın kart */}
-      <div className="kars">
-        <div className="kars__bas" aria-hidden="true">
-          <span />
-          <span className="xs">İstanbul&apos;da daire</span>
-          <span className="xs">Altın</span>
-          <span className="xs">Dolar mevduat</span>
-          <span className="xs kars__basbiz">Dolarhane</span>
+      <div className="kart tablo">
+        <div className="tablo__satir tablo__satir--bas">
+          <span>Kalem</span>
+          <span>İstanbul&apos;da daire</span>
+          <span>Dolarhane · ABD</span>
         </div>
-        {satir.map((s) => (
-          <div className="kart kars__h" key={s.olcut}>
-            <p className="kars__olcut">{s.olcut}</p>
-            <dl className="kars__ler">
-              {s.digerleri.map(([ad, deger, sonuk]) => (
-                <div key={ad}>
-                  <dt className="xs">{ad}</dt>
-                  <dd className={sonuk ? "kars__yok" : undefined}>{deger}</dd>
-                </div>
-              ))}
-              <div
-                className={
-                  s.aleyhte ? "kars__biz kars__biz--aleyhte" : "kars__biz"
-                }
-              >
-                <dt className="xs">Dolarhane</dt>
-                <dd>{s.bizim}</dd>
-              </div>
-            </dl>
+        {satir.map(([k2, tv, uv, aleyhte]) => (
+          <div className="tablo__satir" key={k2}>
+            <span className="tablo__k">
+              {k2}
+              {aleyhte ? <em className="chip">bizim aleyhimize</em> : null}
+            </span>
+            <span className="num">{tv}</span>
+            <span className={aleyhte ? "num tablo__tr" : "num"}>{uv}</span>
           </div>
         ))}
       </div>
+
+      <div className="ozetband">
+        <span className="ozetband__k">
+          {fmtUsd(k.butce)} Türkiye&apos;de bir ev alıyor ve ayda{" "}
+          {fmtUsd(k.trAylikNet)} getiriyor. Aynı parayla bizde{" "}
+          {fmtAdet(k.usEv)}, ayda {fmtUsd(k.usAylikNet)}.
+        </span>
+        <span className="ozetband__v num">{fmtOran(k.kat)}</span>
+      </div>
+
       <p className="xs pano__dip">
-        Likidite satırı bizim kaybettiğimiz satır — o yüzden kazanç rengiyle
-        boyanmadı.
+        Ev başına aylık net bizde daha düşük — bu satırı gizlemiyoruz. Fark,
+        aynı bütçeye kaç ev sığdığında ortaya çıkıyor. Türkiye kolonu bugün
+        bulunabilen en iyi koşulla kuruldu; piyasa ortalaması daha kötü.
       </p>
     </section>
   );

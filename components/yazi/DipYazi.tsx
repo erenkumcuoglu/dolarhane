@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { KIMLIK, KONTAK } from "@/lib/kontak";
 import { doluKumeler, kumeYolu } from "@/lib/icerik";
+import { ORTAKLIK_BAGLANTISI } from "@/lib/ortaklik";
 
 /**
  * Bilgi bankası alt şeridi — `Dip2` ile aynı sınıflar, bilgi bankası
@@ -24,6 +25,13 @@ export function DipYazi() {
             {doluKumeler().map((k) => (
               <Link key={k.slug} href={kumeYolu(k.slug)}>
                 {k.ad}
+              </Link>
+            ))}
+            <Link href="/hesap/">Hesabın tamamı</Link>
+            {/* Hukuki onay yokken boş dizi — lib/ortaklik.ts tek anahtar. */}
+            {ORTAKLIK_BAGLANTISI.map((o) => (
+              <Link key={o.yol} href={o.yol}>
+                {o.ad}
               </Link>
             ))}
             <Link href="/">Ana sayfa</Link>

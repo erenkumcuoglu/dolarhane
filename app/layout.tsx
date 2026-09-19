@@ -8,26 +8,38 @@ import "./globals.css";
  * Her düzenlemede önce bu okunur.
  */
 const CONTRACT = `<!--
-WORLD: v3. Claude Design masaüstü (1180) ve mobil (760) artboard'larından port.
-Bir önceki dünya ("Kur Panosu", seed 6e0375e3) BIRAKILDI ve anti-referanstır:
-sert kenar / sıfır yarıçap / gölgesizlik kuralları burada geçerli değildir.
-THESIS: Manşet aritmetik değil vaattir — "Amerika'da bir eviniz olacak.
-Taksitini kiracınız ödeyecek." Oran manşetin kanıtı, manşetin kendisi değil.
-OWN-WORLD: Sıcak kırık beyaz zemin #FBFAF8, mürekkep #171A1F, marka amber
-#D98314, amber washlar, yuvarlak köşe (6–18px + pill), yumuşak gölge.
-Satoshi 400/500/700/900 gövde ve display; Gambetta 400 italik YALNIZ dürüst
-vuruş cümlelerinde aksan. Fontlar self-host, harici istek yok.
-STORY: Vaat → kanıt (1,92x / 0,28x) → canlı hesap → altı bölümlük Detaylar
-(masaüstünde ilerleme rayı, mobilde akordeon) → dört adımlı akış → form.
+WORLD: v3 kompozisyon (Claude Design 1180/760 artboard'larından port),
+Dolarhane Brand Kit v2 paletiyle. Bir önceki dünya ("Kur Panosu", seed
+6e0375e3) BIRAKILDI ve anti-referanstır: sert kenar / sıfır yarıçap /
+gölgesizlik kuralları burada geçerli değildir.
+THESIS: Model PEŞİN ev sahipliği (iş planı §10). Kaldıraç kamuya açık
+üründen ÇIKTI (§11) — "Amerika'da bir eviniz olacak / Taksitini kiracınız
+ödeyecek" tagline'ı ve kira/taksit oranı iddiası bırakıldı. Manşet artık
+slayt 7'nin üç sloganı, 4 saniyede bir dönüyor (lib/sloganlar.ts).
+OWN-WORLD: Beyaz zemin #FFFFFF, sıcak krem #F5F1E8 washlar, lacivert
+mürekkep #071A2B (kit NAVY), marka altını #C9A45C.
+Altın YALNIZ dolgu/çizgi/ikon ve koyu zeminde metin: beyazda 2,35:1.
+Açık zeminde büyük metin #AC8539, küçük metin #785D28. Yuvarlak köşe
+(6–18px + pill), yumuşak gölge. Satoshi 400/500/700/900 gövde ve display;
+Gambetta 400 italik YALNIZ dürüst vuruş cümlelerinde aksan. Fontlar
+self-host, harici istek yok.
+STORY: Dönen vaat → canlı hesap → Türkiye karşılaştırması → gerekçe →
+portföy → referans → biz kimiz → süreç → riskler → form.
 DATA: Sayfadaki her rakam lib/finance.ts'ten gelir; elle yazılan rakam yok.
 Dayanaklar IDDIA-DENETIMI.md. Şeffaflık rakamları ve portföy kartları
 ÖRNEKTİR ve damgalıdır; kimlik alanları doldurulmadıkça görünür kalır.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 -->`;
 
-const BASLIK = "Dolarhane — Amerika'da bir eviniz olacak";
+/* 2026-09 strateji: "Amerika'da bir eviniz olacak / Taksitini kiracınız
+   ödeyecek" tagline'ı BIRAKILDI ve kaldıraç kamuya açık üründen çıktı
+   (iş planı §11). Sayfanın kendisi temizlendi ama bu blok atlanmıştı:
+   Google başlığı, WhatsApp önizlemesi ve og:description hâlâ o tagline'ı
+   ve "kredi taksitinin 1,92 katı" iddiasını taşıyordu — ikisi de artık
+   lib/finance.ts'te karşılığı olmayan bir modelin sözü. */
+const BASLIK = "Dolarhane — Amerika'dan kiracılı ev al";
 const OZET =
-  "Taksitini kiracınız ödeyecek. Hesabın tamamı satır satır açık, aleyhimize olan notlar dahil.";
+  "Peşin alınan müstakil ev, ilk günden kiracılı, kirası dolar cinsinden. Hesabın tamamı satır satır açık.";
 
 /**
  * Mutlak adres gerektiren alanlar (metadataBase, og:image, canonical) yalnız
@@ -37,13 +49,13 @@ const OZET =
 export const metadata: Metadata = {
   title: BASLIK,
   description:
-    "Amerika'nın orta kuşağında müstakil bir ev, ilk günden kiracılı. Kira, kredi taksitinin 1,92 katı. Hesabın tamamı açık — aleyhimize olan notlar dahil.",
-  ...(KONTAK.siteUrl
-    ? {
-        metadataBase: new URL(KONTAK.siteUrl),
-        alternates: { canonical: "/" },
-      }
-    : {}),
+    "Amerika'nın orta kuşağında müstakil bir ev, peşin ve ilk günden kiracılı. Tapu sizin adınıza, yönetim bizde. Hesabın tamamı açık — aleyhimize olan satırlar dahil.",
+  /* KÖK LAYOUT'TA CANONICAL YOK. Buraya yazılan canonical, kendi
+     `alternates` alanını tanımlamayan HER sayfaya miras kalıyordu:
+     `/hesap/` ve `/ortaklik/` kendilerini ana sayfanın kopyası ilan
+     ediyordu. Canonical sayfaya ait bir beyandır, kabuğa değil — her
+     sayfa kendi yolunu yazıyor. */
+  ...(KONTAK.siteUrl ? { metadataBase: new URL(KONTAK.siteUrl) } : {}),
   openGraph: {
     title: BASLIK,
     description: OZET,
@@ -58,7 +70,7 @@ export const metadata: Metadata = {
               url: "/og.png",
               width: 1200,
               height: 630,
-              alt: "Dolarhane — Amerika'da bir eviniz olacak, taksitini kiracınız ödeyecek",
+              alt: "Dolarhane — Amerika'dan kiracılı ev al",
             },
           ],
         }

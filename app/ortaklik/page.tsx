@@ -3,7 +3,8 @@ import { NavYazi } from "@/components/yazi/NavYazi";
 import { DipYazi } from "@/components/yazi/DipYazi";
 import { Ortaklik } from "@/components/ortaklik/Ortaklik";
 import { FormOrtak } from "@/components/ortaklik/FormOrtak";
-import { HUKUKI_ONAY } from "@/lib/ortaklik";
+import { HUKUKI_ONAY, ORTAKLIK_YOLU } from "@/lib/ortaklik";
+import { ADRES_VAR } from "@/lib/site";
 import "../v2.css";
 
 /**
@@ -21,7 +22,14 @@ export const metadata: Metadata = {
   title: "İş ortaklığı — Dolarhane",
   description:
     "Portföyünüz ya da tanıdığınız var; görüşmeyi, hesabı ve süreci biz yürütüyoruz. Kapanan işlem başına ödeme.",
-  ...(HUKUKI_ONAY ? {} : { robots: { index: false, follow: false } }),
+  /* Onay yokken canonical YAZILMAZ: noindex bir sayfanın canonical'ı
+     çelişkili sinyal. Onay varken de kendi yolunu yazıyor — yoksa kök
+     layout'un mirası onu ana sayfanın kopyası yapardı. */
+  ...(HUKUKI_ONAY
+    ? ADRES_VAR
+      ? { alternates: { canonical: ORTAKLIK_YOLU } }
+      : {}
+    : { robots: { index: false, follow: false } }),
 };
 
 export default function OrtaklikSayfasi() {

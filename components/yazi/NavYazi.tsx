@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { KONTAK } from "@/lib/kontak";
 import { doluKumeler, kumeYolu } from "@/lib/icerik";
+import { ORTAKLIK_BAGLANTISI } from "@/lib/ortaklik";
 
 /**
  * Bilgi bankası nav'ı — v2'nin görsel dili, bilgi bankasının bağlantıları.
@@ -29,6 +30,12 @@ export function NavYazi() {
           {doluKumeler().map((k) => (
             <Link key={k.slug} href={kumeYolu(k.slug)}>
               {k.ad}
+            </Link>
+          ))}
+          {/* Hukuki onay yokken boş dizi — lib/ortaklik.ts tek anahtar. */}
+          {ORTAKLIK_BAGLANTISI.map((o) => (
+            <Link key={o.yol} href={o.yol}>
+              {o.ad}
             </Link>
           ))}
         </div>

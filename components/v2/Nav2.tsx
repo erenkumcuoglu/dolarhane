@@ -6,13 +6,20 @@
  * Numara girildiği an düğme kendiliğinden görünür.
  */
 import { KONTAK } from "@/lib/kontak";
+import { ORTAKLIK_BAGLANTISI } from "@/lib/ortaklik";
 
+/* Sayfa içi çapalar alıcının sırası; iş ortaklığı ayrı bir sayfa ve ayrı
+   bir kitle (emlakçı, yönlendiren), o yüzden en sonda duruyor ve alıcı
+   akışının sırasını bozmuyor. Hukuki onay yokken hiç basılmaz. */
 const BOLUMLER: [string, string][] = [
   ["#v2-firsatlar", "Evler"],
   ["#v2-nasil", "Nasıl çalışır"],
   ["#v2-hesap", "Yatırım hesabı"],
   ["#v2-neden", "Neden Amerika"],
   ["#v2-riskler", "Riskler"],
+  ...ORTAKLIK_BAGLANTISI.map(
+    (o) => [o.yol, o.ad] as [string, string],
+  ),
 ];
 
 export function Nav2() {

@@ -33,6 +33,23 @@ export const ORTAKLIK = {
 /** Avukat onayı alınana kadar sayfa indekslenmez ve nav'a konmaz. */
 export const HUKUKI_ONAY = false;
 
+export const ORTAKLIK_YOLU = "/ortaklik/";
+
+/**
+ * Sayfaya çıkan TEK bağlantı kaynağı — nav'lar ve alt şeritler bunu yayar.
+ *
+ * `HUKUKI_ONAY` false iken boş dizi döner: dört kabuğun dördü de hiçbir
+ * bağlantı basmaz, sitemap sayfayı almaz, sayfa `noindex, nofollow` kalır.
+ * Onay geldiğinde yukarıdaki bayrağı `true` yapmak yeterli — dördü birden
+ * açılır, başka hiçbir dosyaya dokunulmaz.
+ *
+ * Dizi olmasının sebebi bu: bileşenler `...ORTAKLIK_BAGLANTISI` diye
+ * yayıyor, yani "bağlantı var mı" koşulu bileşenlerde tekrar etmiyor.
+ */
+export const ORTAKLIK_BAGLANTISI: { yol: string; ad: string }[] = HUKUKI_ONAY
+  ? [{ yol: ORTAKLIK_YOLU, ad: "İş ortaklığı" }]
+  : [];
+
 export type Hat = "portfoy" | "tanistirma";
 
 export const HATLAR: {

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { ADRES_VAR, mutlak } from "@/lib/site";
+import { ORTAKLIK_BAGLANTISI } from "@/lib/ortaklik";
 
 /* `output: export` ile route handler'ların statik olduğu açıkça beyan edilmeli. */
 export const dynamic = "force-static";
@@ -12,8 +13,17 @@ import {
 } from "@/lib/icerik";
 
 /** Kökte duran, kayıt defterinde olmayan sayfalar (para sayfaları ve araçlar).
- *  Yeni bir kök sayfa açıldığında buraya eklenir. */
-const KOK_SAYFALAR = ["/", "/hesap/"];
+ *  Yeni bir kök sayfa açıldığında buraya eklenir.
+ *
+ *  `/ortaklik/` hukuki onaya bağlı: sayfa bugün üretiliyor ama `noindex`
+ *  ve site içinden bağlantısı yok — sitemap'e koymak o izolasyonu delerdi.
+ *  Bayrak `true` olduğu an nav, alt şerit ve bu liste birlikte açılır
+ *  (lib/ortaklik.ts). */
+const KOK_SAYFALAR = [
+  "/",
+  "/hesap/",
+  ...ORTAKLIK_BAGLANTISI.map((o) => o.yol),
+];
 
 /**
  * Sitemap — kayıt defterinden üretilir, elle tutulmaz.

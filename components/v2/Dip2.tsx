@@ -5,6 +5,7 @@
  * koymak kırık bağlantı demek.
  */
 import { KIMLIK, KONTAK } from "@/lib/kontak";
+import { ORTAKLIK_BAGLANTISI } from "@/lib/ortaklik";
 
 const BAGLANTILAR: [string, string][] = [
   ["#v2-firsatlar", "Evler"],
@@ -12,7 +13,9 @@ const BAGLANTILAR: [string, string][] = [
   ["#v2-hesap", "Yatırım hesabı"],
   ["#v2-neden", "Neden Amerika"],
   ["#v2-riskler", "Riskler ve sorular"],
-  ["/", "Birinci iterasyon"],
+  ["/hesap/", "Hesabın tamamı"],
+  /* Hukuki onay yokken boş — lib/ortaklik.ts tek anahtar. */
+  ...ORTAKLIK_BAGLANTISI.map((o) => [o.yol, o.ad] as [string, string]),
 ];
 
 export function Dip2() {

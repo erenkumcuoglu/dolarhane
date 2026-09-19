@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ADRES_VAR } from "@/lib/site";
 import { NavYazi } from "@/components/yazi/NavYazi";
 import { DipYazi } from "@/components/yazi/DipYazi";
 import { Toc } from "@/components/hesap/Toc";
@@ -14,6 +15,10 @@ export const metadata: Metadata = {
   title: "Hesabın tamamı — Dolarhane",
   description:
     "Peşin alımın tamamı tek parça: giriş bileti, yıllık gider defteri, iki fiyat senaryosu ve Türkiye karşılaştırması. Aleyhimize olan satırlar dahil.",
+  /* Kendi canonical'ı olmadığı sürece kök layout'unkini miras alıyordu:
+     53 yazıdan link alan bu sayfa kendini ana sayfanın kopyası ilan
+     ediyordu. */
+  ...(ADRES_VAR ? { alternates: { canonical: "/hesap/" } } : {}),
 };
 
 export default function HesapSayfasi() {

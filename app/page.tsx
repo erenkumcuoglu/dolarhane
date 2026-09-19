@@ -12,7 +12,16 @@ import { Form2 } from "@/components/v2/Form2";
 import { Dip2 } from "@/components/v2/Dip2";
 import { Jsonld } from "@/components/Jsonld";
 import { organizasyon } from "@/lib/jsonld";
+import { ADRES_VAR } from "@/lib/site";
+import type { Metadata } from "next";
 import "./v2.css";
+
+/* Kök layout artık canonical basmıyor (oradaki not); her sayfa kendi
+   yolunu beyan ediyor. Başlık ve açıklama layout'tan miras — ana sayfa
+   için doğru olan zaten o. */
+export const metadata: Metadata = {
+  ...(ADRES_VAR ? { alternates: { canonical: "/" } } : {}),
+};
 
 /**
  * ANA SAYFA — ikinci iterasyon.

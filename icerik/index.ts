@@ -27,6 +27,7 @@ import { amerikadaTahliyeSureci } from "./surec/amerikada-tahliye-sureci";
 import { propertyManagementSozlesmesi } from "./surec/property-management-sozlesmesi";
 import { uzaktanTapuKapanisi } from "./surec/uzaktan-tapu-kapanisi";
 import { escrowNedir } from "./surec/escrow-nedir";
+import { paraTransferi } from "./surec/para-transferi";
 import { titleInsurance } from "./surec/title-insurance";
 import { closingCosts } from "./surec/closing-costs";
 import { amerikadanEvAlmakGuvenliMi } from "./guven/amerikadan-ev-almak-guvenli-mi";
@@ -51,6 +52,8 @@ import { turkiyedeYurtDisiKiraGeliriBeyani } from "./vergi/turkiyede-yurt-disi-k
 import { cifteVergilendirmeTrAbd } from "./vergi/cifte-vergilendirme-tr-abd";
 import { abdEmlakVergisi } from "./vergi/abd-emlak-vergisi";
 import { depreciationAmortisman } from "./vergi/depreciation-amortisman";
+import { eviSatmak } from "./vergi/evi-satmak";
+import { eyaletVergisi } from "./vergi/eyalet-vergisi";
 
 export const GOVDELER: Record<string, Blok[]> = {
   "getiri/kira-carpani": kiraCarpani,
@@ -73,6 +76,7 @@ export const GOVDELER: Record<string, Blok[]> = {
   "surec/property-management-sozlesmesi": propertyManagementSozlesmesi,
   "surec/uzaktan-tapu-kapanisi": uzaktanTapuKapanisi,
   "surec/escrow-nedir": escrowNedir,
+  "surec/para-transferi": paraTransferi,
   "surec/title-insurance": titleInsurance,
   "surec/closing-costs": closingCosts,
 
@@ -103,4 +107,6 @@ export const GOVDELER: Record<string, Blok[]> = {
   "vergi/cifte-vergilendirme-tr-abd": cifteVergilendirmeTrAbd,
   "vergi/abd-emlak-vergisi": abdEmlakVergisi,
   "vergi/depreciation-amortisman": depreciationAmortisman,
+  "vergi/evi-satmak": eviSatmak,
+  "vergi/eyalet-vergisi": eyaletVergisi,
 };

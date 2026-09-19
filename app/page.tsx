@@ -43,7 +43,8 @@ export default function AnaSayfa() {
       <Jsonld veri={organizasyon()} />
       <Nav2 />
       <Hero2 />
-      <main>
+      {/* Yerleşimdeki "İçeriğe geç" bağlantısının hedefi. */}
+      <main id="icerik">
         <Hesap2 />
         <Karsilastirma2 />
         <Neden2 />

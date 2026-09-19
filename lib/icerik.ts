@@ -241,6 +241,15 @@ export const YAZILAR: Yazi[] = [
     durum: "yayin",
   },
   {
+    slug: "para-transferi",
+    kume: "surec",
+    baslik: "Amerika'ya ev parası nasıl gönderilir",
+    ozet:
+      "Para bize gelmiyor: transfer bağımsız escrow şirketinin hesabına yapılıyor. Bankanızın isteyeceği belgeler, sıra ve kapanış havalesi dolandırıcılığına karşı tek kural.",
+    tazelik: "evergreen",
+    durum: "yayin",
+  },
+  {
     slug: "escrow-nedir",
     kume: "surec",
     baslik: "Escrow nedir, ne işe yarar",
@@ -533,6 +542,26 @@ export const YAZILAR: Yazi[] = [
     durum: "taslak",
   },
   {
+    slug: "evi-satmak",
+    kume: "vergi",
+    baslik: "Evi üç yıl sonra satmak istersem",
+    ozet:
+      "Elde tutma süresi için yasal alt sınır yok. Ama satışta üç kalem aynı anda devreye giriyor: kapanış stopajı, değer artış kazancı ve amortisman geri alımı.",
+    tazelik: "denetim",
+    // TASLAK: YMYL — CPA imzası olmadan yayınlanmıyor (SEO-GEO-PLAN §7).
+    durum: "taslak",
+  },
+  {
+    slug: "eyalet-vergisi",
+    kume: "vergi",
+    baslik: "Eyalet vergisi: federal katmanın üstündeki katman",
+    ozet:
+      "ABD'de vergi tek katmanlı değil. Kira geliri mülkün bulunduğu eyalette doğuyor; o eyaletin gelir vergisi varsa orada da beyan gerekebiliyor.",
+    tazelik: "denetim",
+    // TASLAK: YMYL — CPA imzası olmadan yayınlanmıyor (SEO-GEO-PLAN §7).
+    durum: "taslak",
+  },
+  {
     slug: "firpta",
     kume: "vergi",
     baslik: "FIRPTA: satışta yapılan stopaj",
@@ -654,12 +683,20 @@ export const yaziBul = (kume: string, slug: string): Yazi | undefined =>
   rotalananlar().find((y) => y.kume === kume && y.slug === slug);
 
 /** Breadcrumb izi. Ana sayfa her zaman ilk halka. */
-export type Kirinti = { ad: string; yol: string };
+export type Kirinti = { ad: string; yol: string; /** false ise bağlantı basılmaz */ var?: boolean };
 
 export const kirintiIzi = (y?: Yazi, k?: Kume): Kirinti[] => {
   const iz: Kirinti[] = [{ ad: "Dolarhane", yol: "/" }];
   const kume = k ?? (y ? KUMELER[y.kume] : undefined);
-  if (kume) iz.push({ ad: kume.ad, yol: kumeYolu(kume.slug) });
+  if (kume)
+    /* Küme sayfası yalnız YAYINDA yazısı varsa üretiliyor (doluKumeler).
+       Tamamı taslak olan bir kümede bu halka bağlantı olursa 404'e
+       gider — o yüzden düz metin basılıyor. */
+    iz.push({
+      ad: kume.ad,
+      yol: kumeYolu(kume.slug),
+      var: kumeninYazilari(kume.slug).length > 0,
+    });
   if (y) iz.push({ ad: y.baslik, yol: yaziYolu(y) });
   return iz;
 };

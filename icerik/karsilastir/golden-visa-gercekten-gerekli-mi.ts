@@ -54,7 +54,8 @@ export const goldenVisaGercektenGerekliMi: Blok[] = [
   {
     t: "p",
     metin:
-      "Buna **eşik primi** diyoruz. Oturum istiyorsanız ödenmeye değer " +
+      "Buna **eşik primi** diyoruz — [oturum mu getiri mi ayrımının " +
+      "merkezinde duran kalem](/karsilastir/oturum-mu-getiri-mi/). Oturum istiyorsanız ödenmeye değer " +
       "bir bedel. İstemiyorsanız, karşılığında hiçbir şey almadığınız " +
       "bir fazla ödemedir.",
   },
@@ -84,7 +85,7 @@ export const goldenVisaGercektenGerekliMi: Blok[] = [
     t: "liste",
     maddeler: [
       "**Hareket serbestliği ya da bir B planı ihtiyacınız varsa:** program mantıklı ve prim ödenmeye değer. Ama getiriyi ikincil bekleyin.",
-      "**Amacınız sadece döviz cinsinden gelir ise:** primi ödemenin gerekçesi yok. Eşik kısıtı olmayan piyasalarda aynı parayla daha yüksek net getiri aramak daha tutarlı.",
+      "**Amacınız sadece döviz cinsinden gelir ise:** primi ödemenin gerekçesi yok. Eşik kısıtı olmayan piyasalarda [aynı parayla daha yüksek net getiri](/hesap/) aramak daha tutarlı.",
       "**Emin değilseniz:** kararı erteleyin. Oturum ihtiyacı zamanla netleşiyor; eşik primiyle alınmış bir mülkü sonradan getiri mülküne çevirmek mümkün değil.",
     ],
   },
@@ -105,7 +106,7 @@ export const goldenVisaGercektenGerekliMi: Blok[] = [
         c:
           "Çoğu programda yatırımın sürdürülmesi şartı var; mülkü " +
           "satmak hakkı sona erdirebiliyor. Bu, mülkü satma özgürlüğünüzü " +
-          "kısıtlayan gizli bir maliyet — ve likidite hesabına girmesi " +
+          "kısıtlayan gizli bir maliyet — ve [likidite hesabına](/guven/yurt-disi-ev-yatirimi-riskleri/) girmesi " +
           "gerekiyor.",
       },
       {

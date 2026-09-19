@@ -28,17 +28,17 @@ export const amerikaMiDubaiMi: Blok[] = [
       [
         "Kayıt sistemi",
         "Merkezi emlak sicili",
-        "İlçe tapu kütüğü; kamuya açık ve çevrimiçi sorgulanabilir",
+        "[İlçe tapu kütüğü](/guven/tapu-kimin-adina/); kamuya açık ve çevrimiçi sorgulanabilir",
       ],
       [
         "Tapu sigortası",
         "Yaygın bir ürün değil",
-        "Title insurance standart; geçmişten gelen iddiaları kapsıyor",
+        "[Title insurance](/surec/title-insurance/) standart; geçmişten gelen iddiaları kapsıyor",
       ],
       [
         "İçtihat derinliği",
         "Genç bir hukuk pratiği",
-        "İki yüzyıllık kiracı–mal sahibi içtihadı",
+        "İki yüzyıllık [kiracı–mal sahibi içtihadı](/surec/amerikada-tahliye-sureci/)",
       ],
       [
         "Kira gelir vergisi",
@@ -48,7 +48,7 @@ export const amerikaMiDubaiMi: Blok[] = [
       [
         "Emlak vergisi",
         "Yok",
-        "Var ve ilçeye göre belirgin değişiyor — net getiriyi doğrudan yiyor",
+        "Var ve ilçeye göre belirgin değişiyor — [net getiriyi doğrudan yiyor](/getiri/brut-vs-net-getiri/)",
       ],
       [
         "Kiranın para birimi",
@@ -57,7 +57,7 @@ export const amerikaMiDubaiMi: Blok[] = [
       ],
       [
         "Arz yapısı",
-        "Büyük ölçekli projeler; maketten satış yaygın",
+        "Büyük ölçekli projeler; [maketten satış](/karsilastir/maketten-ev-almak-riskleri/) yaygın",
         "Mevcut, oturulmuş müstakil konut stoğu",
       ],
       [
@@ -147,8 +147,8 @@ export const amerikaMiDubaiMi: Blok[] = [
         s: "Dubai'de maketten almak riskli mi?",
         c:
           "Maketten alım, hangi ülkede olursa olsun ayrı bir risk sınıfı: " +
-          "teslim edilmemiş bir şey satın alıyorsunuz. Ayrı sayfada ele " +
-          "alıyoruz.",
+          "teslim edilmemiş bir şey satın alıyorsunuz. [Ayrı sayfada ele " +
+          "alıyoruz](/karsilastir/maketten-ev-almak-riskleri/).",
       },
       {
         s: "İkisine de yatırım yapılabilir mi?",

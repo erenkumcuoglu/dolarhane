@@ -14,20 +14,21 @@ export const parayiNasilGonderiyorum: Blok[] = [
     t: "liste",
     sirali: true,
     maddeler: [
-      "Sözleşme imzalanır; **kapora** escrow hesabına gider (küçük tutar).",
+      "Sözleşme imzalanır; **kapora** [escrow hesabına](/surec/escrow-nedir/) gider (küçük tutar).",
       "Şartlar kapanır: inceleme, değerleme, tapu araştırması.",
-      "Kapanış şirketi **yazılı havale talimatı** gönderir ve son hesap dökümünü paylaşır.",
+      "Kapanış şirketi **yazılı havale talimatı** gönderir ve [son hesap dökümünü](/surec/closing-costs/) paylaşır.",
       "Talimatı telefonla teyit edersiniz — bu adım atlanmaz.",
       "Bankanız üzerinden havale yapılır; genellikle muhabir banka üzerinden geçer ve bir-iki iş günü sürer.",
       "Ulaştığını arayıp doğrularsınız.",
-      "Kapanış tamamlanır, tapu tescile gider.",
+      "[Kapanış tamamlanır](/surec/uzaktan-tapu-kapanisi/), tapu tescile gider.",
     ],
   },
   {
     t: "not",
     baslik: "Tek kural",
     metin:
-      "Havale talimatını **asla e-postadan doğrulamayın.** E-postadaki " +
+      "Havale talimatını **asla e-postadan doğrulamayın.** Bu ve benzeri " +
+      "[durdurucu sinyallerin listesi ayrı bir sayfada](/guven/dolandiricilik-nasil-anlasilir/). E-postadaki " +
       "telefon numarasını da aramayın. Önceden, ilk temasta kaydettiğiniz " +
       "numarayı arayın. Talimat son anda değiştiyse bu tek başına bir " +
       "alarmdır. Havale geri alınamıyor; korunma gönderimden öncedir.",
@@ -64,8 +65,8 @@ export const parayiNasilGonderiyorum: Blok[] = [
   {
     t: "p",
     metin:
-      "Alım tek seferlik. Sonrasında akış **ters yöne** dönüyor: kira " +
-      "ABD'deki hesabınıza giriyor, oradan istediğiniz zaman Türkiye'ye " +
+      "Alım tek seferlik. Sonrasında akış **ters yöne** dönüyor: [kira " +
+      "ABD'deki hesabınıza giriyor](/surec/kira-tahsilati/), oradan istediğiniz zaman Türkiye'ye " +
       "transfer ediyorsunuz.",
   },
   {

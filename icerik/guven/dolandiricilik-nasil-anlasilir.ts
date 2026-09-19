@@ -32,7 +32,7 @@ export const dolandiricilikNasilAnlasilir: Blok[] = [
     satirlar: [
       [
         "Para escrow dışına isteniyor",
-        "Şahıs hesabına, aracının hesabına ya da üçüncü bir ülkeye. Escrow işlemin tarafsız merkezidir; dışına çıkan para korumasızdır",
+        "Şahıs hesabına, aracının hesabına ya da üçüncü bir ülkeye. [Escrow işlemin tarafsız merkezidir](/surec/escrow-nedir/); dışına çıkan para korumasızdır",
       ],
       [
         "Havale talimatı son anda değişti",
@@ -52,7 +52,7 @@ export const dolandiricilikNasilAnlasilir: Blok[] = [
       ],
       [
         "Garantili getiri vaadi",
-        "Kira geliri garanti edilemez. Garanti edilen şey ya fiyata gömülüdür ya da verilebilir değildir",
+        "Kira geliri garanti edilemez. [Garanti edilen şey](/getiri/getiri-tuzaklari/) ya fiyata gömülüdür ya da verilebilir değildir",
       ],
       [
         "Karar için süre baskısı",
@@ -77,10 +77,10 @@ export const dolandiricilikNasilAnlasilir: Blok[] = [
     maddeler: [
       "Fiyat bölgeye göre belirgin biçimde ucuz — ucuzluğun bir sebebi vardır ve sorulmalıdır.",
       "İddia edilen kira, ilan edilen kiralardan yüksek.",
-      "Emlak vergisi ve sigorta rakamları hesapta hiç geçmiyor.",
-      "Tapunun kimin adına çıkacağı net değil.",
+      "Emlak vergisi ve sigorta rakamları hesapta hiç geçmiyor — [brüt getiri gösterip net getiriyi atlamak](/getiri/brut-vs-net-getiri/) en yaygın eksiltme.",
+      "[Tapunun kimin adına çıkacağı](/guven/tapu-kimin-adina/) net değil.",
       "Sözleşmede şarta bağlılık maddeleri yok ya da feragat isteniyor.",
-      "Yönetim şirketi satıcıyla aynı grup ve bu söylenmiyor.",
+      "[Yönetim şirketi](/surec/property-management-sozlesmesi/) satıcıyla aynı grup ve bu söylenmiyor.",
     ],
   },
 
@@ -134,7 +134,7 @@ export const dolandiricilikNasilAnlasilir: Blok[] = [
           "İşlem ABD'de gerçekleştiği için uyuşmazlık genellikle orada " +
           "görülür ve süreç uzun, masraflı olur. Pratik sonuç şu: koruma " +
           "sonradan aranmaz, işlemin içine konur — escrow, bağımsız " +
-          "inceleme, title insurance.",
+          "inceleme, [title insurance](/surec/title-insurance/).",
       },
     ],
   },

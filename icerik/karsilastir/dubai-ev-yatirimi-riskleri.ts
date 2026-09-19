@@ -33,7 +33,7 @@ export const dubaiEvYatirimiRiskleri: Blok[] = [
       ],
       [
         "Maketten alım",
-        "Teslim edilmemiş bir mülk satın alınıyor; gecikme ve spesifikasyon değişikliği riski var",
+        "[Teslim edilmemiş bir mülk](/karsilastir/maketten-ev-almak-riskleri/) satın alınıyor; gecikme ve spesifikasyon değişikliği riski var",
         "Geliştiricinin teslim geçmişini incelemek, emanet hesabı korumasını doğrulamak, mevcut mülkü tercih etmek",
       ],
       [
@@ -43,7 +43,7 @@ export const dubaiEvYatirimiRiskleri: Blok[] = [
       ],
       [
         "Tapu sigortası yaygın değil",
-        "ABD'deki title insurance benzeri bir ürün standart değil",
+        "ABD'deki [title insurance](/surec/title-insurance/) benzeri bir ürün standart değil",
         "Tapu araştırmasını avukatla yapmak; sicil kaydını doğrudan görmek",
       ],
       [
@@ -97,8 +97,8 @@ export const dubaiEvYatirimiRiskleri: Blok[] = [
       "Mülk **mevcut mu, maketten mi**? Maketten ise geliştiricinin teslim geçmişi ne?",
       "Freehold alanda mı? Sicil kaydından doğrulanabiliyor mu?",
       "Teslim takviminde bölgeye ne kadar **yeni arz** geliyor?",
-      "Vaat edilen kira, **ilan edilen** kiralarla uyumlu mu?",
-      "Ödeme emanet hesabına mı gidiyor, geliştiricinin hesabına mı?",
+      "Vaat edilen kira, **ilan edilen** kiralarla uyumlu mu? [Uyumsuzluk en yaygın getiri tuzağı](/getiri/getiri-tuzaklari/).",
+      "Ödeme [emanet hesabına](/surec/escrow-nedir/) mı gidiyor, geliştiricinin hesabına mı?",
     ],
   },
   {
@@ -119,7 +119,7 @@ export const dubaiEvYatirimiRiskleri: Blok[] = [
         s: "Dubai'de vergi olmaması getiriyi ne kadar değiştiriyor?",
         c:
           "Anlamlı ölçüde. Kira gelir vergisinin ve emlak vergisinin " +
-          "olmaması, aynı brüt getiriden daha yüksek net getiri kalması " +
+          "olmaması, [aynı brüt getiriden daha yüksek net getiri](/getiri/brut-vs-net-getiri/) kalması " +
           "demek. Bu, Dubai'nin en güçlü ve en somut argümanı.",
       },
       {

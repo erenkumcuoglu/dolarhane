@@ -28,7 +28,7 @@ export const oturumMuGetiriMi: Blok[] = [
     basliklar: ["", "Oturum odaklı alım", "Getiri odaklı alım"],
     satirlar: [
       ["Asıl aldığınız şey", "Bir izin — eve bağlı olarak verilen", "Bir nakit akışı"],
-      ["Fiyatı belirleyen", "Programın eşiği", "Kiranın fiyata oranı"],
+      ["Fiyatı belirleyen", "Programın eşiği", "[Kiranın fiyata oranı](/getiri/kira-carpani/)"],
       ["Tipik getiri seviyesi", "Düşük — yerleşik programlarda brüt %3-4 civanında konuşuluyor", "Nakit akışı odaklı piyasalarda belirgin daha yüksek"],
       ["Mülkün konumu", "Programın izin verdiği bölge", "Kira talebinin güçlü olduğu yer"],
       ["Karar ufku", "Oturum yenilenme takvimi", "Uzun vade, kira odaklı"],
@@ -137,8 +137,8 @@ export const oturumMuGetiriMi: Blok[] = [
     ],
     vurgu: [0, 2],
     not:
-      "Vurgulu iki satır asıl farkı taşıyor. Eşik yokluğu, aynı parayla " +
-      "daha fazla ev ya da daha iyi mahalle seçebilmek demek. Bağsızlık " +
+      "Vurgulu iki satır asıl farkı taşıyor. Eşik yokluğu, [aynı parayla " +
+      "daha fazla ev](/hesap/) ya da daha iyi mahalle seçebilmek demek. Bağsızlık " +
       "ise şu demek: **dolar geliriniz İstanbul'da da, Lizbon'da da, " +
       "Bangkok'ta da aynı miktarda geliyor.** Bir oturum hakkı sizi " +
       "kullandığınız ülkeye yaklaştırır; kira geliri hiçbir ülkeye " +
@@ -149,10 +149,10 @@ export const oturumMuGetiriMi: Blok[] = [
     baslik: "“Pasif gelir” ne kadar pasif",
     metin:
       "Kira geliri sık sık pasif gelir olarak anlatılıyor ve tamamen " +
-      "yanlış değil: evi siz yönetmiyorsunuz, kiracıyı siz bulmuyorsunuz, " +
-      "tahsilatı siz yapmıyorsunuz. Ama **bedelsiz de değil** — yönetim " +
-      "ücreti, boşluk, devir ve büyük onarım her zaman var. Bu sitede " +
-      "bunların hepsini ayrı ayrı yazdık. Pasif olan sizin emeğiniz; " +
+      "yanlış değil: evi siz yönetmiyorsunuz, [kiracıyı siz bulmuyorsunuz](/surec/kiraci-nasil-bulunuyor/), " +
+      "[tahsilatı siz yapmıyorsunuz](/surec/kira-tahsilati/). Ama **bedelsiz de değil** — yönetim " +
+      "ücreti, boşluk, devir ve büyük onarım her zaman var. [Bu sitede " +
+      "bunların hepsini ayrı ayrı yazdık](/surec/). Pasif olan sizin emeğiniz; " +
       "gider kalemleri pasif değil.",
   },
 
@@ -168,9 +168,9 @@ export const oturumMuGetiriMi: Blok[] = [
     sirali: true,
     maddeler: [
       "Kiranın **hangi para biriminde** ödendiğine bakın. Dolar geliri istiyorsanız arada bir kur sabitleyicisi olmasın.",
-      "Net getiriyi hesaplayın — brüt değil. Vergi, sigorta, yönetim, boşluk, capex dahil.",
-      "Mülkiyetin **hukuki dayanıklılığını** sorun: kayıt sistemi, tapu sigortası, uyuşmazlıkta mahkeme yolu.",
-      "Tahliye ve kiracı hukukunun ne kadar öngörülebilir olduğunu öğrenin.",
+      "[Net getiriyi hesaplayın — brüt değil](/getiri/brut-vs-net-getiri/). Vergi, sigorta, yönetim, boşluk, capex dahil.",
+      "Mülkiyetin **hukuki dayanıklılığını** sorun: kayıt sistemi, [tapu sigortası](/surec/title-insurance/), uyuşmazlıkta mahkeme yolu.",
+      "[Tahliye ve kiracı hukukunun](/surec/amerikada-tahliye-sureci/) ne kadar öngörülebilir olduğunu öğrenin.",
       "Oturum primi ödemiyor olduğunuzu doğrulayın: aynı kirayı daha düşük fiyata veren bir piyasa var mı?",
     ],
   },
@@ -184,7 +184,7 @@ export const oturumMuGetiriMi: Blok[] = [
       ["Pasaport / vatandaşlık", "Vatandaşlık programları", "Hayır"],
       ["Dolar cinsinden kira geliri", "Kiranın yerli para birimi olarak dolar olduğu piyasalar", "Evet"],
       ["Tatil / kendi kullanım", "Kullanacağınız bölge", "Hayır"],
-      ["Kısa vadede sermaye kazancı", "Değer artışı odaklı piyasalar", "Hayır"],
+      ["Kısa vadede sermaye kazancı", "[Değer artışı odaklı piyasalar](/getiri/getiri-ve-deger-artisi-takasi/)", "Hayır"],
       ["Uzun vadeli nakit akışı", "Nakit akışı odaklı piyasalar", "Evet"],
     ],
     vurgu: [2, 5],

@@ -66,7 +66,7 @@ export const tapuKiminAdina: Blok[] = [
   {
     t: "p",
     metin:
-      "Kapanışta size **tescil edilmiş tapu kopyası** ve **title insurance " +
+      "[Kapanışta](/surec/uzaktan-tapu-kapanisi/) size **tescil edilmiş tapu kopyası** ve **title insurance " +
       "poliçesi** teslim edilmelidir. İkisi de gelmiyorsa isteyin; bu " +
       "standart bir taleptir.",
   },

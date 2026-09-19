@@ -13,7 +13,7 @@ export const nedenBizeHenuzGuvenmemelisiniz: Blok[] = [
   {
     t: "p",
     metin:
-      "Bu sitede güvenin nasıl kontrol edileceğini anlatan bir küme var. " +
+      "Bu sitede [güvenin nasıl kontrol edileceğini anlatan bir küme](/guven/) var. " +
       "Aynı soruyu kendimize sormadan o kümeyi yazmak tutarsız olurdu. " +
       "O yüzden açık yazıyoruz: **şu anda portföyümüzde ev yok ve bugüne " +
       "kadar kimseye ev satmadık.**",
@@ -72,7 +72,7 @@ export const nedenBizeHenuzGuvenmemelisiniz: Blok[] = [
       ],
       [
         "Aleyhimize olanı yazıyoruz",
-        "Ucuz evin brütte iyi görünüp nette kaybettirmesi, emlak vergisinin yüksekliği, tahliyenin maliyeti — hepsi burada",
+        "[Ucuz evin brütte iyi görünüp nette kaybettirmesi](/getiri/brut-vs-net-getiri/), emlak vergisinin yüksekliği, [tahliyenin maliyeti](/surec/amerikada-tahliye-sureci/) — hepsi burada",
       ],
       [
         "Getiri vaat etmiyoruz",
@@ -98,8 +98,8 @@ export const nedenBizeHenuzGuvenmemelisiniz: Blok[] = [
     maddeler: [
       "**Lisans numarası.** ABD tarafında işlemi kim yürütüyor, lisansı ne, hangi eyalette geçerli.",
       "**Tüzel kimlik ve adres.** Hangi şirket, nerede kayıtlı.",
-      "**İlçe parsel numarası.** Satılan evin kütük kaydı — kendiniz doğrulayabilmelisiniz.",
-      "**Bağımsız inceleme hakkı.** Kendi seçtiğiniz inspector'ı tutmanıza itiraz edilmemeli.",
+      "**İlçe parsel numarası.** Satılan evin [kütük kaydı](/guven/tapu-kimin-adina/) — kendiniz doğrulayabilmelisiniz.",
+      "**Bağımsız inceleme hakkı.** [Kendi seçtiğiniz inspector'ı](/surec/evi-gormeden-ev-almak/) tutmanıza itiraz edilmemeli.",
       "**Gerçek alıcı referansı.** Bizim seçtiğimiz değil, konuşmak istediğiniz alıcı.",
     ],
   },
@@ -107,7 +107,8 @@ export const nedenBizeHenuzGuvenmemelisiniz: Blok[] = [
     t: "not",
     baslik: "Aynı listeyi herkese uygulayın",
     metin:
-      "Bu beş madde bize özgü değil. Kimden alırsanız alın isteyin — " +
+      "Bu beş madde bize özgü değil. Kimden alırsanız alın isteyin; " +
+      "[durdurucu sinyallerin tam listesi ayrı bir sayfada](/guven/dolandiricilik-nasil-anlasilir/) — " +
       "cevap veremeyen taraf, sizinle çalışmaya hazır değil demektir.",
   },
 

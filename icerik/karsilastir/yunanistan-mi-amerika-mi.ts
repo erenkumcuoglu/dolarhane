@@ -13,6 +13,7 @@ export const yunanistanMiAmerikaMi: Blok[] = [
     t: "p",
     metin:
       "Doğru soru şu: **oturum hakkı sizin için ne kadar değerli?** " +
+      "[Ayrımın tamamı ayrı bir sayfada](/karsilastir/oturum-mu-getiri-mi/). " +
       "Cevap “çok” ise Yunanistan'ın düşük getirisi bir kusur değil, " +
       "primin bedeli. Cevap “gerekmiyor” ise o primi neden ödüyorsunuz?",
   },
@@ -50,12 +51,12 @@ export const yunanistanMiAmerikaMi: Blok[] = [
       [
         "Mülkiyet altyapısı",
         "AB hukuk çerçevesi",
-        "İlçe kütüğü + title insurance",
+        "İlçe kütüğü + [title insurance](/surec/title-insurance/)",
       ],
       [
         "Kiracı profili",
         "Ağırlıkla kısa dönem / turizm odaklı olabiliyor",
-        "Uzun dönem oturum kiracısı",
+        "[Uzun dönem oturum kiracısı](/surec/kiraci-nasil-bulunuyor/)",
       ],
     ],
     vurgu: [4],
@@ -86,13 +87,13 @@ export const yunanistanMiAmerikaMi: Blok[] = [
     basliklar: ["", "Kısa dönem / turizm", "Uzun dönem oturum"],
     satirlar: [
       ["Brüt gelir", "Daha yüksek görünebilir", "Daha düşük ve sabit"],
-      ["Mevsimsellik", "Yüksek — yılın bir kısmında boş", "Yok"],
+      ["Mevsimsellik", "Yüksek — [yılın bir kısmında boş](/surec/ev-bos-kalirsa/)", "Yok"],
       ["İşletme gideri", "Yüksek: temizlik, platform komisyonu, yönetim", "Düşük"],
       ["Düzenleme riski", "Şehirler kısıtlama getirebiliyor", "Düşük"],
       ["Yıllık net", "Oynak", "Öngörülebilir"],
     ],
     not:
-      "Kısa dönem gelir brütte etkileyici görünüp nette yakınsayabiliyor. " +
+      "Kısa dönem gelir [brütte etkileyici görünüp nette yakınsayabiliyor](/getiri/brut-vs-net-getiri/). " +
       "Karşılaştırma yaparken iki modelin aynı türden gelir olmadığını " +
       "hesaba katın.",
   },

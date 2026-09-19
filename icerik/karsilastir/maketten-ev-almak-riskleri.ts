@@ -17,11 +17,11 @@ export const makettenEvAlmakRiskleri: Blok[] = [
     basliklar: ["", "Mevcut ev", "Maketten"],
     satirlar: [
       ["Ne alıyorsunuz", "Tapulu, görülebilir bir varlık", "Sözleşmeye bağlı bir teslim taahhüdü"],
-      ["Kira ne zaman başlar", "Kapanıştan sonra — kiralıysa hemen", "Teslimden sonra; o güne kadar gelir yok"],
-      ["İnceleme yapılabilir mi", "Evet, bağımsız rapor alınır", "Hayır — henüz yok"],
-      ["Kira doğrulanabilir mi", "Evet, ilanlardan ve sözleşmeden", "Hayır, yalnız projeksiyon var"],
+      ["Kira ne zaman başlar", "[Kapanıştan](/surec/uzaktan-tapu-kapanisi/) sonra — kiralıysa hemen", "Teslimden sonra; o güne kadar gelir yok"],
+      ["İnceleme yapılabilir mi", "Evet, [bağımsız rapor alınır](/surec/evi-gormeden-ev-almak/)", "Hayır — henüz yok"],
+      ["Kira doğrulanabilir mi", "Evet, [ilanlardan ve sözleşmeden](/getiri/kira-carpani/)", "Hayır, yalnız projeksiyon var"],
       ["Ana risk", "Mülkün durumu", "Karşı tarafın performansı"],
-      ["Paranız nerede", "Escrow'da, kapanışta el değiştirir", "Geliştiriciye ya da emanet hesabına, teslime kadar"],
+      ["Paranız nerede", "[Escrow'da](/surec/escrow-nedir/), kapanışta el değiştirir", "Geliştiriciye ya da emanet hesabına, teslime kadar"],
     ],
     vurgu: [1, 4],
   },
@@ -32,7 +32,7 @@ export const makettenEvAlmakRiskleri: Blok[] = [
       "Teslime kadar kira gelmiyor ama paranız bağlı. Yatırılan sermayeyi " +
       "kullanamadığınız aylar, getiri hesabında **maliyet** olarak yer " +
       "almalı. İki yıllık bir teslim süresi, ilk iki yılın getirisini " +
-      "sıfırlar — hesaba katılmazsa getiri sistematik olarak yüksek çıkar.",
+      "sıfırlar — hesaba katılmazsa [getiri sistematik olarak yüksek çıkar](/getiri/getiri-tuzaklari/).",
   },
 
   { t: "h", metin: "Somut riskler" },

@@ -22,7 +22,7 @@ export const yurtDisiEvYatirimiRiskleri: Blok[] = [
       ],
       [
         "Değer artışı düşüklüğü",
-        "Yüksek kira getirisi, değer artışının düşük olduğu yerlerde çıkar. Nakit akışı alıyorsunuz, sermaye kazancı değil",
+        "Yüksek kira getirisi, değer artışının düşük olduğu yerlerde çıkar. [Nakit akışı alıyorsunuz, sermaye kazancı değil](/getiri/getiri-ve-deger-artisi-takasi/)",
         "Hayır — bu bir takas. Ama bilerek yapılırsa risk değil, tercih olur",
       ],
       [
@@ -33,16 +33,16 @@ export const yurtDisiEvYatirimiRiskleri: Blok[] = [
       [
         "Büyük onarım şoku",
         "Çatı ya da ısıtma sistemi beklenenden erken giderse bir yılın getirisi silinebilir",
-        "Kısmen. Rezerv ayırmak ve inceleme raporunu ciddiye almak",
+        "Kısmen. [Rezerv ayırmak](/surec/tamir-masrafini-kim-oduyor/) ve inceleme raporunu ciddiye almak",
       ],
       [
         "Kiracı riski",
-        "Ödememe, hasar, tahliye süresi. Tahliye aylar sürebilir ve maliyeti kaybedilen kiradır",
+        "Ödememe, hasar, tahliye süresi. [Tahliye aylar sürebilir](/surec/amerikada-tahliye-sureci/) ve maliyeti [kaybedilen kiradır](/surec/ev-bos-kalirsa/)",
         "Kısmen. Eleme kriterlerini sıkı tutmak",
       ],
       [
         "Mesafe",
-        "Sorunu kendiniz göremiyor, müdahale edemiyorsunuz. Aradaki her şey yönetim şirketine bağlı",
+        "Sorunu kendiniz göremiyor, müdahale edemiyorsunuz. Aradaki her şey [yönetim şirketine](/surec/property-management-sozlesmesi/) bağlı",
         "Kısmen. Sözleşme ve raporlama disiplini",
       ],
     ],
@@ -65,7 +65,7 @@ export const yurtDisiEvYatirimiRiskleri: Blok[] = [
       "**Veraset vergisi.** ABD'de yabancılar için istisna çok düşüktür ve ABD'deki gayrimenkul bu vergiye tabidir. Planlanmazsa mirasçılar için ciddi bir yük doğurur.",
       "**Emlak vergisi artışı.** Oran ilçe kararıyla değişebiliyor; mülk yeniden değerlenirse vergi de yükseliyor.",
       "**Vergi mevzuatı değişimi.** Hem ABD hem Türkiye tarafında kurallar değişebilir; bugünkü hesap yarının hesabı değil.",
-      "**Sigorta maliyeti.** Bazı bölgelerde primler hızla artıyor ve net getiriyi aşındırıyor.",
+      "**Sigorta maliyeti.** Bazı bölgelerde primler hızla artıyor ve [net getiriyi](/getiri/brut-vs-net-getiri/) aşındırıyor.",
     ],
   },
 
@@ -87,7 +87,7 @@ export const yurtDisiEvYatirimiRiskleri: Blok[] = [
         s: "En büyük risk hangisi?",
         c:
           "Tek bir risk değil, bir kombinasyon: yanlış mahallede alınmış, " +
-          "brüt getirisine bakılarak seçilmiş, rezerv ayrılmamış bir ev. " +
+          "[brüt getirisine bakılarak seçilmiş](/getiri/getiri-tuzaklari/), rezerv ayrılmamış bir ev. " +
           "Bu üçü bir aradaysa kötü sonuç neredeyse kesindir.",
       },
       {
@@ -102,7 +102,7 @@ export const yurtDisiEvYatirimiRiskleri: Blok[] = [
       {
         s: "Ne kadar süre tutmayı planlamalıyım?",
         c:
-          "Alım ve satım masrafları tek seferlik ve önemli tutarda. Kısa " +
+          "[Alım ve satım masrafları](/surec/closing-costs/) tek seferlik ve önemli tutarda. Kısa " +
           "vadede satarsanız bu masraflar getiriyi yiyor. Bu varlık uzun " +
           "vade için mantıklı; kısa vadeli para için değil.",
       },

@@ -24,7 +24,10 @@ export const firpta: Blok[] = [
     t: "tablo",
     basliklar: ["Adım", "Ne oluyor"],
     satirlar: [
-      ["Satış kapanışı", "Alıcı tarafı, bedelin bir yüzdesini keserek IRS'e gönderiyor"],
+      [
+        "Satış kapanışı",
+        "Alıcı tarafı bedelin **%15'ini** keserek **Form 8288** ile IRS'e gönderiyor",
+      ],
       ["Kalan tutar", "Satıcıya ödeniyor"],
       ["Yıllık beyan", "Gerçek kazanç hesaplanıyor ve gerçek vergi belirleniyor"],
       ["Mahsup", "Kesilen stopaj gerçek vergiden düşülüyor"],
@@ -40,7 +43,8 @@ export const firpta: Blok[] = [
     baslik: "Azaltma mümkün",
     metin:
       "Gerçek vergi yükümlülüğünüz kesilecek stopajdan düşükse, " +
-      "kapanıştan önce **azaltılmış stopaj belgesi** için başvurmak " +
+      "kapanıştan önce **Form 8288-B** ile **azaltılmış stopaj belgesi** " +
+      "için başvurmak " +
       "mümkün. Süreç zaman alıyor ve satış kararı verilir verilmez " +
       "başlatılması gerekiyor — kapanışa gün kalınca başvurmak işe " +
       "yaramıyor.",
@@ -78,10 +82,14 @@ export const firpta: Blok[] = [
       {
         s: "Stopaj oranı ne?",
         c:
-          "Sabit bir oran uygulanıyor ve bedelin belirli eşiklerine göre " +
-          "istisnalar bulunuyor. Güncel oran ve eşikler yayın öncesinde " +
-          "uzman tarafından doğrulanacak; karar aşamasında muhasebeciden " +
-          "teyit alın.",
+          "Varsayılan oran **satış bedelinin %15'i.** Bedelin belirli " +
+          "eşiklerinin altında ve alıcının mülkü konut olarak kullanacağı " +
+          "durumlarda istisnalar ve daha düşük oranlar var. Oran kazanç " +
+          "üzerinden değil bedel üzerinden hesaplandığı için, sizin " +
+          "gerçek verginiz bundan düşükse fark beyanla geri geliyor — ya " +
+          "da kapanıştan önce Form 8288-B ile azaltılmış stopaj belgesi " +
+          "alınıyor. Sizin durumunuza hangi eşiğin uyduğunu muhasebeciyle " +
+          "teyit edin.",
       },
       {
         s: "Zararına satarsam da kesiliyor mu?",
@@ -96,6 +104,30 @@ export const firpta: Blok[] = [
           "Kurallar mirasçının statüsüne ve mülkün intikal biçimine göre " +
           "değişiyor; ayrıca veraset vergisi tarafı da devreye giriyor. " +
           "İki konu birlikte planlanmalı.",
+      },
+    ],
+  },
+
+  {
+    t: "kaynak",
+    maddeler: [
+      {
+        metin:
+          "IRS · Foreign Investment in Real Property Tax Act (FIRPTA) — varsayılan " +
+          "stopaj oranı satış bedelinin %15'i",
+        url: "https://www.irs.gov/individuals/international-taxpayers/firpta-withholding",
+      },
+      {
+        metin:
+          "IRS · Form 8288 ve Form 8288-A — stopajın beyanı ve satıcıya verilen " +
+          "belge",
+        url: "https://www.irs.gov/forms-pubs/about-form-8288",
+      },
+      {
+        metin:
+          "IRS · Form 8288-B, Application for Withholding Certificate — azaltılmış " +
+          "stopaj başvurusu",
+        url: "https://www.irs.gov/forms-pubs/about-form-8288-b",
       },
     ],
   },

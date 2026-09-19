@@ -171,4 +171,28 @@ export const abdVeraserVergisiYabancilar: Blok[] = [
       },
     ],
   },
+
+  {
+    t: "kaynak",
+    maddeler: [
+      {
+        metin:
+          "IRS · Form 706-NA, United States Estate (and Generation-Skipping " +
+          "Transfer) Tax Return, Estate of nonresident not a citizen of the United " +
+          "States",
+        url: "https://www.irs.gov/forms-pubs/about-form-706-na",
+      },
+      {
+        metin:
+          "IRS · Estate tax for nonresidents not citizens of the United States — " +
+          "ABD'de yerleşik olmayan yabancılar için muafiyet tutarı 60.000 $",
+        url: "https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax",
+      },
+      {
+        metin:
+          "Türkiye ile ABD arasında veraset ve intikal vergisi anlaşması " +
+          "bulunmamaktadır; gelir vergisi anlaşması bu vergiyi kapsamaz.",
+      },
+    ],
+  },
 ];

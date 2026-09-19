@@ -332,3 +332,21 @@
   color: var(--ink-4);
   line-height: 1.5;
 }
+
+/* Taslak bandı — yayına alınmamış yazıların üstünde.
+   Uyarı ailesinden; markanın altın/lacivert paletinden bilinçli ayrı
+   duruyor ki sayfanın parçası gibi okunmasın. */
+.yazi__taslak {
+  margin: 0 0 var(--s6);
+  padding: var(--s4) var(--s5);
+  border: 1px dashed var(--alert-line);
+  border-radius: var(--r-md);
+  background: var(--alert-wash);
+  color: var(--alert);
+  font-size: var(--t-sm);
+  line-height: 1.6;
+}
+.yazi__taslak strong {
+  display: block;
+  margin-bottom: 2px;
+}

@@ -23,8 +23,9 @@ export const depreciationAmortisman: Blok[] = [
     metin:
       "Vergi sistemi, binanın zamanla yıprandığını varsayıyor ve bu " +
       "yıpranmayı her yıl bir gider olarak yazmanıza izin veriyor. " +
-      "Kiralık konutta bu süre belirli bir yıl sayısına yayılıyor ve " +
-      "eşit dilimlerle indiriliyor.",
+      "Konut amaçlı kira mülkünde bu süre **27,5 yıl** ve indirim eşit " +
+      "dilimlerle yapılıyor: bina değerinin yaklaşık **%3,6'sı** her yıl " +
+      "gider yazılıyor. Arsa bu hesaba girmiyor.",
   },
   {
     t: "tablo",
@@ -122,6 +123,27 @@ export const depreciationAmortisman: Blok[] = [
           "Türkiye'nin kendi gider ve amortisman kuralları var ve " +
           "ABD'dekiyle örtüşmüyor. Bu, iki ülkenin vergiye tabi gelir " +
           "hesabının farklı çıkmasının başlıca sebeplerinden biri.",
+      },
+    ],
+  },
+
+  {
+    t: "kaynak",
+    maddeler: [
+      {
+        metin:
+          "IRS · Publication 527, Residential Rental Property — konut amaçlı kira " +
+          "mülkünde amortisman süresi 27,5 yıl (doğrusal, MACRS)",
+        url: "https://www.irs.gov/publications/p527",
+      },
+      {
+        metin: "IRS · Publication 946, How To Depreciate Property",
+        url: "https://www.irs.gov/publications/p946",
+      },
+      {
+        metin:
+          "Amortisman yalnız BİNA için ayrılır; arsa amortismana tabi değildir. " +
+          "Bina/arsa ayrımı genellikle ilçe değerleme kaydına dayandırılır.",
       },
     ],
   },

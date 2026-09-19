@@ -94,4 +94,28 @@ export const turkiyedeYurtDisiKiraGeliriBeyani: Blok[] = [
       },
     ],
   },
+
+  {
+    t: "kaynak",
+    maddeler: [
+      {
+        metin:
+          "Gelir İdaresi Başkanlığı · Gelir Vergisi Kanunu — tam mükellefler " +
+          "Türkiye içinde ve dışında elde ettikleri kazançların tamamı üzerinden " +
+          "vergilendirilir",
+        url: "https://www.gib.gov.tr",
+      },
+      {
+        metin:
+          "Gelir İdaresi Başkanlığı · yıllık gelir vergisi beyannamesi ve " +
+          "gayrimenkul sermaye iradı rehberi",
+        url: "https://www.gib.gov.tr",
+      },
+      {
+        metin:
+          "İstisna tutarları, beyan sınırları ve oranlar her yıl yeniden " +
+          "belirlenir; beyan döneminde güncel tutar esas alınmalıdır.",
+      },
+    ],
+  },
 ];

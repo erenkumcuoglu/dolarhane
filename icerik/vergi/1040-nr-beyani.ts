@@ -113,4 +113,31 @@ export const beyan1040NR: Blok[] = [
       },
     ],
   },
+
+  {
+    t: "kaynak",
+    maddeler: [
+      {
+        metin: "IRS · Form 1040-NR, U.S. Nonresident Alien Income Tax Return",
+        url: "https://www.irs.gov/forms-pubs/about-form-1040-nr",
+      },
+      {
+        metin:
+          "IRS · Publication 519, U.S. Tax Guide for Aliens — yabancıların " +
+          "vergilendirilmesi ve net yöntemi seçimi",
+        url: "https://www.irs.gov/publications/p519",
+      },
+      {
+        metin:
+          "IRS · Publication 527, Residential Rental Property — kira geliri ve " +
+          "indirilebilir giderler",
+        url: "https://www.irs.gov/publications/p527",
+      },
+      {
+        metin:
+          "Internal Revenue Code §871(d) — gayrimenkul gelirinin net esasa göre " +
+          "vergilendirilmesi seçimi",
+      },
+    ],
+  },
 ];

@@ -87,4 +87,26 @@ export const w8ben: Blok[] = [
       },
     ],
   },
+
+  {
+    t: "kaynak",
+    maddeler: [
+      {
+        metin:
+          "IRS · Form W-8BEN — Certificate of Foreign Status of Beneficial Owner " +
+          "for United States Tax Withholding and Reporting (Individuals)",
+        url: "https://www.irs.gov/forms-pubs/about-form-w-8ben",
+      },
+      {
+        metin: "IRS · Form W-8BEN-E — aynı bildirimin tüzel kişilik hali",
+        url: "https://www.irs.gov/forms-pubs/about-form-w-8ben-e",
+      },
+      {
+        metin:
+          "IRS · Form W-8ECI — gelirin ABD'de yürütülen bir ticari faaliyetle " +
+          "bağlantılı olduğunun bildirimi",
+        url: "https://www.irs.gov/forms-pubs/about-form-w-8eci",
+      },
+    ],
+  },
 ];

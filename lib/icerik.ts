@@ -616,6 +616,21 @@ export const YAZILAR: Yazi[] = [
 export const yayindakiler = (): Yazi[] =>
   YAZILAR.filter((y) => y.durum === "yayin");
 
+/**
+ * Taslaklar da rota üretsin mi.
+ *
+ * Amaç: vergi kümesi gibi uzman imzası bekleyen yazıların gerçek bir
+ * adreste okunabilmesi — CPA'ya link gönderilebilsin diye. Taslak
+ * sayfalar `noindex, nofollow` basılır, sitemap'e girmez, küme
+ * listelerinde ve iç bağlantılarda görünmez ve üstlerinde taslak
+ * bandı taşır. Yani yayınlanmış olmazlar; yalnız okunabilir olurlar.
+ */
+export const TASLAKLAR_ERISILIR = true;
+
+/** Rota üretilecek yazılar. Sitemap ve listeler yine yayindakiler() kullanır. */
+export const rotalananlar = (): Yazi[] =>
+  TASLAKLAR_ERISILIR ? YAZILAR : yayindakiler();
+
 export const kumeninYazilari = (k: KumeAnahtari): Yazi[] =>
   yayindakiler().filter((y) => y.kume === k);
 
@@ -631,8 +646,12 @@ export const yaziYolu = (y: Pick<Yazi, "kume" | "slug">): string =>
 
 export const kumeYolu = (k: KumeAnahtari): string => `/${k}/`;
 
+/* rotalananlar() üzerinden arar: taslak sayfalar inceleme için
+   açıldığında bu fonksiyon onları da bulabilmeli, yoksa rota üretilse
+   bile sayfa notFound()'a düşer. Listeler ve sitemap yine yayindakiler()
+   kullanıyor, yani taslaklar hiçbir yerde LİSTELENMİYOR. */
 export const yaziBul = (kume: string, slug: string): Yazi | undefined =>
-  yayindakiler().find((y) => y.kume === kume && y.slug === slug);
+  rotalananlar().find((y) => y.kume === kume && y.slug === slug);
 
 /** Breadcrumb izi. Ana sayfa her zaman ilk halka. */
 export type Kirinti = { ad: string; yol: string };

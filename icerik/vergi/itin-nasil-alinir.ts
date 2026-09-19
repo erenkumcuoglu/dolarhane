@@ -84,4 +84,27 @@ export const itinNasilAlinir: Blok[] = [
       },
     ],
   },
+
+  {
+    t: "kaynak",
+    maddeler: [
+      {
+        metin:
+          "IRS · Form W-7, Application for IRS Individual Taxpayer Identification " +
+          "Number",
+        url: "https://www.irs.gov/forms-pubs/about-form-w-7",
+      },
+      {
+        metin:
+          "IRS · ITIN — kimler alabilir, hangi belgeler istenir, Certifying " +
+          "Acceptance Agent seçeneği",
+        url: "https://www.irs.gov/individuals/individual-taxpayer-identification-number",
+      },
+      {
+        metin:
+          "İşlem süreleri IRS'in yoğunluğuna göre değişir; güncel süre için IRS " +
+          "sayfası esas alınmalıdır.",
+      },
+    ],
+  },
 ];

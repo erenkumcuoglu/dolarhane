@@ -106,4 +106,27 @@ export const cifteVergilendirmeTrAbd: Blok[] = [
       },
     ],
   },
+
+  {
+    t: "kaynak",
+    maddeler: [
+      {
+        metin:
+          "Türkiye Cumhuriyeti ile Amerika Birleşik Devletleri arasında Gelir " +
+          "Üzerinden Alınan Vergilerde Çifte Vergilendirmeyi Önleme ve Vergi " +
+          "Kaçakçılığına Engel Olma Anlaşması",
+        url: "https://www.gib.gov.tr",
+      },
+      {
+        metin:
+          "Gelir İdaresi Başkanlığı · çifte vergilendirmeyi önleme anlaşmaları ve " +
+          "yurt dışında ödenen verginin mahsubu",
+        url: "https://www.gib.gov.tr",
+      },
+      {
+        metin: "IRS · Publication 901, U.S. Tax Treaties",
+        url: "https://www.irs.gov/publications/p901",
+      },
+    ],
+  },
 ];

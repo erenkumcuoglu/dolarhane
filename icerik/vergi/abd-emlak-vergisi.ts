@@ -120,4 +120,22 @@ export const abdEmlakVergisi: Blok[] = [
       },
     ],
   },
+
+  {
+    t: "kaynak",
+    maddeler: [
+      {
+        metin:
+          "Emlak vergisi oranı eyalet ve ilçe düzeyinde belirlenir; tek bir ABD " +
+          "oranı yoktur. Faaliyet bölgemizin efektif oranı hesap sayfasındaki " +
+          "modelde yazılıdır.",
+      },
+      {
+        metin:
+          "IRS · Publication 527, Residential Rental Property — emlak vergisinin " +
+          "kira gelirinden indirilmesi",
+        url: "https://www.irs.gov/publications/p527",
+      },
+    ],
+  },
 ];

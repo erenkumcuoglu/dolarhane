@@ -8,7 +8,7 @@ import { makaleSemasi, kirintiSemasi, sssSemasi } from "@/lib/jsonld";
 import { sssTopla } from "@/lib/bloklar";
 import { ADRES_VAR } from "@/lib/site";
 import {
-  yayindakiler,
+  rotalananlar,
   yaziBul,
   kirintiIzi,
   yaziYolu,
@@ -21,7 +21,7 @@ import "../../v2.css";
 import "../../yazi.css";
 
 export function generateStaticParams() {
-  return yayindakiler().map((y) => ({ kume: y.kume, yazi: y.slug }));
+  return rotalananlar().map((y) => ({ kume: y.kume, yazi: y.slug }));
 }
 export const dynamicParams = false;
 
@@ -33,10 +33,16 @@ export async function generateMetadata({
   const { kume, yazi } = await params;
   const y = yaziBul(kume, yazi);
   if (!y) return {};
+  /* Taslak sayfalar okunabilir ama indekslenmez: ne arama sonucuna
+     çıkarlar ne sitemap'e girerler (bkz. lib/icerik.ts · rotalananlar). */
+  const taslak = y.durum === "taslak";
   return {
     title: `${y.baslik} — Dolarhane`,
     description: y.ozet,
-    ...(ADRES_VAR ? { alternates: { canonical: yaziYolu(y) } } : {}),
+    ...(taslak ? { robots: { index: false, follow: false } } : {}),
+    ...(ADRES_VAR && !taslak
+      ? { alternates: { canonical: yaziYolu(y) } }
+      : {}),
   };
 }
 
@@ -60,9 +66,15 @@ export default async function YaziSayfasi({
        nav, alt şerit ve kart dili v2.css'ten. Kompozisyon paylaşılmıyor —
        ana sayfa taranıyor, bu sayfa okunuyor. */
     <div className="v2">
-      <Jsonld veri={kirintiSemasi(iz)} />
-      <Jsonld veri={makaleSemasi(y)} />
-      {sss.length > 0 ? <Jsonld veri={sssSemasi(sss)} /> : null}
+      {/* Taslakta yapısal veri basılmıyor: yayınlanmış bir makale gibi
+          görünmesin, LLM ve arama tarafına doğrulanmamış iddia gitmesin. */}
+      {y.durum === "yayin" ? (
+        <>
+          <Jsonld veri={kirintiSemasi(iz)} />
+          <Jsonld veri={makaleSemasi(y)} />
+          {sss.length > 0 ? <Jsonld veri={sssSemasi(sss)} /> : null}
+        </>
+      ) : null}
 
       <NavYazi />
 
@@ -72,6 +84,14 @@ export default async function YaziSayfasi({
             <Kirinti iz={iz} />
 
             <article>
+              {y.durum === "taslak" ? (
+                <p className="yazi__taslak" role="status">
+                  <strong>Taslak — yayında değil.</strong> Bu sayfa uzman
+                  incelemesi için açık; arama motorlarına kapalı ve site
+                  içinden bağlantı verilmiyor. Rakamlar ve eşikler
+                  doğrulanmadan yayına alınmayacak.
+                </p>
+              ) : null}
               <header className="yazi__bas">
                 <h1>{y.baslik}</h1>
                 <p className="yazi__oz">{y.ozet}</p>

@@ -107,4 +107,27 @@ export const llcMiSahisMi: Blok[] = [
       },
     ],
   },
+
+  {
+    t: "kaynak",
+    maddeler: [
+      {
+        metin:
+          "IRS · Limited Liability Company (LLC) — tek ortaklı LLC'nin vergisel " +
+          "olarak dikkate alınmaması (disregarded entity)",
+        url: "https://www.irs.gov/businesses/small-businesses-self-employed/limited-liability-company-llc",
+      },
+      {
+        metin:
+          "Şirket kurulumu, yıllık harç ve raporlama yükümlülükleri eyalete göre " +
+          "değişir; karar ABD'de lisanslı bir avukat ve muhasebeciyle birlikte " +
+          "verilmelidir.",
+      },
+      {
+        metin:
+          "Mülkiyet yapısının veraset vergisi tarafındaki etkisi için bkz. ABD " +
+          "veraset vergisi yazısı.",
+      },
+    ],
+  },
 ];

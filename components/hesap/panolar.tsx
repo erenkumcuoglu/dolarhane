@@ -22,6 +22,7 @@ import {
   fmtYuzde,
   getiri,
   giderler,
+  karsiliklar,
 } from "@/lib/finance";
 
 /* 01 · Giriş bileti */
@@ -79,13 +80,14 @@ export function Giris() {
 export function Defter() {
   const u = CANLI.getiri;
   const g = giderler();
+  const kars = karsiliklar();
 
   return (
     <section className="hpano pano--iki" id="h-defter">
       <div>
         <h2 className="h2 pano__h">Brüt getiri bir reklamdır.</h2>
         <p className="vurus pano__vurus">
-          Kira tahsil edilir, giderler ondan düşer. Sayfada yazan getiri
+          Kira tahsil edilir, giderler ondan düşer. Sayfada yazan rakam
           düşüldükten sonrasıdır.
         </p>
         <div className="ikili">
@@ -94,16 +96,19 @@ export function Defter() {
             <p className="ikili__v num">{fmtUsd(u.kiraAylik)}</p>
           </div>
           <div className="kart kart--wash ikili__h">
-            <p className="xs amber-t">Aylık net</p>
+            <p className="xs amber-t">Aylık eline geçen</p>
             <p className="ikili__v ikili__v--amber num">
-              {fmtUsd(u.netAylik)}
+              {fmtUsd(u.nakitAylik)}
             </p>
           </div>
         </div>
         <p className="xs pano__dip">
-          Boşluk karşılığı {fmtYuzde(GIDER.boslukOrani * 100)} ve bakım{" "}
-          {fmtYuzde(GIDER.bakimOrani * 100)} her ay tahsil edilmez; yıla
-          yayılmış karşılıklardır. Kötü bir yılda bakım bu payı aşabilir.
+          Soldaki kira, sağdaki emlak vergisi, sigorta ve mülk yönetimi
+          düşüldükten sonra hesabınıza giren para. Boşluk{" "}
+          {fmtYuzde(GIDER.boslukOrani * 100)} ve bakım{" "}
+          {fmtYuzde(GIDER.bakimOrani * 100)} payları bu rakamdan
+          düşülmedi — onlar bize gitmiyor, sizin hesabınızda kalıyor.
+          Aşağıda ayrıca duruyorlar.
         </p>
       </div>
 
@@ -127,12 +132,45 @@ export function Defter() {
             </div>
           ))}
           <div className="defter__s defter__s--net">
-            <span>Yıllık net</span>
+            <span>Yıllık eline geçen</span>
+            <span className="num">
+              {fmtUsd(u.nakitYillik)} · {fmtYuzde(u.nakitGetiri * 100, 1)}
+            </span>
+          </div>
+        </div>
+
+        {/* Karşılıklar defterin DIŞINDA ve "−" ile değil "~" ile:
+            cepten çıkmıyorlar (bkz. lib/finance.ts). */}
+        <div className="kart defter defter--karsilik">
+          <div className="defter__s defter__s--bas">
+            <span>Kenarda tutmanızı önerdiğimiz</span>
+            <span className="num">~{fmtUsd(u.karsilikYillik)}</span>
+          </div>
+          {kars.map((x) => (
+            <div className="defter__s" key={x.etiket}>
+              <span>
+                {x.etiket}
+                {x.not ? <em className="chip">{x.not}</em> : null}
+              </span>
+              <span className="num">~{fmtUsd(x.tutarYillik)}</span>
+            </div>
+          ))}
+          <div className="defter__s defter__s--net">
+            <span>Hepsi harcanırsa yıllık</span>
             <span className="num">
               {fmtUsd(u.netYillik)} · {fmtYuzde(u.netGetiri * 100, 1)}
             </span>
           </div>
         </div>
+
+        <p className="xs pano__dip">
+          Bu para bize gelmiyor ve kimseye ödenmiyor — kendi ABD
+          hesabınızda duruyor. Çatı, kombi ve su ısıtıcı bir gün
+          değişiyor; kiracı bir gün çıkıyor. Beş yılda{" "}
+          <strong>{fmtUsd(u.karsilikYillik * 5)}</strong> birikiyor ve
+          harcanmazsa sizde kalıyor. Kötü bir yılda bakım bu payı
+          aşabilir; iyi bir yılda hiç dokunulmaz.
+        </p>
       </div>
     </section>
   );
@@ -153,13 +191,18 @@ export function Senaryolar() {
       fmtYuzde(b.brutGetiri * 100, 1),
     ],
     ["Yıllık gider", "−" + fmtUsd(a.giderYillik), "−" + fmtUsd(b.giderYillik)],
-    ["Yıllık net", fmtUsd(a.netYillik), fmtUsd(b.netYillik)],
-    ["Aylık net", fmtUsd(a.netAylik), fmtUsd(b.netAylik)],
+    ["Aylık eline geçen", fmtUsd(a.nakitAylik), fmtUsd(b.nakitAylik)],
     [
-      "Net getiri",
-      fmtYuzde(a.netGetiri * 100, 1),
-      fmtYuzde(b.netGetiri * 100, 1),
+      "Nakit getiri",
+      fmtYuzde(a.nakitGetiri * 100, 1),
+      fmtYuzde(b.nakitGetiri * 100, 1),
     ],
+    [
+      "Önerilen bakım payı",
+      "~" + fmtUsd(a.karsilikAylik),
+      "~" + fmtUsd(b.karsilikAylik),
+    ],
+    ["Payın tamamı harcanırsa", fmtUsd(a.netAylik), fmtUsd(b.netAylik)],
   ];
 
   return (
@@ -188,9 +231,9 @@ export function Senaryolar() {
 
       <p className="xs cetvel__not">
         Pahalı ev ayda{" "}
-        <strong>{fmtUsd(b.netAylik - a.netAylik)} daha fazla</strong> nakit
+        <strong>{fmtUsd(b.nakitAylik - a.nakitAylik)} daha fazla</strong> nakit
         üretiyor ama paranın verimi{" "}
-        {fmtYuzde((a.netGetiri - b.netGetiri) * 100, 1)} düşüyor: emlak vergisi
+        {fmtYuzde((a.nakitGetiri - b.nakitGetiri) * 100, 1)} düşüyor: emlak vergisi
         ev fiyatıyla birlikte artarken kira aynı hızda artmıyor. Bu yüzden
         hedef bandımız {fmtUsd(TATLI_NOKTA.min)} – {fmtUsd(TATLI_NOKTA.max)}.
       </p>
@@ -216,7 +259,12 @@ export function Karsilastirma() {
       fmtYuzde(TR.netGetiri * 100, 1),
       fmtYuzde(u.netGetiri * 100, 1),
     ],
-    /* aleyhte: ev başına aylık net bizde daha düşük */
+    /* aleyhte: ev başına aylık net bizde daha düşük.
+       TABAN NOTU — burada bilerek `netAylik` kullanılıyor, `nakitAylik`
+       değil: Türkiye kolonundaki %2,8 net getirinin hangi giderleri
+       içerdiğini bilmiyoruz (slayt 9'dan geliyor). Bizim tarafta
+       karşılıkları da düşülmüş en muhafazakâr rakamı koymak, taban
+       uyuşmazlığının bizim lehimize çalışmasını engelliyor. */
     ["Ev başına aylık net", fmtUsd(k.trAylikNet), fmtUsd(u.netAylik), true],
     ["Gelirin para birimi", "TL riskiyle", "Dolar"],
     ["Gelir ne zaman başlar", "Kiracı bulunca", "İlk ay · kiracı içinde"],
@@ -262,6 +310,10 @@ export function Karsilastirma() {
         Ev başına aylık net bizde daha düşük — bu satırı gizlemiyoruz. Fark,
         aynı bütçeye kaç ev sığdığında ortaya çıkıyor. Türkiye kolonu bugün
         bulunabilen en iyi koşulla kuruldu; piyasa ortalaması daha kötü.
+        Bu tabloda bizim kolonumuz <strong>bakım payı da düşülmüş</strong>{" "}
+        en muhafazakâr rakamla kuruldu: Türkiye kolonundaki oranın hangi
+        giderleri içerdiğini bilmediğimiz için belirsizliği kendi
+        aleyhimize yazdık.
       </p>
     </section>
   );

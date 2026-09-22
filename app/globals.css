@@ -2488,3 +2488,15 @@ input[type="range"]::-moz-range-thumb {
   letter-spacing: 0.04em;
 }
 
+
+/* Karşılık defteri — /hesap. Gider defteriyle aynı iskelet, farklı
+   zemin ve solunda altın çizgi: içindeki tutarlar cepten çıkmıyor,
+   malikin kendi hesabında kalıyor (bkz. lib/finance.ts). */
+.defter--karsilik {
+  margin-top: var(--s4);
+  background: var(--wash);
+  border-left: 3px solid var(--amber);
+}
+.defter--karsilik .defter__s--net span {
+  color: var(--ink-2);
+}

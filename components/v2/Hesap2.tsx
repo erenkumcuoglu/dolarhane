@@ -14,6 +14,7 @@ import {
   fmtYuzde,
   getiri,
   karsilastirma,
+  karsiliklar,
 } from "@/lib/finance";
 import { IkonGrafik, IkonOk } from "./ikon";
 
@@ -57,22 +58,29 @@ export function Hesap2() {
     {
       k: "İşletme gideri",
       v: "−" + fmtUsd(u.giderYillik),
-      not: "emlak vergisi, sigorta, yönetim, boşluk, bakım",
+      not: "emlak vergisi, sigorta, mülk yönetimi",
       tur: "eksi",
     },
-    { k: "Yıllık net", v: fmtUsd(u.netYillik), tur: "ara" },
+    { k: "Yıllık eline geçen", v: fmtUsd(u.nakitYillik), tur: "ara" },
     {
-      k: "Aylık net",
-      v: fmtUsd(u.netAylik),
-      not: "cebinize giren",
+      k: "Aylık eline geçen",
+      v: fmtUsd(u.nakitAylik),
+      not: "hesabınıza giren para",
       tur: "vurgu",
     },
     {
-      k: "Net getiri",
-      v: fmtYuzde(u.netGetiri * 100, 1),
+      k: "Nakit getiri",
+      v: fmtYuzde(u.nakitGetiri * 100, 1),
       not: "toplam çıkış üzerinden · brüt değil",
     },
   ];
+
+  /* Karşılık satırları tablonun DIŞINDA, ayrı bir blokta duruyor.
+     Sebebi bilinçli: bunlar cepten çıkan gider değil, malikin kendi
+     hesabında kalan para. Tabloya "−" ile koymak onları kayıp gibi
+     gösterirdi; hiç göstermemek ise üçüncü yıl gelen çatı faturasını
+     sürpriz yapardı. İkisi de yanlış — ayrı blok doğrusu. */
+  const karsilik = karsiliklar(fiyat);
 
   return (
     <section className="v2-sect v2-hesap" id="v2-hesap">
@@ -140,7 +148,7 @@ export function Hesap2() {
             {fmtUsd(BAND.max)}.{" "}
             {tatli
               ? `Tatlı nokta ${fmtUsd(TATLI_NOKTA.min)}–${fmtUsd(TATLI_NOKTA.max)} bandı; buradasınız.`
-              : `Tatlı nokta ${fmtUsd(TATLI_NOKTA.min)}–${fmtUsd(TATLI_NOKTA.max)}. Fiyat yükseldikçe emlak vergisi ve giderler net getiriyi aşağı çekiyor.`}
+              : `Tatlı nokta ${fmtUsd(TATLI_NOKTA.min)}–${fmtUsd(TATLI_NOKTA.max)}. Fiyat yükseldikçe emlak vergisi ve giderler getiriyi aşağı çekiyor.`}
           </p>
         </div>
 
@@ -160,6 +168,39 @@ export function Hesap2() {
               </div>
             ))}
           </dl>
+
+          <div className="v2-karsilik">
+            <p className="v2-karsilik__bas">
+              Bir de kimsenin söylemediği kalem var.
+            </p>
+            <p className="v2-sm v2-karsilik__ac">
+              Yukarıdaki para her ay hesabınıza giriyor. Ama ev eskiyor:
+              çatı, kombi, su ısıtıcı bir gün değişiyor ve kiracı bir gün
+              çıkıyor. <strong>
+                Bunun için ayda {fmtUsd(u.karsilikAylik)} kenarda tutmanızı
+                öneriyoruz.
+              </strong> Bu para bize gelmiyor
+              — kendi hesabınızda duruyor, harcamazsanız sizde kalıyor.
+            </p>
+            <dl className="v2-karsilik__ler">
+              {karsilik.map((x) => (
+                <div key={x.etiket}>
+                  <dt className="v2-mini">
+                    {x.etiket}
+                    {x.not ? <em> {x.not}</em> : null}
+                  </dt>
+                  <dd className="v2-num">{fmtUsd(x.tutarYillik / 12)}/ay</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="v2-mini v2-karsilik__dip">
+              Beş yılda {fmtUsd(u.karsilikYillik * 5)} birikiyor. Hiç
+              harcanmazsa aylık geliriniz fiilen{" "}
+              {fmtUsd(u.nakitAylik)}; her yıl tamamı harcanırsa{" "}
+              {fmtUsd(u.netAylik)}. Gerçek, ikisinin arasında bir yerde ve
+              evin durumuna bağlı.
+            </p>
+          </div>
         </div>
 
         <aside className="v2-hesap__yan">

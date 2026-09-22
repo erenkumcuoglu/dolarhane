@@ -51,8 +51,8 @@ export function Firsatlar2() {
                   <div className="v2-ev__ust">
                     <p className="v2-ev__p v2-num">{fmtUsd(e.fiyat)}</p>
                     <p className="v2-ev__getiri">
-                      <b className="v2-num">{fmtYuzde(u.netGetiri * 100, 1)}</b>
-                      <i>net getiri</i>
+                      <b className="v2-num">{fmtYuzde(u.nakitGetiri * 100, 1)}</b>
+                      <i>nakit getiri</i>
                     </p>
                   </div>
                   <p className="v2-xs v2-ev__kunye">
@@ -70,8 +70,15 @@ export function Firsatlar2() {
                       <dd className="v2-num">{fmtUsd(u.kiraAylik)}</dd>
                     </div>
                     <div>
-                      <dt>Aylık net</dt>
-                      <dd className="v2-num">{fmtUsd(u.netAylik)}</dd>
+                      <dt>Aylık eline geçen</dt>
+                      <dd className="v2-num">{fmtUsd(u.nakitAylik)}</dd>
+                    </div>
+                    <div>
+                      {/* Karşılık kartta da görünüyor: portföy kartı
+                          hesap panelinden bağımsız okunuyor ve orada
+                          verilen sözün burada tutulması gerekiyor. */}
+                      <dt>Önerilen bakım payı</dt>
+                      <dd className="v2-num">−{fmtUsd(u.karsilikAylik)}</dd>
                     </div>
                   </dl>
 

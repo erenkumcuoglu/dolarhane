@@ -114,9 +114,9 @@ export function Hero2() {
                 <p className="v2-mulk__kira v2-num">{fmtUsd(EV_GETIRI.kiraAylik)} / ay</p>
               </div>
               <div>
-                <p className="v2-xs">Net getiri</p>
+                <p className="v2-xs">Nakit getiri</p>
                 <p className="v2-mulk__kira v2-num">
-                  {fmtYuzde(EV_GETIRI.netGetiri * 100, 1)}
+                  {fmtYuzde(EV_GETIRI.nakitGetiri * 100, 1)}
                 </p>
               </div>
             </div>
@@ -129,8 +129,8 @@ export function Hero2() {
             30 yıllık vade vardı, ikisi de kaldıraç ölçüsüydü. */}
         {[
           { v: fmtUsd(CANLI.getiri.giris.toplam), k: "giriş bileti · her şey dahil" },
-          { v: fmtUsd(CANLI.getiri.netAylik), k: "aylık net · ev başına" },
-          { v: fmtYuzde(CANLI.getiri.netGetiri * 100, 1), k: "net getiri · brüt değil", altin: true },
+          { v: fmtUsd(CANLI.getiri.nakitAylik), k: "aylık eline geçen · ev başına" },
+          { v: fmtYuzde(CANLI.getiri.nakitGetiri * 100, 1), k: "nakit getiri · brüt değil", altin: true },
           { v: fmtAdet(CANLI.karsilastirma.usEv), k: `${fmtUsd(CANLI.karsilastirma.butce)} ile · Türkiye'de 1` },
         ].map((x) => (
           <div key={x.k}>

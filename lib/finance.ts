@@ -98,6 +98,25 @@ export function giris(fiyat: number = KANONIK.fiyat): Giris {
 
 export type Gider = { etiket: string; not?: string; tutarYillik: number };
 
+/* ── İKİ AYRI KALEM TÜRÜ ──────────────────────────────────────
+   Bu ayrım hesabın tamamının omurgası; birleştirilmemeli.
+
+   GİDER  — para MALİKİN ELİNDEN ÇIKAR. İlçeye, sigortacıya, yönetim
+            şirketine gider ve geri gelmez. Opsiyonel değil.
+
+   KARŞILIK — para MALİKİN KENDİ ABD HESABINDA KALIR. Boşluk ve büyük
+            onarım her ay olmuyor; yıla yayılmış bir olasılık. Malik
+            isterse kenara koyar, istemezse koymaz — parayı biz
+            almıyoruz ve harcandığı ay gelene kadar onun.
+
+   Sayfada öne çıkan rakam GİDERLER düşülmüş "eline geçen nakit"tir;
+   karşılık ayrıca ve açıkça gösterilir, ama o rakamdan düşülmez.
+   Gerekçe: düşmek, malikin kendi hesabında duran parayı kayıp gibi
+   göstermek olurdu. Saklamak da olmaz — üçüncü yıl gelen çatı
+   faturası, modellenmemişse güven kaybıdır. Çözüm ikisi de değil:
+   göster, ama doğru adlandır. */
+
+/** Cepten çıkan, geri gelmeyen kalemler. */
 export function giderler(fiyat: number = KANONIK.fiyat): Gider[] {
   const f = kenetle(fiyat);
   const brut = kira(f) * 12;
@@ -113,13 +132,20 @@ export function giderler(fiyat: number = KANONIK.fiyat): Gider[] {
       not: fmtYuzde(GIDER.yonetimOrani * 100),
       tutarYillik: brut * GIDER.yonetimOrani,
     },
+  ];
+}
+
+/** Malikin kendi hesabında kalan, zamana yayılmış karşılıklar. */
+export function karsiliklar(fiyat: number = KANONIK.fiyat): Gider[] {
+  const brut = kira(kenetle(fiyat)) * 12;
+  return [
     {
       etiket: "Boşluk karşılığı",
       not: fmtYuzde(GIDER.boslukOrani * 100),
       tutarYillik: brut * GIDER.boslukOrani,
     },
     {
-      etiket: "Bakım ve yenileme",
+      etiket: "Bakım ve büyük onarım",
       not: fmtYuzde(GIDER.bakimOrani * 100),
       tutarYillik: brut * GIDER.bakimOrani,
     },
@@ -137,7 +163,19 @@ export type Getiri = {
   kiraAylik: number;
   brutYillik: number;
   brutGetiri: number;
+  /** Cepten çıkan giderler — vergi, sigorta, yönetim. */
   giderYillik: number;
+  /** ELİNE GEÇEN NAKİT: brüt − giderler. Sayfada öne çıkan rakam.
+   *  "Net getiri" DEĞİLDİR ve öyle adlandırılmamalı — sektörde net,
+   *  karşılıklar da düşülmüş rakamı anlatıyor. */
+  nakitYillik: number;
+  nakitAylik: number;
+  nakitGetiri: number;
+  /** Malikin kendi hesabında tutması önerilen pay. */
+  karsilikYillik: number;
+  karsilikAylik: number;
+  /** Karşılıklar da ayrıldıktan sonra. Karşılaştırmalarda ve
+   *  muhafazakâr okumada kullanılan taban. */
   netYillik: number;
   netAylik: number;
   netGetiri: number;
@@ -148,13 +186,20 @@ export function getiri(fiyat: number = KANONIK.fiyat): Getiri {
   const kiraAylik = kira(g.fiyat);
   const brutYillik = kiraAylik * 12;
   const giderYillik = giderler(g.fiyat).reduce((t, x) => t + x.tutarYillik, 0);
-  const netYillik = brutYillik - giderYillik;
+  const karsilikYillik = karsiliklar(g.fiyat).reduce((t, x) => t + x.tutarYillik, 0);
+  const nakitYillik = brutYillik - giderYillik;
+  const netYillik = nakitYillik - karsilikYillik;
   return {
     giris: g,
     kiraAylik,
     brutYillik,
     brutGetiri: brutYillik / g.toplam,
     giderYillik,
+    nakitYillik,
+    nakitAylik: nakitYillik / 12,
+    nakitGetiri: nakitYillik / g.toplam,
+    karsilikYillik,
+    karsilikAylik: karsilikYillik / 12,
     netYillik,
     netAylik: netYillik / 12,
     netGetiri: netYillik / g.toplam,

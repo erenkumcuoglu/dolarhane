@@ -1,6 +1,13 @@
 /**
  * v2 karşılaştırma — iş planı slayt 9: "Aynı para, iki farklı sonuç".
  *
+ * TABAN NOTU: burada bilerek `netAylik`/`netGetiri` kullanılıyor,
+ * `nakitAylik` değil. Türkiye kolonundaki %2,8'in hangi giderleri
+ * içerdiğini bilmiyoruz; bizim tarafta karşılıkları da düşülmüş en
+ * muhafazakâr rakamı koyarak taban uyuşmazlığının bizim lehimize
+ * çalışmasını engelliyoruz. Hesap paneli "eline geçen" nakdi
+ * gösteriyor ve bu tablodan yüksek — fark sayfada yazılı.
+ *
  * Kaldıraçlı sürümün yerini aldı. İki taraf da PEŞİN; kredi, taksit ve
  * vade karşılaştırması yok (iş planı §10–11).
  *
@@ -46,7 +53,10 @@ export function Karsilastirma2() {
           <h2 className="v2-h2">Aynı para, iki farklı sonuç.</h2>
           <p className="v2-xs v2-sect__yan">
             İki taraf da peşin alım. Ev başına aylık net bizde daha düşük —
-            fark, aynı bütçeye kaç ev sığdığında ortaya çıkıyor.
+            fark, aynı bütçeye kaç ev sığdığında ortaya çıkıyor. Bu
+            tabloda bizim kolonumuz bakım payı da düşülmüş rakamla
+            kuruldu; yukarıdaki hesapta gördüğünüz tutardan bu yüzden
+            düşük.
           </p>
         </div>
 

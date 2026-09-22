@@ -2032,3 +2032,67 @@
   color: var(--ink);
   text-decoration-color: currentColor;
 }
+
+/* ── Karşılık bloğu ─────────────────────────────────────────────
+   Hesap tablosunun altında, AYRI bir kutu. Ayrı olması bilinçli:
+   içindeki tutarlar cepten çıkan gider değil, malikin kendi
+   hesabında kalan para. Tabloya "−" ile girseler kayıp gibi
+   okunurlardı (bkz. lib/finance.ts'teki gider/karşılık notu).
+
+   Görsel dil: tablo soğuk tint zeminde, bu blok sıcak wash zeminde
+   ve solunda altın bir çizgi — "bu bir uyarı değil, bir tavsiye"
+   demenin en sessiz yolu. Kırmızı damga (--alert) kasten YOK;
+   burada kötü haber verilmiyor. */
+.v2-karsilik {
+  margin-top: var(--s5);
+  padding: var(--s4) var(--s4) var(--s4) var(--s5);
+  background: var(--wash);
+  border: 1px solid var(--line-strong);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--r-sm);
+}
+.v2-karsilik__bas {
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 var(--s2);
+}
+.v2-karsilik__ac {
+  margin: 0;
+  color: var(--ink-2);
+}
+.v2-karsilik__ac strong {
+  color: var(--ink);
+}
+.v2-karsilik__ler {
+  margin: var(--s4) 0 0;
+  border-top: 1px solid var(--line-strong);
+}
+.v2-karsilik__ler > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s3);
+  padding: 7px 0;
+}
+.v2-karsilik__ler dt {
+  font-size: var(--t-mini);
+  color: var(--ink-3);
+}
+.v2-karsilik__ler dt em {
+  font-style: normal;
+  color: var(--ink-4);
+}
+.v2-karsilik__ler dd {
+  margin: 0;
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.v2-karsilik__dip {
+  margin: var(--s3) 0 0;
+  padding-top: var(--s3);
+  border-top: 1px solid var(--line-strong);
+  color: var(--ink-3);
+}

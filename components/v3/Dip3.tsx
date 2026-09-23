@@ -25,7 +25,12 @@ export function Dip3() {
       <div className="v3-kap">
         <div className="v3-dip__ust">
           <a className="v3-marka" href="#v3-tepe">
-            <img src="/logo/amblem.png" alt="" width={28} height={28} />
+            <img
+            src="/logo/svg/dolarhane_orijinal_favicon.svg"
+            alt=""
+            width={30}
+            height={30}
+          />
             <b>DOLARHANE</b>
           </a>
           <nav className="v3-dip__ler">

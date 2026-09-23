@@ -219,11 +219,17 @@
   gap: var(--s5);
   min-height: 68px;
 }
+/* Amblem artık vektör master: public/logo/svg/…_favicon.svg. Yuvarlak
+   köşe ve iç boşluk dosyanın kendisinde — CSS'ten köşe verilmiyor. */
 .v3-marka {
   display: inline-flex;
   align-items: center;
-  gap: var(--s2);
+  gap: var(--s3);
   color: var(--ink);
+}
+.v3-marka img {
+  width: 30px;
+  height: 30px;
 }
 .v3-marka b {
   font-size: 0.9375rem;

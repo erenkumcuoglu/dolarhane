@@ -1,24 +1,55 @@
 Logo varlıkları
 ===============
 
-Kaynak: Dolarhane_Brand_Kit (Dolarhane_Brand_Design_System_v2.pdf).
+## Geçerli kaynak (2026-09-23): VEKTÖR MASTERLAR
 
-amblem.png   Kit'teki dolarhane_icon.png'nin merkezden 150×150 kırpımı.
-             Ham dosyada altın simge tuvalin yalnızca %47'sini dolduruyordu
-             (dış parıltı + plaka boşluğu); 26 pikselde okunmuyordu. Kırpım
-             simgeyi tuvale oturtuyor, köşe yuvarlaması CSS'te veriliyor.
-kilit.png    Kit'teki tam lockup, arşiv için. Sitede KULLANILMIYOR: web
-             başlığında kit'in kendi kullanım önceliği "amblem + DOLARHANE"
-             diyor ve yazı Satoshi Black ile diziliyor.
+`public/logo/svg/` — Dolarhane_Original_Logo_Vector_Paketi / SVG_Masterlar.
+Sitede logo olarak YALNIZ bu dosyalar kullanılır.
 
-EKSİK — istenmesi gerekenler
-- **SVG sürüm.** Elimizde yalnız 240×240 opak PNG var. Alfa kanalı yok,
-  vektör yok. 18 pikselin altında simge okunmuyor; favicon 16×16 için
-  vektör şart.
-- **Şeffaf zeminli sürüm.** Plaka gömülü olduğu için amblem her yerde koyu
-  bir çip olarak duruyor; açık zeminde amblemin kendisini kullanmak
-  mümkün değil.
-- **Tek renk sürüm.** Altın gradyanlı; gri tonlamada ve kaşede çalışmaz.
+Kullanımda olan:
+  dolarhane_orijinal_favicon.svg
+      240×240, lacivert yuvarlak plaka (rx 52) + altın gradyanlı simge.
+      Başlık ve alt şerit amblemi; `app/icon.svg` de bunun kopyası.
+      Plakanın köşe yuvarlaması ve iç boşluğu dosyanın kendisinde —
+      CSS'ten köşe verilmiyor.
 
-Not: kit'in kendi §07 kuralı "Gölge, gradient veya 3D efekt ekleme" diyor
-ama teslim edilen amblemde altın gradyan ve dış parıltı zaten var.
+Pakette duran, henüz kullanılmayanlar:
+  icon_gold.svg / icon_gold_gradient.svg   240×205, KÖŞELİ lacivert zemin
+  icon_navy.svg                            krem zeminde lacivert simge
+  stacked_*.svg                            simge üstte, yazı altta kilit
+  yatay_*.svg                              simge solda, yazı sağda kilit
+
+## Kilitli sürümlerin iki engeli
+
+1. **Montserrat.** stacked/yatay dosyalarındaki "DOLARHANE" ve alt satır
+   `<text>` olarak duruyor ve Montserrat istiyor. Font sitede yok ve
+   gelmeyecek (Google Fonts yasağı, DESIGN.md); tarayıcı Arial'a
+   düşüyor, yani dosya tasarlandığı gibi RENDER OLMUYOR. Web'de
+   kullanılacaksa ya yazı outline'a çevrilmeli ya da kilit CSS'te
+   Satoshi ile dizilmeli — bugün başlıkta yapılan bu.
+2. **Slogan.** Bütün kilitli sürümler "SINIRSIZ YATIRIM, GERÇEK
+   FIRSATLAR" taşıyor. Bu slogan siteye bilinçli olarak eklenmedi
+   (DESIGN.md): "sınırsız", kitin kendi §06'sında kaçınılması istenen
+   "garantili / kesin kazanç" ailesine yakın. Kilit kullanılacaksa bu
+   karar yeniden açılmalı.
+
+## Hâlâ eksik
+
+- **Şeffaf zeminli sürüm.** Her dosyada zemin dikdörtgeni gömülü
+  (lacivert ya da krem). Simgeyi fotoğraf üstüne koymak bugün mümkün
+  değil.
+- **Tek renk sürüm.** Gri tonlama ve kaşe için.
+
+## Bırakılanlar
+
+amblem.png   Kitin ikonunun 150×150 merkez kırpımı. Alfa yok, vektör
+             yok, gradyan ve dış parıltı piksele gömülü. Vektör gelene
+             kadar kullanılıyordu; ARTIK KULLANILMIYOR.
+kilit.png    Kitin tam lockup rasteri, arşiv.
+
+## Kural
+
+**Logo yeniden çizilmez.** 2026-09-23'te amblem elle vektöre çevrildi ve
+geri alındı. Kırpma/bulanıklık gerçek bir sorundu ama çözümü kaynak
+dosyayı istemekti — nitekim vektör paketi geldi. Siluetin yorumu markanın
+yerine geçmez.

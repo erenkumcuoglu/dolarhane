@@ -24,10 +24,10 @@ export function Nav3() {
       <div className="v3-kap v3-nav__in">
         <a className="v3-marka" href="#v3-tepe">
           <img
-            src="/logo/svg/dolarhane_orijinal_favicon.svg"
+            src="/logo/svg/09_icon_transparent_gold_gradient.svg"
             alt=""
-            width={30}
-            height={30}
+            width={37}
+            height={32}
           />
           <b>DOLARHANE</b>
         </a>

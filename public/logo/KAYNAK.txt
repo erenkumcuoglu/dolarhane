@@ -7,11 +7,14 @@ Logo varlıkları
 Sitede logo olarak YALNIZ bu dosyalar kullanılır.
 
 Kullanımda olan:
+  09_icon_transparent_gold_gradient.svg   (Birlesik_Design_System paketi)
+      240×205, ŞEFFAF zemin, altın gradyanlı simge. Başlık ve alt şerit
+      amblemi. Yanındaki "DOLARHANE" yazısı dosyadan gelmiyor, sayfada
+      Satoshi ile diziliyor (gerekçe aşağıda).
   dolarhane_orijinal_favicon.svg
       240×240, lacivert yuvarlak plaka (rx 52) + altın gradyanlı simge.
-      Başlık ve alt şerit amblemi; `app/icon.svg` de bunun kopyası.
-      Plakanın köşe yuvarlaması ve iç boşluğu dosyanın kendisinde —
-      CSS'ten köşe verilmiyor.
+      Yalnız favicon: `app/icon.svg` bunun kopyası. Tarayıcı sekmesinde
+      plaka doğru — sayfa içinde değil.
 
 Pakette duran, henüz kullanılmayanlar:
   icon_gold.svg / icon_gold_gradient.svg   240×205, KÖŞELİ lacivert zemin
@@ -19,32 +22,35 @@ Pakette duran, henüz kullanılmayanlar:
   stacked_*.svg                            simge üstte, yazı altta kilit
   yatay_*.svg                              simge solda, yazı sağda kilit
 
-## Kilitli sürümlerin iki engeli
+## Kilit dosyaları web'de KULLANILMIYOR
 
-1. **Montserrat.** stacked/yatay dosyalarındaki "DOLARHANE" ve alt satır
-   `<text>` olarak duruyor ve Montserrat istiyor. Font sitede yok ve
-   gelmeyecek (Google Fonts yasağı, DESIGN.md); tarayıcı Arial'a
-   düşüyor, yani dosya tasarlandığı gibi RENDER OLMUYOR. Web'de
-   kullanılacaksa ya yazı outline'a çevrilmeli ya da kilit CSS'te
-   Satoshi ile dizilmeli — bugün başlıkta yapılan bu.
-2. **Slogan.** Bütün kilitli sürümler "SINIRSIZ YATIRIM, GERÇEK
-   FIRSATLAR" taşıyor. Bu slogan siteye bilinçli olarak eklenmedi
-   (DESIGN.md): "sınırsız", kitin kendi §06'sında kaçınılması istenen
-   "garantili / kesin kazanç" ailesine yakın. Kilit kullanılacaksa bu
-   karar yeniden açılmalı.
+Paketteki yatay ve stacked kilitlerde (07, 08 ve orijinal paketin
+tamamı) "DOLARHANE" yazısı `<text>` olarak duruyor ve **Montserrat**
+istiyor. Font sitede yok ve gelmeyecek (Google Fonts yasağı,
+DESIGN.md); tarayıcı Arial'a düşürüyor. Yan yana ölçüldü: kilit
+dosyasındaki yazı hem sayfanın geri kalanından farklı bir font, hem de
+görsel içinde ölçeklendiği için gövde yazısıyla hizalanmıyor.
+
+Bu yüzden sitede kilit İKİ PARÇA: simge dosyadan (09), wordmark
+sayfada Satoshi ile dizili. Kilit dosyaları baskı ve sosyal medya için
+duruyor.
+
+Slogan sorunu KAPANDI (Eren, 2026-09-23): "SINIRSIZ YATIRIM, GERÇEK
+FIRSATLAR" kullanılmayacak. Şeffaf sürümlerde zaten yok.
 
 ## Hâlâ eksik
 
-- **Şeffaf zeminli sürüm.** Her dosyada zemin dikdörtgeni gömülü
-  (lacivert ya da krem). Simgeyi fotoğraf üstüne koymak bugün mümkün
-  değil.
 - **Tek renk sürüm.** Gri tonlama ve kaşe için.
+- **Outline'a çevrilmiş kilit.** Kilit dosyasını web'de tek parça
+  kullanmak istersek yazının outline olması gerekiyor.
 
 ## Bırakılanlar
 
 amblem.png   Kitin ikonunun 150×150 merkez kırpımı. Alfa yok, vektör
-             yok, gradyan ve dış parıltı piksele gömülü. Vektör gelene
-             kadar kullanılıyordu; ARTIK KULLANILMIYOR.
+             yok, gradyan ve dış parıltı piksele gömülü. ARTIK
+             KULLANILMIYOR.
+plakalı simge  Açık zeminde koyu bir çip olarak duruyordu; başlıkta
+             şeffaf sürüme geçildi. Plaka yalnız favicon'da.
 kilit.png    Kitin tam lockup rasteri, arşiv.
 
 ## Kural

@@ -219,8 +219,17 @@
   gap: var(--s5);
   min-height: 68px;
 }
-/* Amblem artık vektör master: public/logo/svg/…_favicon.svg. Yuvarlak
-   köşe ve iç boşluk dosyanın kendisinde — CSS'ten köşe verilmiyor. */
+/* Marka kilidi TEK DOSYA DEĞİL, iki parça: şeffaf zeminli altın simge
+   (vektör master) + Satoshi ile dizilmiş wordmark.
+
+   Neden kilit dosyası kullanılmıyor: paketteki yatay/stacked kilitlerde
+   "DOLARHANE" yazısı `<text>` ve Montserrat istiyor; font sitede yok,
+   tarayıcı Arial'a düşürüyor ve yazı sayfanın geri kalanıyla
+   uyuşmuyor. Simge dosyadan, yazı Satoshi'den.
+
+   Neden plakalı sürüm değil: plaka açık zeminde koyu bir çip olarak
+   duruyor. Şeffaf simge hem krem hem lacivert zeminde çalışıyor —
+   altın lacivert üstünde 7,51:1. */
 .v3-marka {
   display: inline-flex;
   align-items: center;
@@ -228,8 +237,8 @@
   color: var(--ink);
 }
 .v3-marka img {
-  width: 30px;
-  height: 30px;
+  width: auto;
+  height: 32px;
 }
 .v3-marka b {
   font-size: 0.9375rem;

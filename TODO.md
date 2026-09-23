@@ -74,8 +74,11 @@ uydurma rakam yok, her rakam senaryosuyla yazılır, şehir adı geçmez
 
 ## 4. Logo
 
-- [ ] Marka kiti sahibinden **şeffaf zeminli SVG** istenecek
-      (`public/logo/KAYNAK.txt` "EKSİK" listesi).
+- [x] Şeffaf zeminli SVG geldi (2026-09-23) ve başlıkta kullanılıyor.
+- [ ] Tek renk (monokrom) sürüm — gri tonlama ve kaşe için.
+- [ ] Kilit dosyalarının yazısı outline'a çevrilirse tek parça kilit
+      web'de de kullanılabilir; bugün Montserrat istediği için
+      kullanılmıyor.
 
 **Kural (2026-09-23): logo yeniden çizilmez.** Bir kez denendi ve geri
 alındı. Amblemin kırpımı/bulanıklığı gerçek bir sorun ama çözümü kaynak

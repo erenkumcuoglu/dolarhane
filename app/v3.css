@@ -205,13 +205,24 @@
 }
 
 /* ── nav ──────────────────────────────────────────────────── */
+/* Üst bant LACİVERT. Üç gerekçe:
+   1. Altın simge krem üstünde ~2:1, lacivert üstünde 7,51:1. Şeffaf
+      amblem ancak koyu zeminde tam gücünde okunuyor.
+   2. Marka oranı navy %55 / krem %30 / altın %15 (kit §03); lacivert
+      bant oranı sayfanın ilk pikselinde başlatıyor.
+   3. Krem karşılama iki koyu bant arasında kalıyor (üstte nav, altta
+      rakam bandı) — aydınlatılmış bir panel gibi duruyor.
+
+   Alt kenardaki altın kılcal şart: bant yapışkan ve sayfa kaydıkça
+   lacivert hesap bölümünün üstüne geliyor; ikisi de --dark olduğu için
+   kılcal olmadan bant kayboluyor. */
 .v3-nav {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(245, 241, 232, 0.88);
+  background: rgba(7, 26, 43, 0.92);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line-strong);
+  border-bottom: 1px solid rgba(201, 164, 92, 0.22);
 }
 .v3-nav__in {
   display: flex;
@@ -234,7 +245,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--s3);
-  color: var(--ink);
+  color: var(--on-dark);
 }
 .v3-marka img {
   width: auto;
@@ -253,15 +264,26 @@
 .v3-nav__ler a {
   font-size: var(--t-sm);
   font-weight: 500;
-  color: var(--ink-2);
+  color: var(--on-dark-mut);
   padding: 6px 0;
 }
 .v3-nav__ler a:hover {
-  color: var(--ink);
-  box-shadow: inset 0 -1px 0 var(--ink);
+  color: var(--on-dark);
+  box-shadow: inset 0 -1px 0 var(--on-dark-amber);
 }
+/* Bant lacivert olunca birincil eylem altına dönüyor: lacivert zeminde
+   lacivert düğme ayrışmıyor, altın dolgu üstünde lacivert metin
+   7,51:1. Kitin CTA kullanımı da bu. */
 .v3-nav .v3-btn--dolu {
   margin-left: var(--s4);
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--dark);
+}
+.v3-nav .v3-btn--dolu:hover {
+  background: var(--on-dark-num);
+  border-color: var(--on-dark-num);
+  color: var(--dark);
 }
 
 /* ── karşılama ────────────────────────────────────────────── */

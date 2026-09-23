@@ -1,0 +1,1350 @@
+/* ═══════════════════════════════════════════════════════════════
+   DOLARHANE — ÜÇÜNCÜ İTERASYON (/v3)
+   Dolarhane_V3_Design_Revision_Brief.md'nin uygulaması.
+
+   Token'lar globals.css'ten miras (marka kiti v2 paleti). Buradaki
+   dosya yalnız KOMPOZİSYON: brief'in istediği ferah editoryal ritim.
+
+   İkinci iterasyondan üç yapısal fark:
+   1. Sayfa kart yığını değil. Kutu yalnız üç yerde: hesabın sonuç
+      paneli, üç ev kartı ve akordeon satırları. Diğer bölümler
+      çerçevesiz — brief "fewer containers".
+   2. Bölüm aralığı ve tipografi bir kademe büyüdü; her bölümde TEK
+      odak var.
+   3. Hâkim blok hesap: tam kanama lacivert kütle, karşılamanın hemen
+      altında. Sayfanın en büyük ve en koyu alanı orası.
+
+   Renk kuralı değişmedi: ham altın açık zeminde METİN OLMAZ
+   (#C9A45C beyazda 2,35:1). Açık zeminde büyük metin --amber-deep,
+   küçük metin --amber-text; koyu zeminde ham altın serbest.
+   ═══════════════════════════════════════════════════════════════ */
+
+.v3 {
+  --v3-sec: clamp(48px, 5.5vw, 84px);
+  --v3-kap: 1200px;
+  --v3-gut: clamp(20px, 5vw, 56px);
+
+  /* Tipografi bir kademe büyük — brief "confident display headlines". */
+  --v3-t-slogan: clamp(2.125rem, 4.6vw, 3.6rem);
+  --v3-t-h2: clamp(1.75rem, 3.4vw, 2.75rem);
+  --v3-t-h3: clamp(1.125rem, 1.7vw, 1.375rem);
+  --v3-t-dev: clamp(2.5rem, 5.6vw, 4.25rem);
+
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.v3-kap {
+  max-width: var(--v3-kap);
+  margin: 0 auto;
+  padding: 0 var(--v3-gut);
+}
+.v3-sect {
+  padding: var(--v3-sec) 0;
+  scroll-margin-top: 76px;
+}
+.v3-num {
+  font-variant-numeric: tabular-nums;
+}
+.v3-altin {
+  color: var(--on-dark-amber);
+}
+
+/* ── tipografi ────────────────────────────────────────────── */
+.v3-h2 {
+  font-size: var(--v3-t-h2);
+  font-weight: 900;
+  letter-spacing: -0.028em;
+  line-height: 1.08;
+  text-wrap: balance;
+  margin: 0;
+}
+.v3-h3 {
+  font-size: var(--v3-t-h3);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin: 0;
+}
+.v3-bas {
+  max-width: 46ch;
+  margin: 0 0 clamp(24px, 2.6vw, 40px);
+}
+.v3-bas--orta {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.v3-bas__yan {
+  font-size: var(--t-lede);
+  color: var(--ink-3);
+  line-height: 1.6;
+  text-wrap: pretty;
+  margin: var(--s3) 0 0;
+}
+.v3-elyazi {
+  font-family: var(--font-gambetta), Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.0625rem, 1.6vw, 1.375rem);
+  line-height: 1.35;
+  color: var(--amber-text);
+  margin: 0;
+}
+.v3-vurus {
+  font-family: var(--font-gambetta), Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.0625rem, 1.7vw, 1.4375rem);
+  line-height: 1.38;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* ── damga ve yer tutucu ──────────────────────────────────── */
+.v3-damga {
+  display: inline-block;
+  font-size: var(--t-xs);
+  font-weight: 700;
+  color: var(--alert);
+  background: var(--alert-wash);
+  border: 1px solid var(--alert-line);
+  border-radius: var(--r-xs);
+  padding: 5px 10px;
+  margin: 0 var(--s2) var(--s4) 0;
+}
+.v3-todo {
+  font-size: var(--t-xs);
+  font-weight: 700;
+  color: var(--on-dark-amber);
+  border: 1px dashed var(--on-dark-todo-line);
+  border-radius: var(--r-xs);
+  padding: 3px 8px;
+}
+.v3-temsili {
+  position: absolute;
+  top: var(--s3);
+  left: var(--s3);
+  z-index: 1;
+  font-size: var(--t-mini);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--on-dark);
+  background: var(--dark);
+  border-radius: var(--r-pill);
+  padding: 3px 9px;
+}
+
+/* ── düğme ────────────────────────────────────────────────── */
+.v3-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 var(--s5);
+  border: 1px solid var(--ink);
+  border-radius: var(--r-pill);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+.v3-btn--lg {
+  min-height: 54px;
+  padding: 0 var(--s6);
+  font-size: var(--t-body);
+}
+.v3-btn--dolu {
+  background: var(--ink);
+  color: var(--on-dark);
+}
+.v3-btn--dolu:hover {
+  background: var(--dark-line);
+  color: var(--on-dark);
+}
+.v3-btn--hat {
+  background: transparent;
+  color: var(--ink);
+}
+.v3-btn--hat:hover {
+  background: var(--wash);
+  color: var(--ink);
+}
+/* Altın düğme YALNIZ lacivert zeminde: altın dolgu üstünde lacivert
+   metin 7,51:1; açık zeminde aynı düğme kendi alanından ayrışmıyor. */
+.v3-btn--altin {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--dark);
+}
+.v3-btn--altin:hover {
+  background: var(--on-dark-num);
+  border-color: var(--on-dark-num);
+  color: var(--dark);
+}
+
+/* ── ikon karosu ────────────────────────────────────────────
+   Amblemin kendisi: lacivert yumuşak kare, altın işaret. Ölçü ve
+   yarıçap oranı amblemden alındı (kare 46, yarıçap 13 ≈ %28). */
+.v3-karo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: var(--dark);
+  color: var(--amber);
+}
+.v3-karo svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ── nav ──────────────────────────────────────────────────── */
+.v3-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(245, 241, 232, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line-strong);
+}
+.v3-nav__in {
+  display: flex;
+  align-items: center;
+  gap: var(--s5);
+  min-height: 68px;
+}
+.v3-marka {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  color: var(--ink);
+}
+.v3-marka b {
+  font-size: 0.9375rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+.v3-nav__ler {
+  display: flex;
+  gap: clamp(14px, 2vw, 30px);
+  margin-left: auto;
+}
+.v3-nav__ler a {
+  font-size: var(--t-sm);
+  font-weight: 500;
+  color: var(--ink-2);
+  padding: 6px 0;
+}
+.v3-nav__ler a:hover {
+  color: var(--ink);
+  box-shadow: inset 0 -1px 0 var(--ink);
+}
+.v3-nav .v3-btn--dolu {
+  margin-left: var(--s4);
+}
+
+/* ── karşılama ────────────────────────────────────────────── */
+.v3-hero {
+  background: var(--paper);
+}
+/* Fotoğraf sağ kenardan TAŞAR: kap'ın sağ sınırı burada iptal,
+   sol iç boşluk kabın hizasını elle koruyor. Tek odaklı karşılamada
+   çerçeveli bir fotoğraf değil, kadraja giren bir ev isteniyor. */
+.v3-hero__in {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 44px);
+  align-items: center;
+  max-width: none;
+  padding-top: clamp(32px, 4vw, 64px);
+  padding-bottom: clamp(32px, 4vw, 64px);
+  padding-left: max(
+    var(--v3-gut),
+    calc((100vw - var(--v3-kap)) / 2 + var(--v3-gut))
+  );
+  padding-right: 0;
+}
+.v3-hero__soz {
+  max-width: 46rem;
+}
+/* Manşetin üst satırı. Pill değil: zemin etiketi yasağının ruhu —
+   bilgi kendi kutusunda durmuyor, başlığın satırına giriyor ve
+   altındaki kılcal çizgiyle ayrılıyor. */
+.v3-ust {
+  width: fit-content;
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--amber-text);
+  border-bottom: 1px solid var(--wash-strong);
+  padding: 0 var(--s5) var(--s3) 0;
+  margin: 0 0 var(--s4);
+}
+.v3-slogan {
+  position: relative;
+  margin: 0 0 var(--s4);
+}
+.v3-slogan__yigin {
+  display: grid;
+  margin: 0;
+  /* ch kapağı kalktı: Satoshi'nin "0" genişliği 0,374em, yani 26ch
+     kolonun ancak %76'sıydı ve manşet gereksiz sarıyordu. Genişliği
+     artık kolon veriyor — manşet ile lede aynı sağ kenarda bitiyor. */
+  max-width: 100%;
+}
+.v3-slogan__m {
+  grid-area: 1 / 1;
+  font-size: var(--v3-t-slogan);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -0.034em;
+  /* `balance` satırları eşitliyor, yani kolonu doldurmuyordu: manşet
+     genişleyince bile satır sayısı düşmedi. `pretty` açgözlü sarıyor,
+     yalnız son satırda yetim kelime bırakmıyor. */
+  text-wrap: pretty;
+  color: var(--ink);
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.v3-slogan__m--acik {
+  opacity: 1;
+  transform: none;
+}
+.v3-slogan__dur {
+  position: absolute;
+  left: -9999px;
+  border: 0;
+  background: var(--ink);
+  color: var(--on-dark);
+  font: inherit;
+  font-size: var(--t-sm);
+  font-weight: 700;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+}
+.v3-slogan__dur:focus-visible {
+  left: 0;
+  bottom: calc(-1 * var(--s7));
+  padding: var(--s3) var(--s4);
+  min-height: 44px;
+  outline: 2px solid var(--amber-deep);
+  outline-offset: 2px;
+}
+.v3-hero__lede {
+  font-size: clamp(1rem, 1.25vw, 1.125rem);
+  line-height: 1.62;
+  color: var(--ink-3);
+  text-wrap: pretty;
+  max-width: 66ch;
+  margin: 0 0 var(--s5);
+}
+.v3-hero__eylem {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+}
+
+.v3-hero__foto {
+  position: relative;
+  margin: 0;
+  border-radius: var(--r-xl) 0 0 var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--sh-card);
+}
+.v3-hero__foto img {
+  width: 100%;
+  height: clamp(330px, 42vw, 520px);
+  object-fit: cover;
+}
+/* Fotoğrafın üstündeki künye kendi zeminini taşır — fotoğraf üstüne
+   düşen metin opaklıkla açılmaz (DESIGN.md kural 4 / v2 dersi). */
+.v3-kunye {
+  position: absolute;
+  left: var(--s4);
+  right: var(--s4);
+  bottom: var(--s4);
+  display: grid;
+  gap: 5px;
+  background: var(--dark);
+  border-radius: var(--r-md);
+  padding: var(--s4) var(--s5);
+  color: var(--on-dark);
+}
+.v3-kunye__damga {
+  position: absolute;
+  top: calc(-1 * var(--s3));
+  left: var(--s5);
+  font-size: var(--t-mini);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--dark);
+  background: var(--amber);
+  border-radius: var(--r-pill);
+  padding: 2px 9px;
+}
+.v3-kunye__z {
+  font-size: var(--t-mini);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--on-dark-mut);
+}
+.v3-kunye__ler {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  flex-wrap: wrap;
+}
+.v3-kunye__ler b {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+.v3-kunye__ler i {
+  font-style: normal;
+  font-size: var(--t-xs);
+  color: var(--on-dark-mut);
+}
+.v3-kunye__kira {
+  font-size: var(--t-xs);
+  color: var(--on-dark-mut);
+}
+.v3-kunye__kira b {
+  color: var(--on-dark-num);
+  font-weight: 700;
+}
+
+/* ── rakam bandı — lacivert kütlenin üst kenarı ───────────── */
+.v3-band {
+  background: var(--dark-line);
+  color: var(--on-dark);
+}
+.v3-band__in {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s5);
+  padding-top: clamp(20px, 2.2vw, 30px);
+  padding-bottom: clamp(20px, 2.2vw, 30px);
+}
+.v3-band__v {
+  font-size: clamp(1.375rem, 2.2vw, 1.875rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.v3-band__k {
+  font-size: var(--t-xs);
+  color: var(--on-dark-mut);
+  margin: 4px 0 0;
+}
+
+/* ── HESAP — hâkim blok ───────────────────────────────────── */
+.v3-hesap {
+  background: var(--dark);
+  color: var(--on-dark);
+  padding: clamp(40px, 4.4vw, 68px) 0 clamp(44px, 5vw, 76px);
+  scroll-margin-top: 76px;
+  border-top: 1px solid var(--dark-line);
+}
+.v3-hesap__in {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: clamp(28px, 3.6vw, 60px);
+  align-items: start;
+}
+/* Sonuç paneli sol kolondan uzun; kaydırıcılar okurken görüşte
+   kalsın diye sol kolon yapışkan. Kaydırıcıyı oynatmak için yukarı
+   dönmek gerekmiyor — brief'in "doğrudan manipülasyon" maddesi. */
+.v3-hesap__sol {
+  position: sticky;
+  top: 96px;
+}
+.v3-hesap__sol .v3-h2 {
+  color: var(--on-dark);
+}
+.v3-hesap__lede {
+  font-size: var(--t-lede);
+  line-height: 1.62;
+  color: var(--on-dark-mut);
+  max-width: 34ch;
+  margin: var(--s3) 0 var(--s5);
+}
+.v3-hesap .v3-damga {
+  color: var(--on-dark-amber);
+  background: transparent;
+  border-color: var(--on-dark-todo-line);
+}
+.v3-hesap__not {
+  font-size: var(--t-xs);
+  line-height: 1.6;
+  color: var(--on-dark-mut);
+  max-width: 38ch;
+  margin: var(--s5) 0 0;
+}
+
+/* kaydırıcı */
+.v3-kaydir {
+  margin: 0;
+}
+.v3-kaydir__bas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s4);
+  margin: 0 0 var(--s3);
+}
+.v3-kaydir__bas label {
+  font-size: var(--t-sm);
+  font-weight: 500;
+  color: var(--on-dark);
+}
+.v3-kaydir__kutu {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(245, 241, 232, 0.07);
+  border: 1px solid var(--dark-line);
+  border-radius: var(--r-sm);
+  padding: 4px 10px;
+}
+.v3-kaydir__kutu i {
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--on-dark-mut);
+}
+.v3-kaydir__kutu input {
+  width: 8ch;
+  border: 0;
+  background: transparent;
+  color: var(--on-dark-num);
+  font: inherit;
+  font-size: 1.125rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  padding: 2px 0;
+  min-height: 32px;
+  text-align: right;
+}
+.v3-kaydir__uc {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--s2) 0 0;
+  font-size: var(--t-mini);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--on-dark-mut);
+}
+.v3-ray {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 34px;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+}
+.v3-ray::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--dark-line);
+}
+.v3-ray::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--dark-line);
+}
+.v3-ray::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  margin-top: -10px;
+  border-radius: 50%;
+  background: var(--amber);
+  border: 3px solid var(--dark);
+  box-shadow: var(--sh-thumb);
+}
+.v3-ray::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--amber);
+  border: 3px solid var(--dark);
+  box-shadow: var(--sh-thumb);
+}
+.v3-ray:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 4px;
+  border-radius: var(--r-xs);
+}
+
+/* sonuç paneli */
+.v3-hesap__sag {
+  display: grid;
+  align-content: start;
+}
+.v3-sonuc {
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: var(--r-xl);
+  padding: clamp(20px, 2.2vw, 30px);
+  box-shadow: var(--sh-card);
+}
+.v3-sonuc__bas {
+  font-size: var(--t-mini);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink-4);
+  margin: 0 0 var(--s4);
+}
+.v3-sonuc__ler {
+  border-top: 1px solid var(--line-strong);
+}
+.v3-sonuc__s {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s5);
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--line);
+}
+.v3-sonuc__s dt {
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--ink);
+}
+.v3-sonuc__s dt em {
+  display: block;
+  font-style: normal;
+  font-size: var(--t-xs);
+  font-weight: 400;
+  color: var(--ink-4);
+  margin-top: 2px;
+}
+.v3-sonuc__s dd {
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 900;
+  letter-spacing: -0.028em;
+  white-space: nowrap;
+}
+/* Üçüncü satır sayfanın en büyük rakamı — sonuç hiyerarşisinin dibi. */
+.v3-sonuc__s--vurgu {
+  border-bottom: 0;
+  padding-top: var(--s4);
+}
+.v3-sonuc__s--vurgu dd {
+  font-size: var(--v3-t-dev);
+  line-height: 1;
+  color: var(--ink);
+}
+.v3-sonuc__s--vurgu dt {
+  font-size: var(--t-body);
+}
+
+.v3-oran {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s5);
+  border-top: 1px solid var(--line-strong);
+  padding: var(--s4) 0 0;
+  margin: var(--s3) 0 0;
+}
+.v3-oran__v {
+  font-size: 1.375rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--amber-deep);
+  margin: 0;
+}
+.v3-oran__k {
+  font-size: var(--t-xs);
+  color: var(--ink-4);
+  margin: 2px 0 0;
+}
+.v3-sonuc__karsilik {
+  font-size: var(--t-sm);
+  line-height: 1.55;
+  color: var(--ink-3);
+  background: var(--tint);
+  border-radius: var(--r-sm);
+  padding: var(--s4);
+  margin: var(--s4) 0 0;
+}
+.v3-sonuc__karsilik b {
+  color: var(--ink);
+}
+
+/* Türkiye — cetvelin ALTINDA duran callout kutusu. Lacivert alanın
+   üstünde kalıyor, beyaz sonuç paneline girmiyor: destek bağlamı
+   hesabın çıktısıyla aynı ağırlıkta okunmasın (brief). */
+.v3-tr {
+  background: rgba(245, 241, 232, 0.06);
+  border: 1px solid var(--dark-line);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--r-md);
+  padding: var(--s4) var(--s5);
+  margin: var(--s4) 0 0;
+}
+.v3-tr__bas {
+  font-size: var(--t-body);
+  font-weight: 700;
+  color: var(--on-dark);
+  margin: 0 0 var(--s2);
+}
+.v3-tr__gov {
+  font-size: var(--t-sm);
+  line-height: 1.6;
+  color: var(--on-dark-mut);
+  margin: 0;
+}
+.v3-tr__gov b {
+  color: var(--on-dark);
+}
+.v3-tr__gov b.v3-num {
+  color: var(--on-dark-num);
+}
+
+.v3-varsayim {
+  border-top: 1px solid var(--line-strong);
+  margin: var(--s5) 0 0;
+  padding: var(--s3) 0 0;
+}
+.v3-varsayim > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 44px;
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--amber-text);
+  cursor: pointer;
+  list-style: none;
+}
+.v3-varsayim > summary::-webkit-details-marker {
+  display: none;
+}
+.v3-varsayim > summary::before {
+  content: "+";
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.v3-varsayim[open] > summary::before {
+  content: "–";
+}
+.v3-varsayim__gov {
+  padding: var(--s3) 0 var(--s2);
+}
+.v3-varsayim__gov dl {
+  border-top: 1px solid var(--line);
+  margin: 0 0 var(--s4);
+}
+.v3-varsayim__gov dl > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s4);
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--t-sm);
+}
+.v3-varsayim__gov dt {
+  color: var(--ink-3);
+}
+.v3-varsayim__gov dd {
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.v3-varsayim__gov dd em {
+  font-style: normal;
+  font-weight: 400;
+  font-size: var(--t-xs);
+  color: var(--ink-4);
+  margin-left: var(--s2);
+}
+.v3-varsayim__gov p {
+  font-size: var(--t-xs);
+  line-height: 1.6;
+  color: var(--ink-4);
+  margin: 0 0 var(--s3);
+}
+
+/* ── seçilmiş evler ───────────────────────────────────────── */
+.v3-evler {
+  background: var(--surface);
+}
+.v3-evler__ler {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 1.8vw, 24px);
+}
+.v3-ev {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.v3-ev:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-soft);
+}
+.v3-ev__foto {
+  position: relative;
+  aspect-ratio: 16 / 10;
+}
+.v3-ev__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.v3-ev__gov {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--s4);
+}
+.v3-ev__z {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  font-size: var(--t-mini);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink-4);
+  margin: 0;
+}
+.v3-ev__z i {
+  font-style: normal;
+  letter-spacing: 0.04em;
+  color: var(--wash-ink-2);
+  background: var(--wash);
+  border-radius: var(--r-pill);
+  padding: 2px 8px;
+}
+.v3-ev__p {
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: -0.028em;
+  margin: 2px 0 0;
+}
+.v3-ev__kunye {
+  font-size: var(--t-xs);
+  color: var(--ink-4);
+  margin: 0;
+}
+.v3-ev__kira {
+  font-size: var(--t-sm);
+  color: var(--ink-3);
+  margin: var(--s2) 0 var(--s4);
+}
+.v3-ev__kira b {
+  color: var(--ink);
+}
+.v3-ev__eylem {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--amber-text);
+  box-shadow: inset 0 -1px 0 var(--wash-strong);
+  align-self: flex-start;
+}
+.v3-ev__eylem:hover {
+  color: var(--ink);
+  box-shadow: inset 0 -1px 0 var(--ink);
+}
+
+/* ── neden ────────────────────────────────────────────────── */
+.v3-neden {
+  background: var(--paper);
+}
+.v3-neden__bas {
+  margin: 0 0 clamp(28px, 3.2vw, 52px);
+}
+.v3-neden__ler {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 52px);
+}
+.v3-neden__ler li {
+  display: grid;
+  align-content: start;
+  gap: var(--s3);
+}
+.v3-neden__ler li .v3-karo {
+  margin-bottom: var(--s2);
+}
+.v3-neden__a {
+  font-size: var(--t-body);
+  line-height: 1.62;
+  color: var(--ink-3);
+  margin: 0;
+}
+
+/* ── huni ─────────────────────────────────────────────────── */
+.v3-surec {
+  background: var(--surface);
+}
+.v3-huni {
+  display: grid;
+  gap: var(--s2);
+  max-width: 880px;
+  margin: 0 auto;
+}
+/* Üç kolon: ikon · metin · ikonun aynası. Ayna hücresi metni çubuğun
+   TAM ortasına oturtuyor; olmasaydı metin ikon kadar sağa kayardı. */
+.v3-huni__k {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) 46px;
+  align-items: center;
+  gap: var(--s4);
+  text-align: center;
+  padding: clamp(14px, 1.5vw, 20px) clamp(18px, 2.2vw, 28px);
+  border-radius: var(--r-lg);
+  margin: 0 auto;
+  width: 100%;
+  transition: width 0.3s ease;
+}
+.v3-huni__k::after {
+  content: "";
+}
+/* Son kademe lacivert; karo orada terse dönüyor. */
+.v3-huni__k--4 .v3-karo {
+  background: var(--amber);
+  color: var(--dark);
+}
+/* Daralma görsel fikrin kendisi: her kademe bir öncekinden dar ve bir
+   ton koyu. Genişlik yüzdeleri ölçülü — son kademe ilkinin %70'i. */
+.v3-huni__k--1 {
+  width: 100%;
+  background: var(--wash);
+  color: var(--wash-ink);
+}
+.v3-huni__k--2 {
+  width: 90%;
+  background: var(--wash-strong);
+  color: var(--wash-ink);
+}
+.v3-huni__k--3 {
+  width: 80%;
+  background: var(--amber);
+  color: var(--dark);
+}
+.v3-huni__k--4 {
+  width: 70%;
+  background: var(--dark);
+  color: var(--on-dark);
+}
+.v3-huni__gov b {
+  display: block;
+  font-size: clamp(1rem, 1.5vw, 1.1875rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+.v3-huni__gov i {
+  display: block;
+  font-style: normal;
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  margin-top: 3px;
+  opacity: 0.86;
+}
+/* ── biz kimiz ────────────────────────────────────────────── */
+.v3-hikaye {
+  background: var(--paper);
+  padding: var(--v3-sec) 0;
+  scroll-margin-top: 76px;
+}
+.v3-hikaye__in {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(24px, 3.4vw, 52px);
+  align-items: center;
+}
+.v3-hikaye__gorsel {
+  position: relative;
+  margin: 0;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--sh-soft);
+}
+.v3-hikaye__gorsel img {
+  width: 100%;
+  height: clamp(240px, 27vw, 360px);
+  object-fit: cover;
+}
+.v3-hikaye__soz {
+  max-width: 52ch;
+}
+.v3-hikaye__gov {
+  font-size: var(--t-body);
+  line-height: 1.66;
+  color: var(--ink-3);
+  margin: var(--s4) 0;
+}
+.v3-hikaye__dip {
+  font-size: var(--t-sm);
+  line-height: 1.6;
+  color: var(--ink-4);
+  border-top: 1px solid var(--line-strong);
+  padding-top: var(--s3);
+  margin: var(--s4) 0 0;
+}
+
+/* ── riskler ──────────────────────────────────────────────── */
+.v3-riskler {
+  background: var(--surface);
+}
+.v3-riskler__in {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+}
+.v3-sss > .v3-bas__yan {
+  margin: var(--s2) 0 var(--s4);
+  font-size: var(--t-sm);
+}
+.v3-kat {
+  border-top: 1px solid var(--line-strong);
+}
+.v3-kat:last-child {
+  border-bottom: 1px solid var(--line-strong);
+}
+.v3-kat > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s4);
+  min-height: 50px;
+  padding: var(--s2) 0;
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+}
+.v3-kat > summary::-webkit-details-marker {
+  display: none;
+}
+.v3-kat > summary i {
+  position: relative;
+  flex: none;
+  width: 14px;
+  height: 14px;
+}
+.v3-kat > summary i::before,
+.v3-kat > summary i::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto 0;
+  height: 1.5px;
+  background: var(--ink-3);
+  transition: transform 0.2s ease;
+}
+.v3-kat > summary i::after {
+  transform: rotate(90deg);
+}
+.v3-kat[open] > summary i::after {
+  transform: rotate(0deg);
+}
+.v3-kat > p {
+  font-size: var(--t-sm);
+  line-height: 1.62;
+  color: var(--ink-3);
+  max-width: 56ch;
+  padding: 0 0 var(--s4);
+  margin: 0;
+}
+
+/* ── kapanış ──────────────────────────────────────────────── */
+.v3-kapanis {
+  background: var(--dark);
+  color: var(--on-dark);
+  padding: clamp(40px, 4.4vw, 68px) 0;
+  scroll-margin-top: 76px;
+}
+.v3-kapanis__in {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+}
+.v3-kapanis__soz .v3-h2,
+.v3-kapanis__kutu .v3-h3 {
+  color: var(--on-dark);
+}
+.v3-kapanis__lede {
+  font-size: var(--t-lede);
+  line-height: 1.62;
+  color: var(--on-dark-mut);
+  max-width: 36ch;
+  margin: var(--s4) 0 0;
+}
+.v3-kapanis__kutu {
+  display: grid;
+  gap: var(--s4);
+}
+.v3-kapanis__ler {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s4);
+}
+.v3-kapanis__ler .v3-alan:last-child {
+  grid-column: 1 / -1;
+}
+.v3-alan {
+  display: grid;
+  gap: 6px;
+}
+.v3-alan label {
+  font-size: var(--t-xs);
+  font-weight: 700;
+  color: var(--on-dark-mut);
+}
+.v3-alan input,
+.v3-alan select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 var(--s4);
+  border: 1px solid var(--dark-line);
+  border-radius: var(--r-sm);
+  background: rgba(245, 241, 232, 0.07);
+  color: var(--on-dark);
+  font: inherit;
+  font-size: var(--t-body);
+}
+.v3-alan select {
+  appearance: none;
+  background-image: linear-gradient(transparent, transparent);
+  padding-right: var(--s5);
+}
+.v3-alan option {
+  color: var(--ink);
+}
+.v3-alan input:focus-visible,
+.v3-alan select:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+.v3-alan__hata {
+  font-size: var(--t-xs);
+  font-weight: 700;
+  color: #f0b3ae; /* lacivert üstünde 7,0:1 — alert ailesinin koyu zemin türevi */
+  min-height: 1em;
+}
+.v3-alan--hata input,
+.v3-alan--hata select {
+  border-color: #f0b3ae;
+}
+.v3-onay {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+  cursor: pointer;
+}
+.v3-onay input {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  min-height: 0;
+  margin-top: 2px;
+  accent-color: var(--amber);
+}
+.v3-onay span {
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  color: var(--on-dark-mut);
+}
+.v3-kapanis__durum {
+  font-size: var(--t-sm);
+  line-height: 1.55;
+  color: var(--on-dark);
+  border-left: 3px solid var(--amber);
+  padding-left: var(--s3);
+  margin: 0;
+}
+.v3-kapanis .v3-btn--altin {
+  justify-self: start;
+}
+
+/* ── alt şerit ────────────────────────────────────────────── */
+.v3-dip {
+  background: var(--dark-line);
+  color: var(--on-dark);
+  padding: clamp(30px, 3.4vw, 46px) 0 clamp(22px, 2.2vw, 30px);
+}
+.v3-dip .v3-marka {
+  color: var(--on-dark);
+}
+.v3-dip__ust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s5);
+  padding-bottom: var(--s5);
+  border-bottom: 1px solid rgba(245, 241, 232, 0.12);
+}
+.v3-dip__ler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s5);
+}
+.v3-dip__ler a {
+  font-size: var(--t-sm);
+  color: var(--on-dark-mut);
+}
+.v3-dip__ler a:hover {
+  color: var(--on-dark);
+}
+.v3-kimlik {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--s4);
+  padding: var(--s4) 0;
+}
+.v3-kimlik dt {
+  font-size: var(--t-mini);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--on-dark-mut);
+  margin-bottom: 4px;
+}
+.v3-kimlik dd {
+  font-size: var(--t-sm);
+  color: var(--on-dark);
+}
+.v3-dip__yasal {
+  font-size: var(--t-xs);
+  line-height: 1.6;
+  color: var(--on-dark-mut);
+  max-width: 84ch;
+  border-top: 1px solid rgba(245, 241, 232, 0.12);
+  padding-top: var(--s4);
+  margin: 0;
+}
+
+/* ── duyarlı ──────────────────────────────────────────────── */
+@media (max-width: 1040px) {
+  .v3-hesap__in,
+  .v3-kapanis__in {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .v3-hesap__sol {
+    position: static;
+  }
+  .v3-band__in {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s4) var(--s5);
+  }
+}
+
+@media (max-width: 900px) {
+  .v3-nav__ler {
+    display: none;
+  }
+  .v3-nav__in {
+    justify-content: space-between;
+  }
+  .v3-nav .v3-btn--dolu {
+    margin-left: 0;
+  }
+  .v3-hero__in,
+  .v3-hikaye__in {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .v3-neden__ler {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s6);
+  }
+  .v3-hero__in {
+    padding-right: var(--v3-gut);
+  }
+  .v3-hero__foto {
+    border-radius: var(--r-xl);
+  }
+  .v3-evler__ler {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+  .v3-riskler__in {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s7);
+  }
+  /* Huni dar ekranda daralmayı bırakır: %70 genişlik metni sıkıştırır.
+     Daralma yerine ton kademesi taşıyor mesajı. Karo metnin üstüne
+     çıkıyor, ikisi de ortalı. */
+  .v3-huni__k {
+    width: 100% !important;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: var(--s2);
+  }
+  .v3-huni__k::after {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .v3-band__in {
+    grid-template-columns: 1fr 1fr;
+  }
+  .v3-sonuc__s {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .v3-oran {
+    grid-template-columns: 1fr;
+    gap: var(--s4);
+  }
+  .v3-kapanis__ler {
+    grid-template-columns: 1fr;
+  }
+  /* Künye dar ekranda fotoğrafın ALTINA iner; "örnek" damgası künyenin
+     kendi kutusuna yapışık kalsın diye kutu relative olmak zorunda —
+     static bırakılırsa damga fotoğrafın sol üstüne kaçıp "temsilî"
+     rozetinin üstüne biniyor. */
+  .v3-kunye {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    border-radius: 0;
+  }
+  /* Manşet yığını en uzun slogana göre yer kaplıyor; dar ekranda
+     satır farkı üç satıra çıkıp altında boşluk bırakıyordu. Punto ve
+     satır genişliği kısa/uzun farkını tek satıra indiriyor. */
+  .v3-slogan__yigin {
+    max-width: 100%;
+  }
+  .v3 {
+    --v3-t-slogan: clamp(1.875rem, 8vw, 2.375rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v3-slogan__m,
+  .v3-ev,
+  .v3-huni__k {
+    transition: none;
+    transform: none;
+  }
+}

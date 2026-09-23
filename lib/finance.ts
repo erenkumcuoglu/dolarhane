@@ -34,10 +34,23 @@ export const MODEL_DOGRULANDI = false;
 /* ── Kanonik senaryo — slayt 16 Senaryo A ── */
 export const KANONIK = { fiyat: 140_000 } as const;
 
-/* Kaydırıcı aralığı. Tatlı nokta 120–160 bin; üst uç 200 bin çünkü asıl
+/* ÜRÜN BANDI. Tatlı nokta 120–160 bin; üst uç 200 bin çünkü asıl
    mesaj fiyat yükseldikçe verimin DÜŞMESİ (slayt 16 notu). */
 export const BAND = { min: 120_000, max: 200_000 } as const;
 export const TATLI_NOKTA = { min: 120_000, max: 160_000 } as const;
+
+/* HESAP KAPSAMI — kaydırıcının gidebildiği yer, ürün bandı değil.
+   Üçüncü iterasyonun hesabı 400 bine kadar açılıyor; ürün bandı yine
+   120–200 bin ve ikinci iterasyonun kaydırıcısı orada kalıyor.
+
+   DİKKAT — 200 bin üstü EKSTRAPOLASYONDUR. kira() ve sigorta() slayt
+   16'nın İKİ senaryosu (140k ve 200k) arasından geçen doğrular; bandın
+   üstünde o doğru uzatılarak okunuyor. Slaytın kendi notu kiranın
+   fiyatla alt-doğrusal gittiğini söylüyor, yani 200 bin üstünde bu
+   model kirayı ve dolayısıyla getiriyi YÜKSEK tahmin ediyor olabilir.
+   Bu yüzden kapsamın üst yarısını gösteren her yüzey durumu damgayla
+   söylemek zorunda (bkz. components/v3/Hesap3.tsx). */
+export const KAPSAM = { min: 120_000, max: 400_000 } as const;
 
 /* ── Giriş maliyeti kalemleri ── */
 export const KAPANIS_ORANI = 0.03; // slayt 16: 4.200/140.000 = 6.000/200.000
@@ -62,10 +75,12 @@ export const TR = {
 } as const;
 
 /* ── Eğriler ───────────────────────────────────────────────────
-   İki senaryo arası doğrusal; bandın dışına ekstrapolasyon yapılmaz. */
+   İki senaryo arası doğrusal. Ürün bandının (200 bin) üstünde aynı
+   doğru uzatılıyor; bu bir ekstrapolasyondur ve KAPSAM'ın notunda
+   yazdığı gibi kirayı yüksek tahmin ediyor olabilir. */
 
 const kenetle = (fiyat: number) =>
-  Math.max(BAND.min, Math.min(BAND.max, fiyat));
+  Math.max(KAPSAM.min, Math.min(KAPSAM.max, fiyat));
 
 /** Beklenen aylık kira. 140k → 1.400 $, 200k → 1.750 $. */
 export function kira(fiyat: number): number {

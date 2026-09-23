@@ -75,6 +75,9 @@ uydurma rakam yok, her rakam senaryosuyla yazılır, şehir adı geçmez
 ## 4. Logo
 
 - [ ] Marka kiti sahibinden **şeffaf zeminli SVG** istenecek
-      (`public/logo/KAYNAK.txt` "EKSİK" listesi). Bugün başlıktaki amblem
-      `components/v3/Amblem3.tsx` ile yeniden çizildi — kitin dosyası
-      değil, siluetin düz vektör yorumu.
+      (`public/logo/KAYNAK.txt` "EKSİK" listesi).
+
+**Kural (2026-09-23): logo yeniden çizilmez.** Bir kez denendi ve geri
+alındı. Amblemin kırpımı/bulanıklığı gerçek bir sorun ama çözümü kaynak
+dosyayı istemek; siluetin "düz vektör yorumu" markanın yerine geçmez.
+Sitede yalnız `public/logo/amblem.png` kullanılır.

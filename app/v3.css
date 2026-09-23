@@ -204,19 +204,6 @@
   height: 24px;
 }
 
-/* ── amblem ─────────────────────────────────────────────────
-   Vektör sürüm (components/v3/Amblem3.tsx). Plaka ve işaret rengi
-   buradan; PNG yalnız favicon ve paylaşım kartında kaldı. */
-.v3-amblem {
-  width: 32px;
-  height: 32px;
-  flex: none;
-  color: var(--amber);
-}
-.v3-amblem__plaka {
-  fill: var(--dark);
-}
-
 /* ── nav ──────────────────────────────────────────────────── */
 .v3-nav {
   position: sticky;
@@ -241,9 +228,7 @@
 .v3-marka b {
   font-size: 0.9375rem;
   font-weight: 900;
-  /* Amblem vektöre geçince yazı da optik olarak toparlandı: bir tık
-     geniş aralık, amblemle aynı x-yüksekliğinde oturuyor. */
-  letter-spacing: 0.13em;
+  letter-spacing: 0.1em;
 }
 .v3-nav__ler {
   display: flex;

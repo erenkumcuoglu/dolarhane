@@ -10,7 +10,6 @@
  * zaten girilmemiş (DESIGN.md §3 kural 6 — boş iletişim alanı uydurulmaz).
  */
 
-import { Amblem3 } from "./Amblem3";
 const BOLUMLER: [string, string][] = [
   ["#v3-hesap", "Hesap"],
   ["#v3-evler", "Evler"],
@@ -24,7 +23,7 @@ export function Nav3() {
     <nav className="v3-nav">
       <div className="v3-kap v3-nav__in">
         <a className="v3-marka" href="#v3-tepe">
-          <Amblem3 />
+          <img src="/logo/amblem.png" alt="" width={28} height={28} />
           <b>DOLARHANE</b>
         </a>
 

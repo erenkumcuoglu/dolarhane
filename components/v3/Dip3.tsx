@@ -7,7 +7,6 @@
  * indi — ayrı kitle, alıcının okuma sırasını bölmesin.
  */
 
-import { Amblem3 } from "./Amblem3";
 import { KIMLIK, KONTAK } from "@/lib/kontak";
 import { ORTAKLIK_BAGLANTISI } from "@/lib/ortaklik";
 
@@ -26,7 +25,7 @@ export function Dip3() {
       <div className="v3-kap">
         <div className="v3-dip__ust">
           <a className="v3-marka" href="#v3-tepe">
-            <Amblem3 />
+            <img src="/logo/amblem.png" alt="" width={28} height={28} />
             <b>DOLARHANE</b>
           </a>
           <nav className="v3-dip__ler">

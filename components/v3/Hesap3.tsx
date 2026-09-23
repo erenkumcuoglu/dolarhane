@@ -77,8 +77,7 @@ export function Hesap3() {
         <div className="v3-hesap__sol">
           <h2 className="v3-h2">Yatırımınızı hesaplayın.</h2>
           <p className="v3-hesap__lede">
-            Ev fiyatını değiştirin, senaryo canlı kurulur. Peşin alım —
-            kredi, taksit ve vade yok.
+            Bütçenize göre yapacağınız yatırımın geri dönüşünü hesaplayalım.
           </p>
 
           <div className="v3-kaydir">
@@ -233,22 +232,24 @@ export function Hesap3() {
             </div>
           </details>
           </div>
-
-          {/* Türkiye — cetvelin ALTINDA, ayrı bir callout kutusu.
-              Destek bağlamı; sonuç panelinin içinde değil ki hesabın
-              çıktısıyla aynı ağırlıkta okunmasın (brief "Türkiye
-              benchmark"). */}
-          <aside className="v3-tr">
-            <p className="v3-tr__bas">Aynı bütçe Türkiye&apos;de ne yapar?</p>
-            <p className="v3-tr__gov">
-              <b className="v3-num">{fmtUsd(k.butce)}</b> Türkiye&apos;de{" "}
-              <b>bir ev</b> alıyor ve ayda{" "}
-              <b className="v3-num">{fmtUsd(k.trAylikNet)}</b> getiriyor. Aynı
-              parayla bu bantta <b>{fmtAdet(k.usEv)}</b>, ayda toplam{" "}
-              <b className="v3-num">{fmtUsd(k.usAylikNet)}</b>.
-            </p>
-          </aside>
         </div>
+      </div>
+
+      {/* Türkiye — hesabın TAMAMININ altında, tam genişlikte callout.
+          İki kolonlu ızgaranın dışında duruyor ki sonuç panelinin bir
+          parçası gibi okunmasın; destek bağlamı, ikinci bir ürün değil
+          (brief "Türkiye benchmark"). */}
+      <div className="v3-kap">
+        <aside className="v3-tr">
+          <p className="v3-tr__bas">Aynı bütçe Türkiye&apos;de ne yapar?</p>
+          <p className="v3-tr__gov">
+            <b className="v3-num">{fmtUsd(k.butce)}</b> Türkiye&apos;de{" "}
+            <b>bir ev</b> alıyor ve ayda{" "}
+            <b className="v3-num">{fmtUsd(k.trAylikNet)}</b> getiriyor. Aynı
+            parayla bu bantta <b>{fmtAdet(k.usEv)}</b>, ayda toplam{" "}
+            <b className="v3-num">{fmtUsd(k.usAylikNet)}</b>.
+          </p>
+        </aside>
       </div>
     </section>
   );

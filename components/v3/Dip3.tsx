@@ -6,6 +6,8 @@
  * (DESIGN.md kural 6). İş ortaklığı bağlantısı navigasyondan buraya
  * indi — ayrı kitle, alıcının okuma sırasını bölmesin.
  */
+
+import { Amblem3 } from "./Amblem3";
 import { KIMLIK, KONTAK } from "@/lib/kontak";
 import { ORTAKLIK_BAGLANTISI } from "@/lib/ortaklik";
 
@@ -13,7 +15,7 @@ const BAGLANTILAR: [string, string][] = [
   ["#v3-hesap", "Hesap"],
   ["#v3-evler", "Evler"],
   ["#v3-surec", "Nasıl ilerliyor"],
-  ["/getiri/", "Blog"],
+  ["/blog/", "Blog"],
   ["/hesap/", "Hesabın tamamı"],
   ...ORTAKLIK_BAGLANTISI.map((o) => [o.yol, o.ad] as [string, string]),
 ];
@@ -24,7 +26,7 @@ export function Dip3() {
       <div className="v3-kap">
         <div className="v3-dip__ust">
           <a className="v3-marka" href="#v3-tepe">
-            <img src="/logo/amblem.png" alt="" width={28} height={28} />
+            <Amblem3 />
             <b>DOLARHANE</b>
           </a>
           <nav className="v3-dip__ler">

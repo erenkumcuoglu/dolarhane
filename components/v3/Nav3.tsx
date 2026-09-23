@@ -9,14 +9,14 @@
  * WhatsApp düğmesi buradan kalktı: brief tek eylem istiyor ve numara
  * zaten girilmemiş (DESIGN.md §3 kural 6 — boş iletişim alanı uydurulmaz).
  */
+
+import { Amblem3 } from "./Amblem3";
 const BOLUMLER: [string, string][] = [
   ["#v3-hesap", "Hesap"],
   ["#v3-evler", "Evler"],
   ["#v3-surec", "Nasıl ilerliyor"],
-  /* "Riskler" bölümü V3'ten çıktı; menüdeki yerini içerik kümeleri
-     aldı. Ayrı bir /blog dizini YOK — bağlantı en dolu kümeye
-     gidiyor (bkz. lib/icerik.ts). */
-  ["/getiri/", "Blog"],
+  /* "Riskler" bölümü V3'ten çıktı; menüdeki yerini blog aldı. */
+  ["/blog/", "Blog"],
 ];
 
 export function Nav3() {
@@ -24,7 +24,7 @@ export function Nav3() {
     <nav className="v3-nav">
       <div className="v3-kap v3-nav__in">
         <a className="v3-marka" href="#v3-tepe">
-          <img src="/logo/amblem.png" alt="" width={28} height={28} />
+          <Amblem3 />
           <b>DOLARHANE</b>
         </a>
 

@@ -101,3 +101,60 @@ export function IkonGorusme({ className }: P) {
     </svg>
   );
 }
+
+/* ── Küme ikonları ───────────────────────────────────────────
+   Blog kartlarının kapağında kategori işareti olarak kullanılıyor.
+   Aynı üç kural: 24×24, 1,8 kalınlık, dolgu yok. */
+
+/** Pusula — "Süreç ve uzaktan sahiplik". */
+export function IkonPusula({ className }: P) {
+  return (
+    <svg {...ortak} className={className}>
+      <circle cx="12" cy="12" r="8.9" />
+      <path d="m15.6 8.4-2 5.2-5.2 2 2-5.2z" />
+    </svg>
+  );
+}
+
+/** Kalkan — "Güven ve şüphe". */
+export function IkonKalkan({ className }: P) {
+  return (
+    <svg {...ortak} className={className}>
+      <path d="M12 3.1 19.6 6v6.1c0 4.2-3 7.3-7.6 8.8-4.6-1.5-7.6-4.6-7.6-8.8V6z" />
+      <path d="m9.1 12.1 2 2 3.8-4.2" />
+    </svg>
+  );
+}
+
+/** Terazi — "Destinasyon karşılaştırması". */
+export function IkonTerazi({ className }: P) {
+  return (
+    <svg {...ortak} className={className}>
+      <path d="M12 4.6v15.8M7 20.4h10M4.6 7.6h14.8" />
+      <path d="M4.6 7.6 2.2 13.4a2.9 2.9 0 0 0 4.8 0zM19.4 7.6 17 13.4a2.9 2.9 0 0 0 4.8 0z" />
+      <circle cx="12" cy="5" r="1.4" />
+    </svg>
+  );
+}
+
+/** Hesap makinesi — "Hesaplayıcılar". */
+export function IkonHesapMak({ className }: P) {
+  return (
+    <svg {...ortak} className={className}>
+      <rect x="4.4" y="2.9" width="15.2" height="18.2" rx="2.4" />
+      <path d="M7.7 6.6h8.6v3.2H7.7z" />
+      <path d="M8.2 13.4h.01M12 13.4h.01M15.8 13.4h.01M8.2 17.2h.01M12 17.2h.01M15.8 17.2h.01" />
+    </svg>
+  );
+}
+
+/** Seri — "Canlı veri". */
+export function IkonSeri({ className }: P) {
+  return (
+    <svg {...ortak} className={className}>
+      <path d="M3.6 20.4h16.8" />
+      <path d="m4.8 15.8 4.4-4.8 3.6 3 6.4-6.8" />
+      <path d="M15.6 7.2h3.6v3.6" />
+    </svg>
+  );
+}

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node araclar/v4-varliklar.mjs",
     "dev": "next dev -p 3200",
+    "prebuild": "node araclar/v4-varliklar.mjs",
     "build": "next build",
     "start": "npx --yes serve out -l 3200",
     "onizle": "npx --yes serve out -l 3200"

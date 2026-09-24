@@ -37,3 +37,24 @@ export const gambetta = localFont({
   display: "swap",
   fallback: ["Georgia", "serif"],
 });
+
+/**
+ * V4 — Gambetta tam aile (dik 300/400/500 + italik 300/400).
+ *
+ * Dördüncü iterasyonda Gambetta aksan olmaktan çıkıp DISPLAY yüzü oldu:
+ * büyük başlıklar ve öne çıkan rakamlar ince (300) Gambetta ile diziliyor,
+ * Satoshi gövde, arayüz ve tablo rakamlarında kalıyor. Dosyalar
+ * Fontshare'den indirilip self-host edildi (harici istek yok).
+ */
+export const gambettaV4 = localFont({
+  src: [
+    { path: "../public/fonts/gambetta-300.woff2", weight: "300", style: "normal" },
+    { path: "../public/fonts/gambetta-400.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/gambetta-500.woff2", weight: "500", style: "normal" },
+    { path: "../public/fonts/gambetta-300-italic.woff2", weight: "300", style: "italic" },
+    { path: "../public/fonts/gambetta-400-italic.woff2", weight: "400", style: "italic" },
+  ],
+  variable: "--font-gambetta-v4",
+  display: "swap",
+  fallback: ["Georgia", "Times New Roman", "serif"],
+});

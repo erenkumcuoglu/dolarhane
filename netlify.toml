@@ -27,3 +27,17 @@
   for = "/fonts/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# /v4 deneme rotası 2026-09'da ana sayfa oldu; eski linkler kırılmasın.
+# force: /v4/index.html dosyası dursa bile yönlendirme önce gelir.
+[[redirects]]
+  from = "/v4"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/v4/*"
+  to = "/"
+  status = 301
+  force = true

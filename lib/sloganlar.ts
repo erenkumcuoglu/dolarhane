@@ -15,5 +15,13 @@ export const SLOGANLAR: string[] = [
   "Beklemeyi bırak. İlk aydan kira al.",
 ];
 
+/**
+ * V4 seti — ilk sloganda "burada" yerine "rahatça" (Eren, 2026-09-24).
+ * Yalnız /v4 kullanıyor; canlı sitenin seti yukarıda, değişmedi.
+ */
+export const SLOGANLAR_V4: string[] = SLOGANLAR.map((s) =>
+  s.replace("Kirasıyla burada yaşa.", "Kirasıyla rahatça yaşa."),
+);
+
 /** Bir slogan ekranda kaç ms kalıyor. */
 export const SURE = 4000;

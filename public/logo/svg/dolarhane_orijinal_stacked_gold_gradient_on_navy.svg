@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610 400" role="img" aria-label="Dolarhane"><defs><linearGradient id="dolarhaneGold" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F8DFA5"/><stop offset="30%" stop-color="#D4A454"/><stop offset="58%" stop-color="#F2D18C"/><stop offset="100%" stop-color="#B77A2E"/></linearGradient></defs><rect width="100%" height="100%" fill="#071827"/><g transform="translate(190 38) scale(1.28)"><g id="dolarhane-symbol">
+ <path fill="url(#dolarhaneGold)" d="M67 38h58c43 0 70 29 70 72 0 43-27 70-70 70H67c10-8 13-19 13-35V73c0-18-3-29-13-35Zm25 24v94h32c29 0 48-18 48-47 0-29-19-47-48-47H92Z"/>
+ <path fill="#071827" d="M92 62h32c29 0 48 18 48 47 0 29-19 47-48 47H92v-23l27-24 39 33c-8 9-20 14-34 14h-20v-18l15-13-15-13V62Z"/>
+ <path d="M70 129 119 89l51 40" fill="none" stroke="url(#dolarhaneGold)" stroke-width="15" stroke-linejoin="miter"/>
+ <path fill="#071827" d="M104 129l15-12 39 33c-8 9-20 14-34 14h-20v-35Z"/>
+ <g fill="url(#dolarhaneGold)"><rect x="111" y="136" width="9" height="9"/><rect x="123" y="136" width="9" height="9"/><rect x="111" y="148" width="9" height="9"/><rect x="123" y="148" width="9" height="9"/></g>
+</g></g><text x="118" y="325" fill="#FFFFFF" font-family="Montserrat, Arial, Helvetica, sans-serif" font-size="48" font-weight="500" letter-spacing="7">DOLARHANE</text><text x="108" y="359" fill="#E3BE7B" font-family="Montserrat, Arial, Helvetica, sans-serif" font-size="11" font-weight="600" letter-spacing="4">SINIRSIZ YATIRIM, GERÇEK FIRSATLAR</text></svg>

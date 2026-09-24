@@ -30,3 +30,12 @@ VERI-TAKVIMI.md
 EV-KALITE-CERCEVESI.md
 veri/
 VERGI-DOGRULAMA.md
+
+# V4 ikili varlıkları — araclar/v4-varliklar.mjs build öncesi üretir
+public/ev/v4/
+public/fonts/gambetta-300.woff2
+public/fonts/gambetta-400.woff2
+public/fonts/gambetta-500.woff2
+public/fonts/gambetta-300-italic.woff2
+public/fonts/gambetta-500-italic.woff2
+public/fonts/gambetta-600.woff2

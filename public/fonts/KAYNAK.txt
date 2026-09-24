@@ -8,3 +8,8 @@ woff2 dosyaları projeye alındı.
 
 Satoshi'nin 600 ve 800 ağırlıkları bu ailede yok; 600 -> 700,
 800 -> 900 olarak normalize edildi (bkz. app/fonts.ts).
+
+V4 (2026-09-23): Gambetta tam aile — gambetta-300, -400, -500 (dik) ve
+-300-italic. Depoda TUTULMAZ; araclar/v4-varliklar.mjs `npm run dev` ve
+`npm run build` öncesi api.fontshare.com'dan indirir (aynı kaynak, aynı
+lisans). gambetta-400-italic depoda zaten var ve ortak kullanılıyor.

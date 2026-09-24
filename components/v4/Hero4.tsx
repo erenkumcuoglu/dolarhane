@@ -1,4 +1,4 @@
-import { CANLI, MODEL_DOGRULANDI, getiri } from "@/lib/finance";
+import { CANLI, MODEL_DOGRULANDI, TR, getiri } from "@/lib/finance";
 import { EVLER } from "@/lib/portfoy";
 import { fmtUsd } from "@/lib/finance";
 import { Slogan4 } from "./Slogan4";
@@ -17,11 +17,14 @@ import { Ok4 } from "./isaret";
  * CANLI değerleri, görüş alanına girince sayıyor.
  */
 const EV = EVLER[3];
+/* Türkiye'de aynı aylık geliri getiren evin, bizim giriş biletimize oranı
+   (Olcu4'teki karşılaştırmayla aynı formül, kanonik fiyatta). */
+const TR_KAT =
+  Math.round(CANLI.getiri.nakitYillik / TR.netGetiri / 5_000) * 5_000 / CANLI.getiri.giris.toplam;
 const EV_G = getiri(EV.fiyat);
 
 export function Hero4() {
   const g = CANLI.getiri;
-  const k = CANLI.karsilastirma;
   return (
     <header className="v4-hero" id="v4-tepe">
       <div className="v4-hero__foto" aria-hidden="true">
@@ -35,7 +38,6 @@ export function Hero4() {
           fetchPriority="high"
         />
       </div>
-      <span className="v4-rozet v4-hero__rozet">temsilî fotoğraf</span>
 
       <div className="v4-kap v4-hero__in">
         <p className="v4-hero__ust" data-r>
@@ -49,8 +51,8 @@ export function Hero4() {
           <div className="v4-hero__soz" data-r>
             <p className="v4-hero__lede">
               Amerika&apos;nın orta kuşağında, peşin alınan müstakil bir ev. Tapu sizin
-              adınıza, yönetim bizde. Hesabın tamamı satır satır açık — aleyhimize olan
-              notlar dahil.
+              adınıza, yönetim bizde. Hesabın tamamı satır satır açık, yabancı ülkelerde gayrimenkul
+              yatırımı yaparken söylenmeyenler dahil.
             </p>
             <div className="v4-hero__eylem">
               <a className="v4-dugme" href="#v4-hesap">
@@ -86,7 +88,7 @@ export function Hero4() {
             { d: g.giris.toplam, b: "usd" as const, k: "Giriş bileti", a: "kapanış ve hizmet dahil" },
             { d: g.nakitAylik, b: "usd" as const, k: "Aylık eline geçen", a: "vergi, sigorta, yönetim sonrası" },
             { d: g.nakitGetiri * 100, b: "yuzde1" as const, k: "Nakit getiri", a: "brüt değil · toplam çıkış üzerinden" },
-            { d: k.usEv, b: "adet" as const, k: `${fmtUsd(k.butce)} ile`, a: "Türkiye'de aynı parayla 1 ev" },
+            { d: TR_KAT, b: "kat" as const, k: "Aynı kira için Türkiye'de", a: "gereken sermaye · eline geçen üzerinden" },
           ].map((x, i) => (
             <div className="v4-defter__h" key={x.k} data-r style={{ ["--d" as string]: `${i * 90}ms` }}>
               <p className="v4-defter__k">{x.k}</p>

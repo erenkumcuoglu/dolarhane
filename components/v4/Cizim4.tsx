@@ -161,7 +161,6 @@ export function Cizim4({
         </g>
       </g>
 
-      <text x="700" y="462" textAnchor="end" className="c-kose">şematik · ölçeksiz</text>
     </svg>
   );
 }

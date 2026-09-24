@@ -10,7 +10,7 @@ import { SLOGANLAR_V4 as SLOGANLAR, SURE } from "@/lib/sloganlar";
  * altın. Böylece üç slogan da aynı iki vuruşlu ritimle okunuyor ("iddia →
  * karşılık").
  *
- * Erişilebilirlik Slogan3 ile aynı üç kademede: hover/focus duraklır,
+ * Erişilebilirlik Slogan3 ile aynı üç kademede: hover/focus duraklatır,
  * klavyeyle ulaşılan düğme tamamen durdurur, reduced-motion hiç döndürmez.
  * Bütün sloganlar aynı ızgara hücresinde üst üste duruyor — yükseklik en
  * uzun sloganınki, dönüşte sayfa zıplamıyor.

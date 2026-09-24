@@ -1,70 +1,60 @@
-import { Nav2 } from "@/components/v2/Nav2";
-import { Hero2 } from "@/components/v2/Hero2";
-import { Hesap2 } from "@/components/v2/Hesap2";
-import { Karsilastirma2 } from "@/components/v2/Karsilastirma2";
-import { Neden2 } from "@/components/v2/Neden2";
-import { Firsatlar2 } from "@/components/v2/Firsatlar2";
-import { Referans2 } from "@/components/v2/Referans2";
-import { Hikaye2 } from "@/components/v2/Hikaye2";
-import { Nasil2 } from "@/components/v2/Nasil2";
-import { Riskler2 } from "@/components/v2/Riskler2";
-import { Form2 } from "@/components/v2/Form2";
-import { Dip2 } from "@/components/v2/Dip2";
+import type { Metadata } from "next";
+import { gambettaV4 } from "./fonts";
 import { Jsonld } from "@/components/Jsonld";
 import { organizasyon } from "@/lib/jsonld";
 import { ADRES_VAR } from "@/lib/site";
-import type { Metadata } from "next";
-import "./v2.css";
+import { Hareket4 } from "@/components/v4/Hareket4";
+import { Nav4 } from "@/components/v4/Nav4";
+import { Hero4 } from "@/components/v4/Hero4";
+import { Tez4 } from "@/components/v4/Tez4";
+import { Olcu4 } from "@/components/v4/Olcu4";
+import { Evler4 } from "@/components/v4/Evler4";
+import { Guven4 } from "@/components/v4/Guven4";
+import { Surec4 } from "@/components/v4/Surec4";
+import { Hikaye4 } from "@/components/v4/Hikaye4";
+import { Kapanis4 } from "@/components/v4/Kapanis4";
+import { Dip4 } from "@/components/v4/Dip4";
+import "./v4.css";
 
-/* Kök layout artık canonical basmıyor (oradaki not); her sayfa kendi
-   yolunu beyan ediyor. Başlık ve açıklama layout'tan miras — ana sayfa
-   için doğru olan zaten o. */
+/* Kök layout canonical basmıyor; her sayfa kendi yolunu beyan ediyor.
+   Başlık ve açıklama layout'tan miras — ana sayfa için doğru olan o. */
 export const metadata: Metadata = {
   ...(ADRES_VAR ? { alternates: { canonical: "/" } } : {}),
 };
 
 /**
- * ANA SAYFA — ikinci iterasyon.
+ * ANA SAYFA — dördüncü iterasyon ("Açık Defter"), 2026-09.
  *
- * İkinci iterasyon 2026-09'da sitenin kendisi oldu; birinci iterasyonun
- * ana sayfası bırakıldı (git geçmişinde duruyor, son hali b53d724).
- * `/hesap` hâlâ birinci iterasyonun yüzeyinde: içeriği — tüm cetveller
- * tek parça — gerçek iş taşıdığı için silinmedi, taşınmayı bekliyor.
+ * V3'ün içeriği ve iddia disiplini aynen; değişen görsel dil: ince, çok
+ * büyük Gambetta manşetler + Satoshi gövde, sinematik fotoğraf ve mimari
+ * çizim, her bölüm kendi kompozisyonunda. Önceki ana sayfa /v2'de arşiv.
  *
- * Kompozisyon: lacivert hero + kenara kanayan fotoğraf, iki kaydırıcılı
- * hesap paneli, numaralı gerekçe kartları, dört kartlı portföy ızgarası,
- * yatay form bandı.
+ * İddia disiplini: her rakam lib/finance.ts'ten, portföy fotoğrafları
+ * "temsilî" rozetli, boş iletişim alanı uydurulmuyor, şehir adı geçmiyor
+ * (DESIGN.md kural 11).
  *
- * İddia disiplini değişmedi: her rakam lib/finance.ts'ten, portföy ve
- * şeffaflık verisi damgalı, boş iletişim alanı uydurulmuyor, şehir adı
- * geçmiyor (DESIGN.md kural 11).
- *
- * Bölüm sırası: vaat → hesap → karşılaştırma → gerekçe → portföy →
- * referans → biz kimiz → süreç → riskler → form.
+ * Bölüm sırası: vaat → tez → hesap → Türkiye → evler → güven → süreç →
+ * biz → görüşme. Ev detayları /evler/[slug].
  */
 export default function AnaSayfa() {
   return (
-    <div className="v2">
-      {/* Varlık çapası. LLM'ler ve Google markayı ancak tek bir varlık
-          olarak kurabilirse istikrarlı biçimde anıyor; o varlığın kanonik
-          tanımı burada duruyor (SEO-GEO-PLAN §8.4). Boş kimlik alanları
-          şemaya yazılmıyor. */}
+    <div className={`v4 ${gambettaV4.variable}`}>
+      {/* Varlık çapası (SEO-GEO-PLAN §8.4). Boş kimlik alanları şemaya
+          yazılmıyor. */}
       <Jsonld veri={organizasyon()} />
-      <Nav2 />
-      <Hero2 />
-      {/* Yerleşimdeki "İçeriğe geç" bağlantısının hedefi. */}
+      <Hareket4 />
+      <Nav4 />
+      <Hero4 />
       <main id="icerik">
-        <Hesap2 />
-        <Karsilastirma2 />
-        <Neden2 />
-        <Firsatlar2 />
-        <Referans2 />
-        <Hikaye2 />
-        <Nasil2 />
-        <Riskler2 />
-        <Form2 />
+        <Tez4 />
+        <Olcu4 />
+        <Evler4 />
+        <Guven4 />
+        <Surec4 />
+        <Hikaye4 />
+        <Kapanis4 />
       </main>
-      <Dip2 />
+      <Dip4 />
     </div>
   );
 }

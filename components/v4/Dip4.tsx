@@ -16,21 +16,24 @@ const BAGLANTILAR: [string, string][] = [
   ...ORTAKLIK_BAGLANTISI.map((o) => [o.yol, o.ad] as [string, string]),
 ];
 
-export function Dip4() {
+/** `kok`: alt sayfalarda ("/") sayfa içi çapaların önüne eklenir. */
+export function Dip4({ kok = "" }: { kok?: string }) {
+  const yol = (h: string) => (h.startsWith("#") ? kok + h : h);
   return (
     <footer className="v4-dip">
       <div className="v4-kap">
         <p className="v4-dip__kilit" aria-hidden="true">
-          Amerika&apos;dan <em>ev al.</em>
+          <span>Amerika&apos;dan <em>ev al.</em></span>
+          <span>Kirasıyla <em>rahat yaşa.</em></span>
         </p>
         <div className="v4-dip__ust">
-          <a className="v4-marka" href="#v4-tepe">
+          <a className="v4-marka" href={yol("#v4-tepe")}>
             <img src="/logo/svg/09_icon_transparent_gold_gradient.svg" alt="" width={34} height={29} />
             <b>DOLARHANE</b>
           </a>
           <nav className="v4-dip__ler" aria-label="Alt menü">
             {BAGLANTILAR.map(([h, l]) => (
-              <a key={h} href={h}>
+              <a key={h} href={yol(h)}>
                 {l}
               </a>
             ))}

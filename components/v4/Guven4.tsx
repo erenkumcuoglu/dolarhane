@@ -1,4 +1,3 @@
-import { Kunye4 } from "./isaret";
 
 /**
  * V4 güven mimarisi — "paranız nereye gider?"
@@ -34,14 +33,13 @@ export function Guven4() {
   return (
     <section className="v4-guven" id="v4-guven" aria-labelledby="v4-guven-bas">
       <div className="v4-kap">
-        <Kunye4 no="05" ad="Güven" koyu />
         <div className="v4-guven__bas">
           <h2 className="v4-h2 v4-h2--acik" id="v4-guven-bas" data-r>
-            Paranız bize <em>gelmez.</em>
+            Ödeme, tapu devri ve <em>yönetim akışı.</em>
           </h2>
           <p className="v4-p v4-p--acik" data-r>
             9.000 km öteden alınan bir evde güven, el sıkışmadan değil yapıdan
-            gelir. İşte o yapı, üç hatta.
+            gelir. İşte üç hatta ödeme ve yönetim yapımız.
           </p>
         </div>
 
@@ -49,7 +47,6 @@ export function Guven4() {
           {HATLAR.map((h, i) => (
             <li className="v4-hat" key={h.ad} data-r style={{ ["--d" as string]: `${i * 120}ms` }}>
               <p className="v4-hat__ad">
-                <span>{String(i + 1).padStart(2, "0")}</span>
                 {h.ad}
               </p>
               <div className="v4-hat__akis">

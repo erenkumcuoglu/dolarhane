@@ -1,5 +1,4 @@
 import { Isik4 } from "./Isik4";
-import { Kunye4 } from "./isaret";
 
 /**
  * V4 tez + "Neden Amerika?"
@@ -16,11 +15,11 @@ const ILKELER = [
   },
   {
     b: "Gelir dolar, gider dolar.",
-    a: "Kur riski taşımıyorsunuz; kurun içindesiniz. Kira dolar gelir, giderler dolar çıkar.",
+    a: "Kur riski taşımıyorsunuz; kurun içindesiniz. Kira dolar gelir, giderler dolar çıkar. Enflasyon bir endişe olmaktan çıkar.",
   },
   {
     b: "Ev, ev olarak duruyor.",
-    a: "Sıradan bir orta kuşak mahallesinde garajlı, bahçeli, kiracısı olan müstakil bir ev. Egzotik bir enstrüman değil.",
+    a: "Sıradan bir orta kuşak mahallesinde garajlı, bahçeli, kiracısı olan müstakil bir ev. Egzotik bir enstrüman değil. Üstelik, döviz kurundaki ve emlak endeksindeki artıştan dolayı çifte kazanç potansiyeli var.",
   },
 ];
 
@@ -28,10 +27,9 @@ export function Tez4() {
   return (
     <section className="v4-tez" id="v4-tez">
       <div className="v4-kap">
-        <Kunye4 no="01" ad="Tez" />
         <Isik4
-          metin="Hesap konuşur, satış konuşmaz. Sayfadaki her rakam varsayımıyla birlikte yazılı — aleyhimize olan satırlar dahil."
-          vurgu={["aleyhimize"]}
+          metin="Hesabı kendiniz yapın. Sayfadaki rakamlar varsayımlarıyla birlikte yazılı, üstelik size satış esnasında söylenmeyenler dahil."
+          vurgu={["söylenmeyenler"]}
         />
 
         <div className="v4-neden">
@@ -41,14 +39,14 @@ export function Tez4() {
             </h2>
             <p className="v4-p" data-r>
               Mesele yalnızca fiyat değil. Mülkün, sözleşmenin ve paranın aynı
-              dilde konuştuğu bir yer.
+              dilde konuştuğu güvenli bir liman.
             </p>
           </div>
           <ol className="v4-neden__ler">
             {ILKELER.map((x, i) => (
               <li key={x.b} data-r style={{ ["--d" as string]: `${i * 80}ms` }}>
                 <span className="v4-neden__no" aria-hidden="true">
-                  {["i.", "ii.", "iii."][i]}
+                  {i + 1}
                 </span>
                 <h3 className="v4-h3">{x.b}</h3>
                 <p className="v4-p">{x.a}</p>

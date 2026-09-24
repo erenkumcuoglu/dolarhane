@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment, useEffect, useState } from "react";
-import { SLOGANLAR, SURE } from "@/lib/sloganlar";
+import { SLOGANLAR_V4 as SLOGANLAR, SURE } from "@/lib/sloganlar";
 
 /**
  * V4 manşet — onaylı slogan seti (slayt 7), kelime kelime maskeyle.
@@ -10,7 +10,7 @@ import { SLOGANLAR, SURE } from "@/lib/sloganlar";
  * altın. Böylece üç slogan da aynı iki vuruşlu ritimle okunuyor ("iddia →
  * karşılık").
  *
- * Erişilebilirlik Slogan3 ile aynı üç kademede: hover/focus duraklatır,
+ * Erişilebilirlik Slogan3 ile aynı üç kademede: hover/focus duraklır,
  * klavyeyle ulaşılan düğme tamamen durdurur, reduced-motion hiç döndürmez.
  * Bütün sloganlar aynı ızgara hücresinde üst üste duruyor — yükseklik en
  * uzun sloganınki, dönüşte sayfa zıplamıyor.
@@ -69,7 +69,14 @@ export function Slogan4() {
               className={`v4-slogan__m${i === aktif ? " v4-slogan__m--acik" : ""}`}
               aria-hidden={i !== aktif}
             >
-              {kelimeler(a, false)}
+              {/* Her cümle kendi satırında: uzun satır fotoğrafın parlak
+                  yarısına taşmıyor, ritim de "iddia / iddia / karşılık". */}
+              {(a.match(/[^.!?]+[.!?]+/g) ?? [a]).map((c, j) => (
+                <Fragment key={`c${j}`}>
+                  {j > 0 ? <br className="v4-slogan__br" /> : null}
+                  {kelimeler(c.trim(), false)}
+                </Fragment>
+              ))}
               {b ? <br className="v4-slogan__br" /> : null}
               {b ? kelimeler(b, true) : null}
             </span>

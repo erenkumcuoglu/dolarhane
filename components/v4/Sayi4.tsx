@@ -10,12 +10,13 @@ import { useEffect, useRef, useState } from "react";
  * sayarken erişilebilir metin sabit kalıyor. Hareket kısılmışsa hiç
  * saymaz.
  */
-type Bicim = "usd" | "yuzde1" | "adet";
+type Bicim = "usd" | "yuzde1" | "adet" | "kat";
 
 const tr0 = new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 0 });
 function bicimle(n: number, b: Bicim) {
   if (b === "usd") return "$" + tr0.format(Math.round(n));
   if (b === "yuzde1") return "%" + n.toFixed(1).replace(".", ",");
+  if (b === "kat") return n.toFixed(1).replace(".", ",") + "×";
   return (Number.isInteger(n) ? n.toString() : n.toFixed(1).replace(".", ",")) + " ev";
 }
 

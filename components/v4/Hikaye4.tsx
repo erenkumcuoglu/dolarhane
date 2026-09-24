@@ -1,4 +1,3 @@
-import { Kunye4 } from "./isaret";
 
 /**
  * V4 "biz kimiz" — fotoğraf kenara kanıyor, metin kâğıtta.
@@ -21,22 +20,20 @@ export function Hikaye4() {
           loading="lazy"
           alt="Temsilî fotoğraf: orta kuşakta bahçeli, tek katlı müstakil bir ev"
         />
-        <span className="v4-rozet">temsilî · yer tutucu</span>
       </figure>
       <div className="v4-hikaye__soz">
-        <Kunye4 no="07" ad="Biz" />
         <h2 className="v4-h2" id="v4-biz-bas" data-r>
-          Bu işe <em>müşteri olarak</em> başladık.
+          Biz de Amerika&apos;da <em>ev sahibiyiz.</em>
         </h2>
         <p className="v4-p" data-r>
           50 yıldır Amerika&apos;dayız. Hangi eyalette ev sahibinin hakkı korunuyor,
-          tapu kimin adına çıkmalı, hangi masraf nerede saklı — hepsini oradaki
+          tapu işlemleri nasıl yapılmalı, hangi masraf nerede saklı… hepsini
           tecrübemizle biliyoruz.
         </p>
         <blockquote className="v4-alinti" data-r>
           <p>
-            Portföydeki evlerin aynısından kendimiz de alıyoruz. Kötü bir mahalleyi
-            satmaktansa hiç girmemeyi tercih ediyoruz.
+            Portföydeki evlerin aynısından kendimiz de alıyoruz. Kötü bir mahalleden
+            ev satmaktansa o mülklere hiç girmemeyi tercih ediyoruz.
           </p>
         </blockquote>
       </div>

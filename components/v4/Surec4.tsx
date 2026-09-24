@@ -1,4 +1,3 @@
-import { Kunye4 } from "./isaret";
 
 /**
  * V4 süreç — dört adım, yatay zaman çizgisi.
@@ -18,13 +17,12 @@ export function Surec4() {
   return (
     <section className="v4-surec" id="v4-surec" aria-labelledby="v4-surec-bas">
       <div className="v4-kap">
-        <Kunye4 no="06" ad="Süreç" />
         <div className="v4-surec__bas">
           <h2 className="v4-h2" id="v4-surec-bas" data-r>
             Dört adım. <em>Tamamı online.</em>
           </h2>
           <p className="v4-p" data-r>
-            Ofis ziyareti akışın parçası değil; imzalar elektronik. Amerika&apos;ya
+            Nerede olduğunuzun önemi yok; imzalar elektronik. Amerika&apos;ya
             gitmeniz gerekmiyor.
           </p>
         </div>
@@ -33,7 +31,6 @@ export function Surec4() {
           {ADIMLAR.map((x, i) => (
             <li key={x.b} style={{ ["--d" as string]: `${300 + i * 260}ms` }}>
               <span className="v4-zaman__nokta" aria-hidden="true" />
-              <span className="v4-zaman__no" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="v4-h4">{x.b}</h3>
               <p className="v4-p v4-p--kucuk">{x.a}</p>
             </li>

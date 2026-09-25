@@ -1,0 +1,349 @@
+/* ═══════════════════════════════════════════════════════════════
+   V4 OKUMA — blog, küme, yazı ve "Hesabın tamamı" sayfaları
+
+   Bu sayfaların gövde bileşenleri (Icerik, KumeLinkleri, hesap
+   panoları) ikinci iterasyonda yazıldı ve `.v2` + globals token'larıyla
+   çalışıyor. Yeniden yazmak yerine token'ları V4 paletine çeviriyoruz:
+   aynı bileşen, ana sayfanın rengi, yarıçapı ve başlık dili.
+
+   Sarmalayıcı: <div class="v2 v4 v4-okuma …"> (OkumaKabuk4). Seçiciler
+   `.v4.v4-okuma` ile başlıyor ki v2.css / yazi.css / globals.css'teki
+   `.v2 …` kurallarının önüne geçsin.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── token çevirisi ───────────────────────────────────────── */
+.v4.v4-okuma {
+  --paper: var(--kagit);
+  --surface: var(--kagit-2);
+  --tint: #efe9dd;
+  --line: var(--cizgi);
+  --line-strong: var(--cizgi-2);
+  --amber-deep: var(--altin-o);
+  --amber-text: var(--altin-k);
+  --wash: #f1ebdf;
+  --wash-strong: #e6dcc8;
+  --wash-ink: var(--m1);
+  --wash-ink-2: var(--altin-k);
+  --ink-2: var(--m2);
+  --ink-3: var(--m3);
+  --ink-4: var(--m3);
+  --r-xs: 4px;
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 6px;
+  --r-xl: 6px;
+  --r-pill: 4px;
+  --sh-card: 0 30px 60px -40px rgba(7, 26, 43, 0.4);
+  --sh-soft: 0 30px 60px -44px rgba(7, 26, 43, 0.4);
+  background: var(--kagit);
+  color: var(--m1);
+}
+
+/* Başlıklar: ana sayfanın ince Gambetta'sı. Gövde Satoshi kalıyor. */
+.v4.v4-okuma main :is(h1, h2, h3),
+.v4.v4-okuma main .h2,
+.v4.v4-okuma main .h3 {
+  font-family: var(--serif);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--m1);
+}
+.v4.v4-okuma main :is(h1, h2, h3) em {
+  font-style: italic;
+  color: var(--altin-o);
+}
+
+/* ── koyu üst bant ──────────────────────────────────────────── */
+.v4-okbas {
+  padding: clamp(128px, 13vw, 176px) 0 clamp(56px, 7vw, 96px);
+  background:
+    radial-gradient(900px 500px at 90% 0%, rgba(201, 164, 92, 0.1), transparent 60%),
+    var(--gece);
+  color: var(--acik);
+}
+.v4-okbas__in {
+  max-width: 52rem;
+}
+.v4-okbas__in--genis {
+  max-width: none;
+}
+.v4.v4-okuma .v4-okbas h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 5.4vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--acik);
+  text-wrap: balance;
+}
+.v4.v4-okuma .v4-okbas h1 em {
+  font-style: italic;
+  color: var(--altin-a);
+}
+.v4-okbas__oz {
+  max-width: 40em;
+  margin-top: 24px;
+  font-size: var(--t-lede);
+  line-height: 1.6;
+  color: var(--acik-2);
+}
+.v4-okbas__geri {
+  margin-top: 28px;
+}
+
+/* bant içindeki kırıntı */
+.v4.v4-okuma .v4-okbas .kirinti {
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+.v4.v4-okuma .v4-okbas .kirinti ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--t-xs);
+}
+.v4.v4-okuma .v4-okbas .kirinti li + li::before {
+  content: "/";
+  margin: 0 10px;
+  color: var(--acik-3);
+}
+.v4.v4-okuma .v4-okbas .kirinti a {
+  color: var(--acik-2);
+  text-decoration: none;
+}
+.v4.v4-okuma .v4-okbas .kirinti a:hover {
+  color: var(--altin-a);
+}
+.v4.v4-okuma .v4-okbas .kirinti [aria-current="page"] {
+  color: var(--acik-3);
+}
+
+/* bant içindeki künye ve taslak uyarısı */
+.v4.v4-okuma .v4-okbas .yazi__kunye {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 28px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(244, 239, 230, 0.14);
+  font-size: var(--t-xs);
+  color: var(--acik-3);
+}
+.v4.v4-okuma .v4-okbas .yazi__taslak {
+  margin: 0 0 28px;
+}
+
+/* kategori bağlantıları — ikonsuz, ince çerçeve */
+.v4-kategori {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 36px;
+}
+.v4-kategori a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid rgba(244, 239, 230, 0.22);
+  border-radius: 4px;
+  font-size: var(--t-s);
+  font-weight: 500;
+  color: var(--acik);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+.v4-kategori a:hover {
+  border-color: var(--altin);
+  background: rgba(201, 164, 92, 0.1);
+}
+.v4-kategori i {
+  font-style: normal;
+  font-size: var(--t-xs);
+  color: var(--altin-a);
+}
+
+/* ── blog ve küme listeleri ─────────────────────────────────── */
+.v4-blog__kume {
+  padding: clamp(64px, 8vw, 112px) 0 0;
+  scroll-margin-top: 64px;
+}
+.v4-blog__kume:last-of-type {
+  padding-bottom: clamp(64px, 8vw, 112px);
+}
+.v4-blog__bas {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 20px 64px;
+  align-items: end;
+  margin-bottom: clamp(28px, 3.5vw, 44px);
+}
+.v4-blog__bas .v4-p {
+  max-width: 30em;
+}
+.v4-blog__bas .v4-baglanti {
+  margin-top: 10px;
+}
+
+.v4-yl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(24px, 4vw, 64px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--m1);
+}
+.v4-yl li {
+  border-bottom: 1px solid var(--cizgi);
+}
+.v4-yl a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 20px;
+  align-items: start;
+  padding: 24px 0 26px;
+  color: var(--m1);
+  text-decoration: none;
+}
+.v4-yl b {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  transition: color 0.3s;
+}
+.v4-yl span {
+  grid-column: 1;
+  margin-top: 8px;
+  font-size: var(--t-s);
+  line-height: 1.55;
+  color: var(--m3);
+}
+.v4-yl .v4-ok {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 8px;
+  color: var(--altin-k);
+}
+.v4-yl a:hover b {
+  color: var(--altin-k);
+}
+.v4-yl a:hover .v4-ok {
+  transform: translateX(4px);
+}
+
+.v4-blog__dip {
+  padding: clamp(72px, 9vw, 128px) 0;
+  background: var(--gece);
+  color: var(--acik);
+}
+.v4-blog__dip .v4-kap > * {
+  max-width: 38rem;
+}
+.v4-blog__sayi {
+  margin-bottom: 18px;
+  font-size: var(--t-xs);
+  color: var(--altin-a);
+}
+.v4-blog__dip .v4-dugme {
+  margin-top: 32px;
+}
+
+@media (max-width: 860px) {
+  .v4-blog__bas,
+  .v4-yl {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── yazı gövdesi ───────────────────────────────────────────── */
+.v4.v4-okuma .yazi {
+  padding-block: clamp(56px, 7vw, 96px);
+}
+.v4.v4-okuma .yazi article > h2 {
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  line-height: 1.12;
+}
+.v4.v4-okuma .yazi article > h3 {
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  font-weight: 400;
+}
+.v4.v4-okuma .yazi strong {
+  font-weight: 700;
+}
+.v4.v4-okuma .yazi article a {
+  color: var(--altin-k);
+}
+.v4.v4-okuma .yazi__not {
+  border-radius: 4px;
+}
+
+/* küme bağlantıları (yazı sonu) — liste satırlarıyla aynı dil */
+.v4.v4-okuma .kume-linkleri h2 {
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+  margin-bottom: 18px;
+}
+.v4.v4-okuma .kume-linkleri ul {
+  border-top: 1px solid var(--m1);
+}
+.v4.v4-okuma .kume-linkleri li {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid var(--cizgi);
+  background: transparent;
+  box-shadow: none;
+}
+.v4.v4-okuma .kume-linkleri b {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+/* ── Hesabın tamamı ─────────────────────────────────────────── */
+.v4.v4-okuma .hesap {
+  padding-bottom: clamp(56px, 7vw, 96px);
+}
+.v4.v4-okuma .hesap .pano__h {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.05;
+}
+.v4.v4-okuma .toc {
+  top: 96px;
+}
+.v4.v4-okuma .toc__h {
+  font-weight: 500;
+}
+.v4.v4-okuma .v4-okuma__kapanis .v4-kapanis__in {
+  align-items: center;
+}
+
+/* Okuma sütunu üst bantla aynı sol hizada başlar (bant .v4-kap içinde). */
+.v4.v4-okuma .yazi .v2-kap {
+  max-width: var(--kap);
+  padding: 0 var(--gut);
+}
+.v4.v4-okuma .yazi__in {
+  margin-left: 0;
+}
+
+/* 404 */
+.v4-okbas__404 {
+  margin-bottom: 20px;
+  font-size: var(--t-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--altin-a);
+}
+.v4-okbas__eylem {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  margin-top: 36px;
+}

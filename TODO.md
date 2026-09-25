@@ -6,6 +6,31 @@ SEO-GEO-PLAN.md) taşınır.
 
 ---
 
+## 0. Yayından önce — form ve kimlik bilgileri (V4)
+
+**Durum (2026-09-25).** Ana sayfa ve ev detay sayfalarındaki form
+(`components/v4/LeadForm4.tsx`) henüz bir hedefe bağlı değil. Doldurulan
+bilgiler hiçbir yere gitmiyor ve form ziyaretçiye bunu açıkça söylüyor
+("Form henüz bir hedefe bağlanmadı… Bilgileriniz hiçbir yere
+gönderilmedi."). Aşağıdakiler gelince bağlanacak — hepsi `lib/kontak.ts`
+ve tek yerden:
+
+- [ ] **Form hedefi** → `KONTAK.formEndpoint` (Formspree / Sheets / CRM).
+      Gönderilen alanlar: ad, soyad, eposta, tel, band, kanal, kvkk, ev
+      (detay sayfasından), utm_*, gclid, fbclid, giris_sayfasi, referrer.
+      `_gotcha` bal küpü — hedef tarafta boş değilse kayıt atılmalı.
+- [ ] **Calendly linki** → `KONTAK.calendly`. Boşken başarı ekranında
+      `[CALENDLY LİNKİ]` yer tutucusu görünüyor.
+      Not: LeadForm4 bugün başarıdan sonra doğrudan "Takvimden saat seçin"
+      düğmesi gösteriyor; §1'deki kararda araya e-posta adımı giriyordu.
+      Otomasyon kurulurken hangisinin kalacağı netleşmeli.
+- [ ] **KVKK aydınlatma metni** → formun onay satırındaki
+      `[AYDINLATMA METNİ]` yer tutucusu gerçek sayfaya bağlanacak
+      (metni hukuk yazacak).
+- [ ] **Footer kimlik bilgileri** → `KIMLIK` dizisi: tüzel kişilik, ABD
+      ofis, Türkiye iletişim, telefon, ABD emlak lisansı, e-posta. Boş
+      alanlar bugün kesikli çerçeveli yer tutucu olarak görünüyor.
+
 ## 1. Form otomasyonu — lead'den randevuya
 
 **Karar (2026-09-23).** Formu dolduran kişi doğrudan Calendly'ye
@@ -62,10 +87,11 @@ uydurma rakam yok, her rakam senaryosuyla yazılır, şehir adı geçmez
 
 ## 3. Blog — devam
 
-- [ ] Küme sayfaları (`/getiri`, `/surec`, `/guven`, `/karsilastir`) hâlâ
-      ikinci iterasyonun dar okuma kolonunda düz liste basıyor. `/blog`
-      kart ızgarasına geçtiler, küme sayfaları geçmedi.
-- [ ] Yazı sayfaları da ikinci iterasyonun kabuğunda (`NavYazi`/`DipYazi`).
+- [x] Blog, küme, yazı ve "Hesabın tamamı" sayfaları V4 diline geçti
+      (2026-09-25): ortak nav/alt şerit, koyu üst bant, Gambetta
+      başlıklar, editoryal yazı listesi (`components/v4/OkumaKabuk4.tsx`,
+      `app/v4-okuma.css`). Gövde bileşenleri yeniden yazılmadı; token'lar
+      V4 paletine çevrildi.
 - [ ] Vergi kümesi tamamen taslak; uzman onayı gelince `/blog` listesine
       kendiliğinden giriyor (`doluKumeler()`).
 - [ ] Başlıklar: bir kısmı jargonla başlıyor (`FIRPTA:`, `W-8BEN`,

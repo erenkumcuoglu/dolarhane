@@ -1,32 +1,37 @@
-import { NavYazi } from "@/components/yazi/NavYazi";
-import { DipYazi } from "@/components/yazi/DipYazi";
+import { OkumaKabuk4, OkumaBas4 } from "@/components/v4/OkumaKabuk4";
+import { Ok4 } from "@/components/v4/isaret";
 import "./v2.css";
+import "./v4.css";
+import "./v4-okuma.css";
 
 export const metadata = { title: "Sayfa bulunamadı — Dolarhane" };
 
+/* V4 okuma kabuğu (2026-09): ana sayfayla aynı nav ve alt şerit. Eski
+   "#v2-form" çapası V4'te yok; çağrı V4 formuna gidiyor. */
 export default function Bulunamadi() {
   return (
-    <div className="v2">
-      <NavYazi />
-      <main id="icerik" className="sect yok">
-        <div className="kap yok__in">
-          <p className="rozet">404</p>
-          <h1 className="h2 yok__h">Bu sayfa yok.</h1>
-          <p className="lede yok__lede">
-            Bağlantı eski olabilir ya da adres yanlış yazılmış olabilir.
-            Hesabın tamamı ve görüşme formu ana sayfada duruyor.
-          </p>
-          <div className="yok__eylem">
-            <a className="btn btn--lg" href="/">
-              Ana sayfaya dön
+    <OkumaKabuk4>
+      <main id="icerik">
+        <OkumaBas4
+          ust={<p className="v4-okbas__404">404</p>}
+          baslik={
+            <>
+              Bu sayfa <em>yok.</em>
+            </>
+          }
+          oz="Bağlantı eski olabilir ya da adres yanlış yazılmış olabilir. Hesap aleti ve görüşme formu ana sayfada duruyor."
+        >
+          <div className="v4-okbas__eylem">
+            <a className="v4-dugme" href="/">
+              <span>Ana sayfaya dön</span>
+              <Ok4 />
             </a>
-            <a className="btn btn--sessiz" href="/#v2-form">
+            <a className="v4-baglanti v4-baglanti--acik" href="/#v4-kapanis">
               Doğrudan mesaj gönderin
             </a>
           </div>
-        </div>
+        </OkumaBas4>
       </main>
-      <DipYazi />
-    </div>
+    </OkumaKabuk4>
   );
 }

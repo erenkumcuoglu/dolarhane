@@ -153,8 +153,24 @@ async function sheets(d) {
       },
     }),
     redirect: "follow",
+    signal: AbortSignal.timeout(7000),
+  }).catch((e) => {
+    /* Apps Script bazen 30 sn'ye kadar yavaşlıyor; Netlify fonksiyonu 10 sn'de
+       kesilir. İstek Google'a ulaştıysa betik yine de satırı yazar; bekleme. */
+    if (e?.name === "TimeoutError" || e?.name === "AbortError") return null;
+    throw e;
   });
+  if (!r) {
+    console.warn("[lead] sheets: yanıt 7 sn'de gelmedi, satır onaysız");
+    return { ok: true, onaysiz: true };
+  }
   const metin = await r.text();
+  /* Yavaş çalışmada Google'ın yanıt adresi (echo) 404 dönebiliyor; betik
+     o sırada satırı zaten yazmış oluyor. Onaysız say, logla. */
+  if (r.status === 404 && r.url.includes("googleusercontent.com/macros/echo")) {
+    console.warn("[lead] sheets: echo 404, satır onaysız");
+    return { ok: true, onaysiz: true };
+  }
   if (!r.ok || !metin.includes('"ok":true')) throw new Error(`Sheets ${r.status}: ${metin.slice(0, 200)}`);
   return { ok: true };
 }

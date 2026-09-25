@@ -1,5 +1,6 @@
 # Dolarhane — Netlify yapılandırması
-# Site statik dışa aktarım; sunucu tarafı çalışma zamanı yok.
+# Site statik dışa aktarım. Tek sunucu parçası lead kapısı:
+# netlify/functions/lead.mjs (/api/lead) → HubSpot + Google Sheets.
 
 [build]
   command = "npm run build"
@@ -7,6 +8,9 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+[functions]
+  directory = "netlify/functions"
 
 # Güvenlik ve önbellek başlıkları
 [[headers]]

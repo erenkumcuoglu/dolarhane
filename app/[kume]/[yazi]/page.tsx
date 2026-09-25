@@ -15,10 +15,11 @@ import {
   tarihGosterilir,
 } from "@/lib/icerik";
 import { GOVDELER } from "@/icerik";
-import { NavYazi } from "@/components/yazi/NavYazi";
-import { DipYazi } from "@/components/yazi/DipYazi";
+import { OkumaKabuk4, OkumaBas4 } from "@/components/v4/OkumaKabuk4";
 import "../../v2.css";
 import "../../yazi.css";
+import "../../v4.css";
+import "../../v4-okuma.css";
 
 export function generateStaticParams() {
   return rotalananlar().map((y) => ({ kume: y.kume, yazi: y.slug }));
@@ -40,9 +41,7 @@ export async function generateMetadata({
     title: `${y.baslik} — Dolarhane`,
     description: y.ozet,
     ...(taslak ? { robots: { index: false, follow: false } } : {}),
-    ...(ADRES_VAR && !taslak
-      ? { alternates: { canonical: yaziYolu(y) } }
-      : {}),
+    ...(ADRES_VAR && !taslak ? { alternates: { canonical: yaziYolu(y) } } : {}),
   };
 }
 
@@ -62,10 +61,10 @@ export default async function YaziSayfasi({
   const sss = sssTopla(bloklar);
 
   return (
-    /* Bilgi bankası ikinci iterasyonun dünyasında yaşıyor: taban stiller,
-       nav, alt şerit ve kart dili v2.css'ten. Kompozisyon paylaşılmıyor —
-       ana sayfa taranıyor, bu sayfa okunuyor. */
-    <div className="v2">
+    /* V4 okuma kabuğu: ana sayfayla aynı nav, alt şerit ve tipografi.
+       Gövde bileşenleri (Icerik, KumeLinkleri) aynı; renk ve başlık dili
+       v4-okuma.css'ten. */
+    <OkumaKabuk4>
       {/* Taslakta yapısal veri basılmıyor: yayınlanmış bir makale gibi
           görünmesin, LLM ve arama tarafına doğrulanmamış iddia gitmesin. */}
       {y.durum === "yayin" ? (
@@ -76,30 +75,17 @@ export default async function YaziSayfasi({
         </>
       ) : null}
 
-      <NavYazi />
-
-      <main id="icerik" className="yazi">
-        <div className="v2-kap">
-          <div className="yazi__in">
-            <Kirinti iz={iz} />
-
-            <article>
-              {y.durum === "taslak" ? (
-                <p className="yazi__taslak" role="status">
-                  <strong>Taslak — yayında değil.</strong> Bu sayfa uzman
-                  incelemesi için açık; arama motorlarına kapalı ve site
-                  içinden bağlantı verilmiyor. Rakamlar ve eşikler
-                  doğrulanmadan yayına alınmayacak.
-                </p>
-              ) : null}
-              <header className="yazi__bas">
-                <h1>{y.baslik}</h1>
-                <p className="yazi__oz">{y.ozet}</p>
-
-          {/* Künye — E-E-A-T (§7). Boş alan BASILMAZ, uydurulmaz.
-              Tarih yalnız evergreen olmayan kademelerde görünür (§3.5). */}
-                {(y.yazar || y.gozdenGeciren || tarihGosterilir(y)) && (
-                  <p className="yazi__kunye">
+      <main id="icerik">
+        <OkumaBas4 ust={<Kirinti iz={iz} />} baslik={y.baslik} oz={y.ozet}>
+          {y.durum === "taslak" ? (
+            <p className="yazi__taslak" role="status">
+              <strong>Taslak — yayında değil.</strong> Bu sayfa uzman incelemesi
+              için açık; arama motorlarına kapalı ve site içinden bağlantı
+              verilmiyor. Rakamlar ve eşikler doğrulanmadan yayına alınmayacak.
+            </p>
+          ) : null}
+          {(y.yazar || y.gozdenGeciren || tarihGosterilir(y)) && (
+            <p className="yazi__kunye">
               {y.yazar ? <span>{y.yazar}</span> : null}
               {y.gozdenGeciren ? (
                 <span>Gözden geçiren: {y.gozdenGeciren}</span>
@@ -116,17 +102,21 @@ export default async function YaziSayfasi({
               ) : null}
             </p>
           )}
-              </header>
+        </OkumaBas4>
 
-              <Icerik bloklar={bloklar} />
-            </article>
-
-            <KumeLinkleri kume={y.kume} haric={y.slug} />
+        <div className="yazi">
+          <div className="v2-kap">
+            <div className="yazi__in">
+              {/* yazi.css gövde kuralları `article > p` biçiminde: gövde
+                    article'ın doğrudan çocuğu kalıyor. */}
+              <article aria-label={y.baslik}>
+                <Icerik bloklar={bloklar} />
+              </article>
+              <KumeLinkleri kume={y.kume} haric={y.slug} />
+            </div>
           </div>
         </div>
       </main>
-
-      <DipYazi />
-    </div>
+    </OkumaKabuk4>
   );
 }

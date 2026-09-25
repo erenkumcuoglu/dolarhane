@@ -45,10 +45,10 @@ export function FormOrtak() {
       document.getElementById(`ort-${Object.keys(h)[0]}`)?.focus();
       return;
     }
+    /* Ortaklık formu lead kapısına (/api/lead) bağlı DEĞİL: alanları farklı
+       ve sayfa hukuki onay bekliyor. Bağlanana kadar dürüst mesaj. */
     setDurum(
-      KONTAK.formEndpoint
-        ? "Gönderiliyor…"
-        : "Form henüz bir hedefe bağlanmadı, bu yüzden başvurunuzu kaydedemiyoruz. Bilgileriniz hiçbir yere gönderilmedi.",
+      "Form henüz bir hedefe bağlanmadı, bu yüzden başvurunuzu kaydedemiyoruz. Bilgileriniz hiçbir yere gönderilmedi.",
     );
   }
 

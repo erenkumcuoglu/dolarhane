@@ -25,7 +25,7 @@ import { Ok4 } from "./isaret";
  *
  * Tek değişken ev fiyatı (V3 ile aynı karar). Kaydırıcı bir cetvel:
  * 10 binde bir çentik, ürün bandı (120–200 bin) altın hatla işaretli,
- * bandın üstü tarallı ve "ekstrapolasyon" yazılı — lib/finance.ts KAPSAM
+ * bandın üstü taralı ve "ekstrapolasyon" yazılı — lib/finance.ts KAPSAM
  * notundaki beyan artık bir dipnot değil, cetvelin kendisi.
  *
  * Sonuç iki yüzeyde okunuyor: solda evin şematik cephesi (para nereden

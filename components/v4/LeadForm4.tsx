@@ -16,6 +16,10 @@ import { KONTAK } from "@/lib/kontak";
  * `ev` verilirse gizli alan olarak gönderilir — hangi evden geldiği
  * lead'le birlikte düşer. `_gotcha` bal küpü: insan görmez, bot doldurur.
  *
+ * Gönderim: /api/lead (netlify/functions/lead.mjs) — HubSpot + Sheets.
+ * İki ayrı onay: `kvkk` zorunlu (görüşme için işleme), `pazarlama`
+ * isteğe bağlı (ticari ileti — remarketing yalnız buna dayanır).
+ *
  * `kanal`: kişinin nasıl aranmak istediği — dönüş oranını artırıyor.
  * İz alanları (UTM, gclid/fbclid, giriş sayfası, referrer) gizli gider;
  * sessionStorage'da tutulur ki ziyaretçi ana sayfadan ev detayına
@@ -78,6 +82,9 @@ export function LeadForm4({ onek, ev, gonderEtiket = "Görüşme alın" }: Props
   const [iz, setIz] = useState<Record<string, string>>({});
   useEffect(() => setIz(izOku()), []);
   const [kvkk, setKvkk] = useState(false);
+  const [pazarlama, setPazarlama] = useState(false);
+  const [sayfa, setSayfa] = useState("");
+  useEffect(() => setSayfa(location.pathname), []);
   const [hata, setHata] = useState<Hatalar>({});
   const [durum, setDurum] = useState("");
   const [gonderiliyor, setGonderiliyor] = useState(false);
@@ -133,6 +140,20 @@ export function LeadForm4({ onek, ev, gonderEtiket = "Görüşme alın" }: Props
         body: new FormData(form),
         signal: ac.signal,
       });
+      /* 503: kapı var ama hiçbir hedef (CRM/Sheets) tanımlı değil —
+         veri hiçbir yere yazılmadı ve bunu açıkça söylüyoruz. */
+      if (res.status === 503) {
+        setGonderiliyor(false);
+        setDurum(
+          "Form henüz bir hedefe bağlanmadı, bu yüzden talebinizi kaydedemiyoruz. Bilgileriniz hiçbir yere gönderilmedi.",
+        );
+        return;
+      }
+      if (res.status === 422) {
+        setGonderiliyor(false);
+        setDurum("Bazı alanlar eksik ya da hatalı görünüyor. Kontrol edip tekrar deneyin.");
+        return;
+      }
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setBitti(true);
     } catch (err) {
@@ -152,15 +173,17 @@ export function LeadForm4({ onek, ev, gonderEtiket = "Görüşme alın" }: Props
       <div className="v4-kapanis__kutu" role="status">
         <p className="v4-h3 v4-h2--acik">Aldık.</p>
         <p className="v4-kapanis__lede">
-          Bir iş günü içinde dönüyoruz. Beklemek istemezseniz görüşme saatini şimdi seçin.
+          {KONTAK.calendly
+            ? "Bir iş günü içinde dönüyoruz. Beklemek istemezseniz görüşme saatini şimdi seçin."
+            : "Bir iş günü içinde tercih ettiğiniz kanaldan size dönüyoruz."}
         </p>
+        {/* Calendly askıda (dolarhane uzantılı e-posta bekleniyor). Link
+            gelene kadar başarı ekranında düğme yok. */}
         {KONTAK.calendly ? (
           <a className="v4-dugme v4-dugme--tam" href={KONTAK.calendly} target="_blank" rel="noopener">
             Takvimden saat seçin
           </a>
-        ) : (
-          <span className="v4-todo">[CALENDLY LİNKİ]</span>
-        )}
+        ) : null}
       </div>
     );
   }
@@ -186,6 +209,7 @@ export function LeadForm4({ onek, ev, gonderEtiket = "Görüşme alın" }: Props
   return (
     <form className="v4-kapanis__kutu" onSubmit={gonder} noValidate>
       {ev ? <input type="hidden" name="ev" value={ev} /> : null}
+      {sayfa ? <input type="hidden" name="sayfa" value={sayfa} /> : null}
       {Object.entries(iz).map(([k, v]) => (
         <input key={k} type="hidden" name={k} value={v} />
       ))}
@@ -254,14 +278,35 @@ export function LeadForm4({ onek, ev, gonderEtiket = "Görüşme alın" }: Props
               if (hata.kvkk) setHata({ ...hata, kvkk: undefined });
             }}
           />
+          {/* Metin hukuk onayı bekliyor. Sürümü netlify/functions/lead.mjs
+              KVKK_SURUM'da; metin değişirse sürüm de değişir. */}
           <span>
-            Verilerimin yalnızca bu görüşme için işlenmesini kabul ediyorum. Üçüncü tarafla
-            paylaşılmaz. <span className="v4-todo">[AYDINLATMA METNİ]</span>
+            Görüşme talebim için verilerimin işlenmesini ve bu amaçla yurt dışındaki hizmet
+            sağlayıcılarda saklanmasını kabul ediyorum.{" "}
+            <span className="v4-todo">[AYDINLATMA METNİ]</span>
           </span>
         </label>
         <span className="v4-alan__hata" id={id("e-kvkk")} role="alert">
           {hata.kvkk ?? ""}
         </span>
+      </div>
+
+      {/* Ticari ileti izni (ETK/İYS): ayrı, isteğe bağlı, önceden işaretli değil.
+          Remarketing yalnız bu kutuyu işaretleyenlere yapılır. */}
+      <div className="v4-alan v4-alan--istege">
+        <label className="v4-onay" htmlFor={id("pazarlama")}>
+          <input
+            id={id("pazarlama")}
+            name="pazarlama"
+            type="checkbox"
+            checked={pazarlama}
+            onChange={(e) => setPazarlama(e.target.checked)}
+          />
+          <span>
+            Yeni portföy ve fırsatlardan e-posta, SMS ve WhatsApp ile haberdar olmak
+            istiyorum. <em>İsteğe bağlı.</em>
+          </span>
+        </label>
       </div>
 
       <button className="v4-dugme v4-dugme--tam" type="submit" disabled={gonderiliyor}>

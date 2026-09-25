@@ -39,3 +39,6 @@ public/fonts/gambetta-500.woff2
 public/fonts/gambetta-300-italic.woff2
 public/fonts/gambetta-500-italic.woff2
 public/fonts/gambetta-600.woff2
+
+# yerel gizli anahtarlar (HUBSPOT_TOKEN vb.)
+.env*

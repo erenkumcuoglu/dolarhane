@@ -8,25 +8,26 @@ SEO-GEO-PLAN.md) taşınır.
 
 ## 0. Yayından önce — form ve kimlik bilgileri (V4)
 
-**Durum (2026-09-25).** Ana sayfa ve ev detay sayfalarındaki form
-(`components/v4/LeadForm4.tsx`) henüz bir hedefe bağlı değil. Doldurulan
-bilgiler hiçbir yere gitmiyor ve form ziyaretçiye bunu açıkça söylüyor
-("Form henüz bir hedefe bağlanmadı… Bilgileriniz hiçbir yere
-gönderilmedi."). Aşağıdakiler gelince bağlanacak — hepsi `lib/kontak.ts`
-ve tek yerden:
+**Durum (2026-09-25).** Formlar (`components/v4/LeadForm4.tsx`) lead
+kapısına bağlı: `/api/lead` → HubSpot + Google Sheets. Kapının hedefleri
+Netlify ortam değişkenleriyle bağlanır; bağlanana kadar kapı 503 döner ve
+form ziyaretçiye verinin hiçbir yere gitmediğini açıkça söyler.
 
-- [ ] **Form hedefi** → `KONTAK.formEndpoint` (Formspree / Sheets / CRM).
-      Gönderilen alanlar: ad, soyad, eposta, tel, band, kanal, kvkk, ev
-      (detay sayfasından), utm_*, gclid, fbclid, giris_sayfasi, referrer.
-      `_gotcha` bal küpü — hedef tarafta boş değilse kayıt atılmalı.
-- [ ] **Calendly linki** → `KONTAK.calendly`. Boşken başarı ekranında
-      `[CALENDLY LİNKİ]` yer tutucusu görünüyor.
-      Not: LeadForm4 bugün başarıdan sonra doğrudan "Takvimden saat seçin"
-      düğmesi gösteriyor; §1'deki kararda araya e-posta adımı giriyordu.
-      Otomasyon kurulurken hangisinin kalacağı netleşmeli.
-- [ ] **KVKK aydınlatma metni** → formun onay satırındaki
-      `[AYDINLATMA METNİ]` yer tutucusu gerçek sayfaya bağlanacak
-      (metni hukuk yazacak).
+- [x] **Form hedefi** → lead kapısı yazıldı (2026-09-25): `/api/lead`
+      (`netlify/functions/lead.mjs`) → HubSpot + Google Sheets yedeği.
+- [ ] **Hedefleri bağla** → HubSpot hesabı + Private App, Sheets + Apps
+      Script, Netlify ortam değişkenleri. Adım adım:
+      `araclar/lead/KURULUM.md`. Bağlanana kadar kapı 503 döner, form
+      "hiçbir yere gönderilmedi" der.
+- [ ] **Calendly — askıda.** dolarhane uzantılı e-posta açılınca kurulacak.
+      `KONTAK.calendly` boşken başarı ekranında düğme görünmüyor.
+      Not: §1'deki karar araya e-posta adımı koyuyordu; link gelince hangi
+      akışın kalacağı netleşmeli. HubSpot'un kendi randevu aracı da seçenek.
+- [ ] **İYS kaydı** → ticari ileti (pazarlama izni) göndermeden önce.
+- [ ] **KVKK aydınlatma metni + onay metinleri** → formun onay satırındaki
+      `[AYDINLATMA METNİ]` yer tutucusu gerçek sayfaya bağlanacak. İki onay
+      metni (zorunlu işleme + isteğe bağlı ticari ileti) hukuk onayından
+      geçecek; yurt dışına aktarım (HubSpot, Google) metinde yer almalı.
 - [ ] **Footer kimlik bilgileri** → `KIMLIK` dizisi: tüzel kişilik, ABD
       ofis, Türkiye iletişim, telefon, ABD emlak lisansı, e-posta. Boş
       alanlar bugün kesikli çerçeveli yer tutucu olarak görünüyor.
@@ -57,14 +58,11 @@ Otomasyon kurulunca "aynı gün konuşma" adımının metni gözden geçirilmeli
 ilk temas insan değil e-posta olacak.
 
 **Yapılacaklar**
-- [ ] Form hedefi seçilip `lib/kontak.ts`'teki `formEndpoint` doldurulacak.
-- [ ] Lead deposu (Airtable/Attio) kurulacak, alan şeması yazılacak.
+- [x] Form hedefi ve lead deposu: HubSpot + Sheets (2026-09-25, bkz. §0).
 - [ ] E-posta gönderim servisi seçilecek.
-- [ ] Calendly hesabı ve etkinlik tipi kurulup `KONTAK.calendly`
-      doldurulacak. Alan boş kaldığı sürece sayfa `[CALENDLY LİNKİ]`
-      yer tutucusu basıyor.
-- [ ] KVKK: form metni "yalnızca bu görüşme için" diyor; otomasyon
-      pazarlama e-postası göndermeye başlarsa bu cümle DEĞİŞMELİ.
+- [ ] Calendly — askıda (dolarhane uzantılı e-posta bekleniyor, bkz. §0).
+- [x] KVKK: onay ikiye ayrıldı (2026-09-25) — zorunlu işleme onayı +
+      isteğe bağlı ticari ileti izni. Pazarlama yalnız izin verenlere.
 
 ## 2. E-posta şablonları
 

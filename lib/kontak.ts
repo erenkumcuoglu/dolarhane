@@ -13,8 +13,10 @@ export const KONTAK = {
   tel: "",
   /** Görünen telefon. Örn: "0532 123 45 67" */
   telGorunen: "",
-  /** Form POST hedefi (Formspree, kendi API, vb.) */
-  formEndpoint: "",
+  /** Form POST hedefi. Lead kapısı: netlify/functions/lead.mjs → HubSpot
+   *  + Google Sheets. Hedefler Netlify ortam değişkenleriyle bağlanır;
+   *  tanımlı değilken kapı 503 döner ve form bunu açıkça söyler. */
+  formEndpoint: "/api/lead",
   /** Calendly randevu linki */
   calendly: "",
   /** E-posta */
@@ -60,6 +62,6 @@ export const PROFILLER: { ad: string; url: string }[] = [
 ];
 
 export const YAYIN_HAZIR =
-  KONTAK.formEndpoint !== "" &&
+  (KONTAK.formEndpoint as string) !== "" &&
   KONTAK.wa !== "" &&
   KIMLIK.every((k) => k.deger !== "");
